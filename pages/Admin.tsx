@@ -1,26 +1,10 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Card, SectionTitle } from '../components/Components';
 import { GoogleGenAI } from "@google/genai";
 import { saveNewArticle, getRandomImageRandom } from '../constants';
 import { Article } from '../types';
-import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Key } from 'lucide-react';
-
-// Helper to safely access environment variables in Vite/Vercel
-// CRITICAL FIX: Removed process.env check to prevent runtime crash (Black Screen) on Vercel
-const getEnvKey = () => {
-  try {
-    // @ts-ignore
-    if (import.meta.env && import.meta.env.VITE_API_KEY) {
-      // @ts-ignore
-      return import.meta.env.VITE_API_KEY;
-    }
-  } catch (e) {
-    // ignore error
-  }
-  return '';
-};
+import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle } from 'lucide-react';
 
 export const AdminPage: React.FC = () => {
   const { isAuthenticated, login, logout } = useAuth();
@@ -29,17 +13,8 @@ export const AdminPage: React.FC = () => {
 
   // Generator State
   const [topic, setTopic] = useState('');
-  // Load key from localStorage if available
-  const [apiKey, setApiKey] = useState(() => localStorage.getItem('openyourais_gemini_key') || '');
   const [generating, setGenerating] = useState(false);
   const [generatedArticle, setGeneratedArticle] = useState<Article | null>(null);
-
-  // Save key to localStorage whenever it changes
-  useEffect(() => {
-    if (apiKey) {
-      localStorage.setItem('openyourais_gemini_key', apiKey);
-    }
-  }, [apiKey]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,18 +28,30 @@ export const AdminPage: React.FC = () => {
     setGenerating(true);
     setError('');
 
-    // Determine which key to use
-    const envKey = getEnvKey();
-    const keyToUse = apiKey || envKey;
+    // SAFELY ACCESS API KEY IN VITE ENVIRONMENT
+    // Vite uses import.meta.env.VITE_API_KEY
+    // We check this first to prevent "process is not defined" crashes
+    let apiKey = '';
+    try {
+      // @ts-ignore
+      apiKey = import.meta.env.VITE_API_KEY;
+    } catch (e) {
+      // Fallback for non-Vite environments if necessary, though Vercel+Vite uses the above
+      try {
+         apiKey = process.env.API_KEY || '';
+      } catch (err) {
+         console.warn('Environment variables not accessible via process.env');
+      }
+    }
 
-    if (!keyToUse) {
-      setError('No API Key detected. Please enter one in the settings below or add VITE_API_KEY in Vercel.');
+    if (!apiKey) {
+      setError('No API Key detected. Please add VITE_API_KEY in Vercel Environment Variables.');
       setGenerating(false);
       return;
     }
 
     try {
-      const ai = new GoogleGenAI({ apiKey: keyToUse });
+      const ai = new GoogleGenAI({ apiKey });
       
       // STRATEGY: Use Custom Delimiters instead of JSON to avoid parsing errors with HTML quotes
       const systemPrompt = `
@@ -157,7 +144,7 @@ export const AdminPage: React.FC = () => {
       console.error(err);
       let errorMsg = 'Failed to generate content.';
       if (err.message && err.message.includes('API key')) {
-        errorMsg = 'Invalid API Key. Please check your key.';
+        errorMsg = 'Invalid API Key. Please check Vercel settings.';
       } else if (err.message && err.message.includes('400')) {
         errorMsg = 'Bad Request. The topic might violate safety policies.';
       } else {
@@ -174,7 +161,7 @@ export const AdminPage: React.FC = () => {
       saveNewArticle(generatedArticle);
       setGeneratedArticle(null);
       setTopic('');
-      // Page reload happens in saveNewArticle, but apiKey is safe in localStorage
+      // Page reload happens in saveNewArticle
       alert('Article Published Successfully! Check the Blog page.');
     }
   };
@@ -220,27 +207,6 @@ export const AdminPage: React.FC = () => {
       <div className="grid lg:grid-cols-2 gap-8">
         {/* GENERATOR PANEL */}
         <div className="space-y-6">
-           {/* API Key Configuration */}
-           <Card className="border-gray-800 bg-gray-900/40">
-              <div className="flex items-center gap-2 mb-2 text-gray-300 text-sm font-bold uppercase tracking-wider">
-                <Key className="w-4 h-4" /> API Configuration
-              </div>
-              <p className="text-xs text-gray-500 mb-3">If automatic generation fails, paste your Gemini API Key here.</p>
-              <input 
-                 type="password" 
-                 value={apiKey} 
-                 onChange={(e) => setApiKey(e.target.value)} 
-                 placeholder="Paste your Gemini API Key (Optional)"
-                 className="w-full bg-black/40 border border-gray-700 rounded p-2 text-sm text-white focus:border-cyber-primary focus:outline-none"
-              />
-              <div className="mt-2 flex items-center gap-2 text-xs">
-                <div className={`w-2 h-2 rounded-full ${apiKey || getEnvKey() ? 'bg-green-500 shadow-[0_0_5px_lime]' : 'bg-red-500'}`}></div>
-                <span className="text-gray-400">
-                  {apiKey ? 'Using Custom Key (Saved)' : (getEnvKey() ? 'Using Environment Key (VITE_API_KEY)' : 'No Key Detected')}
-                </span>
-              </div>
-           </Card>
-
            <Card className="h-full border-cyber-primary/30">
              <div className="flex items-center gap-2 mb-6 text-cyber-primary">
                <Sparkles className="w-6 h-6" />
