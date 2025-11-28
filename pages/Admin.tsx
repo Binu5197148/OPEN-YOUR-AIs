@@ -4,7 +4,7 @@ import { Card, SectionTitle } from '../components/Components';
 import { GoogleGenAI } from "@google/genai";
 import { saveNewArticle, getRandomImageRandom } from '../constants';
 import { Article } from '../types';
-import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Copy } from 'lucide-react';
 
 export const AdminPage: React.FC = () => {
   const { isAuthenticated, login, logout } = useAuth();
@@ -166,6 +166,14 @@ export const AdminPage: React.FC = () => {
     }
   };
 
+  const handleCopyJson = () => {
+    if (generatedArticle) {
+      const json = JSON.stringify(generatedArticle, null, 2);
+      navigator.clipboard.writeText(json);
+      alert('Article Data Copied! Paste this in the chat to ask the developer to add it permanently.');
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="container mx-auto px-4 py-20 flex justify-center">
@@ -266,19 +274,27 @@ export const AdminPage: React.FC = () => {
                    <div className="prose prose-invert prose-sm" dangerouslySetInnerHTML={{ __html: generatedArticle.content.substring(0, 500) + '...' }} />
                  </div>
 
-                 <div className="flex gap-4">
-                   <button 
-                     onClick={() => setGeneratedArticle(null)}
-                     className="flex-1 py-3 border border-red-500/50 text-red-400 rounded-lg hover:bg-red-500/10"
-                   >
-                     Discard
-                   </button>
-                   <button 
-                     onClick={handlePublish}
-                     className="flex-1 py-3 bg-cyber-success text-black font-bold rounded-lg hover:bg-green-400 flex items-center justify-center gap-2"
-                   >
-                     <Save className="w-4 h-4" /> Publish Now
-                   </button>
+                 <div className="flex flex-col gap-3">
+                    <div className="flex gap-4">
+                        <button 
+                            onClick={() => setGeneratedArticle(null)}
+                            className="flex-1 py-3 border border-red-500/50 text-red-400 rounded-lg hover:bg-red-500/10"
+                        >
+                            Discard
+                        </button>
+                        <button 
+                            onClick={handlePublish}
+                            className="flex-1 py-3 bg-cyber-success text-black font-bold rounded-lg hover:bg-green-400 flex items-center justify-center gap-2"
+                        >
+                            <Save className="w-4 h-4" /> Publish Now
+                        </button>
+                    </div>
+                    <button 
+                        onClick={handleCopyJson}
+                        className="w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 flex items-center justify-center gap-2 text-sm"
+                    >
+                        <Copy className="w-4 h-4" /> Copy Data for Developer
+                    </button>
                  </div>
                </div>
              )}
