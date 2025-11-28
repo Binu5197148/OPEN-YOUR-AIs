@@ -7,6 +7,31 @@ import { saveNewArticle, getRandomImageRandom } from '../constants';
 import { Article } from '../types';
 import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Key } from 'lucide-react';
 
+// Helper to safely access environment variables in Vite/Vercel
+const getEnvKey = () => {
+  // 1. Try standard Vite way
+  try {
+    // @ts-ignore
+    if (import.meta.env && import.meta.env.VITE_API_KEY) {
+      // @ts-ignore
+      return import.meta.env.VITE_API_KEY;
+    }
+  } catch (e) {
+    // ignore error
+  }
+
+  // 2. Try process.env (sometimes polyfilled)
+  try {
+    if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
+      return process.env.API_KEY;
+    }
+  } catch (e) {
+    // ignore error
+  }
+  
+  return '';
+};
+
 export const AdminPage: React.FC = () => {
   const { isAuthenticated, login, logout } = useAuth();
   const [password, setPassword] = useState('');
@@ -39,7 +64,8 @@ export const AdminPage: React.FC = () => {
     setError('');
 
     // Determine which key to use
-    const keyToUse = apiKey || process.env.API_KEY;
+    const envKey = getEnvKey();
+    const keyToUse = apiKey || envKey;
 
     if (!keyToUse) {
       setError('No API Key detected. Please enter one in the settings below.');
@@ -218,9 +244,9 @@ export const AdminPage: React.FC = () => {
                  className="w-full bg-black/40 border border-gray-700 rounded p-2 text-sm text-white focus:border-cyber-primary focus:outline-none"
               />
               <div className="mt-2 flex items-center gap-2 text-xs">
-                <div className={`w-2 h-2 rounded-full ${apiKey || process.env.API_KEY ? 'bg-green-500 shadow-[0_0_5px_lime]' : 'bg-red-500'}`}></div>
+                <div className={`w-2 h-2 rounded-full ${apiKey || getEnvKey() ? 'bg-green-500 shadow-[0_0_5px_lime]' : 'bg-red-500'}`}></div>
                 <span className="text-gray-400">
-                  {apiKey ? 'Using Custom Key (Saved)' : (process.env.API_KEY ? 'Using Environment Key' : 'No Key Detected')}
+                  {apiKey ? 'Using Custom Key (Saved)' : (getEnvKey() ? 'Using Environment Key' : 'No Key Detected')}
                 </span>
               </div>
            </Card>
