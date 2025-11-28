@@ -8,8 +8,8 @@ import { Article } from '../types';
 import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Key } from 'lucide-react';
 
 // Helper to safely access environment variables in Vite/Vercel
+// CRITICAL FIX: Removed process.env check to prevent runtime crash (Black Screen) on Vercel
 const getEnvKey = () => {
-  // 1. Try standard Vite way
   try {
     // @ts-ignore
     if (import.meta.env && import.meta.env.VITE_API_KEY) {
@@ -19,16 +19,6 @@ const getEnvKey = () => {
   } catch (e) {
     // ignore error
   }
-
-  // 2. Try process.env (sometimes polyfilled)
-  try {
-    if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
-      return process.env.API_KEY;
-    }
-  } catch (e) {
-    // ignore error
-  }
-  
   return '';
 };
 
@@ -68,7 +58,7 @@ export const AdminPage: React.FC = () => {
     const keyToUse = apiKey || envKey;
 
     if (!keyToUse) {
-      setError('No API Key detected. Please enter one in the settings below.');
+      setError('No API Key detected. Please enter one in the settings below or add VITE_API_KEY in Vercel.');
       setGenerating(false);
       return;
     }
@@ -246,7 +236,7 @@ export const AdminPage: React.FC = () => {
               <div className="mt-2 flex items-center gap-2 text-xs">
                 <div className={`w-2 h-2 rounded-full ${apiKey || getEnvKey() ? 'bg-green-500 shadow-[0_0_5px_lime]' : 'bg-red-500'}`}></div>
                 <span className="text-gray-400">
-                  {apiKey ? 'Using Custom Key (Saved)' : (getEnvKey() ? 'Using Environment Key' : 'No Key Detected')}
+                  {apiKey ? 'Using Custom Key (Saved)' : (getEnvKey() ? 'Using Environment Key (VITE_API_KEY)' : 'No Key Detected')}
                 </span>
               </div>
            </Card>
