@@ -45,29 +45,9 @@ export const AdminPage: React.FC = () => {
     setGenerating(true);
     setError('');
 
-    // SAFELY ACCESS API KEY IN VITE ENVIRONMENT
-    // Vite uses import.meta.env.VITE_API_KEY
-    let apiKey = '';
     try {
-      // @ts-ignore
-      apiKey = import.meta.env.VITE_API_KEY;
-    } catch (e) {
-      // Fallback
-      try {
-         apiKey = process.env.API_KEY || '';
-      } catch (err) {
-         console.warn('Environment variables not accessible');
-      }
-    }
-
-    if (!apiKey) {
-      setError('No API Key detected. Please add VITE_API_KEY in Vercel Environment Variables.');
-      setGenerating(false);
-      return;
-    }
-
-    try {
-      const ai = new GoogleGenAI({ apiKey });
+      // Always use process.env.API_KEY directly as per guidelines.
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
         You are an expert tech journalist for "Open Your AIs".
@@ -155,7 +135,7 @@ export const AdminPage: React.FC = () => {
       console.error(err);
       let errorMsg = 'Failed to generate content.';
       if (err.message && err.message.includes('API key')) {
-        errorMsg = 'Invalid API Key. Please check Vercel settings.';
+        errorMsg = 'Invalid API Key configuration.';
       } else {
         errorMsg = `Error: ${err.message || 'Unknown error'}`;
       }
