@@ -1,9 +1,11 @@
+
 import { Article, Tool, Playbook, CryptoGuide } from './types';
 
 export const ADSENSE_PUB_ID = "ca-pub-4722208859927111";
 export const CONTACT_EMAIL = "openyourais888@gmail.com";
 
 // --- RELIABLE IMAGE COLLECTIONS (Manually Verified) ---
+// Expanded list to reduce repetition
 const AI_IMAGES = [
   "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80", // Cyber Face
   "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80", // Cyborg
@@ -14,7 +16,13 @@ const AI_IMAGES = [
   "https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&w=800&q=80", // Data Abstract
   "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=800&q=80", // Robot Reading
   "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80", // Matrix Code
-  "https://images.unsplash.com/photo-1589254065878-a0598c93eb58?auto=format&fit=crop&w=800&q=80"  // Robot White
+  "https://images.unsplash.com/photo-1589254065878-a0598c93eb58?auto=format&fit=crop&w=800&q=80", // Robot White
+  "https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&w=800&q=80", // Abstract AI
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80", // Neural Net
+  "https://images.unsplash.com/photo-1625314897517-742718a24c25?auto=format&fit=crop&w=800&q=80", // Particles
+  "https://images.unsplash.com/photo-1535378437327-b71280684398?auto=format&fit=crop&w=800&q=80", // Hologram
+  "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80", // Code Screen
+  "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80"  // Cyber Eye
 ];
 
 const CRYPTO_IMAGES = [
@@ -27,7 +35,12 @@ const CRYPTO_IMAGES = [
   "https://images.unsplash.com/photo-1516245834210-c4c14278733f?auto=format&fit=crop&w=800&q=80", // Mining
   "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=800&q=80", // ETH Coin
   "https://images.unsplash.com/photo-1640340434855-6084b1f4901c?auto=format&fit=crop&w=800&q=80", // Tokens
-  "https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&w=800&q=80"  // Coins
+  "https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&w=800&q=80", // Coins
+  "https://images.unsplash.com/photo-1621504450168-38f647115e2f?auto=format&fit=crop&w=800&q=80", // Doge
+  "https://images.unsplash.com/photo-1622630998477-20aa696fab05?auto=format&fit=crop&w=800&q=80", // Trading
+  "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=800&q=80", // Secure Lock
+  "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80", // Blocks
+  "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=800&q=80"  // Altcoins
 ];
 
 const MONEY_IMAGES = [
@@ -40,7 +53,12 @@ const MONEY_IMAGES = [
   "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80", // Stock
   "https://images.unsplash.com/photo-1565514020176-dbf2277e38a2?auto=format&fit=crop&w=800&q=80", // Pie Chart
   "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80", // Chart Paper
-  "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80"  // Payment
+  "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80", // Payment
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80", // Strategy
+  "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=800&q=80", // Analysis
+  "https://images.unsplash.com/photo-1604594849806-d52e7010a5d5?auto=format&fit=crop&w=800&q=80", // Growth
+  "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80", // Success
+  "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=800&q=80"  // Wealth
 ];
 
 export const getRandomImage = (category: string, index: number) => {

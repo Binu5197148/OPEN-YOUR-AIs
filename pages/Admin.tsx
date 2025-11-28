@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Card, SectionTitle } from '../components/Components';
 import { GoogleGenAI } from "@google/genai";
 import { saveNewArticle, getRandomImageRandom } from '../constants';
 import { Article } from '../types';
-import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Copy, Trash2, FileText } from 'lucide-react';
+import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Copy, Trash2, FileText, Image as ImageIcon } from 'lucide-react';
 
 export const AdminPage: React.FC = () => {
   const { isAuthenticated, login, logout } = useAuth();
@@ -13,6 +14,7 @@ export const AdminPage: React.FC = () => {
 
   // Generator State
   const [topic, setTopic] = useState('');
+  const [customImage, setCustomImage] = useState('');
   const [generating, setGenerating] = useState(false);
   const [generatedArticle, setGeneratedArticle] = useState<Article | null>(null);
 
@@ -129,7 +131,9 @@ export const AdminPage: React.FC = () => {
       if (categoryRaw.toLowerCase().includes('money') || categoryRaw.toLowerCase().includes('monetiz')) category = 'Monetization';
 
       const tags = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
-      const imageUrl = getRandomImageRandom(category);
+      
+      // Use Custom Image if provided, otherwise generate random
+      const imageUrl = customImage.trim() ? customImage.trim() : getRandomImageRandom(category);
       
       const newArticle: Article = {
         id: `auto-${Date.now()}`,
@@ -242,11 +246,25 @@ export const AdminPage: React.FC = () => {
                    className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white focus:border-cyber-primary focus:outline-none"
                  />
                </div>
+
+               <div>
+                 <label className="block text-sm font-bold text-gray-300 mb-2 flex items-center gap-2">
+                   <ImageIcon className="w-4 h-4 text-cyber-secondary" /> Custom Image URL (Optional)
+                 </label>
+                 <input 
+                   type="text" 
+                   value={customImage}
+                   onChange={(e) => setCustomImage(e.target.value)}
+                   placeholder="Paste Unsplash URL or leave blank for random"
+                   className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white focus:border-cyber-secondary focus:outline-none placeholder:text-gray-600"
+                 />
+                 <p className="text-xs text-gray-500 mt-1">Leave empty to auto-select a category image.</p>
+               </div>
                
                <button 
                  onClick={handleGenerate} 
                  disabled={generating || !topic}
-                 className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all ${generating ? 'bg-gray-700 cursor-not-allowed' : 'bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white hover:shadow-[0_0_20px_rgba(191,0,255,0.4)]'}`}
+                 className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all mt-4 ${generating ? 'bg-gray-700 cursor-not-allowed' : 'bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white hover:shadow-[0_0_20px_rgba(191,0,255,0.4)]'}`}
                >
                  {generating ? (
                    <>Processing... <span className="animate-spin">⏳</span></>
@@ -273,6 +291,10 @@ export const AdminPage: React.FC = () => {
                  </div>
                  
                  <div className="bg-black/40 p-4 rounded-lg flex-grow overflow-y-auto max-h-[500px] mb-4 border border-white/10">
+                   <div className="h-40 mb-4 rounded overflow-hidden">
+                      {/* Preview Image */}
+                      <img src={generatedArticle.image} alt="Preview" className="w-full h-full object-cover" />
+                   </div>
                    <h2 className="text-xl font-bold text-white mb-2">{generatedArticle.title}</h2>
                    <div className="flex gap-2 mb-4 text-xs">
                      <span className="bg-cyber-primary/20 text-cyber-primary px-2 py-1 rounded">{generatedArticle.category}</span>
