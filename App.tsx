@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Components';
 import { HomePage } from './pages/Home';
 import { ToolsPage, PlaybooksPage, CryptoPage, BlogPage } from './pages/ContentPages';
@@ -10,9 +10,12 @@ import { AuthProvider } from './context/AuthContext';
 
 // ScrollToTop Component to handle scroll behavior on route change
 const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  
   React.useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
+  
   return null;
 };
 
@@ -20,6 +23,7 @@ const App: React.FC = () => {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
