@@ -40,14 +40,40 @@ export const AdminPage: React.FC = () => {
     }
   };
 
+  // Helper to safely get the API Key in Vite/Vercel environments
+  const getApiKey = () => {
+    try {
+      // Check for Vite specific env var first (Recommended for Vercel)
+      // @ts-ignore
+      if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_KEY) {
+        // @ts-ignore
+        return import.meta.env.VITE_API_KEY;
+      }
+    } catch (e) {}
+
+    try {
+      // Fallback to standard process.env
+      if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
+        return process.env.API_KEY;
+      }
+    } catch (e) {}
+
+    return '';
+  };
+
   const handleGenerate = async () => {
     if (!topic) return;
     setGenerating(true);
     setError('');
 
     try {
-      // Always use process.env.API_KEY directly as per guidelines.
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const apiKey = getApiKey();
+      
+      if (!apiKey) {
+        throw new Error("API Key not found. Please ensure VITE_API_KEY is set in Vercel settings.");
+      }
+
+      const ai = new GoogleGenAI({ apiKey });
       
       const systemPrompt = `
         You are an expert tech journalist for "Open Your AIs".
@@ -131,11 +157,18 @@ export const AdminPage: React.FC = () => {
 
       setGeneratedArticle(newArticle);
 
+      // Save to local session storage immediately as backup
+      const existingSavedStr = localStorage.getItem('openyourais_new_articles');
+      let existingSaved: Article[] = existingSavedStr ? JSON.parse(existingSavedStr) : [];
+      existingSaved = [newArticle, ...existingSaved];
+      localStorage.setItem('openyourais_new_articles', JSON.stringify(existingSaved));
+      setLocalArticles(existingSaved);
+
     } catch (err: any) {
       console.error(err);
       let errorMsg = 'Failed to generate content.';
-      if (err.message && err.message.includes('API key')) {
-        errorMsg = 'Invalid API Key configuration.';
+      if (err.message && err.message.includes('API Key')) {
+        errorMsg = err.message;
       } else {
         errorMsg = `Error: ${err.message || 'Unknown error'}`;
       }

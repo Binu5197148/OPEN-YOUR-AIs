@@ -1,5 +1,5 @@
 
-// Content Constants - Updated for Sync
+// Content Constants - Sync Trigger: 2024-10-26 12:00
 import { Article, Tool, Playbook, CryptoGuide } from './types';
 
 export const ADSENSE_PUB_ID = "ca-pub-4722208859927111";
