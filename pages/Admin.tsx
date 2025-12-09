@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Card, SectionTitle } from '../components/Components';
@@ -40,40 +39,14 @@ export const AdminPage: React.FC = () => {
     }
   };
 
-  // Helper to safely get the API Key in Vite/Vercel environments
-  const getApiKey = () => {
-    try {
-      // Check for Vite specific env var first (Recommended for Vercel)
-      // @ts-ignore
-      if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_KEY) {
-        // @ts-ignore
-        return import.meta.env.VITE_API_KEY;
-      }
-    } catch (e) {}
-
-    try {
-      // Fallback to standard process.env
-      if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
-        return process.env.API_KEY;
-      }
-    } catch (e) {}
-
-    return '';
-  };
-
   const handleGenerate = async () => {
     if (!topic) return;
     setGenerating(true);
     setError('');
 
     try {
-      const apiKey = getApiKey();
-      
-      if (!apiKey) {
-        throw new Error("API Key not found. Please ensure VITE_API_KEY is set in Vercel settings.");
-      }
-
-      const ai = new GoogleGenAI({ apiKey });
+      // The API key must be obtained exclusively from process.env.API_KEY
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
         You are an expert tech journalist for "Open Your AIs".
