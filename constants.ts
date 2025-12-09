@@ -548,21 +548,37 @@ moneyTitles.forEach((title, i) => {
 export const getArticles = (): Article[] => {
   if (typeof window === 'undefined') return INITIAL_ARTICLES;
   
-  const savedArticlesStr = localStorage.getItem('openyourais_new_articles');
-  if (savedArticlesStr) {
-    const savedArticles = JSON.parse(savedArticlesStr);
-    return [...savedArticles, ...INITIAL_ARTICLES];
+  try {
+    const savedArticlesStr = localStorage.getItem('openyourais_new_articles');
+    if (savedArticlesStr) {
+      const savedArticles = JSON.parse(savedArticlesStr);
+      if (Array.isArray(savedArticles)) {
+        return [...savedArticles, ...INITIAL_ARTICLES];
+      }
+    }
+  } catch (error) {
+    console.error("Failed to parse local articles:", error);
+    // localStorage.removeItem('openyourais_new_articles'); // Optional: clear corrupt data
   }
   return INITIAL_ARTICLES;
 };
 
 export const saveNewArticle = (article: Article) => {
-  const existingSavedStr = localStorage.getItem('openyourais_new_articles');
-  let existingSaved: Article[] = existingSavedStr ? JSON.parse(existingSavedStr) : [];
-  
-  existingSaved = [article, ...existingSaved];
-  localStorage.setItem('openyourais_new_articles', JSON.stringify(existingSaved));
-  window.location.reload();
+  try {
+    const existingSavedStr = localStorage.getItem('openyourais_new_articles');
+    let existingSaved: Article[] = [];
+    if (existingSavedStr) {
+      existingSaved = JSON.parse(existingSavedStr);
+    }
+    
+    if (Array.isArray(existingSaved)) {
+       existingSaved = [article, ...existingSaved];
+       localStorage.setItem('openyourais_new_articles', JSON.stringify(existingSaved));
+       window.location.reload();
+    }
+  } catch (error) {
+    console.error("Failed to save article:", error);
+  }
 };
 
 export const ARTICLES = getArticles();

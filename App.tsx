@@ -1,12 +1,14 @@
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Components';
 import { HomePage } from './pages/Home';
 import { ToolsPage, PlaybooksPage, CryptoPage, BlogPage } from './pages/ContentPages';
 import { ArticleReader, PlaybookReader, CryptoReader, AboutPage, LegalPage, NotFoundPage, SitemapPage } from './pages/DetailPages';
-import { AdminPage } from './pages/Admin';
 import { AuthProvider } from './context/AuthContext';
+
+// Lazy load AdminPage to isolate module loading errors (e.g. Google GenAI dependency)
+const AdminPage = React.lazy(() => import('./pages/Admin').then(module => ({ default: module.AdminPage })));
 
 // ScrollToTop Component to handle scroll behavior on route change
 const ScrollToTop = () => {
@@ -19,10 +21,16 @@ const ScrollToTop = () => {
   return null;
 };
 
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyber-primary"></div>
+  </div>
+);
+
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <Router>
+      <HashRouter>
         <ScrollToTop />
         <Layout>
           <Routes>
@@ -42,13 +50,18 @@ const App: React.FC = () => {
             <Route path="/privacy" element={<LegalPage type="privacy" />} />
             <Route path="/terms" element={<LegalPage type="terms" />} />
             <Route path="/sitemap" element={<SitemapPage />} />
-            <Route path="/admin" element={<AdminPage />} />
             
-            {/* Real 404 Page instead of Redirect */}
+            <Route path="/admin" element={
+              <Suspense fallback={<LoadingFallback />}>
+                <AdminPage />
+              </Suspense>
+            } />
+            
+            {/* Real 404 Page */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>
-      </Router>
+      </HashRouter>
     </AuthProvider>
   );
 };
