@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Card, SectionTitle } from '../components/Components';
@@ -153,8 +154,15 @@ export const AdminPage: React.FC = () => {
 
   const handlePublish = () => {
     if (generatedArticle) {
-      saveNewArticle(generatedArticle);
-      // Note: saveNewArticle triggers a reload, so logic stops here.
+      const updatedList = saveNewArticle(generatedArticle);
+      if (updatedList.length > 0) {
+        setLocalArticles(updatedList);
+      } else {
+        // Fallback update if something goes wrong with the return, though unlikely
+        setLocalArticles(prev => [generatedArticle, ...prev]);
+      }
+      setGeneratedArticle(null);
+      alert('Article published locally! (Remember to copy JSON for permanent update)');
     }
   };
 

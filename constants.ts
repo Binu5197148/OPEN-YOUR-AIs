@@ -588,7 +588,7 @@ export const getArticles = (): Article[] => {
   return INITIAL_ARTICLES;
 };
 
-export const saveNewArticle = (article: Article) => {
+export const saveNewArticle = (article: Article): Article[] => {
   try {
     const existingSavedStr = localStorage.getItem('openyourais_new_articles');
     let existingSaved: Article[] = [];
@@ -597,13 +597,14 @@ export const saveNewArticle = (article: Article) => {
     }
     
     if (Array.isArray(existingSaved)) {
-       existingSaved = [article, ...existingSaved];
-       localStorage.setItem('openyourais_new_articles', JSON.stringify(existingSaved));
-       window.location.reload();
+       const updated = [article, ...existingSaved];
+       localStorage.setItem('openyourais_new_articles', JSON.stringify(updated));
+       return updated;
     }
   } catch (error) {
     console.error("Failed to save article:", error);
   }
+  return [];
 };
 
 export const ARTICLES = getArticles();
