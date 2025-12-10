@@ -1,5 +1,5 @@
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Components';
 import { HomePage } from './pages/Home';
@@ -10,13 +10,23 @@ import { AuthProvider } from './context/AuthContext';
 // Lazy load AdminPage to isolate module loading errors (e.g. Google GenAI dependency)
 const AdminPage = React.lazy(() => import('./pages/Admin').then(module => ({ default: module.AdminPage })));
 
-// ScrollToTop Component to handle scroll behavior on route change
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// ScrollToTop & Analytics Tracker
+// Handles scroll behavior AND Google Analytics pageview tracking
+const RouteTracker = () => {
+  const location = useLocation();
   
-  React.useEffect(() => {
+  useEffect(() => {
+    // 1. Scroll to top
     window.scrollTo(0, 0);
-  }, [pathname]);
+
+    // 2. Track Pageview in GA4
+    // We check if gtag is defined (it's in index.html)
+    if (typeof window.gtag === 'function') {
+      window.gtag('config', 'G-XXXXXXXXXX', {
+        page_path: location.pathname + location.search
+      });
+    }
+  }, [location]);
   
   return null;
 };
@@ -27,11 +37,18 @@ const LoadingFallback = () => (
   </div>
 );
 
+// Add gtag type to window
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
 const App: React.FC = () => {
   return (
     <AuthProvider>
       <HashRouter>
-        <ScrollToTop />
+        <RouteTracker />
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />

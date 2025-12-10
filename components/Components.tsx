@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Cpu, BookOpen, Coins, ChevronDown, Lock, Globe, Mail, Shield } from 'lucide-react';
+import { Menu, X, Cpu, BookOpen, Coins, ChevronDown, Lock, Globe, Mail, Shield, Cookie } from 'lucide-react';
 import { ADSENSE_PUB_ID, CONTACT_EMAIL } from '../constants';
 import { useAuth } from '../context/AuthContext';
 
@@ -42,6 +42,57 @@ export const SmartImage: React.FC<{ src: string; alt: string; className?: string
       onError={handleError}
       loading="lazy"
     />
+  );
+};
+
+// --- COOKIE CONSENT ---
+export const CookieConsent: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('openyourais_cookie_consent');
+    if (!consent) {
+      // Delay showing slightly for better UX
+      const timer = setTimeout(() => setIsVisible(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleAccept = () => {
+    localStorage.setItem('openyourais_cookie_consent', 'true');
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-black/90 backdrop-blur-xl border-t border-cyber-primary/20 animate-float">
+      <div className="container mx-auto max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="bg-cyber-primary/10 p-2 rounded-full">
+             <Cookie className="text-cyber-primary w-6 h-6" />
+          </div>
+          <p className="text-sm text-gray-300">
+            We use cookies to enhance your experience, analyze traffic, and serve relevant ads. 
+            By using this site, you agree to our <Link to="/privacy" className="text-cyber-primary hover:underline">Privacy Policy</Link>.
+          </p>
+        </div>
+        <div className="flex gap-3 w-full md:w-auto">
+          <button 
+            onClick={handleAccept}
+            className="flex-1 md:flex-none px-6 py-2 bg-cyber-primary text-cyber-bg font-bold rounded hover:bg-white transition-colors"
+          >
+            Accept
+          </button>
+          <button 
+            onClick={() => setIsVisible(false)}
+            className="px-6 py-2 border border-gray-600 text-gray-400 rounded hover:text-white transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -191,6 +242,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         {children}
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 };
