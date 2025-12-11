@@ -1,6 +1,6 @@
 
 import React, { Suspense, useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Components';
 import { HomePage } from './pages/Home';
 import { ToolsPage, PlaybooksPage, CryptoPage, BlogPage } from './pages/ContentPages';
@@ -22,9 +22,13 @@ const RouteTracker = () => {
     // 2. Track Pageview in GA4
     // We check if gtag is defined (it's in index.html)
     if (typeof window.gtag === 'function') {
-      window.gtag('config', 'G-XXXXXXXXXX', {
-        page_path: location.pathname + location.search
-      });
+      // Use setTimeout to ensure the title update has processed
+      setTimeout(() => {
+        window.gtag('config', 'G-XXXXXXXXXX', {
+          page_path: location.pathname + location.search,
+          page_title: document.title
+        });
+      }, 100);
     }
   }, [location]);
   
@@ -47,7 +51,7 @@ declare global {
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <HashRouter>
+      <BrowserRouter>
         <RouteTracker />
         <Layout>
           <Routes>
@@ -78,7 +82,7 @@ const App: React.FC = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>
-      </HashRouter>
+      </BrowserRouter>
     </AuthProvider>
   );
 };
