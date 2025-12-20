@@ -1,62 +1,25 @@
-// Content Constants - Sync Trigger: Updated with The Crypto Pulse
+// Content Constants - Sync Trigger: High-Quality AdSense Content Update
 import { Article, Tool, Playbook, CryptoGuide } from './types';
 
 export const ADSENSE_PUB_ID = "ca-pub-4722208859927111";
 export const CONTACT_EMAIL = "openyourais888@gmail.com";
 
-// --- RELIABLE IMAGE COLLECTIONS (Manually Verified) ---
+// --- RELIABLE IMAGE COLLECTIONS ---
 const AI_IMAGES = [
   "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1515630278258-407f66498911?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1676299081847-824d16b91d6c?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1589254065878-a0598c93eb58?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1625314897517-742718a24c25?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1535378437327-b71280684398?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80"
+  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
 ];
 
 const CRYPTO_IMAGES = [
-  "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1621416894512-5363b933b243?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1605792657660-596af9009e82?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1622630998477-20aa696fab05?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1516245834210-c4c14278733f?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1640340434855-6084b1f4901c?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1526304640152-d4619684e484?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1621504450168-38f647115e2f?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1622630998477-20aa696fab05?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&w=800&q=80"
+  "https://images.unsplash.com/photo-1621416894512-5363b933b243?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?auto=format&fit=crop&w=800&q=80"
 ];
 
 const MONEY_IMAGES = [
   "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1611974765270-ca1258634369?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1565514020176-dbf2277e38a2?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1604594849806-d52e7010a5d5?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=800&q=80"
 ];
 
@@ -70,12 +33,6 @@ export const getRandomImageRandom = (category: string) => {
   if (category === 'AI') return AI_IMAGES[Math.floor(Math.random() * AI_IMAGES.length)];
   if (category === 'Crypto') return CRYPTO_IMAGES[Math.floor(Math.random() * CRYPTO_IMAGES.length)];
   return MONEY_IMAGES[Math.floor(Math.random() * MONEY_IMAGES.length)];
-};
-
-const getRecentDate = (daysBack: number) => {
-  const date = new Date();
-  date.setDate(date.getDate() - Math.floor(Math.random() * daysBack));
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 };
 
 export const TOOLS: Tool[] = [
@@ -100,17 +57,6 @@ export const TOOLS: Tool[] = [
     url: 'https://claude.ai',
     features: ['200k Context Window', 'Artifacts UI', 'Superior Coding', 'Nuanced Writing', 'Document Analysis'],
     useCases: ['Book analysis', 'Large codebase refactoring', 'Creative fiction', 'Legal document review', 'Data extraction']
-  },
-  {
-    id: '3',
-    name: 'Midjourney',
-    category: 'Image Generation',
-    shortDesc: 'The highest quality artistic image generation model available.',
-    fullDesc: 'Midjourney operates via Discord to generate stunning, photorealistic, or artistic images from text prompts.',
-    priceModel: 'Paid',
-    url: 'https://midjourney.com',
-    features: ['Photorealism', 'Style Reference', 'Character Consistency', 'In-painting', 'Zoom Out'],
-    useCases: ['Web design assets', 'Marketing visuals', 'Concept art', 'Social media content', 'Book covers']
   }
 ];
 
@@ -123,15 +69,6 @@ export const PLAYBOOKS: Playbook[] = ([
     timeline: '3-6 Months',
     difficulty: 'Medium',
     steps: ['Niche Selection', 'Script with Claude/ChatGPT', 'Voiceover with ElevenLabs', 'Visuals with Midjourney/Stock', 'Editing with CapCut/Premiere', 'Thumbnail Design', 'SEO Optimization']
-  },
-  {
-    id: 'p2',
-    title: 'AI Copywriting Service for E-commerce',
-    tldr: 'Offer product description and ad copy services to Shopify owners.',
-    roi: 'Immediate cash flow',
-    timeline: '1-2 Weeks',
-    difficulty: 'Easy',
-    steps: ['Prospecting on LinkedIn/Instagram', 'Offer Free Sample Audit', 'Use Jasper for Bulk Descriptions', 'Refine with Human Touch', 'Deliver and Retain']
   }
 ] as Playbook[]).map((pb, index) => ({
   ...pb,
@@ -154,12 +91,30 @@ const INITIAL_ARTICLES: Article[] = [
     "id": "auto-1766266924737",
     "slug": "the-crypto-pulse-navigating-the-evolving-landscape-in-late-2025",
     "title": "The Crypto Pulse: Navigating the Evolving Landscape in Late 2025",
-    "excerpt": "The cryptocurrency market in late 2025 presents a complex picture of accelerated institutional adoption and groundbreaking technological advancements, yet it also grapples with recent bearish market sentiment.",
-    "content": "<h2>The Shifting Tides of Crypto: A Late 2025 Snapshot</h2><p>As 2025 draws to a close, the cryptocurrency landscape is a dynamic blend of burgeoning institutional interest, significant regulatory advancements, and innovative technological shifts.</p><h2>Institutional Embrace: The New Norm</h2><p>One of the most defining characteristics of the crypto scenario in 2025 is the undeniable acceleration of institutional adoption.</p><ul><li><strong>ETFs Paving the Way:</strong> The approval of Spot Bitcoin and Ethereum ETFs has been a game-changer.</li><li><strong>Major Players Deepen Involvement:</strong> Giants like BlackRock and MicroStrategy are significantly expanding their crypto holdings.</li></ul><h2>A Global Regulatory Awakening</h2><p>2025 marks a pivotal year in cryptocurrency regulation, signaling a global shift from reactive enforcement actions to comprehensive frameworks.</p><h2>Looking Ahead</h2><p>The cryptocurrency scenario in late 2025 is characterized by a mature and increasingly regulated industry that is attracting significant institutional capital.</p>",
+    "excerpt": "A comprehensive analysis of the cryptocurrency market as of late 2025, detailing institutional adoption, regulatory shifts, and the long-term outlook for digital assets.",
+    "content": `
+      <h2>The Shifting Tides of Crypto: A Late 2025 Snapshot</h2>
+      <p>As 2025 draws to a close, the cryptocurrency landscape is a dynamic blend of burgeoning institutional interest, significant regulatory advancements, and innovative technological shifts. While earlier in the year, many experts foresaw a continued bull run, recent weeks have introduced a more cautious, even bearish, sentiment. Understanding these multifaceted forces is crucial for anyone navigating the world of digital assets.</p>
+      
+      <h3>The Institutional Integration Phase</h3>
+      <p>One of the most defining characteristics of the crypto scenario in 2025 is the undeniable acceleration of institutional adoption. Digital assets have transitioned from being a niche, speculative interest to a core asset class within the traditional financial industry. Hedge funds, banks, and even pension funds are strategically allocating capital to cryptocurrencies.</p>
+      <p>The approval of Spot Bitcoin and Ethereum Exchange-Traded Funds (ETFs) has been a primary catalyst for this shift. These regulated financial instruments have provided a "safe" entry point for billions of dollars that were previously sidelined by custodial concerns or regulatory ambiguity. Giants like BlackRock and MicroStrategy have not only maintained their positions but have actively expanded their portfolios, signaling a multi-decade commitment to the technology rather than a short-term trade.</p>
+
+      <h2>Global Regulatory Maturation: MiCAR and Beyond</h2>
+      <p>2025 marks a pivotal year in cryptocurrency regulation, signaling a global shift from reactive enforcement to proactive, comprehensive frameworks. Governments are no longer debating whether to regulate crypto, but how to do so in a way that fosters innovation while protecting consumers.</p>
+      <p>In Europe, the MiCAR (Markets in Crypto-Assets) regulation has provided a gold standard for clarity, allowing companies to operate across borders with a unified set of rules. Meanwhile, in the United States, the focus has shifted toward distinguishing "digital commodities" from "securities," providing much-needed breathing room for decentralized protocols. This legal certainty is the "missing ingredient" that institutional investors needed to deploy large-scale capital into the ecosystem.</p>
+
+      <h3>The Bearish Headwinds and Market Cycles</h3>
+      <p>Despite the positive fundamental news, market dynamics remain volatile. As of December 2025, major assets like Bitcoin and Ethereum are experiencing typical end-of-year profit-taking and macroeconomic pressures. With interest rates remaining a concern for global liquidity, many investors have shifted back toward "risk-off" assets, leading to the current bearish sentiment in the spot markets.</p>
+      <p>However, analysts point out that the current drawdown is significantly different from the "crypto winters" of 2018 or 2022. The volume of decentralized exchange (DEX) usage is at record highs, and the utility of stablecoins for cross-border payments has proven that the industry's value proposition is now tied to utility, not just speculation.</p>
+
+      <h2>The Conclusion: Utility Over Hype</h2>
+      <p>Looking ahead to 2026, the focus is clearly on tangible utility. Whether it is through the tokenization of real-world assets (RWA) or the integration of AI agents on-chain, the "Crypto Pulse" of 2025 beats with the rhythm of infrastructure development. For the long-term investor, the current market caution provides a moment of reflection: the speculative bubble has popped, and the era of the Decentralized Web is truly beginning.</p>
+    `,
     "category": "Crypto",
-    "tags": ["Crypto", "Blockchain", "DeFi", "Regulations", "Bitcoin"],
+    "tags": ["Crypto", "Blockchain", "Institutional Adoption", "Regulations"],
     "date": "December 20, 2025",
-    "readTime": "7 min",
+    "readTime": "8 min",
     "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
     "isAutoGenerated": true
   },
@@ -167,26 +122,13 @@ const INITIAL_ARTICLES: Article[] = [
     "id": "auto-1765310095373",
     "slug": "unlock-the-future-a-deep-dive-into-google-ai-studio",
     "title": "Unlock the Future: A Deep Dive into Google AI Studio",
-    "excerpt": "Google AI Studio is your free, web-based playground for prototyping and deploying generative AI applications, powered by the cutting-edge Gemini models.",
-    "content": "<h2>What is Google AI Studio?</h2><p>Google AI Studio emerges as a pivotal platform, offering a powerful yet accessible environment for building with generative AI.</p>",
+    "excerpt": "Explore how Google AI Studio and the Gemini models are revolutionizing the landscape of generative AI for developers and businesses alike.",
+    "content": "<h2>The Paradigm Shift in AI Development</h2><p>Google AI Studio has emerged as the most accessible entry point for developers looking to harness the power of the Gemini models. By providing a low-code environment alongside robust API capabilities, Google is effectively democratizing the creation of complex AI agents.</p><h3>Key Features of the Gemini Ecosystem</h3><p>The latest iterations of Gemini 3 demonstrate unprecedented reasoning capabilities, allowing for multi-modal inputs that include video, audio, and large-scale codebases. This allows for the creation of applications that were previously impossible, such as real-time legal analysis or automated software architectural reviews.</p>",
     "category": "AI",
-    "tags": ["Google AI Studio", "Gemini API", "AI Development"],
+    "tags": ["Google AI Studio", "Gemini", "AI Agents"],
     "date": "December 9, 2025",
     "readTime": "7 min",
     "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
-    "isAutoGenerated": true
-  },
-  {
-    "id": "auto-1764366690105",
-    "slug": "ltx-2-the-4k-ai-video-generator-that-s-revolutionizing-content-creation",
-    "title": "LTX-2: The 4K AI Video Generator That's Revolutionizing Content Creation",
-    "excerpt": "Lightricks' new LTX-2 AI video generator is here, boasting native 4K resolution, synchronized audio, and open-source flexibility.",
-    "content": "<h2>The Dawn of a New Era: LTX-2 Arrives</h2><p>Lightricks has officially unveiled LTX-2, an AI video generator that delivers native 4K resolution with synchronized audio.</p>",
-    "category": "AI",
-    "tags": ["AI Video", "4K", "Lightricks"],
-    "date": "November 28, 2025",
-    "readTime": "6 min",
-    "image": "https://images.unsplash.com/photo-1515630278258-407f66498911?auto=format&fit=crop&w=800&q=80",
     "isAutoGenerated": true
   }
 ];
