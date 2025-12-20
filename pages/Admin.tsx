@@ -4,39 +4,27 @@ import { Card, SectionTitle } from '../components/Components';
 import { GoogleGenAI } from "@google/genai";
 import { saveNewArticle, getRandomImageRandom } from '../constants';
 import { Article } from '../types';
-import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Copy, Trash2, FileText, Image as ImageIcon } from 'lucide-react';
+import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, Copy, Trash2, FileText } from 'lucide-react';
 
 export const AdminPage: React.FC = () => {
   const { isAuthenticated, login, logout } = useAuth();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  // Generator State
   const [topic, setTopic] = useState('');
-  const [customImage, setCustomImage] = useState('');
   const [generating, setGenerating] = useState(false);
   const [generatedArticle, setGeneratedArticle] = useState<Article | null>(null);
-
-  // Local Articles State (History)
   const [localArticles, setLocalArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    // Load locally saved articles
     const saved = localStorage.getItem('openyourais_new_articles');
     if (saved) {
-      try {
-        setLocalArticles(JSON.parse(saved));
-      } catch (e) {
-        console.error('Failed to parse local articles');
-      }
+      try { setLocalArticles(JSON.parse(saved)); } catch (e) {}
     }
   }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!login(password)) {
-      setError('Invalid Access Key');
-    }
+    if (!login(password)) setError('Invalid Access Key');
   };
 
   const handleGenerate = async () => {
@@ -48,50 +36,41 @@ export const AdminPage: React.FC = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
-        You are an elite Tech & Wealth Journalist for "Open Your AIs". 
-        Your goal is to write a MASTERPIECE blog post that complies with Google AdSense High-Quality Content guidelines.
+        You are a Senior Editor and Wealth Researcher for "Open Your AIs". 
+        Your task is to create a pillar-style article that will pass the most rigorous Google AdSense manual review.
 
-        CRITICAL QUALITY RULES:
-        1. LENGTH: Minimum 1.200 words. Be verbose but technical and analytical.
-        2. STRUCTURE: Use multiple H2 and H3 subheadings. Parágrafos longos e explicativos.
-        3. E-E-A-T: Demonstrate expertise. Discuss current trends, data, "Why" and "How", not just "What".
-        4. TONE: Professional, authoritative, and helpful. Avoid generic fluff.
-        5. GROUNDING: Use the provided search tools to find REAL current dates, data points, and news.
+        CORE REQUIREMENTS:
+        1. TOTAL LENGTH: 1.500 to 2.000 words. DO NOT shorten the output.
+        2. DENSITY: Each section (H2) must have at least 3-4 long, detailed paragraphs.
+        3. E-E-A-T: Use technical terminology, cite current year events (2025), and explain complex relationships between market forces.
+        4. STRUCTURE: 
+           - Compelling H1 Title.
+           - Hook Introduction (300 words).
+           - 5 to 6 H2 Chapters with H3 Sub-sections.
+           - Comprehensive FAQ or "Key Takeaways" section.
+           - Professional Conclusion.
 
-        CRITICAL OUTPUT FORMAT:
-        Use ONLY these custom delimiters exactly. Do NOT use markdown code blocks.
-        
-        [[TITLE]]
-        (Catchy, SEO-rich title)
+        HTML FORMATTING:
+        - Use <h2>, <h3>, <p>, <strong>, <ul>, <li>.
+        - NO Markdown symbols like # or **. Use HTML tags only.
+        - Avoid generic lists; prioritize deep-dive explanations.
 
-        [[CATEGORY]]
-        (AI, Crypto, or Monetization)
-
-        [[EXCERPT]]
-        (3-sentence professional meta description)
-
-        [[TAGS]]
-        (8-10 relevant comma-separated tags)
-
-        [[READTIME]]
-        (e.g. 12 min)
-
-        [[CONTENT]]
-        (Deep HTML content. Must include an introduction, at least five H2 sections, multiple H3 subsections, and a comprehensive conclusion. Use <h2>, <h3>, <p>, <strong>, <em>, <ul>, <li>. NO <html> or <body> tags.)
+        RESPONSE FORMAT:
+        Use ONLY these custom delimiters:
+        [[TITLE]] title [[CATEGORY]] AI/Crypto/Monetization [[EXCERPT]] desc [[TAGS]] tag1, tag2 [[READTIME]] 15 min [[CONTENT]] <html>...</html>
       `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview', // UPGRADED MODEL for depth
-        contents: `Research and write a comprehensive analysis about: ${topic}`,
+        model: 'gemini-3-pro-preview',
+        contents: `Conduct an exhaustive research and write a 1,500-word authoritative guide about: ${topic}. Focus on current 2025 data, future projections, and wealth-building strategies.`,
         config: {
           systemInstruction: systemPrompt,
-          tools: [{googleSearch: {}}], // Crucial for real data
-          thinkingConfig: { thinkingBudget: 4000 } // Give it time to plan the long article
+          tools: [{googleSearch: {}}],
+          thinkingConfig: { thinkingBudget: 8000 } // Higher budget for longer planning
         }
       });
 
       const rawText = response.text || '';
-      
       const getSection = (tag: string) => {
         const parts = rawText.split(`[[${tag}]]`);
         if (parts.length < 2) return '';
@@ -105,42 +84,32 @@ export const AdminPage: React.FC = () => {
       const readTime = getSection('READTIME');
       const content = getSection('CONTENT');
 
-      if (!title || !content || content.length < 1500) {
-        console.warn("Content was shorter than expected. Raw length:", content.length);
-      }
-
       let category: any = 'AI';
       if (categoryRaw.toLowerCase().includes('crypto')) category = 'Crypto';
       if (categoryRaw.toLowerCase().includes('money') || categoryRaw.toLowerCase().includes('monetiz')) category = 'Monetization';
 
-      const tags = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
-      const imageUrl = customImage.trim() ? customImage.trim() : getRandomImageRandom(category);
-      
       const newArticle: Article = {
         id: `auto-${Date.now()}`,
         slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-        title: title,
-        excerpt: excerpt,
-        content: content,
-        category: category,
-        tags: tags,
+        title,
+        excerpt,
+        content,
+        category,
+        tags: tagsRaw.split(',').map(t => t.trim()),
         date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-        readTime: readTime || '10 min',
-        image: imageUrl,
+        readTime: readTime || '15 min',
+        image: getRandomImageRandom(category),
         isAutoGenerated: true
       };
 
       setGeneratedArticle(newArticle);
-
-      const existingSavedStr = localStorage.getItem('openyourais_new_articles');
-      let existingSaved: Article[] = existingSavedStr ? JSON.parse(existingSavedStr) : [];
-      existingSaved = [newArticle, ...existingSaved];
-      localStorage.setItem('openyourais_new_articles', JSON.stringify(existingSaved));
-      setLocalArticles(existingSaved);
+      const existingSaved = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
+      const updated = [newArticle, ...existingSaved];
+      localStorage.setItem('openyourais_new_articles', JSON.stringify(updated));
+      setLocalArticles(updated);
 
     } catch (err: any) {
-      console.error(err);
-      setError(`Error: ${err.message || 'Generation failed'}`);
+      setError(`Generation failed: ${err.message}`);
     } finally {
       setGenerating(false);
     }
@@ -148,35 +117,20 @@ export const AdminPage: React.FC = () => {
 
   const handlePublish = () => {
     if (generatedArticle) {
-      const updatedList = saveNewArticle(generatedArticle);
-      setLocalArticles(updatedList);
+      saveNewArticle(generatedArticle);
       setGeneratedArticle(null);
-      alert('Article published locally!');
-    }
-  };
-
-  const handleCopyJson = (article: Article) => {
-    navigator.clipboard.writeText(JSON.stringify(article, null, 2));
-    alert('JSON Copied!');
-  };
-
-  const clearLocalArticles = () => {
-    if(confirm('Clear history?')) {
-      localStorage.removeItem('openyourais_new_articles');
-      setLocalArticles([]);
+      alert('Published!');
     }
   };
 
   if (!isAuthenticated) {
     return (
       <div className="container mx-auto px-4 py-20 flex justify-center">
-        <Card className="w-full max-w-md p-8 border-cyber-primary/50 shadow-[0_0_50px_rgba(0,229,255,0.1)]">
-          <div className="flex justify-center mb-6 text-cyber-primary"><Lock className="w-12 h-12" /></div>
+        <Card className="w-full max-w-md p-8 border-cyber-primary/50">
           <h2 className="text-2xl font-bold text-center text-white mb-6">Admin Access</h2>
           <form onSubmit={handleLogin} className="space-y-4">
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Access Key" className="w-full bg-black/50 border border-gray-700 rounded-lg p-3 text-white focus:border-cyber-primary outline-none" />
-            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-            <button type="submit" className="w-full bg-cyber-primary text-cyber-bg font-bold py-3 rounded-lg hover:brightness-110 flex items-center justify-center gap-2"><LogIn className="w-5 h-5" /> Login</button>
+            <button type="submit" className="w-full bg-cyber-primary text-cyber-bg font-bold py-3 rounded-lg flex items-center justify-center gap-2"><LogIn className="w-5 h-5" /> Login</button>
           </form>
         </Card>
       </div>
@@ -186,54 +140,43 @@ export const AdminPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex justify-between items-center mb-8">
-        <SectionTitle title="Content Factory" subtitle="Powered by Gemini 3 Pro & Google Search Grounding." />
-        <button onClick={logout} className="text-red-400 hover:text-red-300 flex items-center gap-2"><LogOut className="w-4 h-4" /> Logout</button>
+        <SectionTitle title="Content Factory" subtitle="Pillar-style articles for Google AdSense compliance." />
+        <button onClick={logout} className="text-red-400 flex items-center gap-2"><LogOut className="w-4 h-4" /> Logout</button>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 mb-12">
         <Card className="border-cyber-primary/30">
-          <div className="flex items-center gap-2 mb-6 text-cyber-primary"><Sparkles className="w-6 h-6" /><h3 className="text-xl font-bold">AdSense-Ready Generator</h3></div>
-          <p className="text-sm text-gray-400 mb-6 italic">Generates 1.200+ word deep-dive analyses with real-time grounding.</p>
+          <div className="flex items-center gap-2 mb-6 text-cyber-primary"><Sparkles className="w-6 h-6" /><h3 className="text-xl font-bold">Pillar Content Generator</h3></div>
           <div className="space-y-4">
-            <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Enter niche topic (e.g. Future of Solana Layer 2s)" className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white focus:border-cyber-primary outline-none" />
-            <input type="text" value={customImage} onChange={(e) => setCustomImage(e.target.value)} placeholder="Image URL (Optional)" className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white outline-none" />
-            <button onClick={handleGenerate} disabled={generating || !topic} className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all mt-4 ${generating ? 'bg-gray-700 cursor-not-allowed' : 'bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white'}`}>
-              {generating ? <>Writing Masterpiece... <span className="animate-spin">⏳</span></> : <><Sparkles className="w-5 h-5" /> Write Long-Form Article</>}
+            <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Topic for deep-dive (e.g. Ethereum 2025 Economic Model)" className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white outline-none focus:border-cyber-primary" />
+            <button onClick={handleGenerate} disabled={generating || !topic} className="w-full py-4 rounded-lg font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white disabled:opacity-50">
+              {generating ? "Researching & Writing (Wait 60s)..." : "Generate Pillar Article"}
             </button>
-            {error && <div className="p-3 bg-red-900/20 border border-red-500 rounded text-red-200 text-sm">{error}</div>}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
           </div>
         </Card>
 
         <Card className={generatedArticle ? 'border-cyber-success/50' : 'border-gray-800'}>
-          {!generatedArticle ? (
-            <div className="h-full flex flex-col items-center justify-center text-gray-600 min-h-[300px]"><p>Article preview will appear here.</p></div>
-          ) : (
+          {generatedArticle ? (
             <div className="flex flex-col h-full">
-              <div className="bg-cyber-success/10 text-cyber-success px-4 py-2 rounded mb-4 flex items-center gap-2 text-sm"><CheckCircle className="w-4 h-4" /> High-Quality Content Ready</div>
-              <div className="bg-black/40 p-4 rounded-lg flex-grow overflow-y-auto max-h-[400px] mb-4 border border-white/10">
-                <h2 className="text-xl font-bold text-white mb-2">{generatedArticle.title}</h2>
-                <div className="prose prose-invert prose-sm" dangerouslySetInnerHTML={{ __html: generatedArticle.content }} />
-              </div>
-              <div className="flex gap-4">
-                <button onClick={() => setGeneratedArticle(null)} className="flex-1 py-3 border border-red-500/50 text-red-400 rounded-lg">Discard</button>
-                <button onClick={handlePublish} className="flex-1 py-3 bg-cyber-success text-black font-bold rounded-lg flex items-center justify-center gap-2"><Save className="w-4 h-4" /> Publish</button>
-              </div>
+              <div className="bg-cyber-success/10 text-cyber-success px-4 py-2 rounded mb-4 text-sm flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Long-Form Draft Generated</div>
+              <div className="bg-black/40 p-4 rounded-lg flex-grow overflow-y-auto max-h-[400px] mb-4 prose prose-invert prose-sm" dangerouslySetInnerHTML={{ __html: generatedArticle.content }} />
+              <button onClick={handlePublish} className="w-full py-3 bg-cyber-success text-black font-bold rounded-lg flex items-center justify-center gap-2"><Save className="w-4 h-4" /> Publish to Blog</button>
             </div>
+          ) : (
+            <div className="h-full flex items-center justify-center text-gray-600 min-h-[300px]">Preview will appear after generation.</div>
           )}
         </Card>
       </div>
 
       {localArticles.length > 0 && (
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-bold text-white flex items-center gap-2"><FileText className="text-cyber-secondary" /> Draft History</h3>
-            <button onClick={clearLocalArticles} className="text-xs text-red-400 flex items-center gap-1"><Trash2 className="w-3 h-3" /> Clear History</button>
-          </div>
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2"><FileText className="text-cyber-secondary" /> Local Drafts</h3>
           <div className="grid gap-4">
-            {localArticles.slice(0, 5).map((article) => (
+            {localArticles.map((article) => (
               <div key={article.id} className="bg-white/5 border border-white/10 p-4 rounded-lg flex justify-between items-center">
-                <div><h4 className="font-bold text-white">{article.title}</h4><p className="text-xs text-gray-400">{article.date} • {article.content.length} characters (~{Math.round(article.content.length/6)} words)</p></div>
-                <button onClick={() => handleCopyJson(article)} className="px-4 py-2 bg-cyber-primary/20 text-cyber-primary border border-cyber-primary/50 rounded hover:bg-cyber-primary hover:text-black flex items-center gap-2"><Copy className="w-4 h-4" /> Copy JSON</button>
+                <div><h4 className="font-bold text-white">{article.title}</h4><p className="text-xs text-gray-400">{article.date} • {article.readTime}</p></div>
+                <button onClick={() => { navigator.clipboard.writeText(JSON.stringify(article, null, 2)); alert('Copied!'); }} className="px-4 py-2 bg-cyber-primary/20 text-cyber-primary rounded hover:bg-cyber-primary hover:text-black transition-colors flex items-center gap-2"><Copy className="w-4 h-4" /> JSON</button>
               </div>
             ))}
           </div>
