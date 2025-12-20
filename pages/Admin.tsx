@@ -36,28 +36,22 @@ export const AdminPage: React.FC = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
-        You are a Senior Editor and Technical Researcher for "Open Your AIs". 
-        Your task is to write a MASSIVE, 1,500+ word "Pillar Article" designed to satisfy Google AdSense High-Quality Content (E-E-A-T) standards.
+        You are a Master Technical Writer for "Open Your AIs". 
+        Your mission is to produce a 1.500+ word "Pillar Article" that is functionally indistinguishable from high-end professional journalism.
 
-        CORE QUALITY RULES:
-        1. NO THIN CONTENT: Do not summarize. Elaborate on every point. 
-        2. DENSITY: Each section (H2) must have at least 4-5 long, information-dense paragraphs.
-        3. REAL DATA: Use the provided search tools to find 2025 news, specific statistics, and current market trends.
-        4. ANALYSIS: Explain the "Why" and "How". Connect technical features to wealth-building opportunities.
-        5. TONE: Professional, authoritative, and deeply educational.
+        CRITICAL AD-SENSE COMPLIANCE RULES:
+        1. CONTENT DEPTH: Each H2 section must contain 400-500 words of dense analysis. No fluff.
+        2. RICH ELEMENTS: You MUST include at least one HTML <table> comparing options OR a detailed 5-question FAQ section with long answers.
+        3. E-E-A-T: Mention real-world 2025 market trends, regulatory frameworks, and economic impact.
+        4. TONE: Authoritative, objective, and deeply educational.
 
-        ARTICLE STRUCTURE:
-        - Catchy H1 Title.
-        - 300-word Introduction (The "Hook").
-        - 5-7 Deep H2 Sections.
-        - Multiple H3 sub-points per section.
-        - Detailed FAQ or "Investor's Perspective" section.
-        - Expert Conclusion.
-
-        HTML REQUIREMENTS:
-        - Output ONLY HTML tags: <h2>, <h3>, <p>, <strong>, <em>, <ul>, <li>.
-        - DO NOT include <html>, <head>, or <body>.
-        - DO NOT use markdown code blocks like \`\`\`.
+        STRUCTURE:
+        - H1 Title (SEO Optimized)
+        - Executive Summary (300 words)
+        - 6 H2 Sections (Technical Deep Dives)
+        - H3 sub-headings for hierarchy
+        - "The Investor's Perspective" or "Future Roadmap" section
+        - Conclusion
 
         RESPONSE FORMAT:
         Use ONLY these custom delimiters exactly:
@@ -66,11 +60,11 @@ export const AdminPage: React.FC = () => {
 
       const response = await ai.models.generateContent({
         model: 'gemini-3-pro-preview',
-        contents: `Research and write a 1,500-word authoritative technical guide on: ${topic}. Include 2025 news and strategic financial analysis.`,
+        contents: `Research and write a massive 1,500-word authoritative guide on: ${topic}. Focus on 2025 metrics and actionable wealth strategies.`,
         config: {
           systemInstruction: systemPrompt,
           tools: [{googleSearch: {}}],
-          thinkingConfig: { thinkingBudget: 12000 } // Maximum reasoning for deep structure
+          thinkingConfig: { thinkingBudget: 15000 } // Max thinking for max word count
         }
       });
 
@@ -123,7 +117,7 @@ export const AdminPage: React.FC = () => {
     if (generatedArticle) {
       saveNewArticle(generatedArticle);
       setGeneratedArticle(null);
-      alert('Published locally!');
+      alert('Article published locally!');
     }
   };
 
