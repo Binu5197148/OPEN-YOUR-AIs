@@ -36,37 +36,41 @@ export const AdminPage: React.FC = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
-        You are a Senior Editor and Wealth Researcher for "Open Your AIs". 
-        Your task is to create a pillar-style article that will pass the most rigorous Google AdSense manual review.
+        You are a Senior Editor and Technical Researcher for "Open Your AIs". 
+        Your task is to write a MASSIVE, 1,500+ word "Pillar Article" designed to satisfy Google AdSense High-Quality Content (E-E-A-T) standards.
 
-        CORE REQUIREMENTS:
-        1. TOTAL LENGTH: 1.500 to 2.000 words. DO NOT shorten the output.
-        2. DENSITY: Each section (H2) must have at least 3-4 long, detailed paragraphs.
-        3. E-E-A-T: Use technical terminology, cite current year events (2025), and explain complex relationships between market forces.
-        4. STRUCTURE: 
-           - Compelling H1 Title.
-           - Hook Introduction (300 words).
-           - 5 to 6 H2 Chapters with H3 Sub-sections.
-           - Comprehensive FAQ or "Key Takeaways" section.
-           - Professional Conclusion.
+        CORE QUALITY RULES:
+        1. NO THIN CONTENT: Do not summarize. Elaborate on every point. 
+        2. DENSITY: Each section (H2) must have at least 4-5 long, information-dense paragraphs.
+        3. REAL DATA: Use the provided search tools to find 2025 news, specific statistics, and current market trends.
+        4. ANALYSIS: Explain the "Why" and "How". Connect technical features to wealth-building opportunities.
+        5. TONE: Professional, authoritative, and deeply educational.
 
-        HTML FORMATTING:
-        - Use <h2>, <h3>, <p>, <strong>, <ul>, <li>.
-        - NO Markdown symbols like # or **. Use HTML tags only.
-        - Avoid generic lists; prioritize deep-dive explanations.
+        ARTICLE STRUCTURE:
+        - Catchy H1 Title.
+        - 300-word Introduction (The "Hook").
+        - 5-7 Deep H2 Sections.
+        - Multiple H3 sub-points per section.
+        - Detailed FAQ or "Investor's Perspective" section.
+        - Expert Conclusion.
+
+        HTML REQUIREMENTS:
+        - Output ONLY HTML tags: <h2>, <h3>, <p>, <strong>, <em>, <ul>, <li>.
+        - DO NOT include <html>, <head>, or <body>.
+        - DO NOT use markdown code blocks like \`\`\`.
 
         RESPONSE FORMAT:
-        Use ONLY these custom delimiters:
-        [[TITLE]] title [[CATEGORY]] AI/Crypto/Monetization [[EXCERPT]] desc [[TAGS]] tag1, tag2 [[READTIME]] 15 min [[CONTENT]] <html>...</html>
+        Use ONLY these custom delimiters exactly:
+        [[TITLE]] title [[CATEGORY]] AI/Crypto/Monetization [[EXCERPT]] description [[TAGS]] tag1, tag2 [[READTIME]] 15 min [[CONTENT]] <html>...</html>
       `;
 
       const response = await ai.models.generateContent({
         model: 'gemini-3-pro-preview',
-        contents: `Conduct an exhaustive research and write a 1,500-word authoritative guide about: ${topic}. Focus on current 2025 data, future projections, and wealth-building strategies.`,
+        contents: `Research and write a 1,500-word authoritative technical guide on: ${topic}. Include 2025 news and strategic financial analysis.`,
         config: {
           systemInstruction: systemPrompt,
           tools: [{googleSearch: {}}],
-          thinkingConfig: { thinkingBudget: 8000 } // Higher budget for longer planning
+          thinkingConfig: { thinkingBudget: 12000 } // Maximum reasoning for deep structure
         }
       });
 
@@ -119,7 +123,7 @@ export const AdminPage: React.FC = () => {
     if (generatedArticle) {
       saveNewArticle(generatedArticle);
       setGeneratedArticle(null);
-      alert('Published!');
+      alert('Published locally!');
     }
   };
 
@@ -148,9 +152,9 @@ export const AdminPage: React.FC = () => {
         <Card className="border-cyber-primary/30">
           <div className="flex items-center gap-2 mb-6 text-cyber-primary"><Sparkles className="w-6 h-6" /><h3 className="text-xl font-bold">Pillar Content Generator</h3></div>
           <div className="space-y-4">
-            <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Topic for deep-dive (e.g. Ethereum 2025 Economic Model)" className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white outline-none focus:border-cyber-primary" />
+            <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Topic for deep-dive (e.g. The Future of RWA Tokenization)" className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white outline-none focus:border-cyber-primary" />
             <button onClick={handleGenerate} disabled={generating || !topic} className="w-full py-4 rounded-lg font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white disabled:opacity-50">
-              {generating ? "Researching & Writing (Wait 60s)..." : "Generate Pillar Article"}
+              {generating ? "Researching & Writing (~1-2 mins)..." : "Generate Pillar Article"}
             </button>
             {error && <p className="text-red-500 text-sm">{error}</p>}
           </div>
@@ -159,7 +163,7 @@ export const AdminPage: React.FC = () => {
         <Card className={generatedArticle ? 'border-cyber-success/50' : 'border-gray-800'}>
           {generatedArticle ? (
             <div className="flex flex-col h-full">
-              <div className="bg-cyber-success/10 text-cyber-success px-4 py-2 rounded mb-4 text-sm flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Long-Form Draft Generated</div>
+              <div className="bg-cyber-success/10 text-cyber-success px-4 py-2 rounded mb-4 text-sm flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Pillar Article Ready (Long Form)</div>
               <div className="bg-black/40 p-4 rounded-lg flex-grow overflow-y-auto max-h-[400px] mb-4 prose prose-invert prose-sm" dangerouslySetInnerHTML={{ __html: generatedArticle.content }} />
               <button onClick={handlePublish} className="w-full py-3 bg-cyber-success text-black font-bold rounded-lg flex items-center justify-center gap-2"><Save className="w-4 h-4" /> Publish to Blog</button>
             </div>
@@ -175,7 +179,7 @@ export const AdminPage: React.FC = () => {
           <div className="grid gap-4">
             {localArticles.map((article) => (
               <div key={article.id} className="bg-white/5 border border-white/10 p-4 rounded-lg flex justify-between items-center">
-                <div><h4 className="font-bold text-white">{article.title}</h4><p className="text-xs text-gray-400">{article.date} • {article.readTime}</p></div>
+                <div><h4 className="font-bold text-white">{article.title}</h4><p className="text-xs text-gray-400">{article.date} • {Math.round(article.content.length / 6)} estimated words</p></div>
                 <button onClick={() => { navigator.clipboard.writeText(JSON.stringify(article, null, 2)); alert('Copied!'); }} className="px-4 py-2 bg-cyber-primary/20 text-cyber-primary rounded hover:bg-cyber-primary hover:text-black transition-colors flex items-center gap-2"><Copy className="w-4 h-4" /> JSON</button>
               </div>
             ))}
