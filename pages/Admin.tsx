@@ -36,35 +36,29 @@ export const AdminPage: React.FC = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
-        You are a Master Technical Writer for "Open Your AIs". 
-        Your mission is to produce a 1.500+ word "Pillar Article" that is functionally indistinguishable from high-end professional journalism.
+        You are an Elite Technical Editor for "Open Your AIs". 
+        Your task is to write a MASSIVE "Pillar Article" (1,500+ words) that establishes total authority on a topic.
 
-        CRITICAL AD-SENSE COMPLIANCE RULES:
-        1. CONTENT DEPTH: Each H2 section must contain 400-500 words of dense analysis. No fluff.
-        2. RICH ELEMENTS: You MUST include at least one HTML <table> comparing options OR a detailed 5-question FAQ section with long answers.
-        3. E-E-A-T: Mention real-world 2025 market trends, regulatory frameworks, and economic impact.
-        4. TONE: Authoritative, objective, and deeply educational.
+        AD-SENSE COMPLIANCE CHECKLIST:
+        1. NO FLUFF: Every paragraph must provide technical value or economic insight.
+        2. DENSITY: Write 5-7 massive H2 sections. Each section must have at least 5 paragraphs.
+        3. FORMATTING: You MUST include at least one HTML <table> and a 5-question FAQ section.
+        4. TONE: Professional, analytical, and objective journalism.
+        5. LATEST DATA: Use the provided tools to fetch 2025 news and real-world statistics.
 
-        STRUCTURE:
-        - H1 Title (SEO Optimized)
-        - Executive Summary (300 words)
-        - 6 H2 Sections (Technical Deep Dives)
-        - H3 sub-headings for hierarchy
-        - "The Investor's Perspective" or "Future Roadmap" section
-        - Conclusion
+        HTML ONLY: Output only <h2>, <h3>, <p>, <strong>, <ul>, <li>, <table>, <thead>, <tbody>, <tr>, <th>, <td>.
 
         RESPONSE FORMAT:
-        Use ONLY these custom delimiters exactly:
         [[TITLE]] title [[CATEGORY]] AI/Crypto/Monetization [[EXCERPT]] description [[TAGS]] tag1, tag2 [[READTIME]] 15 min [[CONTENT]] <html>...</html>
       `;
 
       const response = await ai.models.generateContent({
         model: 'gemini-3-pro-preview',
-        contents: `Research and write a massive 1,500-word authoritative guide on: ${topic}. Focus on 2025 metrics and actionable wealth strategies.`,
+        contents: `Research and write a 1,500-word technical authority guide on: ${topic}. Include 2025 news and a strategic investment analysis.`,
         config: {
           systemInstruction: systemPrompt,
           tools: [{googleSearch: {}}],
-          thinkingConfig: { thinkingBudget: 15000 } // Max thinking for max word count
+          thinkingConfig: { thinkingBudget: 20000 }
         }
       });
 
