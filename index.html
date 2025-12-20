@@ -1,126 +1,76 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Your AIs | AI, Crypto & Monetization</title>
-    <meta name="description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization. Expert guides, playbooks, and tool reviews." />
+    <title>Open Your AIs | Future Tech & Wealth</title>
+    <meta name="description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization." />
     
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="GFJ8Em6zUUQJBoZdIL4VcnsEHaUQLs9-1KHGuoC3Ud4" />
-
-    <!-- AdSense Verification -->
-    <meta name="google-adsense-account" content="ca-pub-4722208859927111">
-    
-    <!-- Google AdSense Main Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4722208859927111" crossorigin="anonymous"></script>
-    
-    <!-- Google Analytics 4 (GA4) - Replace G-XXXXXXXXXX with your Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- CRITICAL POLYFILL: Synchronous initialization of process.env -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      // Config will be updated by the React App on navigation
-      gtag('config', 'G-XXXXXXXXXX');
+      window.process = { env: { NODE_ENV: 'production' } };
     </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4722208859927111" crossorigin="anonymous"></script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (Keep CDN for styling simplicity in this setup) -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
             colors: {
               cyber: {
-                bg: '#0A0E1A',        // Deep dark blue-black
-                text: '#E0FFFE',      // Bright cyan white
-                primary: '#00E5FF',   // Neon Cyan
-                primaryGlow: '#80F2FF',
-                secondary: '#BF00FF', // Electric Purple
-                accent: '#FF0080',    // Hot Pink
-                success: '#00E680',   // Neon Sage
-                card: 'rgba(10, 14, 26, 0.7)',
+                bg: '#0A0E1A',
+                text: '#E0FFFE',
+                primary: '#00E5FF',
+                secondary: '#BF00FF',
+                accent: '#FF0080',
+                success: '#00E680',
               }
             },
             backgroundImage: {
               'gradient-cyber': 'linear-gradient(135deg, #0A0E1A 0%, #111625 100%)',
               'gradient-neon': 'linear-gradient(to right, #00E5FF, #BF00FF)',
-            },
-            animation: {
-              'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-            },
-            keyframes: {
-              'pulse-glow': {
-                '0%, 100%': { opacity: 1, boxShadow: '0 0 10px #00E5FF' },
-                '50%': { opacity: .5, boxShadow: '0 0 20px #BF00FF' },
-              },
-              'float': {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              }
             }
           }
         }
       }
     </script>
     <style>
-      body {
-        background-color: #0A0E1A;
-        color: #E0FFFE;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0A0E1A; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1f2937; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #00E5FF; 
-      }
-      .neon-border {
-        box-shadow: 0 0 5px rgba(0, 229, 255, 0.2), inset 0 0 5px rgba(0, 229, 255, 0.1);
-      }
+      body { background-color: #0A0E1A; color: #E0FFFE; margin: 0; }
       .glass-panel {
         background: rgba(16, 20, 35, 0.6);
         backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(0, 229, 255, 0.1);
       }
+      /* Previne flashes brancos durante o carregamento */
+      #root { min-height: 100vh; background-color: #0A0E1A; }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "vite": "https://aistudiocdn.com/vite@^7.2.7",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.559.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
 </head>
-  <body>
+<body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
-  </body>
+</body>
 </html>
