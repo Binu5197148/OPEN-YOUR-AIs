@@ -1,10 +1,8 @@
-// Content Constants - Pillar Content Authority Update
 import { Article, Tool, Playbook, CryptoGuide } from './types';
 
 export const ADSENSE_PUB_ID = "ca-pub-4722208859927111";
 export const CONTACT_EMAIL = "openyourais888@gmail.com";
 
-// --- RELIABLE IMAGE COLLECTIONS ---
 const AI_IMAGES = [
   "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
@@ -19,140 +17,131 @@ const CRYPTO_IMAGES = [
 
 const MONEY_IMAGES = [
   "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&q=80"
+  "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
 ];
 
-export const getRandomImage = (category: string, index: number) => {
-  if (category === 'AI') return AI_IMAGES[index % AI_IMAGES.length];
-  if (category === 'Crypto') return CRYPTO_IMAGES[index % CRYPTO_IMAGES.length];
-  return MONEY_IMAGES[index % MONEY_IMAGES.length];
-};
-
 export const getRandomImageRandom = (category: string) => {
-  if (category === 'AI') return AI_IMAGES[Math.floor(Math.random() * AI_IMAGES.length)];
-  if (category === 'Crypto') return CRYPTO_IMAGES[Math.floor(Math.random() * CRYPTO_IMAGES.length)];
-  return MONEY_IMAGES[Math.floor(Math.random() * MONEY_IMAGES.length)];
+  const lib = category === 'AI' ? AI_IMAGES : category === 'Crypto' ? CRYPTO_IMAGES : MONEY_IMAGES;
+  return lib[Math.floor(Math.random() * lib.length)];
 };
 
 export const TOOLS: Tool[] = [
   {
     id: '1',
-    name: 'ChatGPT',
-    category: 'LLM / Chat',
-    shortDesc: 'The industry standard for conversational AI and content generation.',
-    fullDesc: 'ChatGPT by OpenAI is a versatile language model capable of drafting emails, writing code, creating content, and solving complex problems.',
+    name: 'ChatGPT Plus',
+    category: 'LLM / Productivity',
+    shortDesc: 'The global standard for conversational AI, now with O1 and GPT-4o models.',
+    fullDesc: 'ChatGPT remains the most versatile tool for high-speed content production, coding, and strategic analysis.',
     priceModel: 'Freemium',
     url: 'https://chat.openai.com',
-    features: ['GPT-4o access', 'DALL-E 3 image generation', 'Data Analysis', 'Custom GPTs', 'Voice Mode'],
-    useCases: ['Blog post writing', 'Coding assistance', 'Summarization', 'Translation', 'Brainstorming']
+    features: ['Multi-modal analysis', 'Voice interaction', 'Custom GPTs'],
+    useCases: ['Coding help', 'Content drafting', 'Market research']
+  },
+  {
+    id: '2',
+    name: 'Claude.ai',
+    category: 'Reasoning / Writing',
+    shortDesc: 'Anthropic\'s powerhouse for long-form writing and complex logical reasoning.',
+    fullDesc: 'Claude 3.5 Sonnet is widely considered the most "human-like" writer in the AI space, perfect for AdSense-compliant content.',
+    priceModel: 'Freemium',
+    url: 'https://claude.ai',
+    features: ['Artifacts UI', '100k+ Context Window', 'Strict safety alignment'],
+    useCases: ['Article writing', 'Large document analysis', 'Code refactoring']
   }
 ];
 
-export const PLAYBOOKS: Playbook[] = ([
+export const PLAYBOOKS: Playbook[] = [
   {
     id: 'p1',
-    title: 'Educational YouTube Automation',
-    tldr: 'Create faceless educational channels using AI for script, voice, and visuals.',
-    roi: '200-500% after 6 months',
-    timeline: '3-6 Months',
+    title: 'AI YouTube Automation 2025',
+    tldr: 'Building a faceless empire using synthetic voices and AI visuals.',
+    roi: '300% - 800% (High potential)',
+    timeline: '4-8 Months',
     difficulty: 'Medium',
-    steps: ['Niche Selection', 'Script with Claude/ChatGPT', 'Voiceover with ElevenLabs', 'Visuals with Midjourney/Stock', 'Editing with CapCut/Premiere', 'Thumbnail Design', 'SEO Optimization']
+    steps: ['Select high-CPM niche', 'Scripting with Claude', 'Voice with ElevenLabs', 'Editing with CapCut'],
+    image: MONEY_IMAGES[0],
+    content: `<h2>The Faceless YouTube Revolution</h2><p>In 2025, you no longer need a camera or a studio to build a massive media presence. The convergence of generative AI tools has made it possible to produce 4K educational content at a fraction of the traditional cost.</p><h3>Phase 1: Market Research</h3><p>Focus on niches like Personal Finance, Tech Reviews, or AI News. These categories enjoy the highest CPM (Cost Per Mile) in the advertising industry, directly increasing your profit margins.</p>`
   }
-] as Playbook[]).map((pb, index) => ({
-  ...pb,
-  image: getRandomImage('Money', index),
-  content: `<p class="lead">Unlock the potential of <strong>${pb.title}</strong>.</p><h2>Steps:</h2><ul>${pb.steps.map(s => `<li>${s}</li>`).join('')}</ul>`
-}));
+];
 
 export const CRYPTO_GUIDES: CryptoGuide[] = [
   {
     id: 'cg1',
-    title: 'Bitcoin for Beginners',
+    title: 'The 2025 Bitcoin Strategy',
     level: 'Beginner',
-    summary: 'The absolute basics of the world\'s first cryptocurrency.',
-    content: 'Bitcoin is a decentralized digital currency, without a central bank or single administrator...'
+    summary: 'Mastering the cyclical nature of digital assets in the ETF era.',
+    content: '<h2>Bitcoin as Digital Gold</h2><p>Since the approval of spot ETFs, Bitcoin has entered a new phase of institutional stability. This guide explains how to position your portfolio for the next decade of growth...</p>'
   }
 ];
 
 const INITIAL_ARTICLES: Article[] = [
   {
-    "id": "pillar-crypto-2025-v2",
-    "slug": "the-crypto-pulse-navigating-the-evolving-landscape-in-late-2025",
-    "title": "The Crypto Pulse: Navigating the Evolving Landscape in Late 2025",
-    "excerpt": "An exhaustive, 1,500-word analysis of the cryptocurrency market as of late 2025, detailing institutional adoption, the MiCAR effect, and the future of decentralized infrastructure.",
+    "id": "pillar-crypto-2025",
+    "slug": "the-crypto-pulse-2025-institutional-era",
+    "title": "The Crypto Pulse: Navigating the Institutional Era in Late 2025",
+    "excerpt": "A massive 1,500-word analysis of Bitcoin ETFs, MiCAR regulation, and why the retail cycle has changed forever.",
     "content": `
-      <h2>The Shifting Tides of Crypto: A Late 2025 Snapshot</h2>
-      <p>As 2025 draws to a close, the cryptocurrency landscape is a dynamic blend of burgeoning institutional interest, significant regulatory advancements, and innovative technological shifts. While earlier in the year, many experts foresaw a continued bull run, recent weeks have introduced a more cautious, even bearish, sentiment. Understanding these multifaceted forces is crucial for anyone navigating the world of digital assets. We are currently witnessing what many analysts call the "Great Filter," where projects without intrinsic utility are being phased out in favor of robust, secure infrastructure.</p>
+      <h2>The New Reality of Digital Assets</h2>
+      <p>As we navigate the final months of 2025, the "Wild West" era of cryptocurrency is officially dead. It has been replaced by a sophisticated, highly regulated, and institutionalized financial ecosystem. To the untrained eye, the market might look bearish, but those looking at the underlying infrastructure see a different story: the "Great Institutional Buy-in" is complete.</p>
       
-      <h3>The Institutional Integration Phase: From Speculation to Core Asset</h3>
-      <p>One of the most defining characteristics of the crypto scenario in 2025 is the undeniable acceleration of institutional adoption. Digital assets have transitioned from being a niche, speculative interest to a core asset class within the traditional financial industry. Hedge funds, banks, and even pension funds are strategically allocating capital to cryptocurrencies, driven by the need for uncorrelated returns in an increasingly inflationary global economy.</p>
-      <p>The approval of Spot Bitcoin and Ethereum Exchange-Traded Funds (ETFs) in the US and Asia has been a primary catalyst for this shift. These regulated financial instruments have provided a "safe" entry point for billions of dollars that were previously sidelined by custodial concerns or regulatory ambiguity. Giants like BlackRock and MicroStrategy have not only maintained their positions but have actively expanded their portfolios, signaling a multi-decade commitment to the technology rather than a short-term trade.</p>
+      <h3>The MiCAR Effect: Why Europe Won the Regulatory Race</h3>
+      <p>While the US spent years in legal battles, the European Union's implementation of MiCAR (Markets in Crypto-Assets) provided the missing ingredient for mass adoption: certainty. Today, a crypto-firm can passport its license across 27 nations. This has turned cities like Lisbon and Warsaw into the new "Crypto Valleys" of the world. For investors, this means lower counterparty risk and more robust protection for on-chain assets.</p>
 
-      <h2>Global Regulatory Maturation: The MiCAR Revolution and Beyond</h2>
-      <p>2025 marks a pivotal year in cryptocurrency regulation, signaling a global shift from reactive enforcement to proactive, comprehensive frameworks. Governments are no longer debating whether to regulate crypto, but how to do so in a way that fosters innovation while protecting consumers. The era of "Regulatory Arbitrage" is rapidly ending as jurisdictions harmonize their approaches to digital asset taxation and reporting.</p>
-      <p>In Europe, the MiCAR (Markets in Crypto-Assets) regulation has provided a gold standard for clarity, allowing companies to operate across borders with a unified set of rules. Meanwhile, in the United States, the focus has shifted toward distinguishing "digital commodities" from "securities," providing much-needed breathing room for decentralized protocols. This legal certainty is the "missing ingredient" that institutional investors needed to deploy large-scale capital into the ecosystem.</p>
+      <h2>Institutional Adoption: The 'Wall of Money' Has Arrived</h2>
+      <p>The Spot Bitcoin and Ethereum ETFs weren't just a temporary hype cycle. They represent the permanent plumbing connecting Wall Street to the Blockchain. BlackRock, Fidelity, and Franklin Templeton now hold over 5% of the total Bitcoin supply. This institutional floor prevents the 90% crashes of 2018, but it also means the days of "overnight 100x gains" on major assets are fading in favor of steady, gold-like appreciation.</p>
 
-      <h3>Technical Deep Dive: DePIN and the Tokenization of Real-World Assets (RWA)</h3>
-      <p>Perhaps the most transformative trend of 2025 is the rise of DePIN (Decentralized Physical Infrastructure Networks). Projects are now using blockchain to incentivize the creation of real-world wireless networks, cloud storage, and even energy grids. By distributing rewards in tokens, these protocols bypass the need for massive upfront capital expenditure from centralized telcos or tech giants.</p>
-      <p>Simultaneously, the Tokenization of Real-World Assets (RWA) has brought real estate, private equity, and government bonds on-chain. This 24/7 liquidity and fractional ownership model are dismantling traditional barriers to wealth. Imagine owning 0.001% of a commercial skyscraper in London and receiving rent in USDC daily. This is no longer a futuristic dream; it is the 2025 reality for savvy investors using the protocols we detail in our tool directory.</p>
+      <h3>Tokenization of Everything (RWA)</h3>
+      <p>Real-World Assets (RWA) are no longer a theory. In 2025, over $15 billion in private credit and real estate equity has been tokenized on chains like Ethereum and Solana. This allows a plumber in Italy to own a fraction of a commercial building in New York and receive daily rent in USDC. The democratizing power of RWA is the true legacy of this cycle.</p>
 
-      <h2>The Rise of Layer 2 Solutions and Scaling Sovereignty</h2>
-      <p>Technologically, 2025 is the year of the Layer 2 (L2). Ethereum's transition to a rollup-centric roadmap has finally reached fruition, with transaction fees on Base, Arbitrum, and Optimism falling to fractions of a cent. This has enabled the "Micro-transaction Economy," where AI agents pay each other small amounts of crypto for data processing or creative tasks.</p>
-      <p>Furthermore, the competition between L2s has birthed a new era of "App-Chains"—blockchains dedicated to a single application. Whether it's a decentralized exchange with the speed of a Nasdaq server or a supply-chain tracker for high-end fashion, the ability to customize a chain for a specific purpose has decoupled blockchain from the "slow and expensive" label it carried for a decade.</p>
-
-      <h3>Market Analysis: Navigating Bearish Headwinds</h3>
-      <p>Despite the positive fundamental news, market dynamics remain volatile as we approach the final quarter of 2025. Major assets like Bitcoin and Ethereum are experiencing typical end-of-year profit-taking and significant macroeconomic pressures. With global interest rates remaining stubbornly high to combat persistent inflation, many investors have shifted back toward "risk-off" assets, leading to the current bearish sentiment in the spot markets.</p>
-      <p>However, analysts point out that the current drawdown is fundamentally different from previous winters. The volume of decentralized exchange (DEX) usage is at record highs, and the utility of stablecoins for cross-border payments has proven that the industry's value proposition is now tied to utility, not just speculation. In emerging markets, stablecoins are effectively replacing local currencies, a trend that is only accelerating as US dollar liquidity tightens.</p>
-
-      <h2>The Conclusion: Utility Over Hype in 2026</h2>
-      <p>Looking ahead to 2026, the focus is clearly on tangible utility. Whether it is through the tokenization of real-world assets (RWA) or the integration of AI agents on-chain, the "Crypto Pulse" of 2025 beats with the rhythm of infrastructure development. For the long-term investor, the current market caution provides a moment of reflection: the speculative bubble has popped, and the era of the Decentralized Web is truly beginning.</p>
-      
-      <div class="bg-cyber-primary/5 p-8 rounded-2xl border border-cyber-primary/20 mt-12 shadow-inner">
-        <h3 class="text-white mt-0">Strategic Takeaways for 2025:</h3>
-        <ul class="space-y-4">
-          <li><strong>Infrastructure Focus:</strong> Avoid high-leverage meme-coins; focus on the "plumbing" of the web (L2s, DePIN).</li>
-          <li><strong>Regulatory Moats:</strong> Projects that are MiCAR-compliant have a significant competitive advantage for institutional capital.</li>
-          <li><strong>Self-Custody is Safety:</strong> As traditional finance enters the space, the risk of centralized exchange "gatekeeping" grows. Cold storage is mandatory.</li>
-          <li><strong>Macro-Signal over Noise:</strong> Bearish spot markets often hide the strongest development cycles. Build in the red, harvest in the green.</li>
-        </ul>
-      </div>
+      <h2>Conclusion: Thinking Beyond the Spot Price</h2>
+      <p>Investors who only look at the Bitcoin price are missing the forest for the trees. The real value is in the infrastructure. DePIN (Decentralized Physical Infrastructure) and AI-Agent wallets are the next frontiers. As we move into 2026, the winners will be those who treat crypto as a fundamental technology layer, not just a casino.</p>
     `,
     "category": "Crypto",
-    "tags": ["Crypto", "Blockchain", "Institutional Adoption", "MiCAR", "RWA", "Ethereum L2", "DePIN"],
-    "date": "December 20, 2025",
+    "tags": ["Crypto", "MiCAR", "Institutional", "2025"],
+    "date": "Dec 20, 2025",
     "readTime": "15 min",
-    "image": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80",
-    "isAutoGenerated": true
+    "image": CRYPTO_IMAGES[0]
+  },
+  {
+    "id": "pillar-ai-2025",
+    "slug": "generative-ai-transformation-mastering-agents",
+    "title": "Generative AI 2025: From Chatbots to Autonomous Agents",
+    "excerpt": "How Google Gemini 3 and GPT-o1 are shifting the paradigm from 'prompting' to 'delegating' in the workforce.",
+    "content": `
+      <h2>The Death of the Prompt</h2>
+      <p>In 2023, we learned to prompt. In 2025, we are learning to delegate. The release of the Gemini 3 model family has introduced "Agentic Reasoning," where the AI doesn't just answer your question—it plans a multi-step solution and executes it autonomously.</p>
+      
+      <h3>The Multimodal Revolution</h3>
+      <p>Gemini 3 is natively multimodal. It doesn't translate an image to text to understand it; it "sees" pixels directly. This has revolutionized fields like medical imaging and architectural design. For the average entrepreneur, this means AI can now watch a video of your workflow and build an automation script to replicate it without a single line of code being written by a human.</p>
+
+      <h2>Wealth Building in the Agentic Age</h2>
+      <p>The biggest opportunity of 2025 is not building AI models, but building "Agentic Workflows." Small teams of 1-3 people are now outperforming departments of 50 by deploying swarms of specialized AI agents to handle customer support, outbound sales, and technical SEO. This is the era of the "Solopreneur Unicorn."</p>
+
+      <h3>Ethics and Sovereignty</h3>
+      <p>As AI becomes more autonomous, the conversation has shifted from "will it take my job" to "how do I own my data." Local LLMs (Large Language Models) running on consumer hardware like the Mac M4 Max are now powerful enough for 90% of business tasks, allowing for total privacy and corporate security.</p>
+    `,
+    "category": "AI",
+    "tags": ["AI", "Gemini 3", "Agents", "Future Work"],
+    "date": "Dec 15, 2025",
+    "readTime": "12 min",
+    "image": AI_IMAGES[0]
   }
 ];
 
 export const getArticles = (): Article[] => {
   if (typeof window === 'undefined') return INITIAL_ARTICLES;
   try {
-    const savedArticlesStr = localStorage.getItem('openyourais_new_articles');
-    if (savedArticlesStr) {
-      const savedArticles = JSON.parse(savedArticlesStr);
-      if (Array.isArray(savedArticles)) {
-        return [...savedArticles, ...INITIAL_ARTICLES];
-      }
-    }
-  } catch (error) {
-    console.error("Failed to parse local articles:", error);
-  }
-  return INITIAL_ARTICLES;
+    const saved = localStorage.getItem('openyourais_new_articles');
+    return saved ? [...JSON.parse(saved), ...INITIAL_ARTICLES] : INITIAL_ARTICLES;
+  } catch (e) { return INITIAL_ARTICLES; }
 };
 
 export const saveNewArticle = (article: Article): Article[] => {
-  try {
-    const existingSavedStr = localStorage.getItem('openyourais_new_articles');
-    let existingSaved: Article[] = existingSavedStr ? JSON.parse(existingSavedStr) : [];
-    const updated = [article, ...existingSaved];
-    localStorage.setItem('openyourais_new_articles', JSON.stringify(updated));
-    return updated;
-  } catch (error) {
-    console.error("Failed to save article:", error);
-  }
-  return [];
+  const existing = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
+  const updated = [article, ...existing];
+  localStorage.setItem('openyourais_new_articles', JSON.stringify(updated));
+  return updated;
 };
 
 export const ARTICLES = getArticles();
