@@ -1,30 +1,43 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Card, SectionTitle } from '../components/Components';
 import { GoogleGenAI } from "@google/genai";
 import { saveNewArticle, getRandomImageRandom } from '../constants';
 import { Article } from '../types';
-import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, Copy, Trash2, FileText } from 'lucide-react';
+import { Lock, LogIn, Sparkles, Save, LogOut, CheckCircle, AlertTriangle, Copy, Trash2, FileText, Image as ImageIcon } from 'lucide-react';
 
 export const AdminPage: React.FC = () => {
   const { isAuthenticated, login, logout } = useAuth();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  // Generator State
   const [topic, setTopic] = useState('');
+  const [customImage, setCustomImage] = useState('');
   const [generating, setGenerating] = useState(false);
   const [generatedArticle, setGeneratedArticle] = useState<Article | null>(null);
+
+  // Local Articles State (History)
   const [localArticles, setLocalArticles] = useState<Article[]>([]);
 
   useEffect(() => {
+    // Load locally saved articles
     const saved = localStorage.getItem('openyourais_new_articles');
     if (saved) {
-      try { setLocalArticles(JSON.parse(saved)); } catch (e) {}
+      try {
+        setLocalArticles(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to parse local articles');
+      }
     }
   }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!login(password)) setError('Invalid Access Key');
+    if (!login(password)) {
+      setError('Invalid Access Key');
+    }
   };
 
   const handleGenerate = async () => {
@@ -33,36 +46,48 @@ export const AdminPage: React.FC = () => {
     setError('');
 
     try {
+      // The API key must be obtained exclusively from process.env.API_KEY
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const systemPrompt = `
-        You are an Elite Technical Editor for "Open Your AIs". 
-        Your task is to write a MASSIVE "Pillar Article" (1,500+ words) that establishes total authority on a topic.
+        You are an expert tech journalist for "Open Your AIs".
+        Write a high-quality, SEO-optimized blog post about the user's topic.
+        
+        CRITICAL OUTPUT FORMAT INSTRUCTIONS:
+        Do NOT return JSON. Do NOT use markdown code blocks.
+        You MUST use the following custom delimiters exactly to separate the sections.
+        You can use double quotes (") freely inside the content HTML without escaping.
 
-        AD-SENSE COMPLIANCE CHECKLIST:
-        1. NO FLUFF: Every paragraph must provide technical value or economic insight.
-        2. DENSITY: Write 5-7 massive H2 sections. Each section must have at least 5 paragraphs.
-        3. FORMATTING: You MUST include at least one HTML <table> and a 5-question FAQ section.
-        4. TONE: Professional, analytical, and objective journalism.
-        5. LATEST DATA: Use the provided tools to fetch 2025 news and real-world statistics.
+        [[TITLE]]
+        (Write the catchy title here)
 
-        HTML ONLY: Output only <h2>, <h3>, <p>, <strong>, <ul>, <li>, <table>, <thead>, <tbody>, <tr>, <th>, <td>.
+        [[CATEGORY]]
+        (Write exactly one: AI, Crypto, or Monetization)
 
-        RESPONSE FORMAT:
-        [[TITLE]] title [[CATEGORY]] AI/Crypto/Monetization [[EXCERPT]] description [[TAGS]] tag1, tag2 [[READTIME]] 15 min [[CONTENT]] <html>...</html>
+        [[EXCERPT]]
+        (Write a short 2-sentence summary here)
+
+        [[TAGS]]
+        (Comma separated tags, e.g. Tech, Future, Guide)
+
+        [[READTIME]]
+        (e.g. 5 min)
+
+        [[CONTENT]]
+        (Write the full HTML content here. Use <h2>, <p>, <ul>, <li>, <strong>, <em>. Do not use <html>, <head> or <body> tags. Write purely the body content.)
       `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
-        contents: `Research and write a 1,500-word technical authority guide on: ${topic}. Include 2025 news and a strategic investment analysis.`,
+        model: 'gemini-2.5-flash',
+        contents: topic,
         config: {
           systemInstruction: systemPrompt,
-          tools: [{googleSearch: {}}],
-          thinkingConfig: { thinkingBudget: 20000 }
+          tools: [{googleSearch: {}}], // Use Grounding to get latest info
         }
       });
 
       const rawText = response.text || '';
+      
       const getSection = (tag: string) => {
         const parts = rawText.split(`[[${tag}]]`);
         if (parts.length < 2) return '';
@@ -76,32 +101,52 @@ export const AdminPage: React.FC = () => {
       const readTime = getSection('READTIME');
       const content = getSection('CONTENT');
 
+      if (!title || !content) {
+        console.error("Raw Response:", rawText);
+        throw new Error("AI response format was incomplete. Try a simpler topic.");
+      }
+
       let category: any = 'AI';
       if (categoryRaw.toLowerCase().includes('crypto')) category = 'Crypto';
       if (categoryRaw.toLowerCase().includes('money') || categoryRaw.toLowerCase().includes('monetiz')) category = 'Monetization';
 
+      const tags = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
+      
+      // Use Custom Image if provided, otherwise generate random
+      const imageUrl = customImage.trim() ? customImage.trim() : getRandomImageRandom(category);
+      
       const newArticle: Article = {
         id: `auto-${Date.now()}`,
         slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-        title,
-        excerpt,
-        content,
-        category,
-        tags: tagsRaw.split(',').map(t => t.trim()),
+        title: title,
+        excerpt: excerpt,
+        content: content,
+        category: category,
+        tags: tags,
         date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-        readTime: readTime || '15 min',
-        image: getRandomImageRandom(category),
+        readTime: readTime || '5 min',
+        image: imageUrl,
         isAutoGenerated: true
       };
 
       setGeneratedArticle(newArticle);
-      const existingSaved = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
-      const updated = [newArticle, ...existingSaved];
-      localStorage.setItem('openyourais_new_articles', JSON.stringify(updated));
-      setLocalArticles(updated);
+
+      // Save to local session storage immediately as backup
+      const existingSavedStr = localStorage.getItem('openyourais_new_articles');
+      let existingSaved: Article[] = existingSavedStr ? JSON.parse(existingSavedStr) : [];
+      existingSaved = [newArticle, ...existingSaved];
+      localStorage.setItem('openyourais_new_articles', JSON.stringify(existingSaved));
+      setLocalArticles(existingSaved);
 
     } catch (err: any) {
-      setError(`Generation failed: ${err.message}`);
+      console.error(err);
+      let errorMsg = 'Failed to generate content.';
+      if (err.message && err.message.includes('API Key')) {
+        errorMsg = err.message;
+      } else {
+        errorMsg = `Error: ${err.message || 'Unknown error'}`;
+      }
+      setError(errorMsg);
     } finally {
       setGenerating(false);
     }
@@ -109,20 +154,54 @@ export const AdminPage: React.FC = () => {
 
   const handlePublish = () => {
     if (generatedArticle) {
-      saveNewArticle(generatedArticle);
+      const updatedList = saveNewArticle(generatedArticle);
+      if (updatedList.length > 0) {
+        setLocalArticles(updatedList);
+      } else {
+        // Fallback update if something goes wrong with the return, though unlikely
+        setLocalArticles(prev => [generatedArticle, ...prev]);
+      }
       setGeneratedArticle(null);
-      alert('Article published locally!');
+      alert('Article published locally! (Remember to copy JSON for permanent update)');
+    }
+  };
+
+  const handleCopyJson = (article: Article) => {
+    const json = JSON.stringify(article, null, 2);
+    navigator.clipboard.writeText(json);
+    alert('Article Data Copied! Paste this in the chat.');
+  };
+
+  const clearLocalArticles = () => {
+    if(confirm('Are you sure? This will remove these articles from your local view (unless they are already hardcoded).')) {
+      localStorage.removeItem('openyourais_new_articles');
+      setLocalArticles([]);
     }
   };
 
   if (!isAuthenticated) {
     return (
       <div className="container mx-auto px-4 py-20 flex justify-center">
-        <Card className="w-full max-w-md p-8 border-cyber-primary/50">
+        <Card className="w-full max-w-md p-8 border-cyber-primary/50 shadow-[0_0_50px_rgba(0,229,255,0.1)]">
+          <div className="flex justify-center mb-6 text-cyber-primary">
+            <Lock className="w-12 h-12" />
+          </div>
           <h2 className="text-2xl font-bold text-center text-white mb-6">Admin Access</h2>
           <form onSubmit={handleLogin} className="space-y-4">
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Access Key" className="w-full bg-black/50 border border-gray-700 rounded-lg p-3 text-white focus:border-cyber-primary outline-none" />
-            <button type="submit" className="w-full bg-cyber-primary text-cyber-bg font-bold py-3 rounded-lg flex items-center justify-center gap-2"><LogIn className="w-5 h-5" /> Login</button>
+            <div>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter Access Key"
+                className="w-full bg-black/50 border border-gray-700 rounded-lg p-3 text-white focus:border-cyber-primary focus:outline-none"
+              />
+            </div>
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            <button type="submit" className="w-full bg-cyber-primary text-cyber-bg font-bold py-3 rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+              <LogIn className="w-5 h-5" /> Login
+            </button>
+            <p className="text-center text-gray-500 text-xs mt-4">Demo Credentials: admin / password</p>
           </form>
         </Card>
       </div>
@@ -132,48 +211,166 @@ export const AdminPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex justify-between items-center mb-8">
-        <SectionTitle title="Content Factory" subtitle="Pillar-style articles for Google AdSense compliance." />
-        <button onClick={logout} className="text-red-400 flex items-center gap-2"><LogOut className="w-4 h-4" /> Logout</button>
+        <SectionTitle title="Admin Dashboard" subtitle="Manage your content and automation." />
+        <button onClick={logout} className="flex items-center gap-2 text-red-400 hover:text-red-300">
+          <LogOut className="w-4 h-4" /> Logout
+        </button>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 mb-12">
-        <Card className="border-cyber-primary/30">
-          <div className="flex items-center gap-2 mb-6 text-cyber-primary"><Sparkles className="w-6 h-6" /><h3 className="text-xl font-bold">Pillar Content Generator</h3></div>
-          <div className="space-y-4">
-            <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="Topic for deep-dive (e.g. The Future of RWA Tokenization)" className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white outline-none focus:border-cyber-primary" />
-            <button onClick={handleGenerate} disabled={generating || !topic} className="w-full py-4 rounded-lg font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white disabled:opacity-50">
-              {generating ? "Researching & Writing (~1-2 mins)..." : "Generate Pillar Article"}
-            </button>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-          </div>
-        </Card>
+        {/* GENERATOR PANEL */}
+        <div className="space-y-6">
+           <Card className="h-full border-cyber-primary/30">
+             <div className="flex items-center gap-2 mb-6 text-cyber-primary">
+               <Sparkles className="w-6 h-6" />
+               <h3 className="text-xl font-bold">AI Article Generator</h3>
+             </div>
+             <p className="text-sm text-gray-400 mb-6">
+               Enter a topic. The AI will search for recent news, generate a structured article, select a category, and prepare it for publishing.
+             </p>
+             
+             <div className="space-y-4">
+               <div>
+                 <label className="block text-sm font-bold text-gray-300 mb-2">Topic or Keyword</label>
+                 <input 
+                   type="text" 
+                   value={topic}
+                   onChange={(e) => setTopic(e.target.value)}
+                   placeholder="e.g. 'Bitcoin price surge analysis'"
+                   className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white focus:border-cyber-primary focus:outline-none"
+                 />
+               </div>
 
-        <Card className={generatedArticle ? 'border-cyber-success/50' : 'border-gray-800'}>
-          {generatedArticle ? (
-            <div className="flex flex-col h-full">
-              <div className="bg-cyber-success/10 text-cyber-success px-4 py-2 rounded mb-4 text-sm flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Pillar Article Ready (Long Form)</div>
-              <div className="bg-black/40 p-4 rounded-lg flex-grow overflow-y-auto max-h-[400px] mb-4 prose prose-invert prose-sm" dangerouslySetInnerHTML={{ __html: generatedArticle.content }} />
-              <button onClick={handlePublish} className="w-full py-3 bg-cyber-success text-black font-bold rounded-lg flex items-center justify-center gap-2"><Save className="w-4 h-4" /> Publish to Blog</button>
-            </div>
-          ) : (
-            <div className="h-full flex items-center justify-center text-gray-600 min-h-[300px]">Preview will appear after generation.</div>
-          )}
-        </Card>
+               <div>
+                 <label className="block text-sm font-bold text-gray-300 mb-2 flex items-center gap-2">
+                   <ImageIcon className="w-4 h-4 text-cyber-secondary" /> Custom Image URL (Optional)
+                 </label>
+                 <input 
+                   type="text" 
+                   value={customImage}
+                   onChange={(e) => setCustomImage(e.target.value)}
+                   placeholder="Paste Unsplash URL or leave blank for random"
+                   className="w-full bg-black/40 border border-gray-600 rounded-lg p-3 text-white focus:border-cyber-secondary focus:outline-none placeholder:text-gray-600"
+                 />
+                 <p className="text-xs text-gray-500 mt-1">Leave empty to auto-select a category image.</p>
+               </div>
+               
+               <button 
+                 onClick={handleGenerate} 
+                 disabled={generating || !topic}
+                 className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all mt-4 ${generating ? 'bg-gray-700 cursor-not-allowed' : 'bg-gradient-to-r from-cyber-primary to-cyber-secondary text-white hover:shadow-[0_0_20px_rgba(191,0,255,0.4)]'}`}
+               >
+                 {generating ? (
+                   <>Processing... <span className="animate-spin">⏳</span></>
+                 ) : (
+                   <><Sparkles className="w-5 h-5" /> Generate Content</>
+                 )}
+               </button>
+               {error && <div className="bg-red-900/50 border border-red-500/50 p-3 rounded text-red-200 text-sm text-center">{error}</div>}
+             </div>
+           </Card>
+        </div>
+
+        {/* PREVIEW PANEL */}
+        <div>
+           <Card className={`h-full ${generatedArticle ? 'border-cyber-success/50' : 'border-gray-800'}`}>
+             {!generatedArticle ? (
+               <div className="h-full flex flex-col items-center justify-center text-gray-600 min-h-[300px]">
+                 <p>Generated content will appear here for review.</p>
+               </div>
+             ) : (
+               <div className="flex flex-col h-full">
+                 <div className="bg-cyber-success/10 text-cyber-success px-4 py-2 rounded mb-4 flex items-center gap-2 text-sm">
+                   <CheckCircle className="w-4 h-4" /> Content Generated Successfully
+                 </div>
+                 
+                 <div className="bg-black/40 p-4 rounded-lg flex-grow overflow-y-auto max-h-[500px] mb-4 border border-white/10">
+                   <div className="h-40 mb-4 rounded overflow-hidden">
+                      {/* Preview Image */}
+                      <img src={generatedArticle.image} alt="Preview" className="w-full h-full object-cover" />
+                   </div>
+                   <h2 className="text-xl font-bold text-white mb-2">{generatedArticle.title}</h2>
+                   <div className="flex gap-2 mb-4 text-xs">
+                     <span className="bg-cyber-primary/20 text-cyber-primary px-2 py-1 rounded">{generatedArticle.category}</span>
+                     <span className="text-gray-400 py-1">{generatedArticle.readTime} read</span>
+                   </div>
+                   <div className="prose prose-invert prose-sm" dangerouslySetInnerHTML={{ __html: generatedArticle.content.substring(0, 300) + '...' }} />
+                 </div>
+
+                 <div className="flex flex-col gap-3">
+                    <div className="flex gap-4">
+                        <button 
+                            onClick={() => setGeneratedArticle(null)}
+                            className="flex-1 py-3 border border-red-500/50 text-red-400 rounded-lg hover:bg-red-500/10"
+                        >
+                            Discard
+                        </button>
+                        <button 
+                            onClick={handlePublish}
+                            className="flex-1 py-3 bg-cyber-success text-black font-bold rounded-lg hover:bg-green-400 flex items-center justify-center gap-2"
+                        >
+                            <Save className="w-4 h-4" /> Publish Now
+                        </button>
+                    </div>
+                    <button 
+                        onClick={() => handleCopyJson(generatedArticle)}
+                        className="w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 flex items-center justify-center gap-2 text-sm"
+                    >
+                        <Copy className="w-4 h-4" /> Copy Data for Developer
+                    </button>
+                 </div>
+               </div>
+             )}
+           </Card>
+        </div>
       </div>
 
+      {/* LOCALLY SAVED ARTICLES LIST */}
       {localArticles.length > 0 && (
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2"><FileText className="text-cyber-secondary" /> Local Drafts</h3>
-          <div className="grid gap-4">
-            {localArticles.map((article) => (
-              <div key={article.id} className="bg-white/5 border border-white/10 p-4 rounded-lg flex justify-between items-center">
-                <div><h4 className="font-bold text-white">{article.title}</h4><p className="text-xs text-gray-400">{article.date} • {Math.round(article.content.length / 6)} estimated words</p></div>
-                <button onClick={() => { navigator.clipboard.writeText(JSON.stringify(article, null, 2)); alert('Copied!'); }} className="px-4 py-2 bg-cyber-primary/20 text-cyber-primary rounded hover:bg-cyber-primary hover:text-black transition-colors flex items-center gap-2"><Copy className="w-4 h-4" /> JSON</button>
-              </div>
-            ))}
-          </div>
+        <div className="mb-12">
+           <div className="flex items-center justify-between mb-6">
+             <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+               <FileText className="text-cyber-secondary" /> Locally Published Articles
+             </h3>
+             <button onClick={clearLocalArticles} className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1">
+               <Trash2 className="w-3 h-3" /> Clear Local History
+             </button>
+           </div>
+           
+           <div className="grid gap-4">
+              {localArticles.map((article) => (
+                <div key={article.id} className="bg-white/5 border border-white/10 p-4 rounded-lg flex flex-col md:flex-row justify-between items-center gap-4">
+                   <div className="flex-grow">
+                      <h4 className="font-bold text-white text-lg">{article.title}</h4>
+                      <p className="text-xs text-gray-400">{article.date} • {article.category}</p>
+                   </div>
+                   <div className="flex items-center gap-2">
+                      <button 
+                        onClick={() => handleCopyJson(article)}
+                        className="px-4 py-2 bg-cyber-primary/20 text-cyber-primary border border-cyber-primary/50 rounded hover:bg-cyber-primary hover:text-black transition-colors flex items-center gap-2"
+                      >
+                        <Copy className="w-4 h-4" /> Copy JSON
+                      </button>
+                      <div className="text-xs text-gray-500 px-2 max-w-[150px] text-center">
+                        Click Copy, then paste in chat to make permanent.
+                      </div>
+                   </div>
+                </div>
+              ))}
+           </div>
         </div>
       )}
+      
+      {/* DISCLAIMER */}
+      <div className="mt-8 bg-yellow-900/20 border border-yellow-700/50 p-4 rounded-lg flex items-start gap-4">
+        <AlertTriangle className="w-6 h-6 text-yellow-500 flex-shrink-0" />
+        <div>
+          <h4 className="font-bold text-yellow-500 mb-1">Important: Local Storage</h4>
+          <p className="text-sm text-gray-400">
+            Articles listed above under "Locally Published" are only visible to YOU in this browser. To make them permanent for all users and Google AdSense, please click "Copy JSON" and send the code to the developer.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
