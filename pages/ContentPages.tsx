@@ -1,54 +1,60 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, AlertCircle, BarChart3, Zap } from 'lucide-react';
+import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, Zap, Award, Target, Info } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
 import { TOOLS, PLAYBOOKS, ARTICLES, CRYPTO_GUIDES } from '../constants';
-import { Article } from '../types';
-
-// --- HELPERS ---
-const getGuideImage = (id: string) => {
-  switch(id) {
-    case 'cg1': return "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=600&q=80"; // Bitcoin
-    case 'cg2': return "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=600&q=80"; // DeFi
-    case 'cg3': return "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=600&q=80"; // Security
-    default: return "https://images.unsplash.com/photo-1621416894512-5363b933b243?auto=format&fit=crop&w=600&q=80";
-  }
-};
 
 // --- TOOLS PAGE ---
 export const ToolsPage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  
   useEffect(() => {
-    document.title = "AI Tools Directory | Open Your AIs";
+    document.title = "AI Intelligence Directory | Open Your AIs";
   }, []);
+
+  const filteredTools = TOOLS.filter(t => 
+    t.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    t.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <SectionTitle title="AI Tools Directory" subtitle="The best AI software curated for professionals." />
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {TOOLS.map(tool => (
-          <Card key={tool.id} className="flex flex-col">
-            <div className="h-32 mb-4 rounded overflow-hidden relative border-b border-white/5">
-                <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80" alt={tool.name} className="w-full h-full object-cover opacity-60" />
-            </div>
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="text-xl font-bold text-white">{tool.name}</h3>
-              <span className={`text-xs px-2 py-1 rounded ${tool.priceModel === 'Free' ? 'bg-green-500/20 text-green-400' : tool.priceModel === 'Paid' ? 'bg-red-500/20 text-red-400' : 'bg-yellow-500/20 text-yellow-400'}`}>
+      <SectionTitle title="AI Intelligence Nodes" subtitle="An audited directory of frontier technologies for the high-frequency economy." />
+      
+      <div className="max-w-xl mx-auto mb-16 relative">
+         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+         <input 
+            type="text" 
+            placeholder="Search Intelligence Nodes..." 
+            className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-12 pr-6 text-sm focus:outline-none focus:border-cyber-primary transition-all uppercase font-black tracking-widest text-cyber-primary"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+         />
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredTools.map(tool => (
+          <Card key={tool.id} className="flex flex-col border-white/5 hover:border-cyber-primary/30 group">
+            <div className="flex justify-between items-start mb-6">
+               <div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-tight mb-1 group-hover:text-cyber-primary transition-colors">{tool.name}</h3>
+                  <span className="text-[10px] font-black text-cyber-primary uppercase tracking-widest opacity-60">{tool.category}</span>
+               </div>
+               <span className={`text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest border ${tool.priceModel === 'Free' ? 'border-green-500/30 text-green-400 bg-green-500/5' : tool.priceModel === 'Paid' ? 'border-red-500/30 text-red-400 bg-red-500/5' : 'border-yellow-500/30 text-yellow-400 bg-yellow-500/5'}`}>
                 {tool.priceModel}
               </span>
             </div>
-            <div className="text-sm text-cyber-primary mb-2">{tool.category}</div>
-            <p className="text-gray-400 text-sm mb-4 flex-grow">{tool.shortDesc}</p>
-            <div className="space-y-2 mb-6">
-               <h4 className="text-xs font-semibold uppercase text-gray-500">Key Features:</h4>
+            <p className="text-gray-400 text-sm mb-8 flex-grow leading-relaxed font-light line-clamp-3">{tool.shortDesc}</p>
+            <div className="space-y-4 mb-8">
                <div className="flex flex-wrap gap-2">
-                 {tool.features.slice(0, 3).map((f, i) => (
-                   <span key={i} className="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">{f}</span>
+                 {tool.features.map((f, i) => (
+                   <span key={i} className="text-[8px] font-black bg-white/5 px-2.5 py-1 rounded border border-white/5 text-gray-500 uppercase tracking-[0.15em]">{f}</span>
                  ))}
                </div>
             </div>
-            <a href={tool.url} target="_blank" rel="noopener noreferrer" className="mt-auto w-full flex items-center justify-center gap-2 py-2 border border-cyber-primary/50 text-cyber-primary rounded hover:bg-cyber-primary hover:text-cyber-bg transition-colors">
-              Visit Website <ExternalLink className="w-4 h-4" />
+            <a href={tool.url} target="_blank" rel="noopener noreferrer" className="mt-auto w-full flex items-center justify-center gap-3 py-4 bg-white/5 border border-white/10 text-white font-black rounded-xl hover:bg-cyber-primary hover:text-cyber-bg transition-all uppercase tracking-widest text-[10px]">
+              Deploy Intelligence <ExternalLink className="w-3 h-3" />
             </a>
           </Card>
         ))}
@@ -66,91 +72,43 @@ export const PlaybooksPage: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <SectionTitle title="Monetization Playbooks" subtitle="Actionable guides to generating revenue with AI." />
-      <div className="space-y-6">
+      <SectionTitle title="Revenue Frameworks" subtitle="Battle-tested execution plans for the digital sovereignty age." />
+      <div className="grid gap-12 max-w-5xl mx-auto">
         {PLAYBOOKS.map((pb, index) => (
-          <React.Fragment key={pb.id}>
-          {index === 2 && <AdUnit slot="playbooks-interstitial" />}
-          <Card className="border-l-4 border-l-cyber-secondary">
-            <div className="md:flex justify-between items-start">
-              <div className="mb-4 md:mb-0 w-full">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-2xl font-bold text-white">{pb.title}</h3>
-                  <span className={`text-xs px-2 py-1 rounded border ${pb.difficulty === 'Easy' ? 'border-green-500 text-green-500' : pb.difficulty === 'Medium' ? 'border-yellow-500 text-yellow-500' : 'border-red-500 text-red-500'}`}>
-                    {pb.difficulty}
-                  </span>
+          <Link to={`/playbooks/${pb.id}`} key={pb.id} className="group">
+            <Card className="border-white/5 group-hover:border-cyber-secondary/40 transition-all p-0 overflow-hidden flex flex-col md:flex-row">
+              <div className="md:w-72 h-48 md:h-auto overflow-hidden bg-gray-900 border-r border-white/5 relative">
+                 <SmartImage src={pb.image || ''} alt={pb.title} className="w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                 <div className="absolute bottom-4 left-4 text-[9px] font-black text-cyber-secondary uppercase tracking-[0.2em] italic">Playbook 0{index + 1}</div>
+              </div>
+              <div className="p-10 flex-grow flex flex-col">
+                <div className="flex flex-wrap items-center gap-4 mb-4">
+                  <h3 className="text-2xl font-black text-white uppercase tracking-tighter group-hover:text-cyber-secondary transition-colors leading-none">{pb.title}</h3>
+                  <div className={`text-[8px] font-black px-3 py-1 rounded-full border uppercase tracking-widest ${pb.difficulty === 'Easy' ? 'border-green-500/30 text-green-500' : pb.difficulty === 'Medium' ? 'border-yellow-500/30 text-yellow-500' : 'border-red-500/30 text-red-500'}`}>
+                    {pb.difficulty} EXECUTION
+                  </div>
                 </div>
-                <div className="flex gap-4 mb-4">
-                    <div className="w-full md:w-32 h-20 rounded overflow-hidden flex-shrink-0">
-                         <SmartImage src={pb.image || ''} alt={pb.title} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="flex-grow">
-                        <p className="text-gray-300 mb-4 max-w-2xl">{pb.tldr}</p>
-                         <div className="flex gap-6 text-sm">
-                          <div className="flex items-center gap-2 text-cyber-secondary">
-                            <DollarSign className="w-4 h-4" /> ROI: {pb.roi}
-                          </div>
-                          <div className="flex items-center gap-2 text-gray-400">
-                            <Clock className="w-4 h-4" /> Timeline: {pb.timeline}
-                          </div>
-                        </div>
-                    </div>
+                <p className="text-gray-400 text-sm mb-8 font-light leading-relaxed max-w-2xl">{pb.tldr}</p>
+                <div className="flex flex-wrap gap-8 mt-auto pt-6 border-t border-white/5 items-center">
+                   <div className="flex items-center gap-2">
+                      <Target className="w-4 h-4 text-cyber-secondary" />
+                      <span className="text-[9px] font-black text-white uppercase tracking-widest">{pb.roi}</span>
+                   </div>
+                   <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-gray-600" />
+                      <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">{pb.timeline}</span>
+                   </div>
+                   <div className="ml-auto flex items-center gap-1 text-[10px] font-black text-cyber-secondary uppercase tracking-widest group-hover:translate-x-1 transition-transform">
+                      Open Playbook <ChevronRight className="w-3 h-3" />
+                   </div>
                 </div>
               </div>
-              <Link to={`/playbooks/${pb.id}`} className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors whitespace-nowrap inline-block text-center text-white mt-4 md:mt-0">
-                Read Guide
-              </Link>
-            </div>
-            
-            {/* Steps Preview */}
-            <div className="mt-6 pt-6 border-t border-white/5">
-              <h4 className="text-sm font-semibold text-gray-500 mb-3 uppercase tracking-wider">Preview Steps</h4>
-              <ol className="list-decimal list-inside space-y-2 text-gray-400 text-sm">
-                {pb.steps.slice(0, 3).map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-                <li className="list-none text-cyber-secondary italic pt-1">...Unlock full playbook to see all steps</li>
-              </ol>
-            </div>
-          </Card>
-          </React.Fragment>
+            </Card>
+          </Link>
         ))}
       </div>
-    </div>
-  );
-};
-
-// --- CRYPTO HUB COMPONENTS ---
-const MarketTicker = () => {
-  const assets = [
-    { name: 'BTC', price: '$96,432', change: '+2.4%' },
-    { name: 'ETH', price: '$2,845', change: '-0.8%' },
-    { name: 'SOL', price: '$184.20', change: '+5.1%' },
-    { name: 'BNB', price: '$612', change: '+1.2%' }
-  ];
-
-  return (
-    <div className="w-full bg-cyber-bg border-y border-cyber-success/20 overflow-hidden mb-12 py-3">
-      <div className="flex gap-12 animate-marquee whitespace-nowrap">
-        {[...assets, ...assets].map((asset, i) => (
-          <div key={i} className="flex items-center gap-3">
-            <span className="font-bold text-white">{asset.name}</span>
-            <span className="text-cyber-success/80 font-mono">{asset.price}</span>
-            <span className={`text-xs ${asset.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
-              {asset.change}
-            </span>
-          </div>
-        ))}
-      </div>
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
-        }
-      `}</style>
+      <AdUnit slot="playbooks-bottom" className="mt-20" />
     </div>
   );
 };
@@ -158,103 +116,67 @@ const MarketTicker = () => {
 // --- CRYPTO PAGE ---
 export const CryptoPage: React.FC = () => {
   useEffect(() => {
-    document.title = "Crypto Intelligence Hub | Open Your AIs";
+    document.title = "Crypto Protocol Hub | Open Your AIs";
   }, []);
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <SectionTitle title="Crypto Intelligence" subtitle="Safe protocols and strategic insights for the digital asset era." />
+      <SectionTitle title="The Crypto Vault" subtitle="Institutional-grade analysis for digital asset self-sovereignty." />
       
-      <MarketTicker />
-
-      {/* Featured Educational Cards */}
-      <div className="grid md:grid-cols-3 gap-6 mb-16">
+      <div className="grid md:grid-cols-3 gap-8 mb-20">
         {CRYPTO_GUIDES.map(guide => (
-          <Card key={guide.id} className="border-t-4 border-t-cyber-success flex flex-col group">
-             <div className="h-40 mb-4 rounded overflow-hidden -mx-6 -mt-6 mb-4 relative">
-                <SmartImage src={getGuideImage(guide.id)} alt={guide.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-cyber-success text-black text-[10px] font-black px-2 py-0.5 uppercase tracking-widest rounded-sm">{guide.level}</div>
-             </div>
-             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyber-success transition-colors">{guide.title}</h3>
-             <p className="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">{guide.summary}</p>
-             <Link to={`/crypto/${guide.id}`} className="text-cyber-success hover:text-white flex items-center gap-1 text-xs font-bold uppercase tracking-wider mt-auto">
-               Access Intelligence <ChevronRight className="w-4 h-4" />
-             </Link>
-          </Card>
+          <Link to={`/crypto/${guide.id}`} key={guide.id} className="group">
+             <Card className="h-full border-white/5 group-hover:border-cyber-success/30 transition-all flex flex-col relative overflow-hidden bg-cyber-success/[0.01]">
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition-opacity">
+                   <ShieldCheck className="w-16 h-16" />
+                </div>
+                <div className="text-[8px] font-black text-cyber-success uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                   <Zap className="w-3 h-3" /> {guide.level} Intel Level
+                </div>
+                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tight group-hover:text-cyber-success transition-colors leading-tight">{guide.title}</h3>
+                <p className="text-gray-500 text-sm mb-8 font-light leading-relaxed flex-grow">{guide.summary}</p>
+                <div className="flex items-center gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest group-hover:text-white transition-colors">
+                   Decrypt Data <ChevronRight className="w-3 h-3" />
+                </div>
+             </Card>
+          </Link>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
-        <div>
-           <div className="flex items-center gap-2 mb-6">
-              <BarChart3 className="text-cyber-success w-6 h-6" />
-              <h3 className="text-2xl font-bold text-white">Sentiment & Trends</h3>
-           </div>
-           <Card className="bg-black/40 border-cyber-success/10 relative overflow-hidden">
-              <div className="text-center py-6">
-                 <p className="text-gray-500 text-sm mb-4 uppercase tracking-tighter">Fear & Greed Index</p>
-                 <div className="relative w-48 h-24 mx-auto overflow-hidden">
-                    {/* Semicircle Gauge */}
-                    <div className="absolute top-0 left-0 w-48 h-48 rounded-full border-[12px] border-gray-800"></div>
-                    <div className="absolute top-0 left-0 w-48 h-48 rounded-full border-[12px] border-l-orange-500 border-t-yellow-500 border-r-cyber-success rotate-[45deg]"></div>
-                    <div className="absolute top-0 left-1/2 w-1 h-24 bg-white origin-bottom -translate-x-1/2 rotate-[35deg] shadow-[0_0_10px_white]"></div>
-                 </div>
-                 <div className="mt-4">
-                    <span className="text-4xl font-black text-white">72</span>
-                    <p className="text-cyber-success font-bold text-xs uppercase">Greed</p>
-                 </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-white/5">
-                 <div className="text-center">
-                    <p className="text-[10px] text-gray-500 uppercase">24h Volatility</p>
-                    <p className="text-sm font-bold text-white">Low</p>
-                 </div>
-                 <div className="text-center">
-                    <p className="text-[10px] text-gray-500 uppercase">Trend Strength</p>
-                    <p className="text-sm font-bold text-cyber-success">Strong Buy</p>
-                 </div>
-              </div>
-           </Card>
-        </div>
-        <div>
-           <div className="flex items-center gap-2 mb-6">
-              <ShieldCheck className="text-cyber-success w-6 h-6" />
-              <h3 className="text-2xl font-bold text-white">Ironclad Security</h3>
-           </div>
-           <div className="space-y-4">
-              <div className="p-4 bg-white/5 border border-white/5 rounded-xl hover:border-cyber-success/30 transition-all flex gap-4">
-                 <div className="w-10 h-10 bg-cyber-success/20 rounded flex items-center justify-center flex-shrink-0">
-                    <Zap className="text-cyber-success w-5 h-5" />
-                 </div>
-                 <div>
-                    <h4 className="font-bold text-white text-sm">Self-Custody Priority</h4>
-                    <p className="text-xs text-gray-400">If you don't hold your private keys, you don't own your assets. Learn cold storage.</p>
-                 </div>
-              </div>
-              <div className="p-4 bg-white/5 border border-white/5 rounded-xl hover:border-red-500/30 transition-all flex gap-4">
-                 <div className="w-10 h-10 bg-red-500/20 rounded flex items-center justify-center flex-shrink-0">
-                    <AlertCircle className="text-red-500 w-5 h-5" />
-                 </div>
-                 <div>
-                    <h4 className="font-bold text-white text-sm">Zero-Trust Verification</h4>
-                    <p className="text-xs text-gray-400">Never click links in DMs or emails. Verify every smart contract interaction.</p>
-                 </div>
-              </div>
-              <div className="p-4 bg-white/5 border border-white/5 rounded-xl hover:border-cyber-primary/30 transition-all flex gap-4">
-                 <div className="w-10 h-10 bg-cyber-primary/20 rounded flex items-center justify-center flex-shrink-0">
-                    <ShieldCheck className="text-cyber-primary w-5 h-5" />
-                 </div>
-                 <div>
-                    <h4 className="font-bold text-white text-sm">Multi-Factor Everything</h4>
-                    <p className="text-xs text-gray-400">Avoid SMS 2FA. Use hardware keys (Yubikey) or app-based authenticators.</p>
-                 </div>
-              </div>
-           </div>
-        </div>
+      <div className="grid md:grid-cols-2 gap-12 items-start">
+         <Card className="border-cyber-success/10 bg-cyber-success/[0.02] p-12 rounded-[40px]">
+            <h3 className="text-2xl font-black text-white mb-8 uppercase tracking-widest flex items-center gap-3">
+               <TrendingUp className="text-cyber-success w-6 h-6" /> Sentiment Engine
+            </h3>
+            <div className="space-y-8">
+               <div className="flex justify-between items-end border-b border-white/5 pb-6">
+                  <div className="flex flex-col">
+                    <span className="text-[8px] font-black text-gray-500 uppercase tracking-[0.2em]">Current Market State</span>
+                    <span className="text-gray-200 font-bold">Fear & Greed Index</span>
+                  </div>
+                  <span className="text-4xl font-black text-cyber-success">74 / 100</span>
+               </div>
+               <div className="flex justify-between items-end border-b border-white/5 pb-6">
+                  <div className="flex flex-col">
+                    <span className="text-[8px] font-black text-gray-500 uppercase tracking-[0.2em]">Trend Analysis</span>
+                    <span className="text-gray-200 font-bold">Alpha Stream Sentiment</span>
+                  </div>
+                  <span className="text-xl font-black text-white uppercase italic">Extreme Bullish</span>
+               </div>
+            </div>
+         </Card>
+         <Card className="border-cyber-primary/10 bg-cyber-primary/[0.02] p-12 rounded-[40px]">
+            <h3 className="text-2xl font-black text-white mb-8 uppercase tracking-widest flex items-center gap-3">
+               <Award className="text-cyber-primary w-6 h-6" /> Security Advisory
+            </h3>
+            <p className="text-sm text-gray-400 font-light leading-relaxed mb-8 italic">Our automated safety protocols have scanned 45+ smart contracts today. Zero high-criticality vulnerabilities found in listed vault protocols. Asset custody is currently optimal.</p>
+            <div className="flex gap-4">
+               <div className="px-6 py-3 bg-black/40 rounded-xl text-[9px] font-black text-cyber-primary uppercase tracking-widest border border-cyber-primary/20 flex items-center gap-2">
+                 <ShieldCheck className="w-4 h-4" /> Verified Protocol Layer
+               </div>
+            </div>
+         </Card>
       </div>
-      
-      <AdUnit slot="crypto-hub-bottom" />
     </div>
   );
 };
@@ -264,52 +186,56 @@ export const BlogPage: React.FC = () => {
   const [filter, setFilter] = useState<'All' | 'AI' | 'Crypto' | 'Monetization'>('All');
   
   useEffect(() => {
-    document.title = "Blog & Insights | Open Your AIs";
+    document.title = "Neural Intel Feed | Open Your AIs";
   }, []);
 
+  const savedArticles = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
+  const allArticles = [...savedArticles, ...ARTICLES];
+
   const filteredArticles = filter === 'All' 
-    ? ARTICLES 
-    : ARTICLES.filter(a => a.category === filter);
+    ? allArticles 
+    : allArticles.filter(a => a.category === filter);
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <SectionTitle title="The Blog" subtitle="In-depth articles and analysis." />
+      <SectionTitle title="Neural Feed" subtitle="High-frequency intelligence stream and archival reporting." />
       
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
+      <div className="flex flex-wrap justify-center gap-4 mb-20">
         {['All', 'AI', 'Crypto', 'Monetization'].map(cat => (
           <button
             key={cat}
             onClick={() => setFilter(cat as any)}
-            className={`px-6 py-2 rounded-full border transition-all ${filter === cat ? 'bg-cyber-primary text-cyber-bg border-cyber-primary font-bold shadow-[0_0_10px_#00E5FF]' : 'bg-transparent border-gray-700 text-gray-400 hover:border-gray-500'}`}
+            className={`px-10 py-3 rounded-full border transition-all text-[9px] font-black tracking-[0.2em] uppercase ${filter === cat ? 'bg-cyber-primary text-cyber-bg border-cyber-primary shadow-[0_0_25px_rgba(0,229,255,0.3)]' : 'bg-transparent border-white/10 text-gray-500 hover:text-white hover:border-white/30'}`}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
         {filteredArticles.map((article, index) => (
           <React.Fragment key={article.id}>
-             <Link to={`/blog/${article.slug}`}>
-                <Card className="h-full flex flex-col group hover:shadow-2xl hover:shadow-cyber-primary/10">
-                  <div className="h-48 rounded-lg overflow-hidden mb-4 relative">
-                     <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+             <Link to={`/blog/${article.slug}`} className="group">
+                <Card className="h-full flex flex-col p-0 rounded-[40px] overflow-hidden border-white/5 group-hover:border-cyber-primary/20 transition-all bg-white/[0.01]">
+                  <div className="aspect-video w-full overflow-hidden relative border-b border-white/5 bg-gray-900">
+                     <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" />
+                     <div className="absolute top-6 left-6 bg-cyber-bg/90 backdrop-blur px-4 py-1.5 text-[8px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-[0.2em] italic">{article.category} Protocol</div>
                   </div>
-                  <div className="mb-2 flex items-center justify-between">
-                     <span className="text-xs font-bold text-cyber-primary uppercase">{article.category}</span>
-                     <span className="text-xs text-gray-500">{article.date}</span>
+                  <div className="p-10 flex flex-col flex-grow">
+                     <h3 className="text-2xl font-black text-white mb-6 line-clamp-2 uppercase tracking-tight group-hover:text-cyber-primary transition-colors leading-[1.1]">{article.title}</h3>
+                     <p className="text-gray-500 text-sm mb-10 line-clamp-2 font-light leading-relaxed flex-grow">{article.excerpt}</p>
+                     <div className="flex justify-between items-center text-[9px] font-black text-gray-700 mt-auto pt-8 border-t border-white/5 uppercase tracking-[0.3em] italic">
+                       <span>{article.date}</span>
+                       <span className="text-cyber-primary group-hover:translate-x-2 transition-transform">Transmit Data &rarr;</span>
+                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-cyber-primary transition-colors">{article.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">{article.excerpt}</p>
                 </Card>
              </Link>
-             {/* Insert Ad every 6 items */}
              {(index + 1) % 6 === 0 && <div className="md:col-span-2 lg:col-span-3"><AdUnit slot="in-feed" /></div>}
           </React.Fragment>
         ))}
       </div>
-      <AdUnit slot="blog-footer" />
+      <AdUnit slot="blog-footer" className="mt-24" />
     </div>
   );
 };
