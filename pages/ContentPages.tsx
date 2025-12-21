@@ -1,13 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, Zap, Award, Target, Info } from 'lucide-react';
+import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, Zap, Award, Target, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
 import { TOOLS, PLAYBOOKS, ARTICLES, CRYPTO_GUIDES } from '../constants';
 
 // --- TOOLS PAGE ---
 export const ToolsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   
   useEffect(() => {
     document.title = "AI Intelligence Directory | Open Your AIs";
@@ -45,17 +46,32 @@ export const ToolsPage: React.FC = () => {
                 {tool.priceModel}
               </span>
             </div>
-            <p className="text-gray-400 text-sm mb-8 flex-grow leading-relaxed font-light line-clamp-3">{tool.shortDesc}</p>
-            <div className="space-y-4 mb-8">
-               <div className="flex flex-wrap gap-2">
-                 {tool.features.map((f, i) => (
-                   <span key={i} className="text-[8px] font-black bg-white/5 px-2.5 py-1 rounded border border-white/5 text-gray-500 uppercase tracking-[0.15em]">{f}</span>
-                 ))}
+            
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed font-light">{tool.shortDesc}</p>
+            
+            <div className={`overflow-hidden transition-all duration-500 ${expandedId === tool.id ? 'max-h-[1000px] opacity-100 mb-8' : 'max-h-0 opacity-0'}`}>
+               <div className="p-6 bg-white/[0.03] border border-white/5 rounded-2xl text-xs text-gray-300 leading-relaxed italic font-light">
+                  {tool.fullDesc}
                </div>
             </div>
-            <a href={tool.url} target="_blank" rel="noopener noreferrer" className="mt-auto w-full flex items-center justify-center gap-3 py-4 bg-white/5 border border-white/10 text-white font-black rounded-xl hover:bg-cyber-primary hover:text-cyber-bg transition-all uppercase tracking-widest text-[10px]">
-              Deploy Intelligence <ExternalLink className="w-3 h-3" />
-            </a>
+
+            <div className="flex flex-wrap gap-2 mb-8">
+              {tool.features.slice(0, 3).map((f, i) => (
+                <span key={i} className="text-[8px] font-black bg-white/5 px-2.5 py-1 rounded border border-white/5 text-gray-500 uppercase tracking-[0.15em]">{f}</span>
+              ))}
+            </div>
+
+            <div className="mt-auto grid grid-cols-2 gap-4">
+              <button 
+                onClick={() => setExpandedId(expandedId === tool.id ? null : tool.id)}
+                className="flex items-center justify-center gap-2 py-3 border border-white/10 text-white font-black rounded-xl hover:bg-white/5 transition-all uppercase tracking-widest text-[9px]"
+              >
+                {expandedId === tool.id ? <><ChevronUp className="w-3 h-3" /> Hide Intel</> : <><ChevronDown className="w-3 h-3" /> Tech Review</>}
+              </button>
+              <a href={tool.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 text-white font-black rounded-xl hover:bg-cyber-primary hover:text-cyber-bg transition-all uppercase tracking-widest text-[9px]">
+                Deploy <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </Card>
         ))}
       </div>
