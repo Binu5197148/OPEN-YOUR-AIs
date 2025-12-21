@@ -1,10 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ExternalLink, Clock, DollarSign, ChevronRight } from 'lucide-react';
+import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, AlertCircle, BarChart3, Zap } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
 import { TOOLS, PLAYBOOKS, ARTICLES, CRYPTO_GUIDES } from '../constants';
 import { Article } from '../types';
+
+// --- HELPERS ---
+const getGuideImage = (id: string) => {
+  switch(id) {
+    case 'cg1': return "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=600&q=80"; // Bitcoin
+    case 'cg2': return "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=600&q=80"; // DeFi
+    case 'cg3': return "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=600&q=80"; // Security
+    default: return "https://images.unsplash.com/photo-1621416894512-5363b933b243?auto=format&fit=crop&w=600&q=80";
+  }
+};
 
 // --- TOOLS PAGE ---
 export const ToolsPage: React.FC = () => {
@@ -19,7 +29,6 @@ export const ToolsPage: React.FC = () => {
         {TOOLS.map(tool => (
           <Card key={tool.id} className="flex flex-col">
             <div className="h-32 mb-4 rounded overflow-hidden relative border-b border-white/5">
-                {/* Use a thematic image for the tool if available, or a generic AI one */}
                 <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80" alt={tool.name} className="w-full h-full object-cover opacity-60" />
             </div>
             <div className="flex justify-between items-start mb-4">
@@ -111,6 +120,41 @@ export const PlaybooksPage: React.FC = () => {
   );
 };
 
+// --- CRYPTO HUB COMPONENTS ---
+const MarketTicker = () => {
+  const assets = [
+    { name: 'BTC', price: '$96,432', change: '+2.4%' },
+    { name: 'ETH', price: '$2,845', change: '-0.8%' },
+    { name: 'SOL', price: '$184.20', change: '+5.1%' },
+    { name: 'BNB', price: '$612', change: '+1.2%' }
+  ];
+
+  return (
+    <div className="w-full bg-cyber-bg border-y border-cyber-success/20 overflow-hidden mb-12 py-3">
+      <div className="flex gap-12 animate-marquee whitespace-nowrap">
+        {[...assets, ...assets].map((asset, i) => (
+          <div key={i} className="flex items-center gap-3">
+            <span className="font-bold text-white">{asset.name}</span>
+            <span className="text-cyber-success/80 font-mono">{asset.price}</span>
+            <span className={`text-xs ${asset.change.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+              {asset.change}
+            </span>
+          </div>
+        ))}
+      </div>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
 // --- CRYPTO PAGE ---
 export const CryptoPage: React.FC = () => {
   useEffect(() => {
@@ -119,67 +163,98 @@ export const CryptoPage: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <SectionTitle title="Crypto Intelligence" subtitle="Navigate the blockchain ecosystem with confidence." />
+      <SectionTitle title="Crypto Intelligence" subtitle="Safe protocols and strategic insights for the digital asset era." />
       
+      <MarketTicker />
+
       {/* Featured Educational Cards */}
-      <div className="grid md:grid-cols-3 gap-6 mb-12">
+      <div className="grid md:grid-cols-3 gap-6 mb-16">
         {CRYPTO_GUIDES.map(guide => (
-          <Card key={guide.id} className="border-t-4 border-t-cyber-success flex flex-col">
-             <div className="h-32 mb-4 rounded overflow-hidden -mx-6 -mt-6 mb-4 relative">
-                <SmartImage src="https://images.unsplash.com/photo-1621416894512-5363b933b243?auto=format&fit=crop&w=600&q=80" alt={guide.title} className="w-full h-full object-cover" />
-                <div className="absolute top-0 right-0 bg-cyber-success text-black text-xs font-bold px-3 py-1 uppercase tracking-wider">{guide.level}</div>
+          <Card key={guide.id} className="border-t-4 border-t-cyber-success flex flex-col group">
+             <div className="h-40 mb-4 rounded overflow-hidden -mx-6 -mt-6 mb-4 relative">
+                <SmartImage src={getGuideImage(guide.id)} alt={guide.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute top-4 right-4 bg-cyber-success text-black text-[10px] font-black px-2 py-0.5 uppercase tracking-widest rounded-sm">{guide.level}</div>
              </div>
-             <h3 className="text-xl font-bold text-white mb-3">{guide.title}</h3>
-             <p className="text-gray-400 text-sm mb-4 flex-grow">{guide.summary}</p>
-             <Link to={`/crypto/${guide.id}`} className="text-white hover:text-cyber-success flex items-center gap-1 text-sm font-medium mt-auto">
-               Read Guide <ChevronRight className="w-4 h-4" />
+             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyber-success transition-colors">{guide.title}</h3>
+             <p className="text-gray-400 text-sm mb-4 flex-grow leading-relaxed">{guide.summary}</p>
+             <Link to={`/crypto/${guide.id}`} className="text-cyber-success hover:text-white flex items-center gap-1 text-xs font-bold uppercase tracking-wider mt-auto">
+               Access Intelligence <ChevronRight className="w-4 h-4" />
              </Link>
           </Card>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
         <div>
-           <h3 className="text-2xl font-bold text-white mb-6">Market Overview</h3>
-           <Card className="h-64 flex items-center justify-center bg-black/40">
-              <div className="text-center">
-                 <p className="text-gray-500 mb-2">Live Market Data Visualization</p>
-                 <div className="w-full h-32 flex items-end gap-1 px-8 opacity-50">
-                    {[40, 65, 45, 70, 55, 80, 60, 90, 75, 100].map((h, i) => (
-                      <div key={i} style={{height: `${h}%`}} className="w-4 bg-cyber-success/50 rounded-t"></div>
-                    ))}
+           <div className="flex items-center gap-2 mb-6">
+              <BarChart3 className="text-cyber-success w-6 h-6" />
+              <h3 className="text-2xl font-bold text-white">Sentiment & Trends</h3>
+           </div>
+           <Card className="bg-black/40 border-cyber-success/10 relative overflow-hidden">
+              <div className="text-center py-6">
+                 <p className="text-gray-500 text-sm mb-4 uppercase tracking-tighter">Fear & Greed Index</p>
+                 <div className="relative w-48 h-24 mx-auto overflow-hidden">
+                    {/* Semicircle Gauge */}
+                    <div className="absolute top-0 left-0 w-48 h-48 rounded-full border-[12px] border-gray-800"></div>
+                    <div className="absolute top-0 left-0 w-48 h-48 rounded-full border-[12px] border-l-orange-500 border-t-yellow-500 border-r-cyber-success rotate-[45deg]"></div>
+                    <div className="absolute top-0 left-1/2 w-1 h-24 bg-white origin-bottom -translate-x-1/2 rotate-[35deg] shadow-[0_0_10px_white]"></div>
                  </div>
-                 <p className="text-xs text-gray-600 mt-2">*Mock visualization for demo</p>
+                 <div className="mt-4">
+                    <span className="text-4xl font-black text-white">72</span>
+                    <p className="text-cyber-success font-bold text-xs uppercase">Greed</p>
+                 </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-white/5">
+                 <div className="text-center">
+                    <p className="text-[10px] text-gray-500 uppercase">24h Volatility</p>
+                    <p className="text-sm font-bold text-white">Low</p>
+                 </div>
+                 <div className="text-center">
+                    <p className="text-[10px] text-gray-500 uppercase">Trend Strength</p>
+                    <p className="text-sm font-bold text-cyber-success">Strong Buy</p>
+                 </div>
               </div>
            </Card>
         </div>
         <div>
-           <h3 className="text-2xl font-bold text-white mb-6">Safety First</h3>
-           <ul className="space-y-4">
-              <li className="flex gap-4 items-start">
-                 <div className="mt-1 min-w-[24px] text-red-500">⚠</div>
-                 <div>
-                    <h4 className="font-bold text-white">Never share your seed phrase</h4>
-                    <p className="text-sm text-gray-400">No support team will ever ask for it.</p>
+           <div className="flex items-center gap-2 mb-6">
+              <ShieldCheck className="text-cyber-success w-6 h-6" />
+              <h3 className="text-2xl font-bold text-white">Ironclad Security</h3>
+           </div>
+           <div className="space-y-4">
+              <div className="p-4 bg-white/5 border border-white/5 rounded-xl hover:border-cyber-success/30 transition-all flex gap-4">
+                 <div className="w-10 h-10 bg-cyber-success/20 rounded flex items-center justify-center flex-shrink-0">
+                    <Zap className="text-cyber-success w-5 h-5" />
                  </div>
-              </li>
-              <li className="flex gap-4 items-start">
-                 <div className="mt-1 min-w-[24px] text-cyber-success">✓</div>
                  <div>
-                    <h4 className="font-bold text-white">Use Hardware Wallets</h4>
-                    <p className="text-sm text-gray-400">Cold storage is the safest way to hold long term.</p>
+                    <h4 className="font-bold text-white text-sm">Self-Custody Priority</h4>
+                    <p className="text-xs text-gray-400">If you don't hold your private keys, you don't own your assets. Learn cold storage.</p>
                  </div>
-              </li>
-              <li className="flex gap-4 items-start">
-                 <div className="mt-1 min-w-[24px] text-yellow-500">?</div>
+              </div>
+              <div className="p-4 bg-white/5 border border-white/5 rounded-xl hover:border-red-500/30 transition-all flex gap-4">
+                 <div className="w-10 h-10 bg-red-500/20 rounded flex items-center justify-center flex-shrink-0">
+                    <AlertCircle className="text-red-500 w-5 h-5" />
+                 </div>
                  <div>
-                    <h4 className="font-bold text-white">DYOR (Do Your Own Research)</h4>
-                    <p className="text-sm text-gray-400">Don't trust influencers blindly.</p>
+                    <h4 className="font-bold text-white text-sm">Zero-Trust Verification</h4>
+                    <p className="text-xs text-gray-400">Never click links in DMs or emails. Verify every smart contract interaction.</p>
                  </div>
-              </li>
-           </ul>
+              </div>
+              <div className="p-4 bg-white/5 border border-white/5 rounded-xl hover:border-cyber-primary/30 transition-all flex gap-4">
+                 <div className="w-10 h-10 bg-cyber-primary/20 rounded flex items-center justify-center flex-shrink-0">
+                    <ShieldCheck className="text-cyber-primary w-5 h-5" />
+                 </div>
+                 <div>
+                    <h4 className="font-bold text-white text-sm">Multi-Factor Everything</h4>
+                    <p className="text-xs text-gray-400">Avoid SMS 2FA. Use hardware keys (Yubikey) or app-based authenticators.</p>
+                 </div>
+              </div>
+           </div>
         </div>
       </div>
+      
+      <AdUnit slot="crypto-hub-bottom" />
     </div>
   );
 };
