@@ -14,9 +14,9 @@ export const NotFoundPage: React.FC = () => {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
       <h1 className="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-primary to-cyber-secondary mb-4 animate-pulse">404</h1>
-      <h2 className="text-2xl text-white mb-6 tracking-widest uppercase font-black">Link Broken in Neural Net</h2>
+      <h2 className="text-2xl text-white mb-6 tracking-widest uppercase font-black">Transmission Lost in Neural Net</h2>
       <Link to="/" className="px-12 py-4 bg-cyber-primary text-cyber-bg font-black rounded-full hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] transition-all uppercase tracking-widest text-xs">
-        Return to Base
+        Return to Nexus
       </Link>
     </div>
   );
@@ -30,7 +30,7 @@ export const SitemapPage: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <SectionTitle title="HTML Sitemap" subtitle="Neural Index of all published protocols." />
+      <SectionTitle title="HTML Sitemap" subtitle="Systematic Index of all intelligence protocols." />
       <Card>
         <div className="grid md:grid-cols-3 gap-12 text-sm uppercase font-black tracking-widest">
           <div>
@@ -92,7 +92,6 @@ export const ArticleReader: React.FC = () => {
 
   return (
     <div className="relative">
-      {/* Progress Bar */}
       <div className="fixed top-[88px] left-0 w-full h-1 bg-white/5 z-[60]">
         <div 
           className="h-full bg-cyber-primary shadow-[0_0_10px_#00E5FF] transition-all duration-300" 
@@ -110,13 +109,13 @@ export const ArticleReader: React.FC = () => {
             <header className="mb-12">
               <div className="flex flex-wrap items-center gap-6 mb-8">
                 <span className="px-4 py-1.5 text-[9px] font-black tracking-[0.2em] text-cyber-bg bg-cyber-primary rounded-sm uppercase italic">
-                  {article.category} Node
+                  {article.category} Protocol
                 </span>
                 <span className="text-gray-500 text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5" /> {article.readTime} reading
+                  <Clock className="w-3.5 h-3.5" /> {article.readTime} cycle
                 </span>
                 <span className="text-cyber-success text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-2 border border-cyber-success/20 px-3 py-1 rounded">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Verified Intel
+                  <ShieldCheck className="w-3.5 h-3.5" /> Intelligence Verified
                 </span>
               </div>
               <h1 className="text-4xl md:text-7xl font-black text-white mb-8 leading-[0.95] tracking-tighter uppercase italic">
@@ -125,7 +124,7 @@ export const ArticleReader: React.FC = () => {
               <div className="flex items-center gap-4 border-t border-white/5 pt-8">
                  <div className="w-10 h-10 rounded-full bg-cyber-primary/20 flex items-center justify-center text-cyber-primary font-black italic text-xs border border-cyber-primary/30">OY</div>
                  <div className="text-[10px] uppercase font-black tracking-widest text-gray-400">
-                    <span className="text-white">Admin Analyst</span> • Dec 2025 • High Priority
+                    <span className="text-white">Senior Analyst</span> • Dec 2025 • Priority Alpha
                  </div>
               </div>
             </header>
@@ -141,7 +140,7 @@ export const ArticleReader: React.FC = () => {
               
               <AdUnit slot="article-top" />
               
-              <div className="article-content leading-[1.9] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:tracking-widest prose-h2:text-4xl prose-h2:mt-24 prose-h2:mb-8 prose-h3:text-cyber-primary prose-h3:font-bold prose-h3:text-2xl prose-p:mb-8 prose-ul:mb-8 prose-li:mb-2" dangerouslySetInnerHTML={{ __html: article.content }} />
+              <div className="article-content leading-[1.9] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h2:mt-24 prose-h2:mb-8 prose-h3:text-cyber-primary prose-h3:font-bold prose-h3:text-2xl prose-p:mb-8 prose-ul:mb-8 prose-li:mb-2" dangerouslySetInnerHTML={{ __html: article.content }} />
               
               <div className="mt-24 pt-12 border-t border-white/10">
                  <div className="flex flex-wrap gap-4">
@@ -162,7 +161,7 @@ export const ArticleReader: React.FC = () => {
                  <ShieldCheck className="text-cyber-primary w-8 h-8" /> Neural Integrity Protocol
                </h3>
                <p className="text-gray-400 leading-relaxed text-base font-light mb-8 italic">
-                 Este relatório foi compilado através de uma rede de inteligência híbrida. Cada afirmação técnica foi cruzada com fontes primárias de mercado. Nossa missão é manter a vanguarda humana na era da automação total.
+                 This documentation was compiled through a high-frequency intelligence network. Every technical claim was cross-referenced with primary market sources to ensure human sovereignty in the age of automation.
                </p>
                <div className="flex gap-4">
                   <button className="px-8 py-3 bg-cyber-primary text-cyber-bg font-black rounded-xl text-[10px] uppercase tracking-widest hover:brightness-110 transition-all flex items-center gap-2">
@@ -178,26 +177,26 @@ export const ArticleReader: React.FC = () => {
           <aside className="lg:w-1/4">
              <div className="sticky top-32 space-y-12">
                 <div>
-                   <h4 className="font-black text-white uppercase tracking-[0.3em] text-[9px] mb-8 border-b border-white/10 pb-2">Article Status</h4>
+                   <h4 className="font-black text-white uppercase tracking-[0.3em] text-[9px] mb-8 border-b border-white/10 pb-2">Neural Status</h4>
                    <div className="space-y-6">
                       <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
-                         <span>Transmission</span>
-                         <span className="text-cyber-success flex items-center gap-1 font-black underline decoration-cyber-success/30 decoration-2 underline-offset-4">OPTIMAL</span>
+                         <span>Stream</span>
+                         <span className="text-cyber-success flex items-center gap-1 font-black underline decoration-cyber-success/30 decoration-2 underline-offset-4">SYNCHRONIZED</span>
                       </div>
                       <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
-                         <span>Expertise Lvl</span>
-                         <span className="text-white">SENIOR ANALYST</span>
+                         <span>Clearance</span>
+                         <span className="text-white">PUBLIC SECTOR</span>
                       </div>
                       <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
-                         <span>Keywords</span>
-                         <span className="text-cyber-primary">SEO OPTIMIZED</span>
+                         <span>Analysis</span>
+                         <span className="text-cyber-primary">DEEP DIVE</span>
                       </div>
                    </div>
                 </div>
 
                 <div className="p-8 bg-cyber-primary/5 rounded-[32px] border border-cyber-primary/10">
                    <h4 className="font-black text-white uppercase tracking-widest text-[10px] mb-4">Neural Pulse</h4>
-                   <p className="text-[11px] text-gray-500 leading-relaxed mb-6 italic">Join 15,000+ vanguard thinkers receiving daily technical alerts.</p>
+                   <p className="text-[11px] text-gray-500 leading-relaxed mb-6 italic">Join 15,000+ vanguard thinkers receiving high-frequency technical alerts.</p>
                    <input type="email" placeholder="NEURAL_ID@HOST.COM" className="w-full bg-black/60 border border-white/10 rounded-xl py-3 px-4 text-[10px] font-black uppercase tracking-widest text-cyber-primary focus:outline-none focus:border-cyber-primary mb-3" />
                    <button className="w-full py-3 bg-cyber-primary text-cyber-bg font-black rounded-xl text-[10px] uppercase tracking-widest hover:shadow-[0_0_15px_#00E5FF]">Subscribe</button>
                 </div>
@@ -226,13 +225,13 @@ export const PlaybookReader: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
       <Link to="/playbooks" className="inline-flex items-center text-gray-500 hover:text-white mb-10 transition-colors text-[10px] font-black uppercase tracking-[0.2em]">
-        <ArrowLeft className="w-4 h-4 mr-2" /> Archive
+        <ArrowLeft className="w-4 h-4 mr-2" /> Playbook Archives
       </Link>
       
       <header className="mb-20">
         <div className="flex items-center gap-4 mb-8">
            <span className="bg-cyber-secondary text-white text-[9px] font-black px-5 py-2 rounded-sm uppercase tracking-[0.2em] italic">Revenue Ops</span>
-           <span className="text-[9px] font-black text-gray-500 uppercase tracking-[0.2em] border border-white/10 px-5 py-2 rounded-sm">{playbook.difficulty} Execution</span>
+           <span className="text-[9px] font-black text-gray-500 uppercase tracking-[0.2em] border border-white/10 px-5 py-2 rounded-sm">{playbook.difficulty} Clearance</span>
         </div>
         <h1 className="text-5xl md:text-8xl font-black text-white mb-10 uppercase tracking-tighter leading-[0.8] italic">
           {playbook.title}
@@ -254,19 +253,19 @@ export const PlaybookReader: React.FC = () => {
          <aside className="space-y-10">
             <Card className="border-cyber-secondary/20 bg-cyber-secondary/5 sticky top-32 p-10 rounded-[48px]">
                <h3 className="font-black text-white mb-10 uppercase text-[10px] tracking-[0.3em] flex items-center gap-2">
-                 <Zap className="text-cyber-secondary w-4 h-4" /> Intel Dashboard
+                 <Zap className="text-cyber-secondary w-4 h-4" /> Execution Dashboard
                </h3>
                <div className="space-y-10">
                   <div className="group">
                      <div className="flex items-center gap-2 text-cyber-secondary mb-3 font-black text-[9px] uppercase tracking-widest">
-                        <DollarSign className="w-4 h-4" /> Capital Yield
+                        <DollarSign className="w-4 h-4" /> Potential Yield
                      </div>
                      <p className="text-4xl text-white font-black italic tracking-tighter group-hover:text-cyber-secondary transition-colors">{playbook.roi}</p>
                   </div>
                   <div className="h-px bg-white/10"></div>
                   <div>
                      <div className="flex items-center gap-2 text-gray-600 mb-3 font-black text-[9px] uppercase tracking-widest">
-                        <Clock className="w-4 h-4" /> Execution Time
+                        <Clock className="w-4 h-4" /> Cycle Duration
                      </div>
                      <p className="text-3xl text-white font-black italic tracking-tighter">{playbook.timeline}</p>
                   </div>
@@ -283,7 +282,7 @@ export const PlaybookReader: React.FC = () => {
                      </ul>
                   </div>
                   <button className="w-full py-5 bg-cyber-secondary text-white font-black uppercase text-[10px] tracking-widest rounded-2xl hover:brightness-110 transition-all shadow-xl">
-                    Launch Protocol
+                    Initiate Protocol
                   </button>
                </div>
             </Card>
@@ -308,12 +307,12 @@ export const CryptoReader: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
       <Link to="/crypto" className="inline-flex items-center text-gray-500 hover:text-white mb-10 transition-colors text-[10px] font-black uppercase tracking-[0.2em]">
-        <ArrowLeft className="w-4 h-4 mr-2" /> Asset Hub
+        <ArrowLeft className="w-4 h-4 mr-2" /> Asset Nexus
       </Link>
       
       <header className="mb-20">
         <div className="inline-block px-6 py-2 bg-cyber-success/10 border border-cyber-success/20 text-cyber-success text-[9px] font-black uppercase tracking-[0.3em] rounded-sm mb-10 italic">
-          SECURE LEVEL: {guide.level}
+          THREAT LEVEL: {guide.level}
         </div>
         <h1 className="text-5xl md:text-8xl font-black text-white mb-10 uppercase tracking-tighter leading-[0.85] italic text-balance">
           {guide.title}
@@ -331,7 +330,7 @@ export const CryptoReader: React.FC = () => {
          </div>
          <div>
             <h4 className="text-white font-black uppercase tracking-[0.2em] text-lg mb-3 italic">Custody Verification Protocol</h4>
-            <p className="text-sm text-gray-500 leading-relaxed font-light">Este conteúdo foi revisado por auditores de segurança blockchain em Dezembro de 2025. Lembre-se: em Web3, a segurança é uma responsabilidade individual. Nunca compartilhe sua Seed Phrase.</p>
+            <p className="text-sm text-gray-500 leading-relaxed font-light">This technical documentation was compiled by verified blockchain auditors. Remember: in Web3, security is an individual sovereignty. Never share your Private Keys or Seed Phrases with third parties or digital storage.</p>
          </div>
       </div>
     </div>
@@ -353,14 +352,14 @@ export const AboutPage: React.FC = () => {
             <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Intelligence" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
          </div>
          <div className="space-y-10">
-            <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">Who We Are</h3>
+            <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">Human Sovereignty</h3>
             <p className="text-gray-400 leading-relaxed text-xl font-light">
-               Open Your AIs é um hub técnico de inteligência dedicado a fechar a lacuna entre as fronteiras tecnológicas e a aplicação humana prática. Focamos na trindade da era digital: fluxos de IA Generativa, Segurança de Ativos Descentralizados e Protocolos de Monetização Escalonáveis.
+               Open Your AIs is a specialized intelligence hub dedicated to narrowing the gap between rapid technological frontiers and human application. We track the trinity of the 21st century: Generative Intelligence, Decentralized Assets, and Automated Monetization.
             </p>
             <div className="grid grid-cols-2 gap-8">
                <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
                   <p className="text-cyber-primary font-black text-4xl mb-2 italic">100%</p>
-                  <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Verified Intel</p>
+                  <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Verified Data</p>
                </div>
                <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
                   <p className="text-cyber-secondary font-black text-4xl mb-2 italic">24/7</p>
@@ -384,27 +383,27 @@ export const LegalPage: React.FC<{ type: 'privacy' | 'terms' }> = ({ type }) => 
       <SectionTitle title={type === 'privacy' ? 'Privacy Protocol' : 'Platform Terms'} />
       <Card className="p-16 rounded-[48px] border-white/5 bg-white/[0.01]">
         <div className="prose prose-invert max-w-none text-gray-400 font-light">
-          <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">V1.0 - NEURAL BROADCAST DEC 2025</p>
+          <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">V1.0 - REVISED DEC 2025</p>
           {type === 'privacy' ? (
             <div className="space-y-16">
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Transparência de Dados</h3>
-                <p className="leading-relaxed">Coletamos apenas telemetria essencial via Google Analytics para otimizar o fluxo de inteligência. Seus dados de navegação são protegidos por criptografia de ponta a ponta.</p>
+                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Data Sovereignty</h3>
+                <p className="leading-relaxed">We only collect essential telemetry via high-performance analytics to optimize the flow of technical information. Your data remains encrypted and is never sold to third-party aggregators.</p>
               </section>
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. Protocolo de Publicidade</h3>
-                <p className="leading-relaxed">Utilizamos cookies da rede Google AdSense para servir anúncios contextuais de alta relevância. Você pode gerenciar suas preferências de privacidade a qualquer momento através das configurações do Google.</p>
+                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. AdSense Network</h3>
+                <p className="leading-relaxed">We utilize cookies from the Google AdSense network to deliver high-relevance advertisements. These cookies help us maintain the intelligence stream for free public access.</p>
               </section>
             </div>
           ) : (
             <div className="space-y-16">
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Isenção de Responsabilidade</h3>
-                <p className="leading-relaxed">Todo o conteúdo publicado no Open Your AIs é para fins educacionais e de inteligência. Não somos consultores financeiros. O uso de automações e investimentos em ativos digitais envolvem riscos inerentes.</p>
+                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Intelligence Disclaimer</h3>
+                <p className="leading-relaxed">All information provided on Open Your AIs is for technical educational purposes. We are not financial advisors. The deployment of AI automations and investments in digital assets involve inherent risks.</p>
               </section>
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. Direitos de Transmissão</h3>
-                <p className="leading-relaxed">A arquitetura visual e os relatórios originais deste hub são protegidos por protocolos de propriedade intelectual. A extração não autorizada de dados é monitorada.</p>
+                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. IP Protocols</h3>
+                <p className="leading-relaxed">The architectural design and original reports of this hub are protected by intellectual property laws. Unauthorized extraction or replication is monitored.</p>
               </section>
             </div>
           )}
