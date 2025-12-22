@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +52,15 @@
         backdrop-filter: blur(12px);
         border: 1px solid rgba(0, 229, 255, 0.1);
       }
+      @keyframes progressBar {
+        from { width: 0%; }
+        to { width: 100%; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
     </style>
 <script type="importmap">
 {
