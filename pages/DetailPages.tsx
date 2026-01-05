@@ -226,6 +226,9 @@ export const PlaybookReader: React.FC = () => {
     // Load local mission progress
     const progress = localStorage.getItem(`mission_${id}`);
     if (progress === 'active') setIsLaunched(true);
+
+    const savedChecked = localStorage.getItem(`checked_${id}`);
+    if (savedChecked) setCheckedSteps(JSON.parse(savedChecked));
   }, [id, playbook]);
 
   const handleLaunch = () => {
@@ -255,9 +258,11 @@ export const PlaybookReader: React.FC = () => {
   };
 
   const toggleStep = (index: number) => {
-    setCheckedSteps(prev => 
-      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
-    );
+    const newChecked = checkedSteps.includes(index) 
+      ? checkedSteps.filter(i => i !== index) 
+      : [...checkedSteps, index];
+    setCheckedSteps(newChecked);
+    localStorage.setItem(`checked_${id}`, JSON.stringify(newChecked));
   };
 
   if (!playbook) return <NotFoundPage />;
@@ -310,7 +315,7 @@ export const PlaybookReader: React.FC = () => {
             </div>
 
             <div className="prose prose-invert prose-xl max-w-none">
-               <div className="article-content leading-relaxed space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase" dangerouslySetInnerHTML={{ __html: playbook.content || '' }} />
+               <div className="article-content leading-relaxed space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h3:text-cyber-secondary prose-h3:text-2xl" dangerouslySetInnerHTML={{ __html: playbook.content || '' }} />
             </div>
          </div>
 
@@ -341,11 +346,11 @@ export const PlaybookReader: React.FC = () => {
                            <li 
                             key={i} 
                             onClick={() => isLaunched && toggleStep(i)}
-                            className={`flex gap-4 text-xs font-bold group transition-all ${isLaunched ? 'cursor-pointer' : ''} ${checkedSteps.includes(i) ? 'opacity-30' : 'text-gray-400'}`}
+                            className={`flex gap-4 text-xs font-bold group transition-all p-3 rounded-xl border border-transparent ${isLaunched ? 'cursor-pointer hover:bg-white/[0.03] hover:border-white/5' : ''} ${checkedSteps.includes(i) ? 'opacity-30' : 'text-gray-400'}`}
                            >
                               {isLaunched ? (
-                                <div className={`w-4 h-4 border rounded flex-shrink-0 flex items-center justify-center transition-colors ${checkedSteps.includes(i) ? 'bg-cyber-success border-cyber-success' : 'border-white/20'}`}>
-                                  {checkedSteps.includes(i) && <CheckCircle className="w-3 h-3 text-black" />}
+                                <div className={`w-5 h-5 border rounded flex-shrink-0 flex items-center justify-center transition-colors ${checkedSteps.includes(i) ? 'bg-cyber-success border-cyber-success' : 'border-white/20'}`}>
+                                  {checkedSteps.includes(i) && <CheckCircle className="w-3.5 h-3.5 text-black" />}
                                 </div>
                               ) : (
                                 <span className="text-cyber-secondary font-black italic">0{i+1}</span>
@@ -375,7 +380,7 @@ export const PlaybookReader: React.FC = () => {
                         Mission Progress: {Math.round((checkedSteps.length / playbook.steps.length) * 100)}%
                       </p>
                       <button 
-                        onClick={() => { if(confirm('Reset Protocol?')) { setIsLaunched(false); setCheckedSteps([]); localStorage.removeItem(`mission_${id}`); } }}
+                        onClick={() => { if(confirm('Reset Protocol?')) { setIsLaunched(false); setCheckedSteps([]); localStorage.removeItem(`mission_${id}`); localStorage.removeItem(`checked_${id}`); } }}
                         className="w-full py-3 border border-white/5 text-gray-600 font-black uppercase text-[8px] tracking-widest rounded-xl hover:text-red-400 transition-all"
                       >
                         Abort Mission
