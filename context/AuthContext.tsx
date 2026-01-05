@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface AuthContextType {
@@ -15,17 +16,12 @@ const AuthContext = createContext<AuthContextType>({
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const session = localStorage.getItem('openyourais_admin_session');
-    if (session === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
+  // Initialize state directly from localStorage to prevent the initial flash of login screen
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return localStorage.getItem('openyourais_admin_session') === 'true';
+  });
 
   const login = (password: string) => {
-    // Simple demo password check
     if (password === 'password' || password === 'admin') {
       setIsAuthenticated(true);
       localStorage.setItem('openyourais_admin_session', 'true');

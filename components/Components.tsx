@@ -36,7 +36,7 @@ export const FAQ: React.FC<{ items: { q: string, a: string }[] }> = ({ items }) 
             {openIndex === index ? <Minus className="w-4 h-4 text-cyber-primary" /> : <Plus className="w-4 h-4 text-gray-500" />}
           </button>
           {openIndex === index && (
-            <div className="px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4 animate-fadeIn">
+            <div className="px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4">
               {item.a}
             </div>
           )}
@@ -50,6 +50,10 @@ export const FAQ: React.FC<{ items: { q: string, a: string }[] }> = ({ items }) 
 export const SmartImage: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className }) => {
   const [imgSrc, setImgSrc] = useState(src);
   const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setImgSrc(src);
+  }, [src]);
 
   const handleError = () => {
     if (!hasError) {
@@ -89,7 +93,7 @@ export const CookieConsent: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 z-[100] md:max-w-xl md:left-auto p-6 bg-black/90 backdrop-blur-2xl border border-cyber-primary/20 rounded-[32px] shadow-2xl animate-float">
+    <div className="fixed bottom-6 left-6 right-6 z-[100] md:max-w-xl md:left-auto p-6 bg-black/90 backdrop-blur-2xl border border-cyber-primary/20 rounded-[32px] shadow-2xl">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
           <div className="bg-cyber-primary/10 p-3 rounded-2xl">
@@ -255,7 +259,7 @@ export const Card: React.FC<{ children: React.ReactNode; className?: string; hov
 
 export const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
   <div className="text-center mb-16">
-    <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter leading-[0.9]">
+    <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter leading-[1.1]">
       {title}
     </h2>
     {subtitle && <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light tracking-wide">{subtitle}</p>}
