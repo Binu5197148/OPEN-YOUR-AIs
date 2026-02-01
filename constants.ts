@@ -63,14 +63,14 @@ export const TOOLS: Tool[] = [
   },
   {
     id: '4',
-    name: 'Runway Gen-3',
+    name: 'Runway Gen-4.5',
     category: 'Video / AI',
-    shortDesc: 'Professional AI video generation with cinematic quality and physics understanding.',
-    fullDesc: 'Runway\'s Gen-3 model family represents the cutting edge of AI video generation. These foundational models understand physics, lighting, and temporal consistency at a level that enables truly cinematic output. Generate 10+ second clips from text or images, use Motion Brush for precise control, and leverage advanced camera movements for professional results. Runway has become the go-to platform for filmmakers, advertisers, and content creators who need high-fidelity video generation without the overhead of traditional production. The Act-One feature even enables realistic facial expression transfer from video to AI characters.',
+    shortDesc: 'The most advanced AI video generation with unmatched realism and control.',
+    fullDesc: 'Runway Gen-4.5 represents a massive leap in AI video generation. With dramatically improved physics simulation, human motion, and cinematic consistency, Gen-4.5 produces videos that are increasingly indistinguishable from real footage. The Image-to-Video capabilities allow you to animate any still image with natural motion, while the upgraded Act-One feature delivers photorealistic facial expressions and lip-sync. Extended video duration, better prompt adherence, and professional-grade camera controls make this the definitive tool for filmmakers and content creators.',
     priceModel: 'Paid',
     url: 'https://runwayml.com',
-    features: ['Gen-3 Turbo', 'Motion Brush', 'Act-One Expressions', 'Text/Image-to-Video', 'Director Mode'],
-    useCases: ['Film Production', 'Commercial Advertising', 'Social Media Content', 'VFX & Post-Production']
+    features: ['Gen-4.5 Image-to-Video', 'Act-One 2.0', 'Extended Duration', 'Advanced Physics', 'Director Mode'],
+    useCases: ['Film Production', 'Commercial Advertising', 'Music Videos', 'VFX & Post-Production']
   },
   {
     id: '5',
@@ -137,6 +137,28 @@ export const TOOLS: Tool[] = [
     url: 'https://descript.com',
     features: ['Text-Based Media Editing', 'Studio Sound AI', 'Overdub Voice Clone', 'Automatic Filler Word Removal'],
     useCases: ['Podcasting Editing', 'Social Content Creation', 'Long-form Interviews']
+  },
+  {
+    id: '11',
+    name: 'Kling AI',
+    category: 'Video / AI',
+    shortDesc: 'Chinese powerhouse rivaling Runway with stunning video generation quality.',
+    fullDesc: 'Kling AI by Kuaishou has emerged as a serious competitor to Western video AI platforms. With exceptional motion consistency, realistic physics simulation, and impressive human generation, Kling produces cinematic-quality videos that often rival or exceed Runway. Its strength lies in complex motion scenes, character animations, and the ability to generate longer coherent clips. The platform offers both text-to-video and image-to-video capabilities, making it a versatile choice for creators seeking alternatives to Western tools.',
+    priceModel: 'Freemium',
+    url: 'https://klingai.com',
+    features: ['Text-to-Video', 'Image-to-Video', 'Motion Consistency', 'Long-form Generation', 'Character Animation'],
+    useCases: ['Social Media Content', 'Marketing Videos', 'Creative Projects', 'Music Videos']
+  },
+  {
+    id: '12',
+    name: 'Gemini Image Generation',
+    category: 'Visual / AI',
+    shortDesc: 'Google\'s native image generation with seamless multimodal integration.',
+    fullDesc: 'Google\'s Gemini models now include powerful native image generation capabilities. Unlike standalone image tools, Gemini can generate images as part of a larger conversation, allowing for iterative refinement and contextual understanding. The integration with Google\'s vast knowledge base means exceptional accuracy in generating specific objects, places, and concepts. With both generation and editing capabilities built into the same model, Gemini offers a uniquely fluid creative workflow for those already in the Google AI ecosystem.',
+    priceModel: 'Freemium',
+    url: 'https://aistudio.google.com',
+    features: ['Native Multimodal', 'Conversational Refinement', 'Image Editing', 'Knowledge Integration', 'API Access'],
+    useCases: ['Rapid Prototyping', 'Content Creation', 'Design Iteration', 'Integrated Workflows']
   }
 ];
 
