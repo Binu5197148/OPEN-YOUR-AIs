@@ -124,7 +124,7 @@ export const ArticleReader: React.FC = () => {
               <div className="flex items-center gap-4 border-t border-white/5 pt-8">
                  <div className="w-10 h-10 rounded-full bg-cyber-primary/20 flex items-center justify-center text-cyber-primary font-black italic text-xs border border-cyber-primary/30">OY</div>
                  <div className="text-[10px] uppercase font-black tracking-widest text-gray-400">
-                    <span className="text-white">Admin Analyst</span> • Dec 2025 • Alpha Priority
+                    <span className="text-white">Admin Analyst</span> • Feb 2026 • Alpha Priority
                  </div>
               </div>
             </header>
@@ -486,7 +486,7 @@ export const LegalPage: React.FC<{ type: 'privacy' | 'terms' }> = ({ type }) => 
       <SectionTitle title={type === 'privacy' ? 'Privacy Protocol' : 'Platform Terms'} />
       <Card className="p-16 rounded-[48px] border-white/5 bg-white/[0.01]">
         <div className="prose prose-invert max-w-none text-gray-400 font-light">
-          <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">V1.0 - REVISED DEC 2025</p>
+          <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">V1.1 - REVISED FEB 2026</p>
           {type === 'privacy' ? (
             <div className="space-y-16">
               <section>

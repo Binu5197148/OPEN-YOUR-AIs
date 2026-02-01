@@ -18,7 +18,7 @@ const Hero = () => (
     <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-cyber-primary/20 blur-[150px] rounded-full z-[-1] animate-pulse"></div>
     <div className="container mx-auto px-4 text-center z-10">
       <div className="inline-flex items-center gap-3 mb-8 px-6 py-2 rounded-full border border-white/10 bg-white/5 text-cyber-primary text-[10px] font-black tracking-[0.3em] uppercase">
-        <Award className="w-4 h-4" /> Leading Tech Intelligence Hub 2025
+        <Award className="w-4 h-4" /> Leading Tech Intelligence Hub 2026
       </div>
       <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] uppercase">
         <span className="block text-white">RECODE YOUR</span>

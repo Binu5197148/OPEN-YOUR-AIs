@@ -221,7 +221,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-black text-gray-700 uppercase tracking-[0.4em]">
-          <span>© 2025 OPEN YOUR AIS. ALL PROTOCOLS RESERVED.</span>
+          <span>© 2026 OPEN YOUR AIS. ALL PROTOCOLS RESERVED.</span>
           <div className="flex gap-8">
              <span>SECURE DATA TRANSMISSION</span>
              <span>HIGH-FIDELITY INTEL</span>

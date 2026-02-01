@@ -30,47 +30,47 @@ export const saveNewArticle = (article: Article): Article[] => {
 export const TOOLS: Tool[] = [
   {
     id: '1',
-    name: 'ChatGPT Plus (o1-Preview)',
+    name: 'ChatGPT Pro (o3 / GPT-4.5)',
     category: 'LLM / Reasoning',
-    shortDesc: 'The final frontier of computational reasoning with Chain-of-Thought capabilities.',
-    fullDesc: 'OpenAI o1 marks the transition from probabilistic prediction to deliberate reasoning. Unlike its predecessors, o1 utilizes a reinforcement learning process to "think" before responding, creating a hidden internal chain-of-thought. This architecture is specifically tuned for PhD-level science questions, complex multi-step coding, and mathematical proofs. For users, this means a significant reduction in hallucinations and a dramatic increase in logical consistency for architectural-level engineering tasks.',
+    shortDesc: 'OpenAI\'s most advanced reasoning models with unprecedented problem-solving capabilities.',
+    fullDesc: 'OpenAI\'s 2026 lineup represents a quantum leap in AI reasoning. GPT-4.5 delivers exceptional conversational intelligence and nuanced understanding, while the o3 and o4-mini models introduce "deep reasoning" — extended thinking that can solve PhD-level problems in mathematics, physics, and coding. The o3 model consistently achieves state-of-the-art results on benchmarks like ARC-AGI, while o4-mini provides cost-effective reasoning for everyday tasks. Together with DALL-E 3 for visuals and Custom GPTs for specialized workflows, this is the most complete AI platform available.',
     priceModel: 'Freemium',
     url: 'https://chat.openai.com',
-    features: ['Inference-time Reasoning', 'Advanced Data Analysis', 'DALL-E 3 Visual Gen', 'Custom GPTs'],
-    useCases: ['Complex Prompt Engineering', 'Precision Financial Analysis', 'Software Architecture']
+    features: ['o3 Deep Reasoning', 'GPT-4.5 Intelligence', 'DALL-E 3 Visual Gen', 'Custom GPTs', 'Advanced Voice Mode'],
+    useCases: ['Complex Problem Solving', 'Scientific Research', 'Enterprise Automation', 'Software Architecture']
   },
   {
     id: '2',
-    name: 'Claude 3.5 Sonnet',
-    category: 'LLM / Coding',
-    shortDesc: 'The preferred model for developers due to its technical precision and Artifacts interface.',
-    fullDesc: 'Claude 3.5 Sonnet by Anthropic has redefined the developer experience. Its standout feature, "Artifacts," allows for live rendering of code snippets, UI designs, and documentation in a side-by-side view. Technically, it outperforms competitors in coding benchmarks (HumanEval) and shows a higher degree of nuance in following complex, multi-layered instructions. Its 200k token window makes it ideal for analyzing entire codebases or long-form legal documents without losing context.',
+    name: 'Claude 4 Opus',
+    category: 'LLM / Reasoning & Coding',
+    shortDesc: 'Anthropic\'s flagship model with extended thinking and unmatched reasoning depth.',
+    fullDesc: 'Claude 4 Opus represents Anthropic\'s most powerful AI system. Its groundbreaking "Extended Thinking" capability allows the model to reason through complex problems step-by-step before responding, achieving exceptional results in mathematics, coding, and scientific analysis. The Claude 4 family (Opus, Sonnet, Haiku) offers a model for every use case — Opus for maximum intelligence, Sonnet for balanced performance, and Haiku for speed. With a 200k token context window, vision capabilities, and the beloved Artifacts feature for live code rendering, Claude 4 is the top choice for developers and researchers who need precise, thoughtful AI assistance.',
     priceModel: 'Freemium',
     url: 'https://claude.ai',
-    features: ['Artifacts UI', '200k Token Window', 'High Emotional Intelligence', 'Vision Analysis'],
-    useCases: ['Agile Web Development', 'Technical Code Review', 'Long-form Creative Writing']
+    features: ['Extended Thinking', 'Artifacts UI', '200k Token Window', 'Vision Analysis', 'Computer Use'],
+    useCases: ['Complex Reasoning Tasks', 'Full-Stack Development', 'Research & Analysis', 'Agentic Workflows']
   },
   {
     id: '3',
-    name: 'Midjourney v6.1',
+    name: 'Midjourney',
     category: 'Visual / Art',
-    shortDesc: 'Leading image generator for photorealism and commercial art direction.',
-    fullDesc: 'Midjourney v6.1 represents the pinnacle of latent space image generation. By moving beyond traditional diffusion and optimizing for higher textural fidelity, it captures skin pores, fabric weaves, and atmospheric lighting with frightening realism. The introduction of "Style References" (SREF) and "Character References" (CREF) allows professional designers to maintain strict aesthetic consistency across entire campaigns, a critical requirement for enterprise-level branding.',
+    shortDesc: 'The industry standard for photorealistic AI image generation and commercial art.',
+    fullDesc: 'Midjourney remains the gold standard in AI image generation for professional creative work. Its latest models deliver unprecedented photorealism — capturing skin textures, fabric weaves, and cinematic lighting with stunning accuracy. Key features like Style References (SREF) and Character References (CREF) allow designers to maintain strict aesthetic consistency across entire campaigns. The web-based editor, personalization features, and Niji mode for anime-style art make it the most versatile tool for visual professionals. Whether you need product photography, concept art, or marketing visuals, Midjourney delivers commercial-grade results.',
     priceModel: 'Paid',
     url: 'https://midjourney.com',
-    features: ['Style Reference (SREF)', 'Character Consistency', 'Ultra-High Res Upscaling', 'Niji Mode for Art'],
-    useCases: ['Luxury Branding', 'Game Assets', 'Digital Marketing Campaigns']
+    features: ['Style Reference (SREF)', 'Character Consistency', 'Web Editor', 'Personalization', 'Niji Mode'],
+    useCases: ['Commercial Photography', 'Brand Identity Design', 'Game & Concept Art', 'Marketing Campaigns']
   },
   {
     id: '4',
-    name: 'Runway Gen-3 Alpha',
+    name: 'Runway Gen-3',
     category: 'Video / AI',
-    shortDesc: 'Cinematic AI-generated video with realistic physics and lighting.',
-    fullDesc: 'Runway Gen-3 Alpha is a foundational video model that understands the laws of physics. It can generate 10-second high-fidelity clips from text or image prompts, maintaining temporal consistency that was previously impossible. With the "Motion Brush" and advanced camera controls, it provides film directors with a virtual production studio, allowing for iterative visual effects (VFX) at a fraction of the cost of traditional rendering.',
+    shortDesc: 'Professional AI video generation with cinematic quality and physics understanding.',
+    fullDesc: 'Runway\'s Gen-3 model family represents the cutting edge of AI video generation. These foundational models understand physics, lighting, and temporal consistency at a level that enables truly cinematic output. Generate 10+ second clips from text or images, use Motion Brush for precise control, and leverage advanced camera movements for professional results. Runway has become the go-to platform for filmmakers, advertisers, and content creators who need high-fidelity video generation without the overhead of traditional production. The Act-One feature even enables realistic facial expression transfer from video to AI characters.',
     priceModel: 'Paid',
     url: 'https://runwayml.com',
-    features: ['Motion Brush', 'Text-to-Video', 'Image-to-Video', 'Director Mode'],
-    useCases: ['Short Film Production', 'High-Impact Social Commercials', 'Agile VFX']
+    features: ['Gen-3 Turbo', 'Motion Brush', 'Act-One Expressions', 'Text/Image-to-Video', 'Director Mode'],
+    useCases: ['Film Production', 'Commercial Advertising', 'Social Media Content', 'VFX & Post-Production']
   },
   {
     id: '5',
@@ -152,8 +152,8 @@ export const PLAYBOOKS: Playbook[] = [
     steps: ['High-Liquidity Niche Identification', 'Claude 3.5 Script Engineering', 'Runway/Midjourney Visual Production', 'Video SEO and CTR Strategy', 'Scaling via External Operators'],
     image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
     content: `
-      <h2>The 2025 YouTube Revenue Protocol</h2>
-      <p>YouTube automation in 2025 has moved beyond "faceless channels" to "Authority Assets." This protocol details how to use a neural production pipeline to create content that outperforms multi-million dollar studios in retention and conversion.</p>
+      <h2>The 2026 YouTube Revenue Protocol</h2>
+      <p>YouTube automation in 2026 has moved beyond "faceless channels" to "Authority Assets." This protocol details how to use a neural production pipeline to create content that outperforms multi-million dollar studios in retention and conversion.</p>
       
       <h3>Phase 1: Deep Niche Selection (The CPM Alpha)</h3>
       <p>Success starts with unit economics. You must target niches with a high <strong>Cost Per Mille (CPM)</strong>. Focus on:
@@ -187,7 +187,7 @@ export const PLAYBOOKS: Playbook[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     content: `
       <h2>The Micro-SaaS Deployment Framework</h2>
-      <p>Building a Micro-SaaS in 2025 is no longer about code; it's about <strong>Prompt Orchestration</strong> and <strong>Niche Pain Identification</strong>. This playbook shows how to launch a profitable software asset in under 60 days.</p>
+      <p>Building a Micro-SaaS in 2026 is no longer about code; it's about <strong>Prompt Orchestration</strong> and <strong>Niche Pain Identification</strong>. This playbook shows how to launch a profitable software asset in under 60 days.</p>
       
       <h3>Step 1: The Validation Loop</h3>
       <p>Do not build until you have validated. Use Perplexity Pro to scan Reddit, Discord, and specialized forums for "I wish there was a tool for..." patterns. Focus on boring, technical problems like:
