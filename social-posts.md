@@ -38,21 +38,34 @@ Se você quer entender o jogo da nova economia digital:
 
 ### Post 3 - Tools
 ```
-10 ferramentas de AI que estou usando em 2026:
+12 ferramentas de AI que estou usando em 2026:
 
+🧠 LLMs
 1. ChatGPT Pro (o3) - raciocínio profundo
 2. Claude 4 Opus - código e análise
-3. Midjourney - imagens comerciais
-4. Runway Gen-3 - vídeo cinematográfico
-5. ElevenLabs - voz e clone
-6. Perplexity - pesquisa com fontes
-7. Notion AI - produtividade
-8. Descript - edição por texto
-9. Synthesia - avatares
-10. Jasper - marketing
+3. Perplexity - pesquisa com fontes
 
-Fiz um diretório com análise de cada uma:
+🎨 Imagem
+4. Midjourney - arte comercial
+5. Gemini Image - geração nativa Google
+
+🎬 Vídeo
+6. Runway Gen-4.5 - o mais avançado
+7. Kling AI - competidor chinês impressionante
+8. Synthesia - avatares realistas
+
+🎙️ Áudio
+9. ElevenLabs - clonagem de voz
+10. Descript - edição por texto
+
+📈 Produtividade
+11. Notion AI - segundo cérebro
+12. Jasper - marketing em escala
+
+Diretório completo com análise de cada uma:
 🔗 https://www.openyourais.com/tools
+
+#AI #Tools #Produtividade
 ```
 
 ---
