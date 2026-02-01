@@ -11,14 +11,28 @@
         {
           "key": "X-Frame-Options",
           "value": "ALLOW-FROM https://aistudio.google.com"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
         }
       ]
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/((?!api|_next|static|public|favicon.ico|sitemap.xml|robots.txt).*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "trailingSlash": false,
+  "cleanUrls": true
 }

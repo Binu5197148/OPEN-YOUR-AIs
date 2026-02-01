@@ -2,11 +2,13 @@
 {
   "name": "open-your-ais",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:prerender": "vite build && npm run prerender",
+    "prerender": "node prerender.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,9 +19,12 @@
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
+    "@prerenderer/prerenderer": "^0.7.2",
+    "@prerenderer/renderer-puppeteer": "^0.2.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "puppeteer": "^21.0.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.10"
   }
