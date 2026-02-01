@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Clock, DollarSign, ShieldCheck, ChevronRight, Award, BookOpen, Shield, Zap, AlertTriangle, ExternalLink, CheckCircle, Share2, Bookmark, Terminal, Play, Loader2 } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
-import { ARTICLES, PLAYBOOKS, CRYPTO_GUIDES, CONTACT_EMAIL } from '../constants';
+import { ALL_ARTICLES, PLAYBOOKS, CRYPTO_GUIDES, CONTACT_EMAIL } from '../constants';
 
 // --- NOT FOUND PAGE (404) ---
 export const NotFoundPage: React.FC = () => {
@@ -54,7 +54,7 @@ export const SitemapPage: React.FC = () => {
           <div>
             <h3 className="text-cyber-success mb-6 border-b border-white/10 pb-2">Recent Intel</h3>
             <ul className="space-y-4 text-gray-500 text-[10px]">
-              {ARTICLES.map(a => (
+              {ALL_ARTICLES.map(a => (
                 <li key={a.id}><Link to={`/blog/${a.slug}`} className="hover:text-white transition-colors">{a.title}</Link></li>
               ))}
             </ul>
@@ -71,7 +71,7 @@ export const ArticleReader: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   
   const savedArticles = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
-  const allArticles = [...savedArticles, ...ARTICLES];
+  const allArticles = [...savedArticles, ...ALL_ARTICLES];
   const article = allArticles.find(a => a.slug === slug);
 
   useEffect(() => {

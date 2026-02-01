@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, TrendingUp, ShieldCheck, Globe, Cpu, Award, ChevronRight } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage, FAQ } from '../components/Components';
-import { TOOLS, PLAYBOOKS, ARTICLES } from '../constants';
+import { TOOLS, PLAYBOOKS, ALL_ARTICLES } from '../constants';
 
 const HomeFAQ = [
   { q: "What is the mission of Open Your AIs?", a: "Our mission is to decode complex technological shifts and provide actionable intelligence to ensure digital sovereignty. We focus on AI automation, decentralized finance, and future-proof monetization strategies." },
@@ -74,7 +74,7 @@ const Features = () => (
 );
 
 const RecentArticles = () => {
-  const recent = ARTICLES.slice(0, 3);
+  const recent = ALL_ARTICLES.slice(0, 3);
   return (
     <section className="py-24 bg-black/20">
       <div className="container mx-auto px-4">

@@ -585,3 +585,11 @@ export const ARTICLES: Article[] = [
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
   }
 ];
+
+// Import new articles
+import { NEW_ARTICLES } from './new-articles';
+import { NEW_ARTICLES_PART2 } from './new-articles-part2';
+import { NEW_ARTICLES_PART3 } from './new-articles-part3';
+
+// Combined articles array with all 20 articles
+export const ALL_ARTICLES = [...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3];

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, Zap, Award, Target, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
-import { TOOLS, PLAYBOOKS, ARTICLES, CRYPTO_GUIDES } from '../constants';
+import { TOOLS, PLAYBOOKS, ALL_ARTICLES, CRYPTO_GUIDES } from '../constants';
 
 // --- TOOLS PAGE ---
 export const ToolsPage: React.FC = () => {
@@ -206,7 +206,7 @@ export const BlogPage: React.FC = () => {
   }, []);
 
   const savedArticles = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
-  const allArticles = [...savedArticles, ...ARTICLES];
+  const allArticles = [...savedArticles, ...ALL_ARTICLES];
 
   const filteredArticles = filter === 'All' 
     ? allArticles 
