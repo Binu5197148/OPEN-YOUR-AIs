@@ -1,7 +1,7 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, TrendingUp, ShieldCheck, Globe, Cpu, Award, ChevronRight } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, ShieldCheck, Globe, Cpu, Award, ChevronRight, Check } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage, FAQ } from '../components/Components';
 import { TOOLS, PLAYBOOKS, ALL_ARTICLES } from '../constants';
 
@@ -103,6 +103,99 @@ const RecentArticles = () => {
   );
 };
 
+const NeuralStream = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validação básica de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus('error');
+      setMessage('Por favor, insira um email válido');
+      return;
+    }
+
+    setStatus('loading');
+    
+    try {
+      // Simula API call (pode integrar com Beehiiv, ConvertKit, etc depois)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Salva localmente por enquanto
+      const subscribers = JSON.parse(localStorage.getItem('neural-stream-subscribers') || '[]');
+      if (!subscribers.includes(email)) {
+        subscribers.push({ email, timestamp: Date.now() });
+        localStorage.setItem('neural-stream-subscribers', JSON.stringify(subscribers));
+      }
+      
+      setStatus('success');
+      setMessage('Conectado ao Neural Stream! 🚀');
+      setEmail('');
+      
+      // Reset após 3 segundos
+      setTimeout(() => {
+        setStatus('idle');
+        setMessage('');
+      }, 3000);
+      
+    } catch (error) {
+      setStatus('error');
+      setMessage('Erro na transmissão. Tente novamente.');
+      
+      setTimeout(() => {
+        setStatus('idle');
+        setMessage('');
+      }, 3000);
+    }
+  };
+
+  return (
+    <div className="py-24 border-t border-white/5">
+      <Card className="max-w-4xl mx-auto bg-gradient-to-br from-cyber-primary/5 to-transparent border-cyber-primary/10 p-16 rounded-[40px] text-center">
+        <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-widest">Neural Stream</h2>
+        <p className="text-gray-400 mb-12 max-w-xl mx-auto text-lg font-light">
+          Join the vanguard. Receive technical deep-dives and market alerts directly to your inbox.
+        </p>
+        
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto relative group">
+          <input 
+            type="email" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="NEURAL_ID@EMAIL.COM" 
+            disabled={status === 'loading' || status === 'success'}
+            className="w-full bg-black/60 border border-white/10 rounded-full py-6 px-10 text-xs focus:outline-none focus:border-cyber-primary transition-all uppercase font-black tracking-widest disabled:opacity-50" 
+          />
+          <button 
+            type="submit"
+            disabled={status === 'loading' || status === 'success'}
+            className={`absolute right-2 top-2 px-10 py-4 rounded-full font-black text-[10px] uppercase tracking-widest transition-all disabled:opacity-50 ${
+              status === 'success' 
+                ? 'bg-cyber-success text-white' 
+                : 'bg-cyber-primary text-cyber-bg hover:shadow-[0_0_25px_#00E5FF]'
+            }`}
+          >
+            {status === 'loading' ? 'CONNECTING...' : 
+             status === 'success' ? <><Check className="w-3 h-3 inline mr-1" />CONNECTED</> : 'CONNECT'}
+          </button>
+        </form>
+        
+        {message && (
+          <div className={`mt-6 text-sm font-bold ${
+            status === 'success' ? 'text-cyber-success' : 'text-red-400'
+          }`}>
+            {message}
+          </div>
+        )}
+      </Card>
+    </div>
+  );
+};
+
 export const HomePage: React.FC = () => {
   useEffect(() => {
     document.title = "Open Your AIs | The Neural Frontier Intelligence Hub";
@@ -117,16 +210,7 @@ export const HomePage: React.FC = () => {
          <RecentArticles />
          <FAQ items={HomeFAQ} />
          
-         <div className="py-24 border-t border-white/5">
-            <Card className="max-w-4xl mx-auto bg-gradient-to-br from-cyber-primary/5 to-transparent border-cyber-primary/10 p-16 rounded-[40px] text-center">
-               <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-widest">Neural Stream</h2>
-               <p className="text-gray-400 mb-12 max-w-xl mx-auto text-lg font-light">Join the vanguard. Receive technical deep-dives and market alerts directly to your inbox.</p>
-               <div className="max-w-md mx-auto relative group">
-                  <input type="email" placeholder="NEURAL_ID@EMAIL.COM" className="w-full bg-black/60 border border-white/10 rounded-full py-6 px-10 text-xs focus:outline-none focus:border-cyber-primary transition-all uppercase font-black tracking-widest" />
-                  <button className="absolute right-2 top-2 bg-cyber-primary text-cyber-bg px-10 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:shadow-[0_0_25px_#00E5FF] transition-all">Connect</button>
-               </div>
-            </Card>
-         </div>
+         <NeuralStream />
       </div>
     </>
   );
