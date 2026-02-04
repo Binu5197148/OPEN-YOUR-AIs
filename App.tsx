@@ -26,7 +26,7 @@ const RouteTracker = () => {
     document.title = titles[location.pathname] || 'Open Your AIs | Future Tech & Wealth Intelligence';
     
     if (typeof (window as any).gtag === 'function') {
-      (window as any).gtag('config', 'G-XXXXXXXXXX', {
+      (window as any).gtag('config', 'G-OPENYOURAIS2026', {
         page_path: location.pathname + location.search,
         page_title: document.title
       });
