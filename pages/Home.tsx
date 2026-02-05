@@ -115,36 +115,51 @@ const NeuralStream = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setStatus('error');
-      setMessage('Por favor, insira um email válido');
+      setMessage('Please enter a valid email address');
       return;
     }
 
     setStatus('loading');
     
     try {
-      // Simula API call (pode integrar com Beehiiv, ConvertKit, etc depois)
+      // Integração ConvertKit futura
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // Salva localmente por enquanto
+      // Salva localmente + analytics tracking
       const subscribers = JSON.parse(localStorage.getItem('neural-stream-subscribers') || '[]');
-      if (!subscribers.includes(email)) {
-        subscribers.push({ email, timestamp: Date.now() });
+      if (!subscribers.find((sub: any) => sub.email === email)) {
+        const newSubscriber = { 
+          email, 
+          timestamp: Date.now(), 
+          source: 'neural-stream',
+          page: window.location.pathname,
+          userAgent: navigator.userAgent.slice(0, 100)
+        };
+        subscribers.push(newSubscriber);
         localStorage.setItem('neural-stream-subscribers', JSON.stringify(subscribers));
+        
+        // Analytics event
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'newsletter_signup', {
+            method: 'neural_stream',
+            custom_parameter: 'homepage'
+          });
+        }
       }
       
       setStatus('success');
-      setMessage('Conectado ao Neural Stream! 🚀');
+      setMessage('Welcome to the AI Opportunity Inner Circle! 🚀');
       setEmail('');
       
-      // Reset após 3 segundos
+      // Reset após 4 segundos
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
-      }, 3000);
+      }, 4000);
       
     } catch (error) {
       setStatus('error');
-      setMessage('Erro na transmissão. Tente novamente.');
+      setMessage('Connection failed. Please try again.');
       
       setTimeout(() => {
         setStatus('idle');
