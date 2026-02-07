@@ -409,22 +409,30 @@ export const ARTICLES: Article[] = [
       </div>
       
       <h2>Kling 3.0: The Technical Reality</h2>
-      <p>Kling AI, developed by Chinese tech giant Kuaishou, has emerged as one of the most capable AI video generators available to the public. Let's break down what the current generation actually delivers:</p>
+      <p>Kling AI, developed by Chinese tech giant Kuaishou, launched version 3.0 on February 5, 2026. According to <a href="https://www.cined.com/kling-3-0-ai-video-model-introduced-native-4k-enhanced-photorealism-multi-shot-sequencing-and-integrated-audio/">CineD's technical analysis</a>, this represents a substantial leap toward production-ready AI video. Here's what the verified specifications show:</p>
       
-      <h3>Core Specifications</h3>
+      <h3>Core Specifications (Verified February 2026)</h3>
       <ul>
-        <li><strong>Resolution:</strong> Up to 1080p HD output (1920×1080)</li>
-        <li><strong>Duration:</strong> Up to 2 minutes of continuous video per generation</li>
-        <li><strong>Frame Rate:</strong> 24-30 fps, matching professional film standards</li>
-        <li><strong>Aspect Ratios:</strong> 16:9, 9:16, 1:1 supporting horizontal, vertical, and square formats</li>
-        <li><strong>Generation Time:</strong> Approximately 2-8 minutes per clip depending on complexity</li>
+        <li><strong>Resolution:</strong> Native 2K and 4K output—not upscaled, but generated at the pixel level during diffusion (CineD)</li>
+        <li><strong>Duration:</strong> Up to 15 seconds with multiple distinct cuts in a single generation (<a href="https://bestphoto.ai/blog/kling-3-0-now-available">BestPhoto</a>)</li>
+        <li><strong>Frame Rate:</strong> 30fps standard, with reports of 60fps capability in certain configurations (BestPhoto)</li>
+        <li><strong>Multi-Shot Storyboards:</strong> Up to 6 camera cuts per generation, maintaining spatial continuity across angles</li>
+        <li><strong>Aspect Ratios:</strong> 16:9, 9:16, 1:1—with 2.39:1 cinematic possible via post-crop</li>
       </ul>
       
-      <h3>Key Capabilities</h3>
-      <p><strong>Text-to-Video:</strong> Generate video from detailed text prompts describing scenes, actions, and cinematography.</p>
-      <p><strong>Image-to-Video:</strong> Transform static images into animated sequences with consistent characters and environments.</p>
-      <p><strong>Motion Control:</strong> Advanced understanding of physics, human movement, and camera dynamics including zooms, pans, and tracking shots.</p>
-      <p><strong>Facial Consistency:</strong> Improved character consistency across frames—a major breakthrough compared to earlier AI video tools.</p>
+      <h3>Key Capabilities (Sources: CineD, Kuaishou PR Newswire)</h3>
+      <p><strong>Multi-modal Visual Language (MVL) Framework:</strong> Unlike previous AI tools that chain separate models together, Kling 3.0 processes images, video, and audio within a shared latent space. This preserves character features across shots instead of letting them drift.</p>
+      <p><strong>Diffusion Transformer (DiT) Architecture:</strong> The model understands relationships between pixels across both space and time simultaneously, resulting in significantly reduced flickering and texture boiling compared to previous AI video generations.</p>
+      <p><strong>"AI Director" Paradigm:</strong> Traditional AI video treats each clip as isolated. Kling 3.0 generates coverage—multiple camera angles of the same scene with characters maintaining correct spatial relationships to environmental elements.</p>
+      <p><strong>Omni Native Audio:</strong> Synchronized audio generated simultaneously with video pixels. Supports "Voice Binding" where specific voice profiles attach to specific characters, with multilingual support (English, Chinese, Japanese, Korean, Spanish).</p>
+      <p><strong>Elements System:</strong> Upload reference images to define characters. The model extracts high-dimensional feature vectors capturing face, posture, gait, clothing style, and voice tone for consistency across scenes.</p>
+      <p><strong>Physics Engine:</strong> Simulates inertia, weight, and collision detection. Characters exhibit authentic weight transfer; vehicles lean appropriately during movement.</p>
+      
+      <h3>Competitive Positioning (CineD Analysis)</h3>
+      <p>Against <strong>OpenAI Sora:</strong> Kling has availability advantages—accessible now via subscription while Sora remains limited.</p>
+      <p>Against <strong>Runway:</strong> Benchmarks suggest Kling holds an edge in prompt adherence and human movement realism.</p>
+      <p>Against <strong>Google Veo 3:</strong> Veo excels in lip-syncing accuracy, but Kling's cinematic aesthetic and lighting control are generally preferred by narrative filmmakers.</p>
+      <p>As one machine learning podcast summarized: "Sora is better for a storyteller starting with a complex, narrative idea. Kling is better for a visual artist who starts with a specific image and needs to bring it to life with realistic motion."</p>
       
       <h3>Pricing Structure</h3>
       <p>Kling operates on a credit-based subscription model:</p>
@@ -434,7 +442,7 @@ export const ARTICLES: Article[] = [
         <li><strong>Enterprise:</strong> Custom pricing for commercial use</li>
       </ul>
       <p>For context: A creator spending $100/month on Kling Pro can generate hundreds of video clips—enough for a short film's worth of VFX material.</p>
-      <p><em>Note: For current specifications and pricing, visit the official Kling website at <a href="https://klingai.com">klingai.com</a>. The platform updates frequently.</em></p>
+      <p><em>Note: For current specifications and pricing, visit the official Kling website at <a href="https://klingai.com">klingai.com</a>. Specifications verified February 7, 2026.</em></p>
       
       <h2>Hollywood by the Numbers: The Cost Reality Check</h2>
       <p>To understand why AI video generation represents a paradigm shift, we need to examine what visual effects actually cost at the studio level.</p>
