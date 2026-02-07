@@ -265,3 +265,6 @@ export const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ t
     {subtitle && <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light tracking-wide">{subtitle}</p>}
   </div>
 );
+
+// --- LEAD MAGNET ---
+export { LeadMagnet } from './LeadMagnet';
