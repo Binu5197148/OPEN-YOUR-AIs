@@ -100,6 +100,30 @@
     </script>
     <style>
       body { background-color: #0A0E1A; color: #E0FFFE; margin: 0; overflow-x: hidden; }
+      
+      /* MOBILE RESPONSIVENESS FIXES */
+      @media (max-width: 640px) {
+        .container { padding-left: 1rem; padding-right: 1rem; }
+        h1 { font-size: 2.5rem !important; }
+        h2 { font-size: 1.5rem !important; }
+        h3 { font-size: 1.1rem !important; }
+        .text-6xl, .text-9xl { font-size: 2.5rem !important; }
+        .text-4xl, .text-5xl { font-size: 1.75rem !important; }
+        .text-2xl, .text-3xl { font-size: 1.25rem !important; }
+        .tracking-tighter { letter-spacing: -0.025em !important; }
+        .tracking-widest { letter-spacing: 0.05em !important; }
+        .gap-12 { gap: 1.5rem !important; }
+        .gap-8 { gap: 1rem !important; }
+        .p-10, .p-12, .p-16 { padding: 1.25rem !important; }
+        .py-24 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+        .mb-16 { margin-bottom: 2rem !important; }
+        .rounded-\[40px\], .rounded-\[32px\] { border-radius: 1.5rem !important; }
+        .min-h-\[95vh\] { min-height: 80vh !important; }
+        .px-12 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .py-6 { padding-top: 0.875rem !important; padding-bottom: 0.875rem !important; }
+        .text-\[10px\], .text-\[9px\], .text-\[8px\] { font-size: 0.65rem !important; }
+        .flex-col.sm\\:flex-row { flex-direction: column !important; }
+      }
       .glass-panel {
         background: rgba(16, 20, 35, 0.6);
         backdrop-filter: blur(12px);

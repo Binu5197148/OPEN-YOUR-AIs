@@ -142,42 +142,51 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed w-full z-50 top-0 start-0 border-b border-white/5 bg-cyber-bg/80 backdrop-blur-xl">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-6">
-        <Link to="/" className="flex items-center space-x-3 group">
-          <div className="relative w-10 h-10 bg-cyber-primary rounded-xl flex items-center justify-center group-hover:shadow-[0_0_20px_#00E5FF] transition-all duration-500 overflow-hidden">
-            <Cpu className="text-cyber-bg w-6 h-6 z-10" />
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:p-6">
+        <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
+          <div className="relative w-8 h-8 md:w-10 md:h-10 bg-cyber-primary rounded-xl flex items-center justify-center group-hover:shadow-[0_0_20px_#00E5FF] transition-all duration-500 overflow-hidden">
+            <Cpu className="text-cyber-bg w-4 h-4 md:w-6 md:h-6 z-10" />
             <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-50"></div>
           </div>
-          <span className="self-center text-xl font-black whitespace-nowrap tracking-tighter text-white uppercase italic">
+          <span className="self-center text-sm md:text-xl font-black whitespace-nowrap tracking-tighter text-white uppercase italic">
             OPEN YOUR <span className="text-cyber-primary">AIS</span>
           </span>
         </Link>
         
-        <div className="flex md:order-2 space-x-3 md:space-x-0">
-          <Link to="/admin" className="px-6 py-2.5 text-[10px] font-black text-cyber-bg bg-cyber-primary rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest">
+        <div className="flex md:order-2 items-center gap-2">
+          <Link to="/admin" className="hidden md:inline-block px-6 py-2.5 text-[10px] font-black text-cyber-bg bg-cyber-primary rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest">
             {isAuthenticated ? 'TERMINAL' : 'CONNECT'}
           </Link>
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-white md:hidden"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-white md:hidden hover:bg-white/10 rounded-lg transition-all"
           >
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
 
         <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex flex-col p-6 md:p-0 mt-6 md:space-x-12 md:flex-row md:mt-0 font-black text-[10px] tracking-[0.2em] uppercase">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 lg:space-x-12 md:flex-row md:mt-0 font-black text-xs md:text-[10px] tracking-widest md:tracking-[0.2em] uppercase bg-cyber-bg/95 md:bg-transparent rounded-2xl md:rounded-none border border-white/10 md:border-0">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link 
                   to={link.path} 
-                  className={`block py-2 rounded transition-all ${isActive(link.path) ? 'text-cyber-primary' : 'text-gray-500 hover:text-white'}`}
+                  className={`block py-3 px-4 md:py-2 md:px-0 rounded-lg md:rounded-none transition-all ${isActive(link.path) ? 'text-cyber-primary bg-cyber-primary/10 md:bg-transparent' : 'text-gray-400 hover:text-white hover:bg-white/5 md:hover:bg-transparent'}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
+            <li className="md:hidden mt-2 pt-2 border-t border-white/10">
+              <Link 
+                to="/admin" 
+                className="block py-3 px-4 text-cyber-primary font-black"
+                onClick={() => setIsOpen(false)}
+              >
+                {isAuthenticated ? 'TERMINAL' : 'CONNECT'}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -188,23 +197,23 @@ export const Navbar: React.FC = () => {
 // --- FOOTER ---
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black/60 border-t border-white/5 mt-32 py-20">
-      <div className="mx-auto w-full max-w-screen-xl px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-2">
-            <Link to="/" className="flex items-center space-x-3 mb-6">
-              <div className="w-8 h-8 bg-cyber-primary rounded-lg flex items-center justify-center">
-                 <Cpu className="text-cyber-bg w-4 h-4" />
+    <footer className="bg-black/60 border-t border-white/5 mt-16 md:mt-32 py-12 md:py-20">
+      <div className="mx-auto w-full max-w-screen-xl px-4 md:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
+          <div className="col-span-2">
+            <Link to="/" className="flex items-center space-x-2 md:space-x-3 mb-4 md:mb-6">
+              <div className="w-6 h-6 md:w-8 md:h-8 bg-cyber-primary rounded-lg flex items-center justify-center">
+                 <Cpu className="text-cyber-bg w-3 h-3 md:w-4 md:h-4" />
               </div>
-              <span className="text-xl font-black text-white uppercase italic">OPEN YOUR AIS</span>
+              <span className="text-base md:text-xl font-black text-white uppercase italic">OPEN YOUR AIS</span>
             </Link>
-            <p className="text-gray-500 text-sm max-w-sm leading-relaxed font-light">
-              The premier intelligence hub for the digital vanguard. We decode the future of AI, decentralized assets, and monetization protocols to ensure human sovereignty in the post-work era.
+            <p className="text-gray-500 text-xs md:text-sm max-w-sm leading-relaxed font-light">
+              The premier intelligence hub for the digital vanguard. We decode the future of AI, decentralized assets, and monetization protocols.
             </p>
           </div>
           <div>
-            <h2 className="mb-6 text-[10px] font-black text-white uppercase tracking-[0.3em]">Network</h2>
-            <ul className="text-gray-500 text-xs space-y-4 font-bold uppercase tracking-widest">
+            <h2 className="mb-4 md:mb-6 text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest md:tracking-[0.3em]">Network</h2>
+            <ul className="text-gray-500 text-[10px] md:text-xs space-y-3 md:space-y-4 font-bold uppercase tracking-wider md:tracking-widest">
               <li><Link to="/tools" className="hover:text-cyber-primary transition-colors">AI Directory</Link></li>
               <li><Link to="/playbooks" className="hover:text-cyber-primary transition-colors">Revenue Ops</Link></li>
               <li><Link to="/crypto" className="hover:text-cyber-primary transition-colors">Crypto Vault</Link></li>
@@ -212,19 +221,19 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-[10px] font-black text-white uppercase tracking-[0.3em]">Legal</h2>
-            <ul className="text-gray-500 text-xs space-y-4 font-bold uppercase tracking-widest">
-              <li><Link to="/privacy" className="hover:text-cyber-primary transition-colors">Privacy Protocol</Link></li>
-              <li><Link to="/terms" className="hover:text-cyber-primary transition-colors">Terms of Entry</Link></li>
-              <li><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-cyber-primary transition-colors">Transmission Support</a></li>
+            <h2 className="mb-4 md:mb-6 text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest md:tracking-[0.3em]">Legal</h2>
+            <ul className="text-gray-500 text-[10px] md:text-xs space-y-3 md:space-y-4 font-bold uppercase tracking-wider md:tracking-widest">
+              <li><Link to="/privacy" className="hover:text-cyber-primary transition-colors">Privacy</Link></li>
+              <li><Link to="/terms" className="hover:text-cyber-primary transition-colors">Terms</Link></li>
+              <li><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-cyber-primary transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-black text-gray-700 uppercase tracking-[0.4em]">
-          <span>© 2026 OPEN YOUR AIS. ALL PROTOCOLS RESERVED.</span>
-          <div className="flex gap-8">
-             <span>SECURE DATA TRANSMISSION</span>
-             <span>HIGH-FIDELITY INTEL</span>
+        <div className="pt-8 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[8px] md:text-[9px] font-black text-gray-700 uppercase tracking-widest md:tracking-[0.4em]">
+          <span>© 2026 OPEN YOUR AIS</span>
+          <div className="flex gap-4 md:gap-8">
+             <span>SECURE DATA</span>
+             <span>HIGH-FIDELITY</span>
           </div>
         </div>
       </div>
