@@ -216,33 +216,33 @@ export const BlogPage: React.FC = () => {
     <div className="container mx-auto px-4 py-12">
       <SectionTitle title="Neural Feed" subtitle="High-frequency intelligence stream and archival reporting." />
       
-      <div className="flex flex-wrap justify-center gap-4 mb-20">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-20">
         {['All', 'AI', 'Crypto', 'Monetization'].map(cat => (
           <button
             key={cat}
             onClick={() => setFilter(cat as any)}
-            className={`px-10 py-3 rounded-full border transition-all text-[9px] font-black tracking-[0.2em] uppercase ${filter === cat ? 'bg-cyber-primary text-cyber-bg border-cyber-primary shadow-[0_0_25px_rgba(0,229,255,0.3)]' : 'bg-transparent border-white/10 text-gray-500 hover:text-white hover:border-white/30'}`}
+            className={`px-4 md:px-10 py-2 md:py-3 rounded-full border transition-all text-[8px] md:text-[9px] font-black tracking-wider md:tracking-[0.2em] uppercase ${filter === cat ? 'bg-cyber-primary text-cyber-bg border-cyber-primary shadow-[0_0_25px_rgba(0,229,255,0.3)]' : 'bg-transparent border-white/10 text-gray-500 hover:text-white hover:border-white/30'}`}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12">
         {filteredArticles.map((article, index) => (
           <React.Fragment key={article.id}>
              <Link to={`/blog/${article.slug}`} className="group">
-                <Card className="h-full flex flex-col p-0 rounded-[40px] overflow-hidden border-white/5 group-hover:border-cyber-primary/20 transition-all bg-white/[0.01]">
+                <Card className="h-full flex flex-col p-0 rounded-2xl md:rounded-[40px] overflow-hidden border-white/5 group-hover:border-cyber-primary/20 transition-all bg-white/[0.01]">
                   <div className="aspect-video w-full overflow-hidden relative border-b border-white/5 bg-gray-900">
-                     <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" />
-                     <div className="absolute top-6 left-6 bg-cyber-bg/90 backdrop-blur px-4 py-1.5 text-[8px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-[0.2em] italic">{article.category} Protocol</div>
+                     <SmartImage src={article.image || article.imageUrl} alt={article.title} className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" />
+                     <div className="absolute top-3 left-3 md:top-6 md:left-6 bg-cyber-bg/90 backdrop-blur px-2 md:px-4 py-1 md:py-1.5 text-[7px] md:text-[8px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-wider md:tracking-[0.2em] italic">{article.category}</div>
                   </div>
-                  <div className="p-10 flex flex-col flex-grow">
-                     <h3 className="text-2xl font-black text-white mb-6 line-clamp-2 uppercase tracking-tight group-hover:text-cyber-primary transition-colors leading-[1.1]">{article.title}</h3>
-                     <p className="text-gray-500 text-sm mb-10 line-clamp-2 font-light leading-relaxed flex-grow">{article.excerpt}</p>
-                     <div className="flex justify-between items-center text-[9px] font-black text-gray-700 mt-auto pt-8 border-t border-white/5 uppercase tracking-[0.3em] italic">
+                  <div className="p-4 md:p-10 flex flex-col flex-grow">
+                     <h3 className="text-base md:text-2xl font-black text-white mb-3 md:mb-6 line-clamp-2 uppercase tracking-tight group-hover:text-cyber-primary transition-colors leading-tight">{article.title}</h3>
+                     <p className="text-gray-500 text-xs md:text-sm mb-4 md:mb-10 line-clamp-2 font-light leading-relaxed flex-grow">{article.excerpt}</p>
+                     <div className="flex justify-between items-center text-[8px] md:text-[9px] font-black text-gray-700 mt-auto pt-4 md:pt-8 border-t border-white/5 uppercase tracking-wider md:tracking-[0.3em]">
                        <span>{article.date}</span>
-                       <span className="text-cyber-primary group-hover:translate-x-2 transition-transform">Transmit Data &rarr;</span>
+                       <span className="text-cyber-primary">Read →</span>
                      </div>
                   </div>
                 </Card>

@@ -267,11 +267,11 @@ export const Card: React.FC<{ children: React.ReactNode; className?: string; hov
 };
 
 export const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
-  <div className="text-center mb-16">
-    <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter leading-[1.1]">
+  <div className="text-center mb-8 md:mb-16">
+    <h2 className="text-2xl md:text-4xl lg:text-6xl font-black text-white mb-3 md:mb-6 uppercase tracking-tight md:tracking-tighter leading-tight">
       {title}
     </h2>
-    {subtitle && <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light tracking-wide">{subtitle}</p>}
+    {subtitle && <p className="text-gray-500 max-w-2xl mx-auto text-sm md:text-lg font-light tracking-wide px-4">{subtitle}</p>}
   </div>
 );
 
