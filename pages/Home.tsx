@@ -84,19 +84,19 @@ const RecentArticles = () => {
             <Link to={`/blog/${article.slug}`} key={article.id} className="group">
               <Card className="h-full flex flex-col p-0 rounded-3xl overflow-hidden border-white/5 hover:border-cyber-primary/20">
                 <div className="aspect-video w-full overflow-hidden relative border-b border-white/5 bg-gray-900">
-                   <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-700" />
-                   <div className="absolute top-4 left-4 bg-cyber-bg/90 backdrop-blur px-3 py-1 text-[9px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-widest">{article.category}</div>
+                  <SmartImage src={article.image || ''} alt={article.title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-700" />
+                  <div className="absolute top-4 left-4 bg-cyber-bg/90 backdrop-blur px-3 py-1 text-[9px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-widest">{article.category}</div>
                 </div>
                 <div className="p-8">
-                   <h3 className="text-xl font-black text-white mb-4 line-clamp-2 uppercase tracking-wide leading-tight group-hover:text-cyber-primary transition-colors">{article.title}</h3>
-                   <p className="text-gray-500 text-sm line-clamp-2 font-light leading-relaxed">{article.excerpt}</p>
+                  <h3 className="text-xl font-black text-white mb-4 line-clamp-2 uppercase tracking-wide leading-tight group-hover:text-cyber-primary transition-colors">{article.title}</h3>
+                  <p className="text-gray-500 text-sm line-clamp-2 font-light leading-relaxed">{article.excerpt}</p>
                 </div>
               </Card>
             </Link>
           ))}
         </div>
         <div className="text-center">
-           <Link to="/blog" className="inline-block px-10 py-4 border border-white/10 rounded-full text-gray-500 font-black uppercase text-[10px] tracking-widest hover:border-cyber-primary transition-all">Browse Intelligence Archive</Link>
+          <Link to="/blog" className="inline-block px-10 py-4 border border-white/10 rounded-full text-gray-500 font-black uppercase text-[10px] tracking-widest hover:border-cyber-primary transition-all">Browse Intelligence Archive</Link>
         </div>
       </div>
     </section>
@@ -110,7 +110,7 @@ const NeuralStream = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validação básica de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -120,24 +120,24 @@ const NeuralStream = () => {
     }
 
     setStatus('loading');
-    
+
     try {
       // Integração ConvertKit futura
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       // Salva localmente + analytics tracking
       const subscribers = JSON.parse(localStorage.getItem('neural-stream-subscribers') || '[]');
       if (!subscribers.find((sub: any) => sub.email === email)) {
-        const newSubscriber = { 
-          email, 
-          timestamp: Date.now(), 
+        const newSubscriber = {
+          email,
+          timestamp: Date.now(),
           source: 'neural-stream',
           page: window.location.pathname,
           userAgent: navigator.userAgent.slice(0, 100)
         };
         subscribers.push(newSubscriber);
         localStorage.setItem('neural-stream-subscribers', JSON.stringify(subscribers));
-        
+
         // Analytics event
         if (typeof (window as any).gtag === 'function') {
           (window as any).gtag('event', 'newsletter_signup', {
@@ -146,21 +146,21 @@ const NeuralStream = () => {
           });
         }
       }
-      
+
       setStatus('success');
       setMessage('Welcome to the AI Opportunity Inner Circle! 🚀');
       setEmail('');
-      
+
       // Reset após 4 segundos
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
       }, 4000);
-      
+
     } catch (error) {
       setStatus('error');
       setMessage('Connection failed. Please try again.');
-      
+
       setTimeout(() => {
         setStatus('idle');
         setMessage('');
@@ -175,34 +175,32 @@ const NeuralStream = () => {
         <p className="text-gray-400 mb-12 max-w-xl mx-auto text-lg font-light">
           Join the vanguard. Receive technical deep-dives and market alerts directly to your inbox.
         </p>
-        
+
         <form onSubmit={handleSubmit} className="max-w-md mx-auto relative group">
-          <input 
-            type="email" 
+          <input
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="NEURAL_ID@EMAIL.COM" 
+            placeholder="NEURAL_ID@EMAIL.COM"
             disabled={status === 'loading' || status === 'success'}
-            className="w-full bg-black/60 border border-white/10 rounded-full py-6 px-10 text-xs focus:outline-none focus:border-cyber-primary transition-all uppercase font-black tracking-widest disabled:opacity-50" 
+            className="w-full bg-black/60 border border-white/10 rounded-full py-6 px-10 text-xs focus:outline-none focus:border-cyber-primary transition-all uppercase font-black tracking-widest disabled:opacity-50"
           />
-          <button 
+          <button
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className={`absolute right-2 top-2 px-10 py-4 rounded-full font-black text-[10px] uppercase tracking-widest transition-all disabled:opacity-50 ${
-              status === 'success' 
-                ? 'bg-cyber-success text-white' 
+            className={`absolute right-2 top-2 px-10 py-4 rounded-full font-black text-[10px] uppercase tracking-widest transition-all disabled:opacity-50 ${status === 'success'
+                ? 'bg-cyber-success text-white'
                 : 'bg-cyber-primary text-cyber-bg hover:shadow-[0_0_25px_#00E5FF]'
-            }`}
+              }`}
           >
-            {status === 'loading' ? 'CONNECTING...' : 
-             status === 'success' ? <><Check className="w-3 h-3 inline mr-1" />CONNECTED</> : 'CONNECT'}
+            {status === 'loading' ? 'CONNECTING...' :
+              status === 'success' ? <><Check className="w-3 h-3 inline mr-1" />CONNECTED</> : 'CONNECT'}
           </button>
         </form>
-        
+
         {message && (
-          <div className={`mt-6 text-sm font-bold ${
-            status === 'success' ? 'text-cyber-success' : 'text-red-400'
-          }`}>
+          <div className={`mt-6 text-sm font-bold ${status === 'success' ? 'text-cyber-success' : 'text-red-400'
+            }`}>
             {message}
           </div>
         )}
@@ -220,12 +218,12 @@ export const HomePage: React.FC = () => {
     <>
       <Hero />
       <div className="container mx-auto px-4">
-         <AdUnit slot="home-top" />
-         <Features />
-         <RecentArticles />
-         <FAQ items={HomeFAQ} />
-         
-         <NeuralStream />
+        <AdUnit slot="home-top" />
+        <Features />
+        <RecentArticles />
+        <FAQ items={HomeFAQ} />
+
+        <NeuralStream />
       </div>
     </>
   );

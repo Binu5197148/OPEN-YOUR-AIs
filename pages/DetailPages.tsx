@@ -144,7 +144,7 @@ export const ArticleReader: React.FC = () => {
 
               <div className="mt-24 pt-12 border-t border-white/10">
                 <div className="flex flex-wrap gap-4">
-                  {(article.tags || []).map(tag => (
+                  {(article.tags || []).map((tag: string) => (
                     <span key={tag} className="text-[10px] font-black bg-white/5 px-4 py-2 rounded-lg text-gray-400 uppercase tracking-widest border border-white/5">#{tag}</span>
                   ))}
                 </div>

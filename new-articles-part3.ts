@@ -509,35 +509,34 @@ export const NEW_ARTICLES_PART3: Article[] = [
     date: 'Dec 18, 2025',
     readTime: '20 min',
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
-  ,
+  },
   {
     id: 'art-021',
     slug: 'anthropic-cowork-revolution',
     title: 'The Anthropic CoWork Revolution: How Agentic AI Is Redefining Digital Work',
     excerpt: 'Anthropic is quietly building a groundbreaking AI cowork platform that aims to reinvent digital work with domain-specific agents, modular stacks, and the SCALE framework.',
-    content``
+    content: `
       <h2>The Rise of Agentic AI</h2>
-      <p>Anthropic’s CoWork platform introduces agents that autonomously manage tasks, freeing knowledge workers to focus on high-level strategy. These domain-specific agents can search, synthesize, execute, and loop back with results.</p>
+      <p>Anthropic's CoWork platform introduces agents that autonomously manage tasks, freeing knowledge workers to focus on high-level strategy. These domain-specific agents can search, synthesize, execute, and loop back with results.</p>
       <h3>Domain-Specific Stacks</h3>
       <p>Rather than a single general-purpose model, CoWork uses specialized stacks for engineering, design, marketing, and other domains. Each stack combines a base LLM with fine-tuned models, tools, and work context to deliver targeted results.</p>
       <h3>The SCALE Framework</h3>
       <p>Anthropic organizes agent behaviour through the SCALE framework:</p>
       <ul>
         <li><strong>S:</strong> Search and retrieve the best knowledge for the task.</li>
-        <li><strong>C:</strong> Contextualize information using the user’s existing workflows.</li>
+        <li><strong>C:</strong> Contextualize information using the user's existing workflows.</li>
         <li><strong>A:</strong> Act on tasks autonomously, from drafting code to writing reports.</li>
         <li><strong>L:</strong> Learn from outcomes and iterate for continuous improvement.</li>
         <li><strong>E:</strong> Evaluate quality and accuracy, surfacing results for human review.</li>
       </ul>
       <h3>Competitive Dynamics</h3>
-      <p>While OpenAI’s ChatGPT dominates mainstream mindshare, Anthropic’s focus on safe, controllable AI positions CoWork as a serious contender in enterprise environments. Partnerships with companies seeking reliable AI collaborators could help CoWork carve out a substantial niche.</p>
+      <p>While OpenAI's ChatGPT dominates mainstream mindshare, Anthropic's focus on safe, controllable AI positions CoWork as a serious contender in enterprise environments. Partnerships with companies seeking reliable AI collaborators could help CoWork carve out a substantial niche.</p>
       <p><em>Overall, the CoWork vision shifts from one-off AI assistants to persistent, specialized coworkers integrated deeply into daily processes—marking a major evolution in digital work.</em></p>
-    ``,
+    `,
     category: 'AI',
-    tags: ['Anthropic','Agentic AI','CoWork','Future of Work'],
+    tags: ['Anthropic', 'Agentic AI', 'CoWork', 'Future of Work'],
     date: 'Feb 8, 2026',
     readTime: '9 min',
     image: 'https://images.pexels.com/photos/7717424/pexels-photo-7717424.jpeg'
   }
-}
 ];
