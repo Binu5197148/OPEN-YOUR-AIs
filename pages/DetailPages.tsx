@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Clock, DollarSign, ShieldCheck, ChevronRight, Award, BookOpen, Shield, Zap, AlertTriangle, ExternalLink, CheckCircle, Share2, Bookmark, Terminal, Play, Loader2 } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
 import { ALL_ARTICLES, PLAYBOOKS, CRYPTO_GUIDES, CONTACT_EMAIL } from '../constants';
@@ -90,8 +91,70 @@ export const ArticleReader: React.FC = () => {
 
   if (!article) return <NotFoundPage />;
 
+  // SEO: Generate meta description from excerpt (truncated to 160 chars)
+  const metaDescription = article.excerpt ?
+    (article.excerpt.length > 160 ? article.excerpt.substring(0, 157) + '...' : article.excerpt) :
+    `Read ${article.title} - High-fidelity intelligence on ${article.category} from Open Your AIs.`;
+
+  // SEO: Generate keywords from tags and category
+  const keywords = [article.category, ...(article.tags || []), 'AI', 'technology', 'guide'].join(', ');
+
+  // SEO: Article structured data
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": article.title,
+    "description": metaDescription,
+    "image": article.image,
+    "author": {
+      "@type": "Organization",
+      "name": "Open Your AIs"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Open Your AIs",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.openyourais.com/logo.png"
+      }
+    },
+    "datePublished": article.date || new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.openyourais.com/blog/${article.slug}`
+    }
+  };
+
   return (
     <div className="relative">
+      <Helmet>
+        <title>{`${article.title} | Open Your AIs`}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={keywords} />
+        <link rel="canonical" href={`https://www.openyourais.com/blog/${article.slug}`} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={`${article.title} | Open Your AIs`} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.openyourais.com/blog/${article.slug}`} />
+        <meta property="og:image" content={article.image} />
+        <meta property="article:published_time" content={article.date} />
+        <meta property="article:section" content={article.category} />
+        {(article.tags || []).map((tag: string) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
+
+        {/* Twitter */}
+        <meta name="twitter:title" content={`${article.title} | Open Your AIs`} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content={article.image} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
+        </script>
+      </Helmet>
       <div className="fixed top-[88px] left-0 w-full h-1 bg-white/5 z-[60]">
         <div
           className="h-full bg-cyber-primary shadow-[0_0_10px_#00E5FF] transition-all duration-300"

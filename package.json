@@ -1,4 +1,3 @@
-
 {
   "name": "open-your-ais",
   "private": true,
@@ -6,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:prerender": "vite build && npm run prerender",
+    "build": "npm run generate-sitemap && vite build",
+    "build:prerender": "npm run generate-sitemap && vite build && npm run prerender",
     "prerender": "node prerender.js",
+    "generate-sitemap": "node generate-sitemap.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "lucide-react": "^0.460.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
