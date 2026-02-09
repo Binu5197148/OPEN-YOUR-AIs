@@ -396,7 +396,7 @@ export const ARTICLES: Article[] = [
       <h2>The Week That Changed Everything</h2>
       <p>On February 4th, 2026, something unprecedented happened in financial markets. Nearly $1 trillion in market value evaporated from software and services stocks in a single week—not because of a recession, not because of disappointing earnings, but because of a product update from an AI startup.</p>
       
-      <p>Anthropic's release of industry-specific plugins for Claude Cowork, followed by the Claude Opus 4.6 model with multi-agent team capabilities, triggered what some analysts are calling the "SaaSpocalypse." The S&P Software & Services Select Industry Index plummeted 17% year-to-date. Salesforce dropped 25%. Intuit fell 31%. Financial data providers like FactSet Research Systems saw 10% single-day declines.</p>
+      <p>Anthropic's release of industry-specific plugins for Claude Cowork, followed by the Claude Opus 4.6 model with multi-agent team capabilities, triggered what some analysts are calling the "SaaSpocalypse." The S&amp;P Software & Services Select Industry Index plummeted 17% year-to-date. Salesforce dropped 25%. Intuit fell 31%. Financial data providers like FactSet Research Systems saw 10% single-day declines.</p>
       
       <p>This wasn't irrational panic. It was the market finally pricing in a future that's arriving faster than anyone predicted.</p>
       
