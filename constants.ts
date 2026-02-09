@@ -396,7 +396,7 @@ export const ARTICLES: Article[] = [
       <h2>The Week That Changed Everything</h2>
       <p>On February 4th, 2026, something unprecedented happened in financial markets. Nearly $1 trillion in market value evaporated from software and services stocks in a single week—not because of a recession, not because of disappointing earnings, but because of a product update from an AI startup.</p>
       
-      <p>Anthropic's release of industry-specific plugins for Claude Cowork, followed by the Claude Opus 4.6 model with multi-agent team capabilities, triggered what some analysts are calling the "SaaSpocalypse." The S&amp;P Software & Services Select Industry Index plummeted 17% year-to-date. Salesforce dropped 25%. Intuit fell 31%. Financial data providers like FactSet Research Systems saw 10% single-day declines.</p>
+      <p>Anthropic's release of industry-specific plugins for Claude Cowork, followed by the Claude Opus 4.6 model with multi-agent team capabilities, triggered what some analysts are calling the "SaaSpocalypse." The S&amp;P Software &amp; Services Select Industry Index plummeted 17% year-to-date. Salesforce dropped 25%. Intuit fell 31%. Financial data providers like FactSet Research Systems saw 10% single-day declines.</p>
       
       <p>This wasn't irrational panic. It was the market finally pricing in a future that's arriving faster than anyone predicted.</p>
       
@@ -513,7 +513,7 @@ export const ARTICLES: Article[] = [
       
       <p>Google Cloud Taiwan's general manager Mike Chen echoed this sentiment, stating that 2026 will be the breakthrough year for AI agent technology across industries.</p>
       
-      <p>But adoption isn't uniform. According to the <strong>2026 AI Adoption & Risk Report</strong> from Cyberhaven Labs, based on billions of real-world data movements:</p>
+      <p>But adoption isn't uniform. According to the <strong>2026 AI Adoption &amp; Risk Report</strong> from Cyberhaven Labs, based on billions of real-world data movements:</p>
       
       <ul>
         <li><strong>The top 1% of early adopter organizations use more than 300 GenAI tools</strong></li>
@@ -625,7 +625,7 @@ export const ARTICLES: Article[] = [
       <h2>Sources</h2>
       <ul>
         <li>TechCrunch: "OpenAI launches a way for enterprises to build and manage AI agents" (February 5, 2026)</li>
-        <li>Cyberhaven Labs: "2026 AI Adoption & Risk Report" (February 5, 2026)</li>
+        <li>Cyberhaven Labs: "2026 AI Adoption &amp; Risk Report" (February 5, 2026)</li>
         <li>Salesforce Research: AI adoption trends for agentic enterprises (February 3, 2026)</li>
         <li>DIGITIMES: "Google outlines 5 key trends for AI agent growth in 2026" (February 6, 2026)</li>
         <li>Gartner: AI Agent Management Platform Report (December 2025)</li>
