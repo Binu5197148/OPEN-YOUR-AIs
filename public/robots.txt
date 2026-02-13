@@ -1,7 +1,53 @@
 User-agent: *
 Allow: /
 
+# Sitemap location
 Sitemap: https://www.openyourais.com/sitemap.xml
 
-# Disallow admin areas
+# Disallow admin and utility pages
 Disallow: /admin
+Disallow: /admin/
+
+# Disallow search pages with parameters (prevents duplicate content)
+Disallow: /blog?q=
+Disallow: /blog?*
+Disallow: /tools?q=
+Disallow: /tools?*
+Disallow: /*?ref=
+Disallow: /*?utm_
+
+# Disallow old WordPress-style URLs if they exist
+Disallow: /blog/2025/*/*/*/
+Disallow: /blog/2024/*/*/*/
+Disallow: /blog/2023/*/*/*/
+
+# Disallow any URL containing "moringa" or suspicious patterns
+Disallow: /*moringa*
+Disallow: /*magic*
+Disallow: /*review-2024*
+Disallow: /*review-2023*
+
+# Crawl rate optimization
+Crawl-delay: 1
+
+# Allow major search engines full access
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block problematic bots
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
