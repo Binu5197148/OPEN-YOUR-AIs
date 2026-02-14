@@ -705,6 +705,112 @@ export const NEW_ARTICLES: Article[] = [
     date: 'Feb 13, 2026',
     readTime: '12 min',
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 'art-014',
+    slug: 'ai-brief-nvidia-326b-india-summit-musk-xai-merger',
+    title: "AI Brief: Nvidia's $326B Moonshot, India's AI Summit, and Musk's Trillion-Dollar Gamble",
+    excerpt: 'This week in AI is about trillion-dollar bets, geopolitical positioning, and market consolidation. Nvidia projected to hit $326B revenue, India hosts major AI governance summit, and Musk merges SpaceX with xAI into $1.25T entity.',
+    content: `
+      <h2>Executive Summary</h2>
+      <p>This week in AI isn't about incremental updates. It's about <strong>trillion-dollar bets</strong>, <strong>geopolitical positioning</strong>, and <strong>market consolidation</strong> that'll shape who owns the next decade of artificial intelligence. Nvidia's projected to hit $326B in revenue. India is hosting the most consequential AI governance summit outside the West. And Elon Musk is trying to merge SpaceX with xAI into a $1.25 trillion juggernaut.</p>
+      
+      <h2>1. Nvidia's $326B Run: The Math Behind the Hype</h2>
+      <p>Wall Street doesn't throw around 37% upside targets casually. But that's exactly what analysts are projecting for Nvidia, with an average price target of $253.62 (currently trading around $182).</p>
+      
+      <p><strong>The Reality Check:</strong></p>
+      <ul>
+        <li>Revenue forecast for fiscal 2027: <strong>$326 billion</strong> (53% YoY growth)</li>
+        <li>AI hyperscaler capex for 2026 data centers: <strong>Jaw-dropping numbers</strong> across Microsoft, Google, Amazon, Meta</li>
+        <li>Profit margin holding steady at ~53%</li>
+      </ul>
+      
+      <p>This isn't retail speculation. This is institutional money betting that AI infrastructure spend hasn't peaked—it's accelerating. The hyperscalers are in an arms race, and Nvidia's GPUs are the ammunition.</p>
+      
+      <p><strong>The Catch:</strong> Nvidia reports earnings February 25. If they miss or guide conservatively, expect volatility. But if they confirm these growth trajectories? The AI infrastructure trade gets a second wind.</p>
+      
+      <h2>2. India-AI Impact Summit 2026: The Global South Fights Back</h2>
+      <p>While the US and China dominate AI headlines, India is making a power play. The AI Impact Summit kicks off February 16 in New Delhi, and it's the first major AI governance summit hosted in the Global South.</p>
+      
+      <p><strong>What's Different:</strong></p>
+      <ul>
+        <li>Theme: <em>"Sarvajan Hitaya, Sarvajan Sukhaya"</em> (Welfare for All, Happiness of All)</li>
+        <li>Focus: Inclusive, responsible AI governance—not just innovation for innovation's sake</li>
+        <li>Participants: Slovak President Peter Pellegrini confirmed, plus envoys from 30+ countries</li>
+      </ul>
+      
+      <p>The philosophy here matters. Indian diplomats are framing AI governance as integral to innovation, not a separate checkbox. As Ambassador Vani Rao (Italy) put it: <em>"AI systems succeed only when skills, trust, infrastructure, and access evolve together."</em></p>
+      
+      <p><strong>Why You Should Care:</strong> The EU has AI Act compliance. The US has executive orders. India is building a third model—one that prioritizes planetary welfare and equitable access. For companies building global AI products, this could become a compliance framework you'll need to understand.</p>
+      
+      <h2>3. Elon Musk's $1.25 Trillion Merge: SpaceX + xAI</h2>
+      <p>In a move that surprised exactly no one who watches Musk's playbook, SpaceX and xAI are reportedly merging. The proposed entity would be valued at <strong>$1.25 trillion</strong>.</p>
+      
+      <p><strong>The Mechanics:</strong></p>
+      <ul>
+        <li>xAI carries $18 billion in debt that needs restructuring</li>
+        <li>Bankers are working to consolidate the two entities</li>
+        <li>SpaceX is simultaneously prepping a 2026 IPO with dual-class shares (Musk keeps control)</li>
+      </ul>
+      
+      <p><strong>The Strategy:</strong> Combine SpaceX's Starlink infrastructure (global satellite network) with xAI's Grok models, and you have AI inference at the edge—literally anywhere on Earth. It's a vertically integrated AI stack from satellite to server to end-user.</p>
+      
+      <p><strong>The Drama:</strong> This isn't happening in a vacuum. xAI just got hit with a 60-day notice from the NAACP and environmental groups over pollution in Mississippi. UK regulator Ofcom is probing Grok AI for compliance issues. And Musk publicly slammed Anthropic's $30 billion valuation—a not-so-subtle flex that he's playing a bigger game.</p>
+      
+      <h2>4. OpenAI's Real-Time Push: GPT-5.3-Codex-Spark</h2>
+      <p>While everyone focuses on big models, OpenAI dropped a specialized bomb: <strong>GPT-5.3-Codex-Spark</strong>.</p>
+      
+      <p><strong>What It Does:</strong></p>
+      <ul>
+        <li>Real-time coding model optimized for ultra-low latency</li>
+        <li>Runs on Cerebras hardware (not Nvidia—interesting)</li>
+        <li>128k context window</li>
+        <li>Rolling out to ChatGPT Pro as research preview</li>
+      </ul>
+      
+      <p><strong>Why It Matters:</strong> This is OpenAI's answer to Cursor, GitHub Copilot, and the swarm of AI coding assistants. But with a twist—it's hardware-optimized for Cerebras' wafer-scale chips, suggesting OpenAI is diversifying its compute dependencies beyond Nvidia.</p>
+      
+      <h2>5. The AI Job Cut Reality: 30,700 Gone in Two Months</h2>
+      <p>Here's the uncomfortable truth behind all this growth: <strong>30,700 tech jobs have been cut globally in the first two months of 2026</strong>, with approximately 80% linked to AI automation or restructuring.</p>
+      
+      <p>This isn't a recession. This is structural. Companies are aggressively replacing roles with AI systems, and the trend is accelerating. If you're in tech, the question isn't whether AI impacts your job—it's whether you're using AI to amplify your value or watching it replace you.</p>
+      
+      <h2>Tools of the Day</h2>
+      
+      <h3>🛠️ GPT-5.3-Codex-Spark</h3>
+      <p>Real-time coding assistant with 128k context. Pro users get research preview access. If you code, this is your new pair programmer.</p>
+      
+      <h3>🛠️ Grok AI (xAI)</h3>
+      <p>Now potentially integrated with Starlink infrastructure. Early glimpses at what edge-distributed AI inference looks like.</p>
+      
+      <h3>🛠️ OpenAI "Prism" Research Workspace</h3>
+      <p>New AI-native research environment mentioned in recent updates. Details still emerging, but worth watching for knowledge workers.</p>
+      
+      <h2>The Bottom Line</h2>
+      <p>This week encapsulates where AI is heading:</p>
+      <ol>
+        <li><strong>Infrastructure consolidation</strong> (Nvidia's dominance, hyperscaler capex)</li>
+        <li><strong>Geopolitical competition</strong> (India's summit, regulatory fragmentation)</li>
+        <li><strong>Vertical integration</strong> (Musk merging space and AI)</li>
+        <li><strong>Real-time specialization</strong> (OpenAI's coding models)</li>
+        <li><strong>Labor displacement</strong> (30k+ jobs gone, more coming)</li>
+      </ol>
+      
+      <p>The AI boom isn't slowing down. It's mutating. The companies that thrive will be those adapting to these shifts faster than their competitors.</p>
+      
+      <h2>Action Items</h2>
+      <ol>
+        <li><strong>Developers:</strong> Get on the GPT-5.3-Codex-Spark waitlist if you're Pro. Test real-time coding workflows.</li>
+        <li><strong>Investors:</strong> Mark February 25 (Nvidia earnings) and watch for capex guidance commentary.</li>
+        <li><strong>Builders:</strong> Study India's AI governance framework. The Global South is writing rules that'll matter globally.</li>
+        <li><strong>Professionals:</strong> Audit your role for AI replacement risk. Then learn the tools that make you irreplaceable.</li>
+      </ol>
+    `,
+    category: 'AI',
+    tags: ['Nvidia', 'India', 'AI Governance', 'Musk', 'xAI', 'SpaceX', 'OpenAI', 'Market Analysis'],
+    date: 'Feb 14, 2026',
+    readTime: '5 min',
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
