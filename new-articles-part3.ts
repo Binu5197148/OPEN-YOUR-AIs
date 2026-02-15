@@ -1244,5 +1244,141 @@ export const NEW_ARTICLES_PART3: Article[] = [
     date: 'Feb 15, 2026',
     readTime: '7 min',
     image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'art-032',
+    slug: 'india-ai-summit-2026-global-south-100-billion-gambit',
+    title: 'India\'s $100B AI Gambit: Why the Global South Just Entered the Chat',
+    excerpt: 'Tomorrow, New Delhi becomes the center of the AI universe. 37 tech CEOs, 20+ world leaders, and $100B in investments. This is the Global South\'s declaration of independence in the AI era.',
+    content: `
+      <h2>The Numbers That Matter</h2>
+      <p>Let's cut through the diplomatic language. Here's what's actually happening:</p>
+      <ul>
+        <li><strong>$100 billion</strong> — Investment target being discussed</li>
+        <li><strong>37 CEOs</strong> — From Google, OpenAI, Nvidia, Anthropic, Microsoft, and more</li>
+        <li><strong>20+ world leaders</strong> — Presidents, Prime Ministers, UN officials</li>
+        <li><strong>800+ companies</strong> — From nearly 100 countries</li>
+        <li><strong>February 16-20</strong> — Five days that could reshape AI governance</li>
+      </ul>
+      <p>The summit is anchored in three principles: <strong>People, Planet, Progress</strong>. Translation: India wants AI that works for humanity, not just Silicon Valley shareholders.</p>
+      
+      <h2>Who's Coming (And Why It Matters)</h2>
+      
+      <h3>The Tech Titans</h3>
+      <ul>
+        <li><strong>Sundar Pichai</strong> (Google CEO) — Representing the search giant's massive $185B AI bet</li>
+        <li><strong>Sam Altman</strong> (OpenAI) — The face of the ChatGPT revolution</li>
+        <li><strong>Jensen Huang</strong> (Nvidia) — The man selling the picks and shovels in the AI gold rush</li>
+        <li><strong>Dario Amodei</strong> (Anthropic) — Just closed a $30B round, now playing geopolitics</li>
+        <li><strong>Demis Hassabis</strong> (Google DeepMind) — The scientist turned industry leader</li>
+        <li><strong>Brad Smith</strong> (Microsoft) — OpenAI's biggest partner</li>
+        <li><strong>Bill Gates</strong> — Still influential, still watching</li>
+      </ul>
+      
+      <h3>The World Leaders</h3>
+      <ul>
+        <li><strong>Narendra Modi</strong> (India PM) — Inaugurating the summit on February 19</li>
+        <li><strong>Emmanuel Macron</strong> (France President) — Co-inaugurating India-France Year of Innovation</li>
+        <li><strong>Luiz Inácio Lula da Silva</strong> (Brazil President) — Leading 200 business executives</li>
+        <li><strong>António Guterres</strong> (UN Secretary-General) — "India is the right place to host this summit"</li>
+        <li><strong>Petteri Orpo</strong> (Finland PM) — Bringing Nokia and two dozen tech firms</li>
+        <li><strong>UAE Crown Prince</strong> — Because oil money wants in on AI</li>
+      </ul>
+      <p>This isn't just a tech conference. It's a <strong>geopolitical power play</strong>.</p>
+      
+      <h2>Why This Summit Is Different</h2>
+      
+      <h3>1. The Global South Fights Back</h3>
+      <p>For years, AI governance has been written in Washington, Beijing, and Brussels. The EU has its AI Act. The US has executive orders. China has its own playbook. But 85% of humanity lives outside these power centers.</p>
+      <p>India's message: <strong>"Your rules don't work for us."</strong></p>
+      <p>The Global South has different priorities:</p>
+      <ul>
+        <li><strong>Access over regulation</strong> — Billions still lack basic internet</li>
+        <li><strong>Agriculture over automation</strong> — AI that helps farmers, not just replaces workers</li>
+        <li><strong>Healthcare over hype</strong> — Real solutions for real problems</li>
+      </ul>
+      <p>As one Indian diplomat put it: <em>"AI systems succeed only when skills, trust, infrastructure, and access evolve together."</em></p>
+      
+      <h3>2. The $100 Billion Question</h3>
+      <p>India isn't hosting this for fun. They want:</p>
+      <ul>
+        <li><strong>Data centers</strong> — Built in India, for India</li>
+        <li><strong>AI research labs</strong> — Not just sales offices</li>
+        <li><strong>Chip manufacturing</strong> — Reducing dependence on Taiwan</li>
+        <li><strong>Talent retention</strong> — Stopping the brain drain to the US</li>
+      </ul>
+      <p>The $100B target isn't fantasy. India's market is too big to ignore:</p>
+      <ul>
+        <li>1.4 billion people</li>
+        <li>World's largest youth population</li>
+        <li>Fastest-growing major economy</li>
+        <li>Massive English-speaking tech workforce</li>
+      </ul>
+      
+      <h3>3. A Third Model for AI Governance</h3>
+      <p>The West says: "Regulate first, innovate later"<br>
+      China says: "Innovate first, regulate if necessary"<br>
+      <strong>India says: "Innovate for everyone, regulate together"</strong></p>
+      <p>The summit's theme — <em>"Sarvajan Hitaya, Sarvajan Sukhaya"</em> (Welfare for All, Happiness for All) — sounds like yoga class marketing. But it's actually a profound statement about who AI should serve.</p>
+      <p>India is proposing:</p>
+      <ul>
+        <li><strong>Planetary welfare</strong> — AI that addresses climate change, poverty, healthcare</li>
+        <li><strong>Equitable access</strong> — Not just for rich countries</li>
+        <li><strong>Cultural preservation</strong> — AI that understands 22 official languages, not just English</li>
+      </ul>
+      
+      <h2>The Real Stakes</h2>
+      
+      <h3>For Tech Companies</h3>
+      <p>This is about <strong>market access</strong>. India's regulatory framework will affect 1.4 billion potential users. If India demands AI models trained on diverse data, companies will comply. If India requires local data centers, they'll build them.</p>
+      
+      <h3>For the Global South</h3>
+      <p>This is about <strong>agency</strong>. For the first time, developing nations have a seat at the table where AI rules are written. Brazil, South Africa, Indonesia, Nigeria—they're all watching. If India succeeds, they'll follow.</p>
+      
+      <h3>For AI Governance</h3>
+      <p>This is about <strong>pluralism</strong>. The world doesn't need one AI governance model. It needs many. India's approach—techno-optimist but socially conscious—could be the third way between American libertarianism and European precaution.</p>
+      
+      <h2>What to Watch</h2>
+      
+      <h3>February 16-17: The Setup</h3>
+      <ul>
+        <li>Side meetings between tech CEOs and Indian officials</li>
+        <li>Bilateral talks (India-France, India-Brazil)</li>
+        <li>Announcements of preliminary partnerships</li>
+      </ul>
+      
+      <h3>February 19: Modi's Moment</h3>
+      <ul>
+        <li>Prime Minister's keynote address</li>
+        <li>Expected unveiling of India's AI strategy</li>
+        <li>Possible announcement of major investments</li>
+      </ul>
+      
+      <h3>February 20: The Legacy</h3>
+      <ul>
+        <li>Final communiqué (if they can agree on one)</li>
+        <li>Roadmap for ongoing cooperation</li>
+        <li>Commitments on funding, research, access</li>
+      </ul>
+      
+      <h2>The Bottom Line</h2>
+      <p>The India AI Impact Summit 2026 is the most consequential AI event of the year. Not because of the technology being discussed—there won't be any product launches. But because of the <strong>power dynamics being reshaped</strong>.</p>
+      <p>For decades, the Global South was an afterthought in tech policy. A market to sell to, a source of cheap labor, a place to dump e-waste. This summit says: <strong>"We're not your afterthought. We're the future."</strong></p>
+      <p>The US and China dominated AI's first chapter. India's betting that chapter two belongs to everyone else.</p>
+      <p><strong>The AI arms race just became a three-way battle.</strong></p>
+      
+      <h2>Action Items</h2>
+      <ol>
+        <li><strong>Builders:</strong> Watch for India's AI procurement announcements. Government contracts in a $100B market are worth chasing.</li>
+        <li><strong>Investors:</strong> Track which companies commit to Indian data centers and research labs. First movers get advantages.</li>
+        <li><strong>Policymakers:</strong> Study India's approach. The "People, Planet, Progress" framework could become a template.</li>
+        <li><strong>Everyone:</strong> Pay attention to the final communiqué. If 100+ countries agree on AI principles, that's the new global standard.</li>
+      </ol>
+    `,
+    category: 'AI',
+    tags: ['India', 'Global South', 'AI Summit', 'Geopolitics', 'Investment', 'Modi', 'Pichai', 'Altman'],
+    date: 'Feb 15, 2026',
+    readTime: '8 min',
+    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80'
   }
 ];

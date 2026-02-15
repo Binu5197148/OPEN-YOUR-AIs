@@ -223,4 +223,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/india-ai-summit-2026-global-south-100-billion-gambit</loc>
+    <lastmod>Feb 15, 2026</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
