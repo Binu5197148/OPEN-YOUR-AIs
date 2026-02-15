@@ -159,6 +159,39 @@ export const TOOLS: Tool[] = [
     url: 'https://aistudio.google.com',
     features: ['Native Multimodal', 'Conversational Refinement', 'Image Editing', 'Knowledge Integration', 'API Access'],
     useCases: ['Rapid Prototyping', 'Content Creation', 'Design Iteration', 'Integrated Workflows']
+  },
+  {
+    id: '13',
+    name: 'GPT-5.3-Codex-Spark',
+    category: 'Coding / Development',
+    shortDesc: 'OpenAI\'s real-time coding model optimized for ultra-low latency and software engineering workflows.',
+    fullDesc: 'Released in February 2026, GPT-5.3-Codex-Spark is OpenAI\'s answer to the next generation of AI coding assistants. Unlike general-purpose models, Codex-Spark is purpose-built for software development workflows, debugging patterns, and code understanding. Running on Cerebras hardware with a 128k context window, it delivers real-time responses optimized for developer productivity. Currently available as a research preview for ChatGPT Pro users, it represents OpenAI\'s diversification beyond Nvidia for compute infrastructure.',
+    priceModel: 'Freemium',
+    url: 'https://chat.openai.com',
+    features: ['Real-time Coding', '128k Context Window', 'Ultra-low Latency', 'Cerebras Hardware', 'Debugging Patterns'],
+    useCases: ['Software Development', 'Code Review', 'Real-time Pair Programming', 'Legacy Code Migration']
+  },
+  {
+    id: '14',
+    name: 'Gemini 3 Deep Think',
+    category: 'LLM / Reasoning',
+    shortDesc: 'Google\'s latest reasoning model designed for complex problem-solving with step-by-step thinking.',
+    fullDesc: 'Gemini 3 Deep Think is Google\'s flagship reasoning model, launched in February 2026 to compete with OpenAI\'s o1-class models. Designed specifically for complex problem-solving tasks where step-by-step thinking matters, it excels at mathematics, coding benchmarks, and multi-step reasoning scenarios. As part of Google\'s massive $185 billion infrastructure investment, Deep Think represents the company\'s commitment to matching and exceeding frontier reasoning capabilities.',
+    priceModel: 'Freemium',
+    url: 'https://gemini.google.com',
+    features: ['Step-by-Step Reasoning', 'Math & Coding Excellence', 'Multi-step Analysis', 'Google Knowledge Integration', 'Competes with o1 Models'],
+    useCases: ['Complex Problem Solving', 'Mathematical Analysis', 'Research & Development', 'Strategic Planning']
+  },
+  {
+    id: '15',
+    name: 'Seedance 2.0',
+    category: 'Video / AI',
+    shortDesc: 'ByteDance\'s AI video generator creating 15-second clips from text prompts.',
+    fullDesc: 'Seedance 2.0 is ByteDance\'s response to OpenAI\'s Sora, launched in February 2026. The model generates 15-second videos from text prompts and is currently available in China via the Jianying app, with global rollout planned through CapCut. However, the tool has become embroiled in controversy after Disney sent a cease-and-desist letter alleging the model was trained on copyrighted Disney characters including Spider-Man, Darth Vader, and Family Guy characters. This case represents the first major legal battle between content giants and AI video generators over training data. Use at your own legal risk.',
+    priceModel: 'Paid',
+    url: 'https://www.capcut.com',
+    features: ['15-Second Video Generation', 'Text-to-Video', 'Rapid Generation', 'Jianying Integration', 'CapCut Rollout'],
+    useCases: ['Short-form Video', 'Social Media Content', 'Rapid Prototyping', 'Creative Experiments']
   }
 ];
 
