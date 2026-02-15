@@ -41,14 +41,14 @@ export const TOOLS: Tool[] = [
   },
   {
     id: '2',
-    name: 'Claude 4 Opus',
+    name: 'Claude (Free Tier)',
     category: 'LLM / Reasoning & Coding',
-    shortDesc: 'Anthropic\'s flagship model with extended thinking and unmatched reasoning depth.',
-    fullDesc: 'Claude 4 Opus represents Anthropic\'s most powerful AI system. Its groundbreaking "Extended Thinking" capability allows the model to reason through complex problems step-by-step before responding, achieving exceptional results in mathematics, coding, and scientific analysis. The Claude 4 family (Opus, Sonnet, Haiku) offers a model for every use case — Opus for maximum intelligence, Sonnet for balanced performance, and Haiku for speed. With a 200k token context window, vision capabilities, and the beloved Artifacts feature for live code rendering, Claude 4 is the top choice for developers and researchers who need precise, thoughtful AI assistance.',
+    shortDesc: 'Anthropic\'s AI assistant — now with File Creation, Connectors, and premium features in the free tier.',
+    fullDesc: 'Claude is Anthropic\'s flagship AI assistant, and the free tier just got significantly more powerful. In February 2026, Anthropic liberated previously paid features for free users: File Creation (generate Excel, PowerPoint, Word, PDF files directly from conversations), Connectors (integrations with external tools), Skills (specialized workflows), and Compaction (smart conversation organization). This is Anthropic\'s counter-move to ChatGPT\'s ad-supported model — instead of showing ads, they\'re giving free users more functionality. The free tier includes Claude Sonnet and Haiku models with session-based limits that reset every 5 hours. For heavy users, Pro and Max tiers unlock Opus (the most capable model), Extended Thinking, and higher rate limits.',
     priceModel: 'Freemium',
     url: 'https://claude.ai',
-    features: ['Extended Thinking', 'Artifacts UI', '200k Token Window', 'Vision Analysis', 'Computer Use'],
-    useCases: ['Complex Reasoning Tasks', 'Full-Stack Development', 'Research & Analysis', 'Agentic Workflows']
+    features: ['File Creation (New Free Feature)', 'Connectors (New Free Feature)', 'Skills (New Free Feature)', 'Compaction (New Free Feature)', '200k Token Window (Pro)', 'Extended Thinking (Pro)'],
+    useCases: ['Document Creation', 'Spreadsheet Generation', 'Presentation Building', 'Workflow Integration', 'Research & Analysis']
   },
   {
     id: '3',
