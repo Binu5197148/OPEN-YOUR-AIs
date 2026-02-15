@@ -2,24 +2,54 @@ import { Prerenderer } from '@prerenderer/prerenderer';
 import PuppeteerRenderer from '@prerenderer/renderer-puppeteer';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const routes = [
+// Base routes
+const baseRoutes = [
   '/',
   '/tools',
   '/playbooks',
   '/crypto',
   '/blog',
-  '/blog/adsense-approval-masterclass-2025',
-  '/blog/unlock-the-future-a-deep-dive-into-google-ai-studio',
-  '/blog/flux-2-is-here-black-forest-labs-unveils-new-era',
-  '/blog/crypto5-unpacking-the-five-pillars-reshaping-digital-assets',
   '/about',
   '/privacy',
   '/terms',
   '/sitemap'
 ];
+
+// Extract article slugs from constants.ts
+function getArticleSlugs() {
+  const slugs = [];
+  const files = ['constants.ts', 'new-articles.ts', 'new-articles-part2.ts', 'new-articles-part3.ts'];
+  
+  files.forEach(file => {
+    const filePath = path.join(__dirname, file);
+    if (fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      // Match slug: 'article-slug-here'
+      const matches = content.matchAll(/slug: ['"]([^'"]+)['"]/g);
+      for (const match of matches) {
+        if (match[1].startsWith('art-')) {
+          slugs.push(`/blog/${match[1]}`);
+        } else if (match[1].includes('-')) {
+          // Check if it looks like an article slug (not a tool)
+          slugs.push(`/blog/${match[1]}`);
+        }
+      }
+    }
+  });
+  
+  // Remove duplicates
+  return [...new Set(slugs)];
+}
+
+const articleRoutes = getArticleSlugs();
+const routes = [...baseRoutes, ...articleRoutes];
+
+console.log(`Found ${articleRoutes.length} articles to pre-render`);
+console.log('Total routes:', routes.length);
 
 async function prerender() {
   const prerenderer = new Prerenderer({
