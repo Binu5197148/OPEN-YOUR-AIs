@@ -811,10 +811,9 @@ export const NEW_ARTICLES: Article[] = [
     date: 'Feb 14, 2026',
     readTime: '5 min',
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
-  }
-];
+  },
 
-// February 17, 2026 Articles - China AI Disruption + Viral Video Playbook
+  // February 17, 2026 Articles - China AI Disruption + Viral Video Playbook
   {
     id: 'art-017-news',
     slug: 'alibaba-qwen-35-seedance-20-china-ai-disruption',
