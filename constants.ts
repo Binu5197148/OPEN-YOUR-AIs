@@ -41,14 +41,14 @@ export const TOOLS: Tool[] = [
   },
   {
     id: '2',
-    name: 'Claude 4 Opus',
+    name: 'Claude (Free Tier)',
     category: 'LLM / Reasoning & Coding',
-    shortDesc: 'Anthropic\'s flagship model with extended thinking and unmatched reasoning depth.',
-    fullDesc: 'Claude 4 Opus represents Anthropic\'s most powerful AI system. Its groundbreaking "Extended Thinking" capability allows the model to reason through complex problems step-by-step before responding, achieving exceptional results in mathematics, coding, and scientific analysis. The Claude 4 family (Opus, Sonnet, Haiku) offers a model for every use case — Opus for maximum intelligence, Sonnet for balanced performance, and Haiku for speed. With a 200k token context window, vision capabilities, and the beloved Artifacts feature for live code rendering, Claude 4 is the top choice for developers and researchers who need precise, thoughtful AI assistance.',
+    shortDesc: 'Anthropic\'s AI assistant — now with File Creation, Connectors, and premium features in the free tier.',
+    fullDesc: 'Claude is Anthropic\'s flagship AI assistant, and the free tier just got significantly more powerful. In February 2026, Anthropic liberated previously paid features for free users: File Creation (generate Excel, PowerPoint, Word, PDF files directly from conversations), Connectors (integrations with external tools), Skills (specialized workflows), and Compaction (smart conversation organization). This is Anthropic\'s counter-move to ChatGPT\'s ad-supported model — instead of showing ads, they\'re giving free users more functionality. The free tier includes Claude Sonnet and Haiku models with session-based limits that reset every 5 hours. For heavy users, Pro and Max tiers unlock Opus (the most capable model), Extended Thinking, and higher rate limits.',
     priceModel: 'Freemium',
     url: 'https://claude.ai',
-    features: ['Extended Thinking', 'Artifacts UI', '200k Token Window', 'Vision Analysis', 'Computer Use'],
-    useCases: ['Complex Reasoning Tasks', 'Full-Stack Development', 'Research & Analysis', 'Agentic Workflows']
+    features: ['File Creation (New Free Feature)', 'Connectors (New Free Feature)', 'Skills (New Free Feature)', 'Compaction (New Free Feature)', '200k Token Window (Pro)', 'Extended Thinking (Pro)'],
+    useCases: ['Document Creation', 'Spreadsheet Generation', 'Presentation Building', 'Workflow Integration', 'Research & Analysis']
   },
   {
     id: '3',
@@ -159,6 +159,39 @@ export const TOOLS: Tool[] = [
     url: 'https://aistudio.google.com',
     features: ['Native Multimodal', 'Conversational Refinement', 'Image Editing', 'Knowledge Integration', 'API Access'],
     useCases: ['Rapid Prototyping', 'Content Creation', 'Design Iteration', 'Integrated Workflows']
+  },
+  {
+    id: '13',
+    name: 'GPT-5.3-Codex-Spark',
+    category: 'Coding / Development',
+    shortDesc: 'OpenAI\'s real-time coding model optimized for ultra-low latency and software engineering workflows.',
+    fullDesc: 'Released in February 2026, GPT-5.3-Codex-Spark is OpenAI\'s answer to the next generation of AI coding assistants. Unlike general-purpose models, Codex-Spark is purpose-built for software development workflows, debugging patterns, and code understanding. Running on Cerebras hardware with a 128k context window, it delivers real-time responses optimized for developer productivity. Currently available as a research preview for ChatGPT Pro users, it represents OpenAI\'s diversification beyond Nvidia for compute infrastructure.',
+    priceModel: 'Freemium',
+    url: 'https://chat.openai.com',
+    features: ['Real-time Coding', '128k Context Window', 'Ultra-low Latency', 'Cerebras Hardware', 'Debugging Patterns'],
+    useCases: ['Software Development', 'Code Review', 'Real-time Pair Programming', 'Legacy Code Migration']
+  },
+  {
+    id: '14',
+    name: 'Gemini 3 Deep Think',
+    category: 'LLM / Reasoning',
+    shortDesc: 'Google\'s latest reasoning model designed for complex problem-solving with step-by-step thinking.',
+    fullDesc: 'Gemini 3 Deep Think is Google\'s flagship reasoning model, launched in February 2026 to compete with OpenAI\'s o1-class models. Designed specifically for complex problem-solving tasks where step-by-step thinking matters, it excels at mathematics, coding benchmarks, and multi-step reasoning scenarios. As part of Google\'s massive $185 billion infrastructure investment, Deep Think represents the company\'s commitment to matching and exceeding frontier reasoning capabilities.',
+    priceModel: 'Freemium',
+    url: 'https://gemini.google.com',
+    features: ['Step-by-Step Reasoning', 'Math & Coding Excellence', 'Multi-step Analysis', 'Google Knowledge Integration', 'Competes with o1 Models'],
+    useCases: ['Complex Problem Solving', 'Mathematical Analysis', 'Research & Development', 'Strategic Planning']
+  },
+  {
+    id: '15',
+    name: 'Seedance 2.0',
+    category: 'Video / AI',
+    shortDesc: 'ByteDance\'s AI video generator creating 15-second clips from text prompts.',
+    fullDesc: 'Seedance 2.0 is ByteDance\'s response to OpenAI\'s Sora, launched in February 2026. The model generates 15-second videos from text prompts and is currently available in China via the Jianying app, with global rollout planned through CapCut. However, the tool has become embroiled in controversy after Disney sent a cease-and-desist letter alleging the model was trained on copyrighted Disney characters including Spider-Man, Darth Vader, and Family Guy characters. This case represents the first major legal battle between content giants and AI video generators over training data. Use at your own legal risk.',
+    priceModel: 'Paid',
+    url: 'https://www.capcut.com',
+    features: ['15-Second Video Generation', 'Text-to-Video', 'Rapid Generation', 'Jianying Integration', 'CapCut Rollout'],
+    useCases: ['Short-form Video', 'Social Media Content', 'Rapid Prototyping', 'Creative Experiments']
   }
 ];
 
@@ -2174,6 +2207,7 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
 import { NEW_ARTICLES } from './new-articles';
 import { NEW_ARTICLES_PART2 } from './new-articles-part2';
 import { NEW_ARTICLES_PART3 } from './new-articles-part3';
+import { NEW_ARTICLES_PART4 } from './new-articles-part4';
 
-// Combined articles array with all 20 articles
-export const ALL_ARTICLES = [...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3];
+// Combined articles array with all articles
+export const ALL_ARTICLES = [...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4];
