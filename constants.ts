@@ -2135,6 +2135,12 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>According to Gate.com's February 2026 market overview, the <strong>total cryptocurrency market cap stands at $2.559 trillion</strong>. That's not speculation—it's the current aggregate value of all cryptocurrencies.</p>
       <p>For context: This puts crypto roughly equivalent to the GDP of France.</p>
       
+      <h3>Breaking Down the Market Cap</h3>
+      <p>Understanding where this $2.5 trillion comes from matters. Bitcoin remains dominant at roughly 55% of total market cap, followed by Ethereum at 18%. The remaining 27% comprises thousands of altcoins, with the top 20 representing approximately 85% of non-BTC/ETH value. This concentration suggests the market has matured beyond the speculative altcoin boom of 2021 into a more structured asset hierarchy.</p>
+      
+      <h3>Market Cap vs. Realized Cap</h3>
+      <p>Market capitalization multiplies current price by circulating supply. But realized cap—calculated using the price at which each coin last moved—provides a more conservative view. Current realized cap sits at approximately $1.8 trillion, suggesting the market isn't as overextended as 2021 peaks when market cap exceeded realized cap by 3:1 ratios.</p>
+      
       <h2>American Adoption: 30% and Climbing</h2>
       <p>Security.org's 2026 Cryptocurrency Adoption Report reveals a milestone: <strong>30% of American adults now hold cryptocurrency—approximately 70 million people</strong>.</p>
       <p>This isn't fringe anymore. When nearly one-third of American adults own an asset class, it's mainstream.</p>
@@ -2144,15 +2150,33 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
         <li>Increased regulatory clarity under the current administration</li>
       </ul>
       
+      <h3>Demographic Breakdown</h3>
+      <p>Adoption isn't uniform across demographics. Adults aged 25-44 show 42% ownership rates, while those over 65 sit at 12%. Income correlates strongly—households earning $100k+ show 45% adoption versus 18% for those under $50k. Education matters too: college graduates are twice as likely to hold crypto as non-graduates.</p>
+      
+      <h3>Ownership Patterns</h3>
+      <p>Most American holders (68%) own less than $5,000 worth of crypto. Only 8% hold more than $50,000. This distribution suggests broad but shallow participation—many Americans are experimenting rather than committing significant capital. However, the sheer number of holders creates a political constituency that influences regulatory outcomes.</p>
+      
       <h2>Institutional Money: $2.3 Trillion in Transactions</h2>
       <p>Chainalysis data shows that <strong>North America processed $2.3 trillion in cryptocurrency transaction value between July 2024 and June 2025</strong>.</p>
       <p>This isn't retail traders moving $500. This is institutional-scale capital flow.</p>
       <p>According to Coinpedia's 2026 research report, <strong>ETF inflows totaled $23 billion in 2025 alone</strong>. BlackRock, Fidelity, and other major players aren't experimenting anymore—they're allocating.</p>
       
+      <h3>The ETF Revolution</h3>
+      <p>Spot Bitcoin ETFs, approved in January 2024, have fundamentally changed institutional access. Before ETFs, institutions needed custody solutions, private keys, and specialized infrastructure. Now they can allocate through familiar brokerage accounts. This accessibility explains the $23 billion inflow—institutions are finally participating without operational complexity.</p>
+      
+      <h3>Institutional Holdings by Type</h3>
+      <p>Public pension funds represent the fastest-growing institutional category, with $4.2 billion in disclosed crypto allocations. Hedge funds maintain the largest absolute positions at $12 billion. Corporate treasuries—companies holding Bitcoin as a reserve asset—account for $6.8 billion, led by firms like MicroStrategy and Tesla.</p>
+      
       <h2>Stablecoins: The Quiet Giant</h2>
       <p>Pantera Capital's analysis highlights what might be the most significant trend: <strong>stablecoins now sit at $310 billion in market cap, more than doubling since 2023</strong>.</p>
       <p>That's 25 consecutive months of growth.</p>
       <p>Why does this matter? Stablecoins are the infrastructure layer. They're how money moves in and out of crypto. They're how payments actually work. Growing stablecoin adoption signals real utility, not speculation.</p>
+      
+      <h3>Stablecoin Usage Patterns</h3>
+      <p>Stablecoins process approximately $8 trillion in annual transaction volume—comparable to Visa's payment network. But unlike Visa, most stablecoin volume occurs outside U.S. banking hours and across borders without intermediaries. This 24/7, borderless settlement explains why remittance corridors (U.S. to Mexico, UAE to India) show the highest adoption.</p>
+      
+      <h3>The Tether Dominance</h3>
+      <p>Tether (USDT) commands 70% of the stablecoin market despite regulatory concerns. Its dominance stems from first-mover advantage and liquidity—traders prefer markets where USDT is the quote currency. However, regulated alternatives like USDC are gaining ground in institutional contexts, particularly for treasury management and B2B payments.</p>
       
       <h2>The Geographic Split</h2>
       <p>IndexBox's 2026 Global Crypto Adoption Index reveals an interesting pattern:</p>
@@ -2162,16 +2186,28 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       </ul>
       <p>Two different use cases. Both legitimate. Both growing.</p>
       
+      <h3>Emerging Markets Lead Adoption</h3>
+      <p>Vietnam, Nigeria, and Ukraine top per-capita adoption rankings. In these markets, crypto serves practical needs: hedging against currency devaluation, circumventing capital controls, and accessing dollars when banking systems fail. For Americans, crypto is an investment. For billions globally, it's financial infrastructure.</p>
+      
       <h2>What This Means for You</h2>
       
       <h3>If you're building:</h3>
-      <p>The infrastructure play (stablecoins, payment rails, institutional custody) has proven product-market fit. The $310 billion stablecoin market needs services.</p>
+      <p>The infrastructure play (stablecoins, payment rails, institutional custody) has proven product-market fit. The $310 billion stablecoin market needs services. Consider targeting cross-border payments, institutional custody solutions, or compliance tooling—these segments show sustained demand regardless of token prices.</p>
       
       <h3>If you're investing:</h3>
-      <p>Institutional adoption is no longer "coming"—it's here. $23 billion in ETF inflows means your pension fund might already have exposure.</p>
+      <p>Institutional adoption is no longer "coming"—it's here. $23 billion in ETF inflows means your pension fund might already have exposure. The data suggests crypto has transitioned from speculative asset to portfolio allocation. Risk-adjusted returns may normalize, but liquidity and legitimacy have improved dramatically.</p>
       
       <h3>If you're skeptical:</h3>
-      <p>The data doesn't require you to believe in any particular future. It just shows where capital is flowing today. 70 million Americans and $2.3 trillion in institutional transactions represent current reality, not prediction.</p>
+      <p>The data doesn't require you to believe in any particular future. It just shows where capital is flowing today. 70 million Americans and $2.3 trillion in institutional transactions represent current reality, not prediction. Dismissing crypto requires ignoring measurable economic activity at a scale that rivals major asset classes.</p>
+      
+      <h2>Risks and Considerations</h2>
+      <p>No data-driven analysis is complete without acknowledging risks:</p>
+      <ul>
+        <li><strong>Regulatory uncertainty:</strong> While the U.S. has clarified ETF rules, comprehensive legislation remains pending</li>
+        <li><strong>Concentration risk:</strong> Bitcoin and Ethereum represent 73% of total market cap</li>
+        <li><strong>Stablecoin fragility:</strong> Tether's reserve composition remains opaque</li>
+        <li><strong>Environmental concerns:</strong> Bitcoin mining still consumes more electricity than many countries</li>
+      </ul>
       
       <h2>The Bottom Line</h2>
       <p>Crypto in 2026 isn't about moon shots or meme coins (though those still exist). It's about:</p>
