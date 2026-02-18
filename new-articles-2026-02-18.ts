@@ -92,7 +92,7 @@ export const NEW_ARTICLES_FEB_18: Article[] = [
     tags: ['Meta', 'Nvidia', 'AI Infrastructure', 'Big Tech', 'Investment', 'Data Centers', 'Zuckerberg'],
     date: 'Feb 18, 2026',
     readTime: '7 min',
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1634084462412-b54873c0a56d?auto=format&fit=crop&w=800&q=80",
     featured: true
   },
   {
