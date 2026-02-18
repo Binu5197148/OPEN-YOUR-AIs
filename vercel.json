@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true }
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/:path*", "destination": "https://www.openyourais.com/:path*", "permanent": true, "has": [{ "type": "host", "value": "open-your-a-61c2cuinw-open-your-ai-s.vercel.app" }] }
   ],
   "rewrites": [
     { "source": "/assets/(.*)", "destination": "/assets/$1" },
