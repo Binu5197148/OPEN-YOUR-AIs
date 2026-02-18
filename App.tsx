@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from './components/Components';
 import { HomePage } from './pages/Home';
 import { ToolsPage, PlaybooksPage, CryptoPage, BlogPage } from './pages/ContentPages';
-import { ArticleReader, PlaybookReader, CryptoReader, AboutPage, LegalPage, NotFoundPage, SitemapPage } from './pages/DetailPages';
+import { ArticleReader, PlaybookReader, CryptoReader, AboutPage, ContactPage, LegalPage, NotFoundPage, SitemapPage } from './pages/DetailPages';
 import { AdminPage } from './pages/Admin';
 import { AuthProvider } from './context/AuthContext';
 
@@ -19,6 +19,7 @@ const RouteTracker = () => {
       '/crypto': 'Crypto Intelligence | Open Your AIs',
       '/blog': 'Tech Intel Blog | Open Your AIs',
       '/about': 'About | Open Your AIs',
+      '/contact': 'Contact | Open Your AIs',
       '/privacy': 'Privacy Policy | Open Your AIs',
       '/terms': 'Terms of Service | Open Your AIs',
       '/sitemap': 'Sitemap | Open Your AIs',
@@ -51,6 +52,7 @@ const App: React.FC = () => {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<ArticleReader />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<LegalPage type="privacy" />} />
             <Route path="/terms" element={<LegalPage type="terms" />} />
             <Route path="/sitemap" element={<SitemapPage />} />

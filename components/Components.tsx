@@ -223,9 +223,10 @@ export const Footer: React.FC = () => {
           <div>
             <h2 className="mb-4 md:mb-6 text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest md:tracking-[0.3em]">Legal</h2>
             <ul className="text-gray-500 text-[10px] md:text-xs space-y-3 md:space-y-4 font-bold uppercase tracking-wider md:tracking-widest">
+              <li><Link to="/about" className="hover:text-cyber-primary transition-colors">About</Link></li>
+              <li><Link to="/contact" className="hover:text-cyber-primary transition-colors">Contact</Link></li>
               <li><Link to="/privacy" className="hover:text-cyber-primary transition-colors">Privacy</Link></li>
               <li><Link to="/terms" className="hover:text-cyber-primary transition-colors">Terms</Link></li>
-              <li><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-cyber-primary transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>

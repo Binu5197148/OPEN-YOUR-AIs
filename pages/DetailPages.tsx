@@ -506,12 +506,21 @@ export const CryptoReader: React.FC = () => {
 // --- ABOUT PAGE ---
 export const AboutPage: React.FC = () => {
   useEffect(() => {
-    document.title = "Manifesto | Open Your AIs";
+    document.title = "About | Open Your AIs";
   }, []);
 
   return (
     <div className="container mx-auto px-4 py-20 max-w-5xl">
+      <Helmet>
+        <title>About Us | Open Your AIs - Tech Intelligence Hub</title>
+        <meta name="description" content="Learn about Open Your AIs mission to decode AI, crypto, and digital monetization. Founded by industry experts to provide actionable tech intelligence." />
+        <meta name="keywords" content="about open your ais, tech blog mission, AI intelligence hub, digital monetization experts" />
+        <link rel="canonical" href="https://www.openyourais.com/about" />
+      </Helmet>
+      
       <SectionTitle title="Neural Frontier Manifesto" subtitle="Decode. Secure. Monetize. The three pillars of human sovereignty." />
+      
+      {/* Mission Section */}
       <div className="grid md:grid-cols-2 gap-20 items-center mb-32">
         <div className="relative group">
           <div className="absolute -inset-10 bg-cyber-primary/10 blur-[100px] rounded-full group-hover:bg-cyber-primary/20 transition-all duration-1000"></div>
@@ -521,6 +530,9 @@ export const AboutPage: React.FC = () => {
           <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">Intelligence Vanguard</h3>
           <p className="text-gray-400 leading-relaxed text-xl font-light">
             Open Your AIs is a specialized intelligence hub dedicated to narrowing the gap between rapid technological frontiers and human application. We track the trinity of the 21st century: Generative Intelligence, Decentralized Assets, and Automated Monetization.
+          </p>
+          <p className="text-gray-400 leading-relaxed text-lg font-light">
+            Founded in 2025 by Ulisses Balbino, a visionary at the intersection of audiovisual production, creative entrepreneurship, and artificial intelligence, our platform emerges from the real need to decode complex technological shifts into actionable intelligence. With over a decade of experience working with global brands like Disney, Starbucks, and Nestlé, we bring enterprise-grade analysis to individual creators and entrepreneurs.
           </p>
           <div className="grid grid-cols-2 gap-8">
             <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
@@ -533,6 +545,259 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* What We Do Section */}
+      <Card className="p-12 md:p-16 rounded-[48px] border-white/5 bg-white/[0.01] mb-20">
+        <h3 className="text-3xl font-black text-white uppercase tracking-widest mb-8">Our Mission</h3>
+        <div className="space-y-6 text-gray-400 leading-relaxed">
+          <p className="text-lg">
+            In an era where artificial intelligence evolves faster than traditional education can adapt, we serve as your technical translator and strategic partner. Our mission is threefold:
+          </p>
+          <ul className="space-y-4 ml-6">
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-primary font-black">01.</span>
+              <span><strong className="text-white">Decode Complexity:</strong> Transform cutting-edge AI developments, blockchain protocols, and automation frameworks into understandable, actionable intelligence.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-secondary font-black">02.</span>
+              <span><strong className="text-white">Verify Accuracy:</strong> Every piece of content undergoes rigorous fact-checking against primary sources, technical documentation, and real-world testing.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-cyber-success font-black">03.</span>
+              <span><strong className="text-white">Enable Sovereignty:</strong> Provide the knowledge and tools necessary for digital independence—whether through AI-powered workflows, decentralized finance, or automated revenue systems.</span>
+            </li>
+          </ul>
+        </div>
+      </Card>
+
+      {/* Content Standards */}
+      <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <Card className="p-10 text-center border-b-4 border-b-cyber-primary">
+          <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">AI Intelligence</h4>
+          <p className="text-gray-400 text-sm leading-relaxed">Deep technical analysis of Large Language Models, generative AI tools, and autonomous agent frameworks. From GPT-4 to Claude, from Midjourney to Runway—we test, compare, and explain.</p>
+        </Card>
+        <Card className="p-10 text-center border-b-4 border-b-cyber-secondary">
+          <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">Digital Capital</h4>
+          <p className="text-gray-400 text-sm leading-relaxed">Battle-tested monetization playbooks leveraging automation and AI. Not theory—practical frameworks with verified ROI, timeline estimates, and step-by-step execution guides.</p>
+        </Card>
+        <Card className="p-10 text-center border-b-4 border-b-cyber-success">
+          <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">Web3 Security</h4>
+          <p className="text-gray-400 text-sm leading-relaxed">Security-first documentation for digital asset self-custody, DeFi protocols, and blockchain fundamentals. Protecting your capital in the decentralized economy.</p>
+        </Card>
+      </div>
+
+      {/* Editorial Standards */}
+      <Card className="p-12 md:p-16 rounded-[48px] border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent">
+        <h3 className="text-3xl font-black text-white uppercase tracking-widest mb-8">Editorial Standards</h3>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h4 className="text-cyber-primary font-black uppercase tracking-widest mb-4 text-sm">Verification Protocol</h4>
+            <p className="text-gray-400 leading-relaxed mb-6">Every article, playbook, and guide published on Open Your AIs undergoes a multi-stage verification process. We cross-reference technical claims against official documentation, test tools and strategies where possible, and clearly distinguish between verified facts and analytical projections.</p>
+            <h4 className="text-cyber-secondary font-black uppercase tracking-widest mb-4 text-sm">Transparency</h4>
+            <p className="text-gray-400 leading-relaxed">We disclose affiliate relationships where they exist, clearly label sponsored content, and maintain editorial independence. Our recommendations are based on merit and testing, not compensation.</p>
+          </div>
+          <div>
+            <h4 className="text-cyber-success font-black uppercase tracking-widest mb-4 text-sm">Continuous Updates</h4>
+            <p className="text-gray-400 leading-relaxed mb-6">Technology moves fast. We regularly update our content to reflect new developments, deprecated features, and evolving best practices. Each article includes a last-updated timestamp for transparency.</p>
+            <h4 className="text-white font-black uppercase tracking-widest mb-4 text-sm">Community Feedback</h4>
+            <p className="text-gray-400 leading-relaxed">We actively engage with our community through comments, social media, and direct email. Reader corrections and suggestions are not just welcomed—they're essential to maintaining accuracy in a rapidly changing field.</p>
+          </div>
+        </div>
+      </Card>
+
+      {/* Contact CTA */}
+      <div className="text-center mt-20">
+        <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-6">Connect With Us</h3>
+        <p className="text-gray-400 mb-8 max-w-2xl mx-auto">Have questions, suggestions, or corrections? We believe in open dialogue with our community. Reach out through our contact page or connect on social media.</p>
+        <Link to="/contact" className="inline-block px-12 py-4 bg-cyber-primary text-cyber-bg font-black rounded-full hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest text-sm">
+          Contact Us
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+// --- CONTACT PAGE ---
+export const ContactPage: React.FC = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.title = "Contact | Open Your AIs";
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate form submission
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 3000);
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-20 max-w-5xl">
+      <Helmet>
+        <title>Contact Us | Open Your AIs - Get In Touch</title>
+        <meta name="description" content="Contact Open Your AIs team for questions, suggestions, or collaboration opportunities. We respond within 24-48 hours." />
+        <meta name="keywords" content="contact open your ais, tech support, ai questions, crypto inquiry" />
+        <link rel="canonical" href="https://www.openyourais.com/contact" />
+      </Helmet>
+
+      <SectionTitle title="Establish Connection" subtitle="Direct channel to our intelligence team." />
+
+      <div className="grid md:grid-cols-2 gap-16">
+        {/* Contact Info */}
+        <div className="space-y-12">
+          <Card className="p-10 border-l-4 border-l-cyber-primary">
+            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-6">Communication Channels</h3>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-cyber-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-cyber-primary" />
+                </div>
+                <div>
+                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Primary Email</h4>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary hover:text-white transition-colors font-bold">
+                    {CONTACT_EMAIL}
+                  </a>
+                  <p className="text-gray-500 text-xs mt-1">Response time: 24-48 hours</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-cyber-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-cyber-secondary" />
+                </div>
+                <div>
+                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Availability</h4>
+                  <p className="text-gray-400 text-sm">Monday - Friday: 9:00 AM - 6:00 PM (EST)</p>
+                  <p className="text-gray-500 text-xs mt-1">Weekend inquiries answered on Mondays</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-cyber-success/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Globe className="w-5 h-5 text-cyber-success" />
+                </div>
+                <div>
+                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Social Channels</h4>
+                  <p className="text-gray-400 text-sm">Connect on Twitter/X and LinkedIn for real-time updates</p>
+                  <div className="flex gap-4 mt-2">
+                    <a href="https://twitter.com/openyourais" target="_blank" rel="noopener noreferrer" className="text-cyber-primary hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">Twitter/X</a>
+                    <a href="https://linkedin.com/company/openyourais" target="_blank" rel="noopener noreferrer" className="text-cyber-primary hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">LinkedIn</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-10 bg-gradient-to-br from-cyber-primary/5 to-transparent">
+            <h3 className="text-xl font-black text-white uppercase tracking-widest mb-4">What We Can Help With</h3>
+            <ul className="space-y-3 text-gray-400 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
+                <span>Technical questions about AI tools and implementation</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
+                <span>Clarifications on crypto guides and DeFi protocols</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
+                <span>Corrections or updates to published content</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
+                <span>Partnership and collaboration opportunities</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
+                <span>General feedback and suggestions</span>
+              </li>
+            </ul>
+          </Card>
+        </div>
+
+        {/* Contact Form */}
+        <Card className="p-10">
+          <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-8">Send Transmission</h3>
+
+          {submitted ? (
+            <div className="text-center py-12">
+              <CheckCircle className="w-16 h-16 text-cyber-success mx-auto mb-4" />
+              <h4 className="text-xl font-black text-white uppercase tracking-widest mb-2">Message Received</h4>
+              <p className="text-gray-400">We'll respond within 24-48 hours.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Designation</label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Email Address</label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Subject</label>
+                <select
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
+                  required
+                >
+                  <option value="" className="bg-cyber-bg">Select subject...</option>
+                  <option value="general" className="bg-cyber-bg">General Inquiry</option>
+                  <option value="technical" className="bg-cyber-bg">Technical Question</option>
+                  <option value="content" className="bg-cyber-bg">Content Correction/Update</option>
+                  <option value="partnership" className="bg-cyber-bg">Partnership Opportunity</option>
+                  <option value="feedback" className="bg-cyber-bg">Feedback/Suggestion</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Message</label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all h-32 resize-none"
+                  placeholder="Describe your inquiry..."
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-4 bg-cyber-primary text-cyber-bg font-black rounded-xl hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest text-sm"
+              >
+                Transmit Message
+              </button>
+
+              <p className="text-gray-500 text-xs text-center">
+                By submitting, you agree to our <Link to="/privacy" className="text-cyber-primary hover:text-white transition-colors">Privacy Policy</Link>.
+              </p>
+            </form>
+          )}
+        </Card>
       </div>
     </div>
   );
