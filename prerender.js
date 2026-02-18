@@ -1,4 +1,4 @@
-import { Prerenderer } from '@prerenderer/prerenderer';
+import Prerenderer from '@prerenderer/prerenderer';
 import PuppeteerRenderer from '@prerenderer/renderer-puppeteer';
 import path from 'path';
 import { fileURLToPath } from 'url';
