@@ -46,7 +46,6 @@ Disallow: /blog/jasper-ai-marketing-conteudo-automatizado
 Disallow: /blog/2025/*/*/*
 Disallow: /*prodentim*
 Disallow: /*reviews-2024*
-Disallow: /home
 
 # Allow major search engines full access
 User-agent: Googlebot

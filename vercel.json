@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/assets/(.*)", "destination": "/assets/$1" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
