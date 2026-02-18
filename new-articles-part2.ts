@@ -229,7 +229,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 'art-013',
+    id: 'art-035',
     slug: 'ai-video-tools-complete-guide',
     title: 'AI Video Tools in 2026: From Text to Hollywood-Quality Productions',
     excerpt: 'Comprehensive guide to AI video generation, editing, and enhancement tools — including Runway, Pika, Sora, and the emerging players transforming content creation.',
@@ -350,7 +350,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
     image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 'art-014',
+    id: 'art-041',
     slug: 'crypto-airdrops-strategy-guide',
     title: 'Crypto Airdrop Hunting: A Strategic Guide for 2026',
     excerpt: 'How to systematically position for valuable airdrops while managing risk — from identifying opportunities to optimizing wallet strategies.',

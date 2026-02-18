@@ -3,7 +3,7 @@ import { Article } from './types';
 
 export const NEW_ARTICLES_PART4: Article[] = [
   {
-    id: 'art-020',
+    id: 'art-038',
     slug: 'india-ai-summit-global-south-2026',
     title: "India's AI Moment: Why the Global South Is Taking the Wheel",
     excerpt: "While Silicon Valley obsesses over benchmarks, India just launched the first major AI summit from the Global South. Plus: Anthropic's $30B raise, OpenAI's ad pivot, and the coding model wars heat up.",
@@ -111,7 +111,7 @@ export const NEW_ARTICLES_PART4: Article[] = [
     image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 'art-021',
+    id: 'art-034',
     slug: 'openai-openclaw-acquisition',
     title: 'OpenAI Hires OpenClaw Creator — What It Means for AI Agents',
     excerpt: 'Sam Altman just made the biggest talent acquisition of 2026. Peter Steinberger joins OpenAI to lead the next generation of personal AI agents — and OpenClaw stays open-source.',

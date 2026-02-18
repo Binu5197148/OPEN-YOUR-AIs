@@ -3,7 +3,7 @@ import { Article } from './types';
 
 export const NEW_ARTICLES_FEB_18: Article[] = [
   {
-    id: 'art-022',
+    id: 'art-045',
     slug: 'meta-200-billion-ai-infrastructure-largest-private-bet-history',
     title: "Meta Just Dropped $200B on AI Infrastructure: The Largest Private Tech Bet in History",
     excerpt: "Mark Zuckerberg just made the largest private infrastructure bet in human history. $200 billion—more than Greece's GDP—in a single year. This changes everything.",
@@ -54,7 +54,7 @@ export const NEW_ARTICLES_FEB_18: Article[] = [
       
       <p>Or Zuck could keep the best models proprietary and finally monetize WhatsApp and Instagram through AI-powered features we've only glimpsed. The strategy fork here is worth watching closely.</p>
       
-      <h2>What This Means for Builders</h2>
+      <h2>What This Means For Builders</h2>
       <p>If you're building in AI right now, Meta's announcement changes your calculus:</p>
       
       <p><strong>For AI Infrastructure Startups:</strong> The commoditization clock is ticking. If your value prop is "cheaper inference," Meta just made your target market a lot smaller. Pivot to specialized workloads, edge deployment, or vertical-specific optimizations.</p>
@@ -96,7 +96,7 @@ export const NEW_ARTICLES_FEB_18: Article[] = [
     featured: true
   },
   {
-    id: 'art-023',
+    id: 'art-046',
     slug: 'openclaw-setup-guide-complete-tutorial-30-minutes',
     title: "The Complete OpenClaw Setup Guide: Build Your AI-Powered Automation Hub in 30 Minutes",
     excerpt: "You've heard about AI agents. You've seen the demos. Here's the complete playbook to go from zero to automating your first task with OpenClaw—working code, no fluff.",
