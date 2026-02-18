@@ -27,6 +27,18 @@ Disallow: /*magic*
 Disallow: /*review-2024*
 Disallow: /*review-2023*
 
+# Disallow OLD ClickBank health pages (from previous site version)
+Disallow: /blog/weight-loss/
+Disallow: /blog/weight-loss/*
+Disallow: /blog/suplements/
+Disallow: /blog/suplements/*
+Disallow: /blog/*-guia-completo-ranquear-primeiro
+Disallow: /blog/seo-google-*
+Disallow: /*weight-loss*
+Disallow: /*suplement*
+Disallow: /*saude*
+Disallow: /*health*
+
 # Crawl rate optimization
 Crawl-delay: 1
 
