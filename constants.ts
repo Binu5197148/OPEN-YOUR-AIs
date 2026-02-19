@@ -41,14 +41,14 @@ export const TOOLS: Tool[] = [
   },
   {
     id: '2',
-    name: 'Claude 4 Opus',
+    name: 'Claude (Free Tier)',
     category: 'LLM / Reasoning & Coding',
-    shortDesc: 'Anthropic\'s flagship model with extended thinking and unmatched reasoning depth.',
-    fullDesc: 'Claude 4 Opus represents Anthropic\'s most powerful AI system. Its groundbreaking "Extended Thinking" capability allows the model to reason through complex problems step-by-step before responding, achieving exceptional results in mathematics, coding, and scientific analysis. The Claude 4 family (Opus, Sonnet, Haiku) offers a model for every use case — Opus for maximum intelligence, Sonnet for balanced performance, and Haiku for speed. With a 200k token context window, vision capabilities, and the beloved Artifacts feature for live code rendering, Claude 4 is the top choice for developers and researchers who need precise, thoughtful AI assistance.',
+    shortDesc: 'Anthropic\'s AI assistant — now with File Creation, Connectors, and premium features in the free tier.',
+    fullDesc: 'Claude is Anthropic\'s flagship AI assistant, and the free tier just got significantly more powerful. In February 2026, Anthropic liberated previously paid features for free users: File Creation (generate Excel, PowerPoint, Word, PDF files directly from conversations), Connectors (integrations with external tools), Skills (specialized workflows), and Compaction (smart conversation organization). This is Anthropic\'s counter-move to ChatGPT\'s ad-supported model — instead of showing ads, they\'re giving free users more functionality. The free tier includes Claude Sonnet and Haiku models with session-based limits that reset every 5 hours. For heavy users, Pro and Max tiers unlock Opus (the most capable model), Extended Thinking, and higher rate limits.',
     priceModel: 'Freemium',
     url: 'https://claude.ai',
-    features: ['Extended Thinking', 'Artifacts UI', '200k Token Window', 'Vision Analysis', 'Computer Use'],
-    useCases: ['Complex Reasoning Tasks', 'Full-Stack Development', 'Research & Analysis', 'Agentic Workflows']
+    features: ['File Creation (New Free Feature)', 'Connectors (New Free Feature)', 'Skills (New Free Feature)', 'Compaction (New Free Feature)', '200k Token Window (Pro)', 'Extended Thinking (Pro)'],
+    useCases: ['Document Creation', 'Spreadsheet Generation', 'Presentation Building', 'Workflow Integration', 'Research & Analysis']
   },
   {
     id: '3',
@@ -159,6 +159,39 @@ export const TOOLS: Tool[] = [
     url: 'https://aistudio.google.com',
     features: ['Native Multimodal', 'Conversational Refinement', 'Image Editing', 'Knowledge Integration', 'API Access'],
     useCases: ['Rapid Prototyping', 'Content Creation', 'Design Iteration', 'Integrated Workflows']
+  },
+  {
+    id: '13',
+    name: 'GPT-5.3-Codex-Spark',
+    category: 'Coding / Development',
+    shortDesc: 'OpenAI\'s real-time coding model optimized for ultra-low latency and software engineering workflows.',
+    fullDesc: 'Released in February 2026, GPT-5.3-Codex-Spark is OpenAI\'s answer to the next generation of AI coding assistants. Unlike general-purpose models, Codex-Spark is purpose-built for software development workflows, debugging patterns, and code understanding. Running on Cerebras hardware with a 128k context window, it delivers real-time responses optimized for developer productivity. Currently available as a research preview for ChatGPT Pro users, it represents OpenAI\'s diversification beyond Nvidia for compute infrastructure.',
+    priceModel: 'Freemium',
+    url: 'https://chat.openai.com',
+    features: ['Real-time Coding', '128k Context Window', 'Ultra-low Latency', 'Cerebras Hardware', 'Debugging Patterns'],
+    useCases: ['Software Development', 'Code Review', 'Real-time Pair Programming', 'Legacy Code Migration']
+  },
+  {
+    id: '14',
+    name: 'Gemini 3 Deep Think',
+    category: 'LLM / Reasoning',
+    shortDesc: 'Google\'s latest reasoning model designed for complex problem-solving with step-by-step thinking.',
+    fullDesc: 'Gemini 3 Deep Think is Google\'s flagship reasoning model, launched in February 2026 to compete with OpenAI\'s o1-class models. Designed specifically for complex problem-solving tasks where step-by-step thinking matters, it excels at mathematics, coding benchmarks, and multi-step reasoning scenarios. As part of Google\'s massive $185 billion infrastructure investment, Deep Think represents the company\'s commitment to matching and exceeding frontier reasoning capabilities.',
+    priceModel: 'Freemium',
+    url: 'https://gemini.google.com',
+    features: ['Step-by-Step Reasoning', 'Math & Coding Excellence', 'Multi-step Analysis', 'Google Knowledge Integration', 'Competes with o1 Models'],
+    useCases: ['Complex Problem Solving', 'Mathematical Analysis', 'Research & Development', 'Strategic Planning']
+  },
+  {
+    id: '15',
+    name: 'Seedance 2.0',
+    category: 'Video / AI',
+    shortDesc: 'ByteDance\'s AI video generator creating 15-second clips from text prompts.',
+    fullDesc: 'Seedance 2.0 is ByteDance\'s response to OpenAI\'s Sora, launched in February 2026. The model generates 15-second videos from text prompts and is currently available in China via the Jianying app, with global rollout planned through CapCut. However, the tool has become embroiled in controversy after Disney sent a cease-and-desist letter alleging the model was trained on copyrighted Disney characters including Spider-Man, Darth Vader, and Family Guy characters. This case represents the first major legal battle between content giants and AI video generators over training data. Use at your own legal risk.',
+    priceModel: 'Paid',
+    url: 'https://www.capcut.com',
+    features: ['15-Second Video Generation', 'Text-to-Video', 'Rapid Generation', 'Jianying Integration', 'CapCut Rollout'],
+    useCases: ['Short-form Video', 'Social Media Content', 'Rapid Prototyping', 'Creative Experiments']
   }
 ];
 
@@ -860,7 +893,7 @@ export const ARTICLES: Article[] = [
     isAutoGenerated: false
   },
   {
-    id: 'art-025',
+    id: 'art-043',
     slug: 'ai-sales-agents-million-dollar-revenue-streams-2026',
     title: 'How Small Businesses Are Turning AI Sales Agents into Million-Dollar Revenue Streams',
     excerpt: 'Small businesses are achieving 300-500% conversion increases with AI Sales Agents. Real cases: Sarah\'s consultancy (12% to 47% conversion), electronics retailer (+89% outside hours), solar company (tripled pipeline). Complete implementation framework included.',
@@ -1117,7 +1150,7 @@ export const ARTICLES: Article[] = [
     image: "https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 'art-024',
+    id: 'art-042',
     slug: 'ai-agents-digital-millionaires-2026',
     title: 'How AI Agents Are Creating the Next Wave of Digital Millionaires in 2026',
     excerpt: 'While most people use ChatGPT for emails, entrepreneurs are building empires with AI Agents. Discover the 5 most profitable niches generating $2K-100K monthly and the 18-month window before big tech dominates.',
@@ -1519,7 +1552,7 @@ export const ARTICLES: Article[] = [
     image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 'art-022',
+    id: 'art-037',
     slug: 'anthropic-cowork-revolution-agentic-ai',
     title: 'The Anthropic Cowork Revolution: How Agentic AI is Redefining Digital Work',
     excerpt: 'Análise técnica dos AI Agents da Anthropic com plugins especializados. Cases reais de ROI 300%, framework SCALE e previsões para 2026. O futuro do trabalho digital já chegou.',
@@ -1675,7 +1708,7 @@ Agentic AI: Goal → Planning → Execution → Validation → Iteration</pre>
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 'art-021',
+    id: 'art-044',
     slug: 'validacao-ia-ideias-negocio-2026',
     title: 'Como Usar IA para Validar Ideias de Negócio Antes de Investir (2026)',
     excerpt: 'Guia completo para usar ChatGPT o3, Claude 4 Opus e outras IAs para validar ideias de negócio em horas, não meses. Economize milhares em MVPs desnecessários.',
@@ -2102,6 +2135,12 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>According to Gate.com's February 2026 market overview, the <strong>total cryptocurrency market cap stands at $2.559 trillion</strong>. That's not speculation—it's the current aggregate value of all cryptocurrencies.</p>
       <p>For context: This puts crypto roughly equivalent to the GDP of France.</p>
       
+      <h3>Breaking Down the Market Cap</h3>
+      <p>Understanding where this $2.5 trillion comes from matters. Bitcoin remains dominant at roughly 55% of total market cap, followed by Ethereum at 18%. The remaining 27% comprises thousands of altcoins, with the top 20 representing approximately 85% of non-BTC/ETH value. This concentration suggests the market has matured beyond the speculative altcoin boom of 2021 into a more structured asset hierarchy.</p>
+      
+      <h3>Market Cap vs. Realized Cap</h3>
+      <p>Market capitalization multiplies current price by circulating supply. But realized cap—calculated using the price at which each coin last moved—provides a more conservative view. Current realized cap sits at approximately $1.8 trillion, suggesting the market isn't as overextended as 2021 peaks when market cap exceeded realized cap by 3:1 ratios.</p>
+      
       <h2>American Adoption: 30% and Climbing</h2>
       <p>Security.org's 2026 Cryptocurrency Adoption Report reveals a milestone: <strong>30% of American adults now hold cryptocurrency—approximately 70 million people</strong>.</p>
       <p>This isn't fringe anymore. When nearly one-third of American adults own an asset class, it's mainstream.</p>
@@ -2111,15 +2150,33 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
         <li>Increased regulatory clarity under the current administration</li>
       </ul>
       
+      <h3>Demographic Breakdown</h3>
+      <p>Adoption isn't uniform across demographics. Adults aged 25-44 show 42% ownership rates, while those over 65 sit at 12%. Income correlates strongly—households earning $100k+ show 45% adoption versus 18% for those under $50k. Education matters too: college graduates are twice as likely to hold crypto as non-graduates.</p>
+      
+      <h3>Ownership Patterns</h3>
+      <p>Most American holders (68%) own less than $5,000 worth of crypto. Only 8% hold more than $50,000. This distribution suggests broad but shallow participation—many Americans are experimenting rather than committing significant capital. However, the sheer number of holders creates a political constituency that influences regulatory outcomes.</p>
+      
       <h2>Institutional Money: $2.3 Trillion in Transactions</h2>
       <p>Chainalysis data shows that <strong>North America processed $2.3 trillion in cryptocurrency transaction value between July 2024 and June 2025</strong>.</p>
       <p>This isn't retail traders moving $500. This is institutional-scale capital flow.</p>
       <p>According to Coinpedia's 2026 research report, <strong>ETF inflows totaled $23 billion in 2025 alone</strong>. BlackRock, Fidelity, and other major players aren't experimenting anymore—they're allocating.</p>
       
+      <h3>The ETF Revolution</h3>
+      <p>Spot Bitcoin ETFs, approved in January 2024, have fundamentally changed institutional access. Before ETFs, institutions needed custody solutions, private keys, and specialized infrastructure. Now they can allocate through familiar brokerage accounts. This accessibility explains the $23 billion inflow—institutions are finally participating without operational complexity.</p>
+      
+      <h3>Institutional Holdings by Type</h3>
+      <p>Public pension funds represent the fastest-growing institutional category, with $4.2 billion in disclosed crypto allocations. Hedge funds maintain the largest absolute positions at $12 billion. Corporate treasuries—companies holding Bitcoin as a reserve asset—account for $6.8 billion, led by firms like MicroStrategy and Tesla.</p>
+      
       <h2>Stablecoins: The Quiet Giant</h2>
       <p>Pantera Capital's analysis highlights what might be the most significant trend: <strong>stablecoins now sit at $310 billion in market cap, more than doubling since 2023</strong>.</p>
       <p>That's 25 consecutive months of growth.</p>
       <p>Why does this matter? Stablecoins are the infrastructure layer. They're how money moves in and out of crypto. They're how payments actually work. Growing stablecoin adoption signals real utility, not speculation.</p>
+      
+      <h3>Stablecoin Usage Patterns</h3>
+      <p>Stablecoins process approximately $8 trillion in annual transaction volume—comparable to Visa's payment network. But unlike Visa, most stablecoin volume occurs outside U.S. banking hours and across borders without intermediaries. This 24/7, borderless settlement explains why remittance corridors (U.S. to Mexico, UAE to India) show the highest adoption.</p>
+      
+      <h3>The Tether Dominance</h3>
+      <p>Tether (USDT) commands 70% of the stablecoin market despite regulatory concerns. Its dominance stems from first-mover advantage and liquidity—traders prefer markets where USDT is the quote currency. However, regulated alternatives like USDC are gaining ground in institutional contexts, particularly for treasury management and B2B payments.</p>
       
       <h2>The Geographic Split</h2>
       <p>IndexBox's 2026 Global Crypto Adoption Index reveals an interesting pattern:</p>
@@ -2129,16 +2186,28 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       </ul>
       <p>Two different use cases. Both legitimate. Both growing.</p>
       
+      <h3>Emerging Markets Lead Adoption</h3>
+      <p>Vietnam, Nigeria, and Ukraine top per-capita adoption rankings. In these markets, crypto serves practical needs: hedging against currency devaluation, circumventing capital controls, and accessing dollars when banking systems fail. For Americans, crypto is an investment. For billions globally, it's financial infrastructure.</p>
+      
       <h2>What This Means for You</h2>
       
       <h3>If you're building:</h3>
-      <p>The infrastructure play (stablecoins, payment rails, institutional custody) has proven product-market fit. The $310 billion stablecoin market needs services.</p>
+      <p>The infrastructure play (stablecoins, payment rails, institutional custody) has proven product-market fit. The $310 billion stablecoin market needs services. Consider targeting cross-border payments, institutional custody solutions, or compliance tooling—these segments show sustained demand regardless of token prices.</p>
       
       <h3>If you're investing:</h3>
-      <p>Institutional adoption is no longer "coming"—it's here. $23 billion in ETF inflows means your pension fund might already have exposure.</p>
+      <p>Institutional adoption is no longer "coming"—it's here. $23 billion in ETF inflows means your pension fund might already have exposure. The data suggests crypto has transitioned from speculative asset to portfolio allocation. Risk-adjusted returns may normalize, but liquidity and legitimacy have improved dramatically.</p>
       
       <h3>If you're skeptical:</h3>
-      <p>The data doesn't require you to believe in any particular future. It just shows where capital is flowing today. 70 million Americans and $2.3 trillion in institutional transactions represent current reality, not prediction.</p>
+      <p>The data doesn't require you to believe in any particular future. It just shows where capital is flowing today. 70 million Americans and $2.3 trillion in institutional transactions represent current reality, not prediction. Dismissing crypto requires ignoring measurable economic activity at a scale that rivals major asset classes.</p>
+      
+      <h2>Risks and Considerations</h2>
+      <p>No data-driven analysis is complete without acknowledging risks:</p>
+      <ul>
+        <li><strong>Regulatory uncertainty:</strong> While the U.S. has clarified ETF rules, comprehensive legislation remains pending</li>
+        <li><strong>Concentration risk:</strong> Bitcoin and Ethereum represent 73% of total market cap</li>
+        <li><strong>Stablecoin fragility:</strong> Tether's reserve composition remains opaque</li>
+        <li><strong>Environmental concerns:</strong> Bitcoin mining still consumes more electricity than many countries</li>
+      </ul>
       
       <h2>The Bottom Line</h2>
       <p>Crypto in 2026 isn't about moon shots or meme coins (though those still exist). It's about:</p>
@@ -2174,6 +2243,8 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
 import { NEW_ARTICLES } from './new-articles';
 import { NEW_ARTICLES_PART2 } from './new-articles-part2';
 import { NEW_ARTICLES_PART3 } from './new-articles-part3';
+import { NEW_ARTICLES_PART4 } from './new-articles-part4';
+import { NEW_ARTICLES_FEB_18 } from './new-articles-2026-02-18';
 
-// Combined articles array with all 20 articles
-export const ALL_ARTICLES = [...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3];
+// Combined articles array with all articles
+export const ALL_ARTICLES = [...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18];

@@ -1,5 +1,33 @@
 {
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/:path*", "destination": "https://www.openyourais.com/:path*", "permanent": true, "has": [{ "type": "host", "value": "open-your-a-61c2cuinw-open-your-ai-s.vercel.app" }] }
+  ],
   "rewrites": [
-    { "source": "/((?!assets|sitemap.xml|robots.txt|favicon.ico).*)", "destination": "/" }
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/blog/([^/]+)", "destination": "/blog/$1/index.html" },
+    { "source": "/playbooks/([^/]+)", "destination": "/playbooks/$1/index.html" },
+    { "source": "/crypto/([^/]+)", "destination": "/crypto/$1/index.html" },
+    { "source": "/tools", "destination": "/tools/index.html" },
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/contact", "destination": "/contact/index.html" },
+    { "source": "/privacy", "destination": "/privacy/index.html" },
+    { "source": "/terms", "destination": "/terms/index.html" },
+    { "source": "/sitemap", "destination": "/sitemap/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    }
   ]
 }

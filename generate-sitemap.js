@@ -9,34 +9,46 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const BASE_URL = 'https://www.openyourais.com';
 
-// Read the constants.ts file to extract article data
-// Since we can't directly import TypeScript, we'll read and parse it
+// Read all article files to extract article data
 function extractDataFromConstants() {
-    const constantsPath = path.join(__dirname, 'constants.ts');
-    const content = fs.readFileSync(constantsPath, 'utf-8');
-
-    // Extract ALL_ARTICLES array
-    const articlesMatch = content.match(/export const ALL_ARTICLES: Article\[\] = (\[[\s\S]*?\]);/);
     let articles = [];
-
-    if (articlesMatch) {
-        try {
-            // Simple parsing - extract slugs and dates from the array
+    
+    // Files to read for articles
+    const files = ['constants.ts', 'new-articles.ts', 'new-articles-part2.ts', 'new-articles-part3.ts'];
+    
+    files.forEach(file => {
+        const filePath = path.join(__dirname, file);
+        if (fs.existsSync(filePath)) {
+            const content = fs.readFileSync(filePath, 'utf-8');
+            
+            // Look for article objects with slug and date
+            // Match pattern: slug: '...', followed by date: '...'
             const articleMatches = content.matchAll(/slug: ['"]([^'"]+)['"][\s\S]*?date: ['"]([^'"]+)['"]/g);
             for (const match of articleMatches) {
-                articles.push({
-                    slug: match[1],
-                    date: match[2]
-                });
+                // Only add if it looks like an article slug (not a tool)
+                if (match[1].startsWith('art-') || match[1].includes('-')) {
+                    articles.push({
+                        slug: match[1],
+                        date: match[2]
+                    });
+                }
             }
-        } catch (e) {
-            console.log('Note: Using fallback article list');
         }
-    }
+    });
 
-    // If no articles found, use fallback list based on the sitemap
-    if (articles.length === 0) {
-        articles = [
+    // Remove duplicates based on slug
+    const uniqueArticles = [];
+    const seenSlugs = new Set();
+    articles.forEach(article => {
+        if (!seenSlugs.has(article.slug)) {
+            seenSlugs.add(article.slug);
+            uniqueArticles.push(article);
+        }
+    });
+
+    // If no articles found, use fallback list
+    if (uniqueArticles.length === 0) {
+        uniqueArticles = [
             { slug: 'adsense-approval-masterclass-2025', date: '2025-12-22' },
             { slug: 'unlock-the-future-a-deep-dive-into-google-ai-studio', date: '2025-12-18' },
             { slug: 'flux-2-is-here-black-forest-labs-unveils-new-era', date: '2025-12-15' },
@@ -44,7 +56,7 @@ function extractDataFromConstants() {
         ];
     }
 
-    return articles;
+    return uniqueArticles;
 }
 
 // Static routes

@@ -591,7 +591,226 @@ export const NEW_ARTICLES: Article[] = [
     date: 'Jan 15, 2026',
     readTime: '23 min',
     image: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 'art-013',
+    slug: 'china-ai-glm5-minimax-open-source-race',
+    title: "China's AI Engine Roars: GLM-5, MiniMax M2.5, and the New Open-Source Arms Race",
+    excerpt: "While Silicon Valley debates AI consciousness, Chinese labs are shipping. Zhipu's GLM-5 claims the open-source crown, MiniMax drops M2.5 for agentic workflows, and DeepSeek quietly upgrades. The open-source AI war is now a multi-polar conflict.",
+    content: `
+      <h2>Executive Summary</h2>
+      <p>While Silicon Valley debates AI consciousness and ethics, Chinese labs are shipping. Hard. This week saw Zhipu's GLM-5 claiming the open-source crown, MiniMax dropping M2.5 for agentic workflows, and DeepSeek quietly upgrading their flagship model. The result? A 30% stock surge for Zhipu and a clear signal: the open-source AI war is now a multi-polar conflict.</p>
+      
+      <h2>The Big Moves</h2>
+      
+      <h3>Zhipu GLM-5: The New Open-Source King?</h3>
+      <p>Zhipu AI didn't just release a model—they made a statement. GLM-5 launched Thursday with benchmarks that turn heads: approaching Anthropic's Claude Opus 4.5 in coding tasks while surpassing Google's Gemini 3 Pro on select tests.</p>
+      
+      <p><strong>What matters:</strong></p>
+      <ul>
+        <li>Enhanced coding capabilities out of the box</li>
+        <li>Long-running agent task support (this is the keyword for 2026)</li>
+        <li>Fully open-source, unlike the closed-shop leaders</li>
+      </ul>
+      
+      <p>The market reacted immediately. Zhipu's Hong Kong-listed shares surged nearly 30% to 405 HKD ($51.8). When was the last time a pure AI model launch moved markets like this? Exactly.</p>
+      
+      <h3>MiniMax M2.5: Built for Agents</h3>
+      <p>MiniMax isn't playing catch-up—they're carving their own lane. The M2.5 release dropped Wednesday with a clear positioning: "a model built for Max coding & agentic workflows."</p>
+      
+      <p>Translation? This isn't a chatbot. It's infrastructure for autonomous systems. The company's Hong Kong shares jumped 13.7% to 70.5 HKD. Not bad for a mid-week release.</p>
+      
+      <p><strong>What makes M2.5 different:</strong></p>
+      <ul>
+        <li>Native agent tool integration</li>
+        <li>Optimized for long-context workflows</li>
+        <li>Open-source (seeing a pattern here?)</li>
+      </ul>
+      
+      <h3>DeepSeek's Quiet Upgrade</h3>
+      <p>While Zhipu and MiniMax grabbed headlines, DeepSeek—the lab that shocked markets in January—dropped a significant update to their flagship model. The upgrade adds:</p>
+      <ul>
+        <li>10x larger context window</li>
+        <li>More up-to-date knowledge cutoff</li>
+        <li>Continued cost efficiency (their signature move)</li>
+      </ul>
+      
+      <p>DeepSeek doesn't do press releases. They push to GitHub and let the code speak. This approach is working—their R1 model already proved Chinese labs can compete on efficiency, not just scale.</p>
+      
+      <h3>ByteDance Seedance 2.0: Video Generation Heats Up</h3>
+      <p>ByteDance entered the chat Monday with Seedance 2.0, their latest AI video generation app. Details are still emerging, but the release signals continued investment in multimodal AI from China's tech giants.</p>
+      
+      <h3>Ant Group's Ming-Flash-Omni 2.0: The Multimodal Dark Horse</h3>
+      <p>Ant Group released Ming-Flash-Omni 2.0 Wednesday—a "unified multimodal model" capable of generating speech, music, sound effects, and visuals from a single architecture.</p>
+      
+      <p>This is significant. While US labs segment their offerings (GPT-4 for text, DALL-E for images, ElevenLabs for voice), Ant Group is building unified systems. Fewer models, fewer integration points, lower latency.</p>
+      
+      <h2>The Bigger Picture: AI as Economic Engine</h2>
+      <p>Taiwan just revised their 2026 economic growth forecast to <strong>7.7%</strong>, citing AI demand as a primary driver. Let that sink in. Not semiconductor exports in general. Not electronics manufacturing. <strong>AI demand specifically.</strong></p>
+      
+      <p>This isn't hype—it's economic reality. When a developed economy projects nearly 8% growth on the back of a single technology sector, every investor, founder, and policy maker should pay attention.</p>
+      
+      <h2>Tools of the Day</h2>
+      
+      <h3>For Developers: GLM-5 (Zhipu)</h3>
+      <ul>
+        <li><strong>What:</strong> Open-source LLM with coding and agent capabilities</li>
+        <li><strong>Why now:</strong> Benchmarks near Claude Opus 4.5, fully open weights</li>
+        <li><strong>Get it:</strong> Z.ai platform or GitHub</li>
+      </ul>
+      
+      <h3>For Agent Builders: MiniMax M2.5</h3>
+      <ul>
+        <li><strong>What:</strong> Purpose-built model for agentic workflows</li>
+        <li><strong>Why now:</strong> Native tool use, optimized for long tasks</li>
+        <li><strong>Get it:</strong> MiniMax overseas website</li>
+      </ul>
+      
+      <h3>For Multimodal Projects: Ming-Flash-Omni 2.0 (Ant Group)</h3>
+      <ul>
+        <li><strong>What:</strong> Unified audio/visual/speech generation model</li>
+        <li><strong>Why now:</strong> One model replaces multiple specialized systems</li>
+        <li><strong>Get it:</strong> Ant Group's AI platform</li>
+      </ul>
+      
+      <h2>Medical AI Breakthrough: MRI in Seconds</h2>
+      <p>Shifting gears from markets to medicine—University of Michigan researchers dropped an AI system that interprets brain MRI scans in <strong>seconds</strong>, accurately identifying neurological conditions and flagging urgent cases.</p>
+      
+      <p>This isn't incremental improvement. This is the difference between a radiologist's queue and immediate triage. Between days of waiting and instant answers.</p>
+      
+      <p><strong>Why it matters:</strong> Healthcare AI often gets buried under consumer chatbot news. But systems like this will save more lives than any writing assistant ever will.</p>
+      
+      <h2>The Dario Amodei Interview: Consciousness Unknown</h2>
+      <p>Anthropic's CEO sat down with The New York Times this week and admitted something most AI leaders won't: <strong>"We don't know if the models are conscious."</strong></p>
+      
+      <p>Amodei's piece covers utopian and dystopian predictions alike. But the consciousness admission is the headline. When the CEO of a top AI lab concedes fundamental uncertainty about what they're building, the "move fast and break things" mantra starts looking reckless.</p>
+      
+      <h2>What to Watch Next Week</h2>
+      <ol>
+        <li><strong>Benchmark verification</strong>—Independent tests of GLM-5 claims against Claude and Gemini</li>
+        <li><strong>US lab response</strong>—Will OpenAI or Anthropic accelerate their open-source strategy?</li>
+        <li><strong>Agent framework updates</strong>—Expect LangChain, AutoGPT, and CrewAI to announce MiniMax/GLM-5 integrations</li>
+        <li><strong>Earnings calls</strong>—NVIDIA, AMD, and TSMC guidance will reflect this demand surge</li>
+      </ol>
+      
+      <h2>The Bottom Line</h2>
+      <p>The narrative that "US has the best AI" just got complicated. Chinese labs are shipping competitive open-source models at an accelerating pace. The moat isn't data or compute anymore—it's execution speed and distribution.</p>
+      
+      <p>For builders: You now have viable alternatives to GPT-4 and Claude that won't break the budget. For investors: The AI market is fragmenting, not consolidating. And for everyone else: The next year will determine whether AI remains a US-dominated field or becomes truly global.</p>
+      
+      <p><strong>The race is on. Choose your horses.</strong></p>
+    `,
+    category: 'AI',
+    tags: ['China', 'GLM-5', 'MiniMax', 'Open Source', 'DeepSeek', 'AI Agents'],
+    date: 'Feb 13, 2026',
+    readTime: '12 min',
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 'art-014',
+    slug: 'ai-brief-nvidia-326b-india-summit-musk-xai-merger',
+    title: "AI Brief: Nvidia's $326B Moonshot, India's AI Summit, and Musk's Trillion-Dollar Gamble",
+    excerpt: 'This week in AI is about trillion-dollar bets, geopolitical positioning, and market consolidation. Nvidia projected to hit $326B revenue, India hosts major AI governance summit, and Musk merges SpaceX with xAI into $1.25T entity.',
+    content: `
+      <h2>Executive Summary</h2>
+      <p>This week in AI isn't about incremental updates. It's about <strong>trillion-dollar bets</strong>, <strong>geopolitical positioning</strong>, and <strong>market consolidation</strong> that'll shape who owns the next decade of artificial intelligence. Nvidia's projected to hit $326B in revenue. India is hosting the most consequential AI governance summit outside the West. And Elon Musk is trying to merge SpaceX with xAI into a $1.25 trillion juggernaut.</p>
+      
+      <h2>1. Nvidia's $326B Run: The Math Behind the Hype</h2>
+      <p>Wall Street doesn't throw around 37% upside targets casually. But that's exactly what analysts are projecting for Nvidia, with an average price target of $253.62 (currently trading around $182).</p>
+      
+      <p><strong>The Reality Check:</strong></p>
+      <ul>
+        <li>Revenue forecast for fiscal 2027: <strong>$326 billion</strong> (53% YoY growth)</li>
+        <li>AI hyperscaler capex for 2026 data centers: <strong>Jaw-dropping numbers</strong> across Microsoft, Google, Amazon, Meta</li>
+        <li>Profit margin holding steady at ~53%</li>
+      </ul>
+      
+      <p>This isn't retail speculation. This is institutional money betting that AI infrastructure spend hasn't peaked—it's accelerating. The hyperscalers are in an arms race, and Nvidia's GPUs are the ammunition.</p>
+      
+      <p><strong>The Catch:</strong> Nvidia reports earnings February 25. If they miss or guide conservatively, expect volatility. But if they confirm these growth trajectories? The AI infrastructure trade gets a second wind.</p>
+      
+      <h2>2. India-AI Impact Summit 2026: The Global South Fights Back</h2>
+      <p>While the US and China dominate AI headlines, India is making a power play. The AI Impact Summit kicks off February 16 in New Delhi, and it's the first major AI governance summit hosted in the Global South.</p>
+      
+      <p><strong>What's Different:</strong></p>
+      <ul>
+        <li>Theme: <em>"Sarvajan Hitaya, Sarvajan Sukhaya"</em> (Welfare for All, Happiness of All)</li>
+        <li>Focus: Inclusive, responsible AI governance—not just innovation for innovation's sake</li>
+        <li>Participants: Slovak President Peter Pellegrini confirmed, plus envoys from 30+ countries</li>
+      </ul>
+      
+      <p>The philosophy here matters. Indian diplomats are framing AI governance as integral to innovation, not a separate checkbox. As Ambassador Vani Rao (Italy) put it: <em>"AI systems succeed only when skills, trust, infrastructure, and access evolve together."</em></p>
+      
+      <p><strong>Why You Should Care:</strong> The EU has AI Act compliance. The US has executive orders. India is building a third model—one that prioritizes planetary welfare and equitable access. For companies building global AI products, this could become a compliance framework you'll need to understand.</p>
+      
+      <h2>3. Elon Musk's $1.25 Trillion Merge: SpaceX + xAI</h2>
+      <p>In a move that surprised exactly no one who watches Musk's playbook, SpaceX and xAI are reportedly merging. The proposed entity would be valued at <strong>$1.25 trillion</strong>.</p>
+      
+      <p><strong>The Mechanics:</strong></p>
+      <ul>
+        <li>xAI carries $18 billion in debt that needs restructuring</li>
+        <li>Bankers are working to consolidate the two entities</li>
+        <li>SpaceX is simultaneously prepping a 2026 IPO with dual-class shares (Musk keeps control)</li>
+      </ul>
+      
+      <p><strong>The Strategy:</strong> Combine SpaceX's Starlink infrastructure (global satellite network) with xAI's Grok models, and you have AI inference at the edge—literally anywhere on Earth. It's a vertically integrated AI stack from satellite to server to end-user.</p>
+      
+      <p><strong>The Drama:</strong> This isn't happening in a vacuum. xAI just got hit with a 60-day notice from the NAACP and environmental groups over pollution in Mississippi. UK regulator Ofcom is probing Grok AI for compliance issues. And Musk publicly slammed Anthropic's $30 billion valuation—a not-so-subtle flex that he's playing a bigger game.</p>
+      
+      <h2>4. OpenAI's Real-Time Push: GPT-5.3-Codex-Spark</h2>
+      <p>While everyone focuses on big models, OpenAI dropped a specialized bomb: <strong>GPT-5.3-Codex-Spark</strong>.</p>
+      
+      <p><strong>What It Does:</strong></p>
+      <ul>
+        <li>Real-time coding model optimized for ultra-low latency</li>
+        <li>Runs on Cerebras hardware (not Nvidia—interesting)</li>
+        <li>128k context window</li>
+        <li>Rolling out to ChatGPT Pro as research preview</li>
+      </ul>
+      
+      <p><strong>Why It Matters:</strong> This is OpenAI's answer to Cursor, GitHub Copilot, and the swarm of AI coding assistants. But with a twist—it's hardware-optimized for Cerebras' wafer-scale chips, suggesting OpenAI is diversifying its compute dependencies beyond Nvidia.</p>
+      
+      <h2>5. The AI Job Cut Reality: 30,700 Gone in Two Months</h2>
+      <p>Here's the uncomfortable truth behind all this growth: <strong>30,700 tech jobs have been cut globally in the first two months of 2026</strong>, with approximately 80% linked to AI automation or restructuring.</p>
+      
+      <p>This isn't a recession. This is structural. Companies are aggressively replacing roles with AI systems, and the trend is accelerating. If you're in tech, the question isn't whether AI impacts your job—it's whether you're using AI to amplify your value or watching it replace you.</p>
+      
+      <h2>Tools of the Day</h2>
+      
+      <h3>🛠️ GPT-5.3-Codex-Spark</h3>
+      <p>Real-time coding assistant with 128k context. Pro users get research preview access. If you code, this is your new pair programmer.</p>
+      
+      <h3>🛠️ Grok AI (xAI)</h3>
+      <p>Now potentially integrated with Starlink infrastructure. Early glimpses at what edge-distributed AI inference looks like.</p>
+      
+      <h3>🛠️ OpenAI "Prism" Research Workspace</h3>
+      <p>New AI-native research environment mentioned in recent updates. Details still emerging, but worth watching for knowledge workers.</p>
+      
+      <h2>The Bottom Line</h2>
+      <p>This week encapsulates where AI is heading:</p>
+      <ol>
+        <li><strong>Infrastructure consolidation</strong> (Nvidia's dominance, hyperscaler capex)</li>
+        <li><strong>Geopolitical competition</strong> (India's summit, regulatory fragmentation)</li>
+        <li><strong>Vertical integration</strong> (Musk merging space and AI)</li>
+        <li><strong>Real-time specialization</strong> (OpenAI's coding models)</li>
+        <li><strong>Labor displacement</strong> (30k+ jobs gone, more coming)</li>
+      </ol>
+      
+      <p>The AI boom isn't slowing down. It's mutating. The companies that thrive will be those adapting to these shifts faster than their competitors.</p>
+      
+      <h2>Action Items</h2>
+      <ol>
+        <li><strong>Developers:</strong> Get on the GPT-5.3-Codex-Spark waitlist if you're Pro. Test real-time coding workflows.</li>
+        <li><strong>Investors:</strong> Mark February 25 (Nvidia earnings) and watch for capex guidance commentary.</li>
+        <li><strong>Builders:</strong> Study India's AI governance framework. The Global South is writing rules that'll matter globally.</li>
+        <li><strong>Professionals:</strong> Audit your role for AI replacement risk. Then learn the tools that make you irreplaceable.</li>
+      </ol>
+    `,
+    category: 'AI',
+    tags: ['Nvidia', 'India', 'AI Governance', 'Musk', 'xAI', 'SpaceX', 'OpenAI', 'Market Analysis'],
+    date: 'Feb 14, 2026',
+    readTime: '5 min',
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
-// Continue in part 2...
