@@ -217,7 +217,7 @@ export const ArticleReader: React.FC = () => {
             </header>
 
             <div className="w-full aspect-video rounded-[40px] overflow-hidden mb-16 border border-white/5 bg-gray-900 group shadow-2xl">
-              <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-all duration-1000" />
+              <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-all duration-1000" width={1200} height={675} />
             </div>
 
             <div className="prose prose-invert prose-lg max-w-none">
@@ -398,7 +398,7 @@ export const PlaybookReader: React.FC = () => {
       <div className="grid lg:grid-cols-[1fr_380px] gap-20">
         <div className="space-y-16">
           <div className="w-full aspect-video rounded-[60px] overflow-hidden border border-white/5 bg-gray-900 shadow-2xl">
-            <SmartImage src={playbook.image || ''} alt={playbook.title} className="w-full h-full object-cover opacity-70" />
+            <SmartImage src={playbook.image || ''} alt={playbook.title} className="w-full h-full object-cover opacity-70" width={1200} height={675} />
           </div>
 
           <div className="prose prose-invert prose-xl max-w-none">
@@ -589,7 +589,7 @@ export const AboutPage: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
         <div className="relative group">
           <div className="absolute -inset-10 bg-cyber-primary/10 blur-[100px] rounded-full group-hover:bg-cyber-primary/20 transition-all duration-1000"></div>
-          <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Open Your AIs - AI Technology Intelligence Platform" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
+          <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Open Your AIs - AI Technology Intelligence Platform" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" width={600} height={400} />
         </div>
         <div className="space-y-10">
           <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">Our Mission</h2>

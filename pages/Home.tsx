@@ -85,7 +85,7 @@ const RecentArticles = () => {
             <Link to={`/blog/${article.slug}`} key={article.id} className="group">
               <Card className="h-full flex flex-col p-0 rounded-3xl overflow-hidden border-white/5 hover:border-cyber-primary/20">
                 <div className="aspect-video w-full overflow-hidden relative border-b border-white/5 bg-gray-900">
-                  <SmartImage src={article.image || ''} alt={article.title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-700" />
+                  <SmartImage src={article.image || ''} alt={article.title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-700" width={800} height={450} />
                   <div className="absolute top-4 left-4 bg-cyber-bg/90 backdrop-blur px-3 py-1 text-[9px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-widest">{article.category}</div>
                 </div>
                 <div className="p-8">
