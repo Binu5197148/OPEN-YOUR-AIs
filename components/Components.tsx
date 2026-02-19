@@ -47,18 +47,27 @@ export const FAQ: React.FC<{ items: { q: string, a: string }[] }> = ({ items }) 
 };
 
 // --- SMART IMAGE ---
+// Automatically optimizes Unsplash images with WebP format
+const optimizeUnsplashUrl = (url: string): string => {
+  if (!url) return url;
+  if (url.includes('images.unsplash.com') && !url.includes('fm=webp')) {
+    return url + (url.includes('?') ? '&fm=webp' : '?fm=webp');
+  }
+  return url;
+};
+
 export const SmartImage: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className }) => {
-  const [imgSrc, setImgSrc] = useState(src);
+  const [imgSrc, setImgSrc] = useState(optimizeUnsplashUrl(src));
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    setImgSrc(src);
+    setImgSrc(optimizeUnsplashUrl(src));
   }, [src]);
 
   const handleError = () => {
     if (!hasError) {
       setHasError(true);
-      setImgSrc('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');
+      setImgSrc('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80&fm=webp');
     }
   };
 

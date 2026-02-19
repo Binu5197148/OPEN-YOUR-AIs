@@ -250,11 +250,11 @@ export const HomePage: React.FC = () => {
         <meta property="og:description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides and proven strategies." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.openyourais.com/" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80&fm=webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Open Your AIs | AI, Crypto & Digital Monetization Intelligence" />
         <meta name="twitter:description" content="Master AI, Crypto, and Digital Monetization with expert guides." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80&fm=webp" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
