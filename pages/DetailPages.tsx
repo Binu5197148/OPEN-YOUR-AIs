@@ -1,4 +1,4 @@
-
+﻿
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -211,7 +211,7 @@ export const ArticleReader: React.FC = () => {
               <div className="flex items-center gap-4 border-t border-white/5 pt-8">
                 <div className="w-10 h-10 rounded-full bg-cyber-primary/20 flex items-center justify-center text-cyber-primary font-black italic text-xs border border-cyber-primary/30">OY</div>
                 <div className="text-[10px] uppercase font-black tracking-widest text-gray-400">
-                  <span className="text-white">Admin Analyst</span> • Feb 2026 • Alpha Priority
+                  <span className="text-white">Admin Analyst</span> â€¢ Feb 2026 â€¢ Alpha Priority
                 </div>
               </div>
             </header>
@@ -885,7 +885,7 @@ export const ContactPage: React.FC = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-cyber-success font-black">03.</span>
-              <span><strong className="text-white">Enable Sovereignty:</strong> Provide the knowledge and tools necessary for digital independence—whether through AI-powered workflows, decentralized finance, or automated revenue systems.</span>
+              <span><strong className="text-white">Enable Sovereignty:</strong> Provide the knowledge and tools necessary for digital independenceâ€”whether through AI-powered workflows, decentralized finance, or automated revenue systems.</span>
             </li>
           </ul>
         </div>
@@ -895,11 +895,11 @@ export const ContactPage: React.FC = () => {
       <div className="grid md:grid-cols-3 gap-8 mb-20">
         <Card className="p-10 text-center border-b-4 border-b-cyber-primary">
           <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">AI Intelligence</h4>
-          <p className="text-gray-400 text-sm leading-relaxed">Deep technical analysis of Large Language Models, generative AI tools, and autonomous agent frameworks. From GPT-4 to Claude, from Midjourney to Runway—we test, compare, and explain.</p>
+          <p className="text-gray-400 text-sm leading-relaxed">Deep technical analysis of Large Language Models, generative AI tools, and autonomous agent frameworks. From GPT-4 to Claude, from Midjourney to Runwayâ€”we test, compare, and explain.</p>
         </Card>
         <Card className="p-10 text-center border-b-4 border-b-cyber-secondary">
           <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">Digital Capital</h4>
-          <p className="text-gray-400 text-sm leading-relaxed">Battle-tested monetization playbooks leveraging automation and AI. Not theory—practical frameworks with verified ROI, timeline estimates, and step-by-step execution guides.</p>
+          <p className="text-gray-400 text-sm leading-relaxed">Battle-tested monetization playbooks leveraging automation and AI. Not theoryâ€”practical frameworks with verified ROI, timeline estimates, and step-by-step execution guides.</p>
         </Card>
         <Card className="p-10 text-center border-b-4 border-b-cyber-success">
           <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">Web3 Security</h4>
@@ -921,7 +921,7 @@ export const ContactPage: React.FC = () => {
             <h4 className="text-cyber-success font-black uppercase tracking-widest mb-4 text-sm">Continuous Updates</h4>
             <p className="text-gray-400 leading-relaxed mb-6">Technology moves fast. We regularly update our content to reflect new developments, deprecated features, and evolving best practices. Each article includes a last-updated timestamp for transparency.</p>
             <h4 className="text-white font-black uppercase tracking-widest mb-4 text-sm">Community Feedback</h4>
-            <p className="text-gray-400 leading-relaxed">We actively engage with our community through comments, social media, and direct email. Reader corrections and suggestions are not just welcomed—they're essential to maintaining accuracy in a rapidly changing field.</p>
+            <p className="text-gray-400 leading-relaxed">We actively engage with our community through comments, social media, and direct email. Reader corrections and suggestions are not just welcomedâ€”they're essential to maintaining accuracy in a rapidly changing field.</p>
           </div>
         </div>
       </Card>
@@ -933,191 +933,6 @@ export const ContactPage: React.FC = () => {
         <Link to="/contact" className="inline-block px-12 py-4 bg-cyber-primary text-cyber-bg font-black rounded-full hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest text-sm">
           Contact Us
         </Link>
-      </div>
-    </div>
-  );
-};
-
-// --- CONTACT PAGE ---
-export const ContactPage: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    document.title = "Contact | Open Your AIs";
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
-  };
-
-  return (
-    <div className="container mx-auto px-4 py-20 max-w-5xl">
-      <Helmet>
-        <title>Contact Us | Open Your AIs - Get In Touch</title>
-        <meta name="description" content="Contact Open Your AIs team for questions, suggestions, or collaboration opportunities. We respond within 24-48 hours." />
-        <meta name="keywords" content="contact open your ais, tech support, ai questions, crypto inquiry" />
-        <link rel="canonical" href="https://www.openyourais.com/contact" />
-      </Helmet>
-
-      <SectionTitle title="Establish Connection" subtitle="Direct channel to our intelligence team." />
-
-      <div className="grid md:grid-cols-2 gap-16">
-        {/* Contact Info */}
-        <div className="space-y-12">
-          <Card className="p-10 border-l-4 border-l-cyber-primary">
-            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-6">Communication Channels</h3>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-cyber-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-cyber-primary" />
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Primary Email</h4>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary hover:text-white transition-colors font-bold">
-                    {CONTACT_EMAIL}
-                  </a>
-                  <p className="text-gray-500 text-xs mt-1">Response time: 24-48 hours</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-cyber-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-cyber-secondary" />
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Availability</h4>
-                  <p className="text-gray-400 text-sm">Monday - Friday: 9:00 AM - 6:00 PM (EST)</p>
-                  <p className="text-gray-500 text-xs mt-1">Weekend inquiries answered on Mondays</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-cyber-success/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Globe className="w-5 h-5 text-cyber-success" />
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Social Channels</h4>
-                  <p className="text-gray-400 text-sm">Connect on Twitter/X and LinkedIn for real-time updates</p>
-                  <div className="flex gap-4 mt-2">
-                    <a href="https://twitter.com/openyourais" target="_blank" rel="noopener noreferrer" className="text-cyber-primary hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">Twitter/X</a>
-                    <a href="https://linkedin.com/company/openyourais" target="_blank" rel="noopener noreferrer" className="text-cyber-primary hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">LinkedIn</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-10 bg-gradient-to-br from-cyber-primary/5 to-transparent">
-            <h3 className="text-xl font-black text-white uppercase tracking-widest mb-4">What We Can Help With</h3>
-            <ul className="space-y-3 text-gray-400 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Technical questions about AI tools and implementation</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Clarifications on crypto guides and DeFi protocols</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Corrections or updates to published content</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Partnership and collaboration opportunities</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>General feedback and suggestions</span>
-              </li>
-            </ul>
-          </Card>
-        </div>
-
-        {/* Contact Form */}
-        <Card className="p-10">
-          <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-8">Send Transmission</h3>
-
-          {submitted ? (
-            <div className="text-center py-12">
-              <CheckCircle className="w-16 h-16 text-cyber-success mx-auto mb-4" />
-              <h4 className="text-xl font-black text-white uppercase tracking-widest mb-2">Message Received</h4>
-              <p className="text-gray-400">We'll respond within 24-48 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Designation</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Email Address</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
-                  placeholder="you@example.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Subject</label>
-                <select
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
-                  required
-                >
-                  <option value="" className="bg-cyber-bg">Select subject...</option>
-                  <option value="general" className="bg-cyber-bg">General Inquiry</option>
-                  <option value="technical" className="bg-cyber-bg">Technical Question</option>
-                  <option value="content" className="bg-cyber-bg">Content Correction/Update</option>
-                  <option value="partnership" className="bg-cyber-bg">Partnership Opportunity</option>
-                  <option value="feedback" className="bg-cyber-bg">Feedback/Suggestion</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Message</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all h-32 resize-none"
-                  placeholder="Describe your inquiry..."
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 bg-cyber-primary text-cyber-bg font-black rounded-xl hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest text-sm"
-              >
-                Transmit Message
-              </button>
-
-              <p className="text-gray-500 text-xs text-center">
-                By submitting, you agree to our <Link to="/privacy" className="text-cyber-primary hover:text-white transition-colors">Privacy Policy</Link>.
-              </p>
-            </form>
-          )}
-        </Card>
       </div>
     </div>
   );
