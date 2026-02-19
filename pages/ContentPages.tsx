@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, Zap, Award, Target, Info, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, ExternalLink, Clock, DollarSign, ChevronRight, TrendingUp, ShieldCheck, Zap, Award, Target, Info, ChevronDown, ChevronUp, ArrowLeft } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
 import { TOOLS, PLAYBOOKS, ALL_ARTICLES, CRYPTO_GUIDES } from '../constants';
 
@@ -33,8 +33,17 @@ export const ToolsPage: React.FC = () => {
         <meta property="og:url" content="https://www.openyourais.com/tools" />
         <meta name="twitter:title" content="Best AI Tools Directory 2026 | Open Your AIs" />
         <meta name="twitter:description" content="Discover the best AI tools for 2026. Expert reviews and comparisons." />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" }, { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://www.openyourais.com/tools" }] })}</script>
       </Helmet>
       <div className="container mx-auto px-4 py-12">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-8">
+          <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+            <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+            <li><ChevronRight className="w-3 h-3" /></li>
+            <li className="text-cyber-primary" aria-current="page">AI Tools</li>
+          </ol>
+        </nav>
         <SectionTitle title="AI Intelligence Nodes" subtitle="An audited directory of frontier technologies for the high-frequency economy." />
 
         <div className="max-w-xl mx-auto mb-16 relative">
@@ -114,8 +123,17 @@ export const PlaybooksPage: React.FC = () => {
         <meta property="og:url" content="https://www.openyourais.com/playbooks" />
         <meta name="twitter:title" content="Digital Monetization Playbooks 2026 | Open Your AIs" />
         <meta name="twitter:description" content="Proven strategies to make money online with AI and automation." />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" }, { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://www.openyourais.com/playbooks" }] })}</script>
       </Helmet>
       <div className="container mx-auto px-4 py-12">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-8">
+          <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+            <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+            <li><ChevronRight className="w-3 h-3" /></li>
+            <li className="text-cyber-primary" aria-current="page">Playbooks</li>
+          </ol>
+        </nav>
         <SectionTitle title="Revenue Frameworks" subtitle="Battle-tested execution plans for the digital sovereignty age." />
         <div className="grid gap-12 max-w-5xl mx-auto">
           {PLAYBOOKS.map((pb, index) => (
@@ -167,7 +185,7 @@ export const CryptoPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Crypto Guide & Blockchain Intelligence 2026 | Open Your AIs</title>
+        <title>Crypto Guide &amp; Blockchain Intelligence 2026 | Open Your AIs</title>
         <meta name="description" content="Expert cryptocurrency guides and blockchain analysis. Learn about DeFi, NFTs, and digital asset strategies for 2026." />
         <meta name="keywords" content="cryptocurrency, blockchain, DeFi, NFT, crypto trading, digital assets, Web3, crypto guide 2026" />
         <link rel="canonical" href="https://www.openyourais.com/crypto" />
@@ -177,8 +195,17 @@ export const CryptoPage: React.FC = () => {
         <meta property="og:url" content="https://www.openyourais.com/crypto" />
         <meta name="twitter:title" content="Crypto Guide & Blockchain Intelligence 2026 | Open Your AIs" />
         <meta name="twitter:description" content="Expert cryptocurrency guides and blockchain analysis." />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" }, { "@type": "ListItem", "position": 2, "name": "Crypto", "item": "https://www.openyourais.com/crypto" }] })}</script>
       </Helmet>
       <div className="container mx-auto px-4 py-12">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-8">
+          <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+            <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+            <li><ChevronRight className="w-3 h-3" /></li>
+            <li className="text-cyber-primary" aria-current="page">Crypto</li>
+          </ol>
+        </nav>
         <SectionTitle title="The Crypto Vault" subtitle="Institutional-grade analysis for digital asset self-sovereignty." />
 
         <div className="grid md:grid-cols-3 gap-8 mb-20">
@@ -258,7 +285,7 @@ export const BlogPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>AI & Tech Blog | Latest Intelligence 2026 | Open Your AIs</title>
+        <title>AI &amp; Tech Blog | Latest Intelligence 2026 | Open Your AIs</title>
         <meta name="description" content="Latest AI news, cryptocurrency updates, and digital monetization strategies. Expert analysis and guides for the future of technology." />
         <meta name="keywords" content="AI blog, tech news, artificial intelligence, cryptocurrency news, tech guides, digital trends 2026" />
         <link rel="canonical" href="https://www.openyourais.com/blog" />
@@ -268,8 +295,17 @@ export const BlogPage: React.FC = () => {
         <meta property="og:url" content="https://www.openyourais.com/blog" />
         <meta name="twitter:title" content="AI & Tech Blog | Latest Intelligence 2026 | Open Your AIs" />
         <meta name="twitter:description" content="Latest AI news, cryptocurrency updates, and digital monetization strategies." />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.openyourais.com/blog" }] })}</script>
       </Helmet>
       <div className="container mx-auto px-4 py-12">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-8">
+          <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+            <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+            <li><ChevronRight className="w-3 h-3" /></li>
+            <li className="text-cyber-primary" aria-current="page">Blog</li>
+          </ol>
+        </nav>
         <SectionTitle title="Neural Feed" subtitle="High-frequency intelligence stream and archival reporting." />
 
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-20">

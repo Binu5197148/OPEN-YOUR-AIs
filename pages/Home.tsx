@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Zap, TrendingUp, ShieldCheck, Globe, Cpu, Award, ChevronRight, Check } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage, FAQ } from '../components/Components';
 import { TOOLS, PLAYBOOKS, ALL_ARTICLES } from '../constants';
@@ -189,8 +190,8 @@ const NeuralStream = () => {
             type="submit"
             disabled={status === 'loading' || status === 'success'}
             className={`absolute right-2 top-2 px-10 py-4 rounded-full font-black text-[10px] uppercase tracking-widest transition-all disabled:opacity-50 ${status === 'success'
-                ? 'bg-cyber-success text-white'
-                : 'bg-cyber-primary text-cyber-bg hover:shadow-[0_0_25px_#00E5FF]'
+              ? 'bg-cyber-success text-white'
+              : 'bg-cyber-primary text-cyber-bg hover:shadow-[0_0_25px_#00E5FF]'
               }`}
           >
             {status === 'loading' ? 'CONNECTING...' :
@@ -211,11 +212,52 @@ const NeuralStream = () => {
 
 export const HomePage: React.FC = () => {
   useEffect(() => {
-    document.title = "Open Your AIs | The Neural Frontier Intelligence Hub";
+    document.title = "Open Your AIs | AI, Crypto & Digital Monetization Intelligence";
   }, []);
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Open Your AIs",
+    "url": "https://www.openyourais.com",
+    "logo": "https://www.openyourais.com/logo.png",
+    "description": "Technology intelligence platform providing expert analysis on AI tools, cryptocurrency strategies, and digital monetization playbooks.",
+    "email": "openyourais888@gmail.com",
+    "sameAs": []
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": HomeFAQ.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  };
 
   return (
     <>
+      <Helmet>
+        <title>Open Your AIs | AI, Crypto &amp; Digital Monetization Intelligence</title>
+        <meta name="description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides. Discover the best AI tools, crypto strategies, and proven monetization playbooks for 2026." />
+        <meta name="keywords" content="AI tools, artificial intelligence, cryptocurrency, digital monetization, make money online, ChatGPT, Claude AI, crypto trading, passive income, tech tutorials 2026" />
+        <link rel="canonical" href="https://www.openyourais.com/" />
+        <meta property="og:title" content="Open Your AIs | AI, Crypto & Digital Monetization Intelligence" />
+        <meta property="og:description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides and proven strategies." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.openyourais.com/" />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Open Your AIs | AI, Crypto & Digital Monetization Intelligence" />
+        <meta name="twitter:description" content="Master AI, Crypto, and Digital Monetization with expert guides." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" />
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <Hero />
       <div className="container mx-auto px-4">
         <AdUnit slot="home-top" />
