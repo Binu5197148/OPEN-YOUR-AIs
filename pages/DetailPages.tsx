@@ -1,8 +1,8 @@
-
+﻿
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Clock, DollarSign, ShieldCheck, ChevronRight, Award, BookOpen, Shield, Zap, AlertTriangle, ExternalLink, CheckCircle, Share2, Bookmark, Terminal, Play, Loader2 } from 'lucide-react';
+import { ArrowLeft, Clock, DollarSign, ShieldCheck, ChevronRight, Award, BookOpen, Shield, Zap, AlertTriangle, ExternalLink, CheckCircle, Share2, Bookmark, Terminal, Play, Loader2, Mail, Globe } from 'lucide-react';
 import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components';
 import { ALL_ARTICLES, PLAYBOOKS, CRYPTO_GUIDES, CONTACT_EMAIL } from '../constants';
 
@@ -37,11 +37,15 @@ export const SitemapPage: React.FC = () => {
           <div>
             <h3 className="text-cyber-primary mb-6 border-b border-white/10 pb-2">Navigation</h3>
             <ul className="space-y-4 text-gray-500 text-[10px]">
-              <li><Link to="/" className="hover:text-white transition-colors">Home Terminal</Link></li>
-              <li><Link to="/tools" className="hover:text-white transition-colors">AI Directory</Link></li>
-              <li><Link to="/playbooks" className="hover:text-white transition-colors">Revenue Frameworks</Link></li>
-              <li><Link to="/crypto" className="hover:text-white transition-colors">Crypto Vault</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors">Intelligence Feed</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/tools" className="hover:text-white transition-colors">AI Tools Directory</Link></li>
+              <li><Link to="/playbooks" className="hover:text-white transition-colors">Monetization Playbooks</Link></li>
+              <li><Link to="/crypto" className="hover:text-white transition-colors">Crypto Intelligence</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
           <div>
@@ -125,6 +129,16 @@ export const ArticleReader: React.FC = () => {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.openyourais.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://www.openyourais.com/blog/${article.slug}` }
+    ]
+  };
+
   return (
     <div className="relative">
       <Helmet>
@@ -154,6 +168,9 @@ export const ArticleReader: React.FC = () => {
         <script type="application/ld+json">
           {JSON.stringify(articleSchema)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
       <div className="fixed top-[88px] left-0 w-full h-1 bg-white/5 z-[60]">
         <div
@@ -165,9 +182,16 @@ export const ArticleReader: React.FC = () => {
       <article className="container mx-auto px-4 py-12 max-w-5xl">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-3/4">
-            <Link to="/blog" className="inline-flex items-center text-gray-500 hover:text-white mb-10 transition-colors text-[10px] font-black uppercase tracking-[0.2em]">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Intelligence Feed
-            </Link>
+            {/* Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="mb-8">
+              <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+                <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+                <li><ChevronRight className="w-3 h-3" /></li>
+                <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                <li><ChevronRight className="w-3 h-3" /></li>
+                <li className="text-cyber-primary truncate max-w-[200px]" aria-current="page">{article.title}</li>
+              </ol>
+            </nav>
 
             <header className="mb-12">
               <div className="flex flex-wrap items-center gap-6 mb-8">
@@ -187,13 +211,13 @@ export const ArticleReader: React.FC = () => {
               <div className="flex items-center gap-4 border-t border-white/5 pt-8">
                 <div className="w-10 h-10 rounded-full bg-cyber-primary/20 flex items-center justify-center text-cyber-primary font-black italic text-xs border border-cyber-primary/30">OY</div>
                 <div className="text-[10px] uppercase font-black tracking-widest text-gray-400">
-                  <span className="text-white">Admin Analyst</span> • Feb 2026 • Alpha Priority
+                  <span className="text-white">Admin Analyst</span> â€¢ Feb 2026 â€¢ Alpha Priority
                 </div>
               </div>
             </header>
 
             <div className="w-full aspect-video rounded-[40px] overflow-hidden mb-16 border border-white/5 bg-gray-900 group shadow-2xl">
-              <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-all duration-1000" />
+              <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-all duration-1000" width={1200} height={675} />
             </div>
 
             <div className="prose prose-invert prose-lg max-w-none">
@@ -374,7 +398,7 @@ export const PlaybookReader: React.FC = () => {
       <div className="grid lg:grid-cols-[1fr_380px] gap-20">
         <div className="space-y-16">
           <div className="w-full aspect-video rounded-[60px] overflow-hidden border border-white/5 bg-gray-900 shadow-2xl">
-            <SmartImage src={playbook.image || ''} alt={playbook.title} className="w-full h-full object-cover opacity-70" />
+            <SmartImage src={playbook.image || ''} alt={playbook.title} className="w-full h-full object-cover opacity-70" width={1200} height={675} />
           </div>
 
           <div className="prose prose-invert prose-xl max-w-none">
@@ -506,44 +530,340 @@ export const CryptoReader: React.FC = () => {
 // --- ABOUT PAGE ---
 export const AboutPage: React.FC = () => {
   useEffect(() => {
-    document.title = "About | Open Your AIs";
+    document.title = "About Us | Open Your AIs";
   }, []);
+
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Open Your AIs",
+    "description": "Learn about Open Your AIs - a technology intelligence platform covering AI, cryptocurrency, and digital monetization strategies.",
+    "url": "https://www.openyourais.com/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Open Your AIs",
+      "url": "https://www.openyourais.com",
+      "email": CONTACT_EMAIL,
+      "description": "Open Your AIs is a technology intelligence platform providing expert analysis on artificial intelligence, cryptocurrency, and digital monetization.",
+      "foundingDate": "2025",
+      "sameAs": []
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" },
+      { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.openyourais.com/about" }
+    ]
+  };
 
   return (
     <div className="container mx-auto px-4 py-20 max-w-5xl">
       <Helmet>
-        <title>About Us | Open Your AIs - Tech Intelligence Hub</title>
-        <meta name="description" content="Learn about Open Your AIs mission to decode AI, crypto, and digital monetization. Founded by industry experts to provide actionable tech intelligence." />
-        <meta name="keywords" content="about open your ais, tech blog mission, AI intelligence hub, digital monetization experts" />
+        <title>About Us | Open Your AIs</title>
+        <meta name="description" content="Learn about Open Your AIs - a technology intelligence platform providing expert analysis on AI tools, cryptocurrency strategies, and digital monetization playbooks." />
         <link rel="canonical" href="https://www.openyourais.com/about" />
+        <meta property="og:title" content="About Us | Open Your AIs" />
+        <meta property="og:description" content="Learn about Open Your AIs - a technology intelligence platform covering AI, cryptocurrency, and digital monetization." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.openyourais.com/about" />
+        <meta name="twitter:title" content="About Us | Open Your AIs" />
+        <meta name="twitter:description" content="Learn about Open Your AIs - a technology intelligence platform covering AI, cryptocurrency, and digital monetization." />
+        <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
-      
-      <SectionTitle title="Neural Frontier Manifesto" subtitle="Decode. Secure. Monetize. The three pillars of human sovereignty." />
-      
-      {/* Mission Section */}
-      <div className="grid md:grid-cols-2 gap-20 items-center mb-32">
+
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="mb-8">
+        <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+          <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+          <li><ChevronRight className="w-3 h-3" /></li>
+          <li className="text-cyber-primary" aria-current="page">About Us</li>
+        </ol>
+      </nav>
+
+      <SectionTitle title="About Open Your AIs" subtitle="Empowering the digital vanguard with verified intelligence on AI, Crypto, and Monetization." />
+
+      <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
         <div className="relative group">
           <div className="absolute -inset-10 bg-cyber-primary/10 blur-[100px] rounded-full group-hover:bg-cyber-primary/20 transition-all duration-1000"></div>
-          <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Intelligence" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
+          <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Open Your AIs - AI Technology Intelligence Platform" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" width={600} height={400} />
         </div>
         <div className="space-y-10">
-          <h3 className="text-4xl font-black text-white uppercase tracking-tighter italic">Intelligence Vanguard</h3>
-          <p className="text-gray-400 leading-relaxed text-xl font-light">
-            Open Your AIs is a specialized intelligence hub dedicated to narrowing the gap between rapid technological frontiers and human application. We track the trinity of the 21st century: Generative Intelligence, Decentralized Assets, and Automated Monetization.
+          <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">Our Mission</h2>
+          <p className="text-gray-400 leading-relaxed text-lg font-light">
+            Open Your AIs is a specialized technology intelligence platform dedicated to bridging the gap between rapid technological innovation and practical human application. We provide in-depth, verified analysis across three core domains: <strong className="text-white">Artificial Intelligence</strong>, <strong className="text-white">Cryptocurrency &amp; Blockchain</strong>, and <strong className="text-white">Digital Monetization</strong>.
           </p>
           <p className="text-gray-400 leading-relaxed text-lg font-light">
-            Founded in 2025 by Ulisses Balbino, a visionary at the intersection of audiovisual production, creative entrepreneurship, and artificial intelligence, our platform emerges from the real need to decode complex technological shifts into actionable intelligence. With over a decade of experience working with global brands like Disney, Starbucks, and Nestlé, we bring enterprise-grade analysis to individual creators and entrepreneurs.
+            Founded in 2025, our platform serves as a trusted resource for entrepreneurs, developers, investors, and technology enthusiasts who want to stay ahead of the curve. Every piece of content we publish undergoes rigorous fact-checking and technical verification to ensure accuracy and reliability.
           </p>
-          <div className="grid grid-cols-2 gap-8">
-            <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
-              <p className="text-cyber-primary font-black text-4xl mb-2 italic">100%</p>
-              <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Verified Intel</p>
+        </div>
+      </div>
+
+      {/* What We Cover */}
+      <div className="mb-24">
+        <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic mb-12 text-center">What We Cover</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="text-center p-10">
+            <div className="w-16 h-16 mx-auto bg-cyber-primary/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-primary border border-cyber-primary/20">
+              <Zap className="w-8 h-8" />
             </div>
-            <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
-              <p className="text-cyber-secondary font-black text-4xl mb-2 italic">24/7</p>
-              <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Neural Stream</p>
+            <h3 className="text-xl font-black text-white mb-4 uppercase">AI &amp; Machine Learning</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Expert reviews and technical analysis of the latest AI tools, LLM architectures, image generators, and automation frameworks. We help you understand which tools deliver real value.</p>
+          </Card>
+          <Card className="text-center p-10">
+            <div className="w-16 h-16 mx-auto bg-cyber-success/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-success border border-cyber-success/20">
+              <ShieldCheck className="w-8 h-8" />
             </div>
+            <h3 className="text-xl font-black text-white mb-4 uppercase">Cryptocurrency &amp; Blockchain</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Data-driven cryptocurrency analysis, DeFi strategies, security best practices, and market intelligence. We focus on education and risk management, not hype.</p>
+          </Card>
+          <Card className="text-center p-10">
+            <div className="w-16 h-16 mx-auto bg-cyber-secondary/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-secondary border border-cyber-secondary/20">
+              <Award className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-black text-white mb-4 uppercase">Digital Monetization</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Proven playbooks and strategies for building sustainable online income streams using AI and technology. Every strategy is tested and includes realistic timelines and expectations.</p>
+          </Card>
+        </div>
+      </div>
+
+      {/* Our Values */}
+      <div className="mb-24">
+        <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic mb-12 text-center">Our Values</h2>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Accuracy First</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Every claim is cross-referenced with primary sources. We correct errors promptly and transparently.</p>
           </div>
+          <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">No Hype, No Spam</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">We provide realistic expectations and honest assessments. If something doesn't work, we say so.</p>
+          </div>
+          <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Free Access</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">All our content is freely accessible. We sustain operations through advertising partnerships, not paywalls.</p>
+          </div>
+          <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Continuous Updates</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Technology evolves rapidly. We regularly update our content to reflect the latest developments and data.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
+        <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
+          <p className="text-cyber-primary font-black text-4xl mb-2 italic">25+</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Published Articles</p>
+        </div>
+        <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
+          <p className="text-cyber-secondary font-black text-4xl mb-2 italic">10+</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">AI Tools Reviewed</p>
+        </div>
+        <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
+          <p className="text-cyber-success font-black text-4xl mb-2 italic">5</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Monetization Playbooks</p>
+        </div>
+        <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
+          <p className="text-white font-black text-4xl mb-2 italic">24/7</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Content Updates</p>
+        </div>
+      </div>
+
+      {/* Contact CTA */}
+      <div className="text-center p-12 bg-gradient-to-br from-cyber-primary/10 to-transparent border border-cyber-primary/20 rounded-[48px]">
+        <h2 className="text-2xl font-black text-white mb-4 uppercase">Get in Touch</h2>
+        <p className="text-gray-400 mb-8 max-w-xl mx-auto">Have questions, feedback, or partnership inquiries? We'd love to hear from you.</p>
+        <Link to="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-cyber-primary text-cyber-bg font-black rounded-full hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] transition-all uppercase tracking-widest text-xs">
+          <Mail className="w-4 h-4" /> Contact Us
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+// --- CONTACT PAGE ---
+export const ContactPage: React.FC = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.title = "Contact Us | Open Your AIs";
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Open mailto with form data
+    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(formData.subject || 'Contact from OpenYourAIs.com')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
+    setIsSubmitted(true);
+  };
+
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Open Your AIs",
+    "description": "Get in touch with the Open Your AIs team for questions, feedback, or partnership inquiries.",
+    "url": "https://www.openyourais.com/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Open Your AIs",
+      "email": CONTACT_EMAIL,
+      "url": "https://www.openyourais.com"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.openyourais.com/contact" }
+    ]
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-20 max-w-4xl">
+      <Helmet>
+        <title>Contact Us | Open Your AIs</title>
+        <meta name="description" content="Contact the Open Your AIs team. Send us your questions, feedback, or partnership inquiries about AI, cryptocurrency, and digital monetization." />
+        <link rel="canonical" href="https://www.openyourais.com/contact" />
+        <meta property="og:title" content="Contact Us | Open Your AIs" />
+        <meta property="og:description" content="Get in touch with the Open Your AIs team for questions, feedback, or partnership inquiries." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.openyourais.com/contact" />
+        <meta name="twitter:title" content="Contact Us | Open Your AIs" />
+        <meta name="twitter:description" content="Get in touch with the Open Your AIs team." />
+        <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      </Helmet>
+
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="mb-8">
+        <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+          <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+          <li><ChevronRight className="w-3 h-3" /></li>
+          <li className="text-cyber-primary" aria-current="page">Contact</li>
+        </ol>
+      </nav>
+
+      <SectionTitle title="Contact Us" subtitle="Have questions, feedback, or partnership inquiries? We'd love to hear from you." />
+
+      <div className="grid md:grid-cols-2 gap-12">
+        {/* Contact Form */}
+        <Card className="p-10 rounded-[48px]">
+          {isSubmitted ? (
+            <div className="text-center py-12">
+              <div className="w-16 h-16 mx-auto bg-cyber-success/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-success border border-cyber-success/20">
+                <CheckCircle className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-black text-white mb-4 uppercase">Message Sent</h3>
+              <p className="text-gray-400 text-sm">Your email client should have opened with the message. If not, please email us directly at <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary hover:underline">{CONTACT_EMAIL}</a>.</p>
+              <button onClick={() => { setIsSubmitted(false); setFormData({ name: '', email: '', subject: '', message: '' }); }} className="mt-8 px-8 py-3 border border-white/10 text-white font-black rounded-xl text-[10px] uppercase tracking-widest hover:bg-white/5 transition-all">
+                Send Another Message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <h2 className="text-xl font-black text-white uppercase tracking-widest mb-6">Send a Message</h2>
+              <div>
+                <label htmlFor="contact-name" className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Your Name *</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-cyber-primary transition-all"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-email" className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Your Email *</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-cyber-primary transition-all"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-subject" className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Subject</label>
+                <input
+                  id="contact-subject"
+                  type="text"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-cyber-primary transition-all"
+                  placeholder="General Inquiry"
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-message" className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Message *</label>
+                <textarea
+                  id="contact-message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-cyber-primary transition-all resize-none"
+                  placeholder="Your message..."
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-4 bg-cyber-primary text-cyber-bg font-black rounded-xl uppercase tracking-widest text-xs hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] transition-all flex items-center justify-center gap-2"
+              >
+                <Mail className="w-4 h-4" /> Send Message
+              </button>
+            </form>
+          )}
+        </Card>
+
+        {/* Contact Info */}
+        <div className="space-y-8">
+          <Card className="p-8 rounded-[32px]">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 bg-cyber-primary/10 rounded-xl flex items-center justify-center text-cyber-primary border border-cyber-primary/20">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-white font-black uppercase text-sm">Email</h3>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary text-sm hover:underline">{CONTACT_EMAIL}</a>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">For general inquiries, feedback, corrections, or partnership proposals. We typically respond within 24-48 hours.</p>
+          </Card>
+
+          <Card className="p-8 rounded-[32px]">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 bg-cyber-secondary/10 rounded-xl flex items-center justify-center text-cyber-secondary border border-cyber-secondary/20">
+                <Globe className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-white font-black uppercase text-sm">Website</h3>
+                <span className="text-cyber-secondary text-sm">www.openyourais.com</span>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">Browse our full library of AI tools, monetization playbooks, crypto guides, and technology articles.</p>
+          </Card>
+
+          <Card className="p-8 rounded-[32px]">
+            <h3 className="text-white font-black uppercase text-sm mb-4">Common Inquiries</h3>
+            <ul className="space-y-3 text-gray-400 text-sm">
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-cyber-success mt-0.5 flex-shrink-0" /> Content corrections or updates</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-cyber-success mt-0.5 flex-shrink-0" /> Advertising and sponsorship inquiries</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-cyber-success mt-0.5 flex-shrink-0" /> Guest post and collaboration proposals</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-cyber-success mt-0.5 flex-shrink-0" /> Technical feedback and suggestions</li>
+              <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-cyber-success mt-0.5 flex-shrink-0" /> Privacy and data-related requests</li>
+            </ul>
+          </Card>
         </div>
       </div>
 
@@ -565,7 +885,7 @@ export const AboutPage: React.FC = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-cyber-success font-black">03.</span>
-              <span><strong className="text-white">Enable Sovereignty:</strong> Provide the knowledge and tools necessary for digital independence—whether through AI-powered workflows, decentralized finance, or automated revenue systems.</span>
+              <span><strong className="text-white">Enable Sovereignty:</strong> Provide the knowledge and tools necessary for digital independenceâ€”whether through AI-powered workflows, decentralized finance, or automated revenue systems.</span>
             </li>
           </ul>
         </div>
@@ -575,11 +895,11 @@ export const AboutPage: React.FC = () => {
       <div className="grid md:grid-cols-3 gap-8 mb-20">
         <Card className="p-10 text-center border-b-4 border-b-cyber-primary">
           <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">AI Intelligence</h4>
-          <p className="text-gray-400 text-sm leading-relaxed">Deep technical analysis of Large Language Models, generative AI tools, and autonomous agent frameworks. From GPT-4 to Claude, from Midjourney to Runway—we test, compare, and explain.</p>
+          <p className="text-gray-400 text-sm leading-relaxed">Deep technical analysis of Large Language Models, generative AI tools, and autonomous agent frameworks. From GPT-4 to Claude, from Midjourney to Runwayâ€”we test, compare, and explain.</p>
         </Card>
         <Card className="p-10 text-center border-b-4 border-b-cyber-secondary">
           <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">Digital Capital</h4>
-          <p className="text-gray-400 text-sm leading-relaxed">Battle-tested monetization playbooks leveraging automation and AI. Not theory—practical frameworks with verified ROI, timeline estimates, and step-by-step execution guides.</p>
+          <p className="text-gray-400 text-sm leading-relaxed">Battle-tested monetization playbooks leveraging automation and AI. Not theoryâ€”practical frameworks with verified ROI, timeline estimates, and step-by-step execution guides.</p>
         </Card>
         <Card className="p-10 text-center border-b-4 border-b-cyber-success">
           <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4">Web3 Security</h4>
@@ -601,7 +921,7 @@ export const AboutPage: React.FC = () => {
             <h4 className="text-cyber-success font-black uppercase tracking-widest mb-4 text-sm">Continuous Updates</h4>
             <p className="text-gray-400 leading-relaxed mb-6">Technology moves fast. We regularly update our content to reflect new developments, deprecated features, and evolving best practices. Each article includes a last-updated timestamp for transparency.</p>
             <h4 className="text-white font-black uppercase tracking-widest mb-4 text-sm">Community Feedback</h4>
-            <p className="text-gray-400 leading-relaxed">We actively engage with our community through comments, social media, and direct email. Reader corrections and suggestions are not just welcomed—they're essential to maintaining accuracy in a rapidly changing field.</p>
+            <p className="text-gray-400 leading-relaxed">We actively engage with our community through comments, social media, and direct email. Reader corrections and suggestions are not just welcomedâ€”they're essential to maintaining accuracy in a rapidly changing field.</p>
           </div>
         </div>
       </Card>
@@ -618,223 +938,189 @@ export const AboutPage: React.FC = () => {
   );
 };
 
-// --- CONTACT PAGE ---
-export const ContactPage: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    document.title = "Contact | Open Your AIs";
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
-  };
-
-  return (
-    <div className="container mx-auto px-4 py-20 max-w-5xl">
-      <Helmet>
-        <title>Contact Us | Open Your AIs - Get In Touch</title>
-        <meta name="description" content="Contact Open Your AIs team for questions, suggestions, or collaboration opportunities. We respond within 24-48 hours." />
-        <meta name="keywords" content="contact open your ais, tech support, ai questions, crypto inquiry" />
-        <link rel="canonical" href="https://www.openyourais.com/contact" />
-      </Helmet>
-
-      <SectionTitle title="Establish Connection" subtitle="Direct channel to our intelligence team." />
-
-      <div className="grid md:grid-cols-2 gap-16">
-        {/* Contact Info */}
-        <div className="space-y-12">
-          <Card className="p-10 border-l-4 border-l-cyber-primary">
-            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-6">Communication Channels</h3>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-cyber-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-cyber-primary" />
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Primary Email</h4>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary hover:text-white transition-colors font-bold">
-                    {CONTACT_EMAIL}
-                  </a>
-                  <p className="text-gray-500 text-xs mt-1">Response time: 24-48 hours</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-cyber-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-cyber-secondary" />
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Availability</h4>
-                  <p className="text-gray-400 text-sm">Monday - Friday: 9:00 AM - 6:00 PM (EST)</p>
-                  <p className="text-gray-500 text-xs mt-1">Weekend inquiries answered on Mondays</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-cyber-success/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Globe className="w-5 h-5 text-cyber-success" />
-                </div>
-                <div>
-                  <h4 className="text-white font-black uppercase tracking-widest text-sm mb-1">Social Channels</h4>
-                  <p className="text-gray-400 text-sm">Connect on Twitter/X and LinkedIn for real-time updates</p>
-                  <div className="flex gap-4 mt-2">
-                    <a href="https://twitter.com/openyourais" target="_blank" rel="noopener noreferrer" className="text-cyber-primary hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">Twitter/X</a>
-                    <a href="https://linkedin.com/company/openyourais" target="_blank" rel="noopener noreferrer" className="text-cyber-primary hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">LinkedIn</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-10 bg-gradient-to-br from-cyber-primary/5 to-transparent">
-            <h3 className="text-xl font-black text-white uppercase tracking-widest mb-4">What We Can Help With</h3>
-            <ul className="space-y-3 text-gray-400 text-sm">
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Technical questions about AI tools and implementation</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Clarifications on crypto guides and DeFi protocols</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Corrections or updates to published content</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>Partnership and collaboration opportunities</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-cyber-primary flex-shrink-0" />
-                <span>General feedback and suggestions</span>
-              </li>
-            </ul>
-          </Card>
-        </div>
-
-        {/* Contact Form */}
-        <Card className="p-10">
-          <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-8">Send Transmission</h3>
-
-          {submitted ? (
-            <div className="text-center py-12">
-              <CheckCircle className="w-16 h-16 text-cyber-success mx-auto mb-4" />
-              <h4 className="text-xl font-black text-white uppercase tracking-widest mb-2">Message Received</h4>
-              <p className="text-gray-400">We'll respond within 24-48 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Designation</label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Email Address</label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
-                  placeholder="you@example.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Subject</label>
-                <select
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all"
-                  required
-                >
-                  <option value="" className="bg-cyber-bg">Select subject...</option>
-                  <option value="general" className="bg-cyber-bg">General Inquiry</option>
-                  <option value="technical" className="bg-cyber-bg">Technical Question</option>
-                  <option value="content" className="bg-cyber-bg">Content Correction/Update</option>
-                  <option value="partnership" className="bg-cyber-bg">Partnership Opportunity</option>
-                  <option value="feedback" className="bg-cyber-bg">Feedback/Suggestion</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-white font-black uppercase tracking-widest text-xs mb-2">Message</label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-primary transition-all h-32 resize-none"
-                  placeholder="Describe your inquiry..."
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 bg-cyber-primary text-cyber-bg font-black rounded-xl hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest text-sm"
-              >
-                Transmit Message
-              </button>
-
-              <p className="text-gray-500 text-xs text-center">
-                By submitting, you agree to our <Link to="/privacy" className="text-cyber-primary hover:text-white transition-colors">Privacy Policy</Link>.
-              </p>
-            </form>
-          )}
-        </Card>
-      </div>
-    </div>
-  );
-};
-
 // --- LEGAL PAGES ---
 export const LegalPage: React.FC<{ type: 'privacy' | 'terms' }> = ({ type }) => {
   useEffect(() => {
-    document.title = type === 'privacy' ? "Privacy | Open Your AIs" : "Terms | Open Your AIs";
+    document.title = type === 'privacy' ? "Privacy Policy | Open Your AIs" : "Terms of Service | Open Your AIs";
   }, [type]);
+
+  const pageTitle = type === 'privacy' ? 'Privacy Policy' : 'Terms of Service';
+  const pageUrl = type === 'privacy' ? 'https://www.openyourais.com/privacy' : 'https://www.openyourais.com/terms';
+  const pageDescription = type === 'privacy'
+    ? 'Read the Open Your AIs Privacy Policy. Learn how we collect, use, and protect your personal information when you visit our website.'
+    : 'Read the Open Your AIs Terms of Service. Understand the rules and guidelines for using our website and content.';
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" },
+      { "@type": "ListItem", "position": 2, "name": pageTitle, "item": pageUrl }
+    ]
+  };
 
   return (
     <div className="container mx-auto px-4 py-20 max-w-4xl">
-      <SectionTitle title={type === 'privacy' ? 'Privacy Protocol' : 'Platform Terms'} />
-      <Card className="p-16 rounded-[48px] border-white/5 bg-white/[0.01]">
+      <Helmet>
+        <title>{pageTitle} | Open Your AIs</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title" content={`${pageTitle} | Open Your AIs`} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta name="twitter:title" content={`${pageTitle} | Open Your AIs`} />
+        <meta name="twitter:description" content={pageDescription} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      </Helmet>
+
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="mb-8">
+        <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
+          <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+          <li><ChevronRight className="w-3 h-3" /></li>
+          <li className="text-cyber-primary" aria-current="page">{pageTitle}</li>
+        </ol>
+      </nav>
+
+      <SectionTitle title={pageTitle} />
+      <Card className="p-10 md:p-16 rounded-[48px] border-white/5 bg-white/[0.01]">
         <div className="prose prose-invert max-w-none text-gray-400 font-light">
-          <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">V1.1 - REVISED FEB 2026</p>
+          <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">Last Updated: February 19, 2026</p>
           {type === 'privacy' ? (
-            <div className="space-y-16">
+            <div className="space-y-12">
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Data Sovereignty</h3>
-                <p className="leading-relaxed">We only collect essential telemetry via high-performance analytics to optimize the flow of technical information. Your data remains encrypted and is never sold to third-party aggregators.</p>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Introduction</h2>
+                <p className="leading-relaxed">Open Your AIs ("we," "our," or "us") operates the website <a href="https://www.openyourais.com" className="text-cyber-primary hover:underline">www.openyourais.com</a> (the "Service"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. Please read this policy carefully. By using the Service, you agree to the collection and use of information in accordance with this policy.</p>
               </section>
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. AdSense Network</h3>
-                <p className="leading-relaxed">We utilize cookies from the Google AdSense network to deliver high-relevance advertisements. These cookies help us maintain the intelligence stream for free public access.</p>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. Information We Collect</h2>
+                <h3 className="text-gray-200 font-bold text-lg mb-3">2.1 Automatically Collected Information</h3>
+                <p className="leading-relaxed mb-4">When you visit our website, we may automatically collect certain information about your device, including your IP address, browser type, operating system, referring URLs, and pages visited. This data is collected through Google Analytics (GA4) to help us understand how visitors use our site and improve our content.</p>
+                <h3 className="text-gray-200 font-bold text-lg mb-3">2.2 Cookies and Tracking Technologies</h3>
+                <p className="leading-relaxed mb-4">We use cookies and similar tracking technologies to track activity on our Service. Cookies are files with a small amount of data that may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
+                <h3 className="text-gray-200 font-bold text-lg mb-3">2.3 Newsletter Subscription</h3>
+                <p className="leading-relaxed">If you subscribe to our newsletter, we collect your email address. This information is used solely to send you our newsletter and will not be shared with third parties.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">3. How We Use Your Information</h2>
+                <p className="leading-relaxed mb-4">We use the information we collect to:</p>
+                <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+                  <li>Operate, maintain, and improve our website</li>
+                  <li>Understand and analyze usage trends and preferences</li>
+                  <li>Send newsletters and updates (with your consent)</li>
+                  <li>Display relevant advertisements through Google AdSense</li>
+                  <li>Monitor and analyze the effectiveness of our content</li>
+                  <li>Detect, prevent, and address technical issues</li>
+                </ul>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">4. Google AdSense &amp; Advertising</h2>
+                <p className="leading-relaxed mb-4">We use Google AdSense to display advertisements on our website. Google AdSense uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet.</p>
+                <p className="leading-relaxed">You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" className="text-cyber-primary hover:underline" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>. Alternatively, you can opt out of third-party vendor cookies by visiting the <a href="https://www.aboutads.info/choices/" className="text-cyber-primary hover:underline" target="_blank" rel="noopener noreferrer">Digital Advertising Alliance opt-out page</a>.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">5. Google Analytics</h2>
+                <p className="leading-relaxed">We use Google Analytics 4 (GA4) to monitor and analyze web traffic. Google Analytics collects data such as how often users visit the site, what pages they visit, and what other sites they used prior to coming to our site. We use this information to improve our Service. Google Analytics collects only the IP address assigned to you on the date you visit our site, rather than your name or other identifying information.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">6. Third-Party Links</h2>
+                <p className="leading-relaxed">Our website may contain links to third-party websites, including affiliate links. We are not responsible for the privacy practices or content of these third-party sites. We encourage you to read the privacy policies of any third-party site you visit.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">7. Data Security</h2>
+                <p className="leading-relaxed">We implement appropriate technical and organizational security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">8. Children's Privacy</h2>
+                <p className="leading-relaxed">Our Service is not directed to anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If we discover that a child under 13 has provided us with personal information, we will delete it immediately.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">9. Your Rights</h2>
+                <p className="leading-relaxed mb-4">Depending on your location, you may have the following rights regarding your personal data:</p>
+                <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+                  <li>The right to access the personal data we hold about you</li>
+                  <li>The right to request correction of inaccurate data</li>
+                  <li>The right to request deletion of your data</li>
+                  <li>The right to opt out of marketing communications</li>
+                  <li>The right to lodge a complaint with a supervisory authority</li>
+                </ul>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">10. Changes to This Policy</h2>
+                <p className="leading-relaxed">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">11. Contact Us</h2>
+                <p className="leading-relaxed">If you have any questions about this Privacy Policy, please contact us at: <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary hover:underline">{CONTACT_EMAIL}</a></p>
               </section>
             </div>
           ) : (
-            <div className="space-y-16">
+            <div className="space-y-12">
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Intelligence Disclaimer</h3>
-                <p className="leading-relaxed">All information provided on Open Your AIs is for technical educational purposes. We are not financial advisors. The deployment of AI automations and investments in digital assets involve inherent market risks.</p>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">1. Acceptance of Terms</h2>
+                <p className="leading-relaxed">By accessing and using Open Your AIs (<a href="https://www.openyourais.com" className="text-cyber-primary hover:underline">www.openyourais.com</a>), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
               </section>
               <section>
-                <h3 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. IP Protocols</h3>
-                <p className="leading-relaxed">The architectural design and original reports of this hub are protected by intellectual property laws. Unauthorized extraction or replication is monitored.</p>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">2. Description of Service</h2>
+                <p className="leading-relaxed">Open Your AIs is a technology intelligence platform that provides educational content about artificial intelligence, cryptocurrency, blockchain technology, and digital monetization strategies. Our content includes articles, tool reviews, playbooks, and guides.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">3. Educational Disclaimer</h2>
+                <p className="leading-relaxed mb-4">All information provided on Open Your AIs is for <strong className="text-white">educational and informational purposes only</strong>. We are not financial advisors, investment advisors, or legal professionals. The content on this website should not be construed as:</p>
+                <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+                  <li>Financial advice or investment recommendations</li>
+                  <li>Legal or tax advice</li>
+                  <li>A guarantee of any specific results or outcomes</li>
+                  <li>An endorsement of any specific product, service, or investment</li>
+                </ul>
+                <p className="leading-relaxed mt-4">Cryptocurrency investments and AI-based business ventures involve significant risk. Always conduct your own research and consult with qualified professionals before making financial decisions.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">4. Intellectual Property</h2>
+                <p className="leading-relaxed mb-4">All content on Open Your AIs, including but not limited to text, graphics, logos, images, and software, is the property of Open Your AIs and is protected by intellectual property laws. You may:</p>
+                <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+                  <li>View and read content for personal, non-commercial use</li>
+                  <li>Share links to our content on social media</li>
+                  <li>Quote brief excerpts with proper attribution and a link back to the original article</li>
+                </ul>
+                <p className="leading-relaxed mt-4">You may not reproduce, distribute, modify, or create derivative works from our content without prior written permission.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">5. User Conduct</h2>
+                <p className="leading-relaxed mb-4">When using our website, you agree not to:</p>
+                <ul className="list-disc pl-6 space-y-2 leading-relaxed">
+                  <li>Use the Service for any unlawful purpose</li>
+                  <li>Attempt to gain unauthorized access to any part of the Service</li>
+                  <li>Interfere with or disrupt the Service or servers</li>
+                  <li>Scrape, crawl, or use automated means to access the Service without permission</li>
+                  <li>Transmit any viruses, malware, or harmful code</li>
+                </ul>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">6. Third-Party Links &amp; Affiliate Disclosure</h2>
+                <p className="leading-relaxed mb-4">Our website may contain links to third-party websites and services. Some of these links may be affiliate links, meaning we may earn a commission if you make a purchase through them, at no additional cost to you.</p>
+                <p className="leading-relaxed">We are not responsible for the content, privacy policies, or practices of any third-party websites. We encourage you to review the terms and privacy policies of any third-party site you visit.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">7. Limitation of Liability</h2>
+                <p className="leading-relaxed">To the fullest extent permitted by applicable law, Open Your AIs shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or other intangible losses, resulting from your use of or inability to use the Service.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">8. Accuracy of Information</h2>
+                <p className="leading-relaxed">While we strive to provide accurate and up-to-date information, we make no warranties or representations about the accuracy, reliability, or completeness of any content on our website. Technology and market conditions change rapidly, and information may become outdated. We encourage users to verify information independently.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">9. Modifications to Terms</h2>
+                <p className="leading-relaxed">We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting on this page. Your continued use of the Service after any changes constitutes acceptance of the new terms.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">10. Governing Law</h2>
+                <p className="leading-relaxed">These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+              </section>
+              <section>
+                <h2 className="text-white font-black text-2xl uppercase tracking-widest mb-6">11. Contact Us</h2>
+                <p className="leading-relaxed">If you have any questions about these Terms of Service, please contact us at: <a href={`mailto:${CONTACT_EMAIL}`} className="text-cyber-primary hover:underline">{CONTACT_EMAIL}</a></p>
               </section>
             </div>
           )}
