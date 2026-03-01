@@ -33,7 +33,8 @@ function getAllRoutes() {
   const articleFiles = [
     'constants.ts', 'new-articles.ts', 'new-articles-part2.ts',
     'new-articles-part3.ts', 'new-articles-part4.ts',
-    'new-articles-2026-02-18.ts', 'expanded-articles.ts', 'articles-feb17.ts'
+    'new-articles-2026-02-18.ts', 'expanded-articles.ts', 'articles-feb17.ts',
+    'articles-march-2026.ts'
   ];
 
   articleFiles.forEach(file => {
@@ -144,8 +145,11 @@ async function prerender() {
       const url = `http://localhost:${PORT}${route}`;
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
 
-      // Wait a bit more for React to fully render
-      await page.waitForSelector('footer', { timeout: 10000 }).catch(() => {});
+      // Wait for React to fully render (including lazy-loaded components)
+      await page.waitForSelector('footer', { timeout: 15000 }).catch(() => {});
+      await new Promise(r => setTimeout(r, 3000));
+      // Scroll to trigger any lazy content
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       await new Promise(r => setTimeout(r, 1000));
 
       // Get the full rendered HTML
