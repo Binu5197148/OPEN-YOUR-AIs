@@ -1,5 +1,6 @@
 {
   "buildCommand": "",
+  "framework": null,
   "outputDirectory": "dist",
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
