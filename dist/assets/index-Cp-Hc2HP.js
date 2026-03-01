@@ -1,212 +1,13 @@
-
-import { Article, Tool, Playbook, CryptoGuide } from './types';
-
-export const ADSENSE_PUB_ID = "ca-pub-4722208859927111";
-export const CONTACT_EMAIL = "openyourais888@gmail.com";
-
-export const getRandomImageRandom = (category: string) => {
-  const AI_IMAGES = [
-    "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
-  ];
-  const MONEY_IMAGES = [
-    "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-  ];
-  return category === 'AI' ? AI_IMAGES[Math.floor(Math.random() * AI_IMAGES.length)] : MONEY_IMAGES[Math.floor(Math.random() * MONEY_IMAGES.length)];
-};
-
-export const saveNewArticle = (article: Article): Article[] => {
-  const saved = localStorage.getItem('openyourais_new_articles');
-  let articles: Article[] = saved ? JSON.parse(saved) : [];
-  if (!articles.find(a => a.id === article.id)) {
-    articles = [article, ...articles];
-    localStorage.setItem('openyourais_new_articles', JSON.stringify(articles));
-  }
-  return articles;
-};
-
-// --- DIRECTORY OF 10 HIGH-VALUE TOOLS ---
-export const TOOLS: Tool[] = [
-  {
-    id: '1',
-    name: 'ChatGPT Pro (o3 / GPT-4.5)',
-    category: 'LLM / Reasoning',
-    shortDesc: 'OpenAI\'s most advanced reasoning models with unprecedented problem-solving capabilities.',
-    fullDesc: 'OpenAI\'s 2026 lineup represents a quantum leap in AI reasoning. GPT-4.5 delivers exceptional conversational intelligence and nuanced understanding, while the o3 and o4-mini models introduce "deep reasoning" - extended thinking that can solve PhD-level problems in mathematics, physics, and coding. The o3 model consistently achieves state-of-the-art results on benchmarks like ARC-AGI, while o4-mini provides cost-effective reasoning for everyday tasks. Together with DALL-E 3 for visuals and Custom GPTs for specialized workflows, this is the most complete AI platform available.',
-    priceModel: 'Freemium',
-    url: 'https://chat.openai.com',
-    features: ['o3 Deep Reasoning', 'GPT-4.5 Intelligence', 'DALL-E 3 Visual Gen', 'Custom GPTs', 'Advanced Voice Mode'],
-    useCases: ['Complex Problem Solving', 'Scientific Research', 'Enterprise Automation', 'Software Architecture']
-  },
-  {
-    id: '2',
-    name: 'Claude (Free Tier)',
-    category: 'LLM / Reasoning & Coding',
-    shortDesc: 'Anthropic\'s AI assistant - now with File Creation, Connectors, and premium features in the free tier.',
-    fullDesc: 'Claude is Anthropic\'s flagship AI assistant, and the free tier just got significantly more powerful. In February 2026, Anthropic liberated previously paid features for free users: File Creation (generate Excel, PowerPoint, Word, PDF files directly from conversations), Connectors (integrations with external tools), Skills (specialized workflows), and Compaction (smart conversation organization). This is Anthropic\'s counter-move to ChatGPT\'s ad-supported model - instead of showing ads, they\'re giving free users more functionality. The free tier includes Claude Sonnet and Haiku models with session-based limits that reset every 5 hours. For heavy users, Pro and Max tiers unlock Opus (the most capable model), Extended Thinking, and higher rate limits.',
-    priceModel: 'Freemium',
-    url: 'https://claude.ai',
-    features: ['File Creation (New Free Feature)', 'Connectors (New Free Feature)', 'Skills (New Free Feature)', 'Compaction (New Free Feature)', '200k Token Window (Pro)', 'Extended Thinking (Pro)'],
-    useCases: ['Document Creation', 'Spreadsheet Generation', 'Presentation Building', 'Workflow Integration', 'Research & Analysis']
-  },
-  {
-    id: '3',
-    name: 'Midjourney',
-    category: 'Visual / Art',
-    shortDesc: 'The industry standard for photorealistic AI image generation and commercial art.',
-    fullDesc: 'Midjourney remains the gold standard in AI image generation for professional creative work. Its latest models deliver unprecedented photorealism - capturing skin textures, fabric weaves, and cinematic lighting with stunning accuracy. Key features like Style References (SREF) and Character References (CREF) allow designers to maintain strict aesthetic consistency across entire campaigns. The web-based editor, personalization features, and Niji mode for anime-style art make it the most versatile tool for visual professionals. Whether you need product photography, concept art, or marketing visuals, Midjourney delivers commercial-grade results.',
-    priceModel: 'Paid',
-    url: 'https://midjourney.com',
-    features: ['Style Reference (SREF)', 'Character Consistency', 'Web Editor', 'Personalization', 'Niji Mode'],
-    useCases: ['Commercial Photography', 'Brand Identity Design', 'Game & Concept Art', 'Marketing Campaigns']
-  },
-  {
-    id: '4',
-    name: 'Runway Gen-4.5',
-    category: 'Video / AI',
-    shortDesc: 'The most advanced AI video generation with unmatched realism and control.',
-    fullDesc: 'Runway Gen-4.5 represents a massive leap in AI video generation. With dramatically improved physics simulation, human motion, and cinematic consistency, Gen-4.5 produces videos that are increasingly indistinguishable from real footage. The Image-to-Video capabilities allow you to animate any still image with natural motion, while the upgraded Act-One feature delivers photorealistic facial expressions and lip-sync. Extended video duration, better prompt adherence, and professional-grade camera controls make this the definitive tool for filmmakers and content creators.',
-    priceModel: 'Paid',
-    url: 'https://runwayml.com',
-    features: ['Gen-4.5 Image-to-Video', 'Act-One 2.0', 'Extended Duration', 'Advanced Physics', 'Director Mode'],
-    useCases: ['Film Production', 'Commercial Advertising', 'Music Videos', 'VFX & Post-Production']
-  },
-  {
-    id: '5',
-    name: 'ElevenLabs',
-    category: 'Audio / Voice',
-    shortDesc: 'The pinnacle of vocal synthesis and voice cloning with emotional weight.',
-    fullDesc: "ElevenLabs uses advanced neural networks to map the 'vocal fingerprint' of human speech. Their model doesn't just replicate pitch; it captures the emotional subtext, breath patterns, and cadence of the source voice. Its 'Speech-to-Speech' capability allows creators to perform a voice-over and have it replaced by a different voice while maintaining the exact performance, making it the industry standard for high-end content localization.",
-    priceModel: 'Freemium',
-    url: 'https://elevenlabs.io',
-    features: ['Instant Voice Cloning', 'Emotional Inflection Control', 'Multilingual Synthesis', 'Studio Sound'],
-    useCases: ['YouTube Channel Automation', 'Video Localization', 'Audiobook Production']
-  },
-  {
-    id: '6',
-    name: 'Perplexity AI',
-    category: 'Search / Research',
-    shortDesc: 'The conversational search engine that cites sources in real-time.',
-    fullDesc: 'Perplexity is a search-orchestration engine that leverages multiple LLMs to synthesize web data. Unlike traditional search engines, it provides direct answers with clickable citations for every claim. Its "Pro Search" mode executes a multi-hop reasoning process-searching for initial data, identifying missing info, and performing follow-up searches-to provide exhaustive technical reports on any topic.',
-    priceModel: 'Freemium',
-    url: 'https://perplexity.ai',
-    features: ['Pro Search Mode', 'Citation-based Answers', 'File Upload Analysis', 'Custom Collection Focus'],
-    useCases: ['Market Research', 'Fact Checking', 'Technical Report Writing']
-  },
-  {
-    id: '7',
-    name: 'Notion AI',
-    category: 'Productivity',
-    shortDesc: 'Integrated intelligence that organizes and processes your knowledge.',
-    fullDesc: 'Notion AI is embedded directly into the workspace used by millions. It excels at summarizing meetings, extracting action items from messy notes, and automating database properties. By having access to your entire organizational wiki, it can generate new content that is contextually aware of your existing projects, effectively acting as an intelligent second brain for knowledge workers.',
-    priceModel: 'Paid',
-    url: 'https://notion.so',
-    features: ['Automated Summaries', 'Action Item Extraction', 'Database Automation', 'Tone Transformation'],
-    useCases: ['Complex Project Management', 'Corporate Wiki Creation', 'Product Brainstorming']
-  },
-  {
-    id: '8',
-    name: 'Jasper AI',
-    category: 'Marketing',
-    shortDesc: 'Enterprise platform to scale your brand voice.',
-    fullDesc: 'Jasper is a marketing-first AI platform designed for enterprise scale. It allows teams to "train" the AI on their specific brand voice, style guide, and product knowledge. This ensures that every piece of content-from social ads to long-form blog posts-is consistent and ready for publication. Its campaign-level orchestration can turn a single brief into an entire omni-channel marketing strategy.',
-    priceModel: 'Paid',
-    url: 'https://jasper.ai',
-    features: ['Brand Voice Memory', 'Campaign Workflows', 'SEO Mode Integration', 'Art Generator'],
-    useCases: ['Content Marketing at Scale', 'E-commerce Copywriting', 'Ads Strategy']
-  },
-  {
-    id: '9',
-    name: 'Synthesia',
-    category: 'Video / Avatars',
-    shortDesc: 'Create professional videos with human avatars without cameras.',
-    fullDesc: 'Synthesia uses Generative Adversarial Networks (GANs) to create photo-realistic human avatars that can "speak" any text. It is the leading solution for enterprise training and customer communication, allowing companies to create high-quality video content in minutes rather than days. With its support for over 120 languages, it is the ultimate tool for global corporate communications.',
-    priceModel: 'Paid',
-    url: 'https://synthesia.io',
-    features: ['AI Video Avatars', 'Auto-Captions', 'Multi-Language Synthesis', 'Custom Avatar Creation'],
-    useCases: ['Training and Onboarding', 'Customer Support Videos', 'Personalized Sales']
-  },
-  {
-    id: '10',
-    name: 'Descript',
-    category: 'Audio / Video Editing',
-    shortDesc: 'Text-based media editing that feels like magic.',
-    fullDesc: 'Descript revolutionized media editing by treating audio and video like a text document. Its "Overdub" feature allows you to clone your own voice to fix audio mistakes by just typing the correct word. Its "Studio Sound" AI uses sophisticated denoising algorithms to make a cheap microphone sound like a $2,000 studio setup, making professional production accessible to everyone.',
-    priceModel: 'Freemium',
-    url: 'https://descript.com',
-    features: ['Text-Based Media Editing', 'Studio Sound AI', 'Overdub Voice Clone', 'Automatic Filler Word Removal'],
-    useCases: ['Podcasting Editing', 'Social Content Creation', 'Long-form Interviews']
-  },
-  {
-    id: '11',
-    name: 'Kling AI',
-    category: 'Video / AI',
-    shortDesc: 'Chinese powerhouse rivaling Runway with stunning video generation quality.',
-    fullDesc: 'Kling AI by Kuaishou has emerged as a serious competitor to Western video AI platforms. With exceptional motion consistency, realistic physics simulation, and impressive human generation, Kling produces cinematic-quality videos that often rival or exceed Runway. Its strength lies in complex motion scenes, character animations, and the ability to generate longer coherent clips. The platform offers both text-to-video and image-to-video capabilities, making it a versatile choice for creators seeking alternatives to Western tools.',
-    priceModel: 'Freemium',
-    url: 'https://klingai.com',
-    features: ['Text-to-Video', 'Image-to-Video', 'Motion Consistency', 'Long-form Generation', 'Character Animation'],
-    useCases: ['Social Media Content', 'Marketing Videos', 'Creative Projects', 'Music Videos']
-  },
-  {
-    id: '12',
-    name: 'Gemini Image Generation',
-    category: 'Visual / AI',
-    shortDesc: 'Google\'s native image generation with seamless multimodal integration.',
-    fullDesc: 'Google\'s Gemini models now include powerful native image generation capabilities. Unlike standalone image tools, Gemini can generate images as part of a larger conversation, allowing for iterative refinement and contextual understanding. The integration with Google\'s vast knowledge base means exceptional accuracy in generating specific objects, places, and concepts. With both generation and editing capabilities built into the same model, Gemini offers a uniquely fluid creative workflow for those already in the Google AI ecosystem.',
-    priceModel: 'Freemium',
-    url: 'https://aistudio.google.com',
-    features: ['Native Multimodal', 'Conversational Refinement', 'Image Editing', 'Knowledge Integration', 'API Access'],
-    useCases: ['Rapid Prototyping', 'Content Creation', 'Design Iteration', 'Integrated Workflows']
-  },
-  {
-    id: '13',
-    name: 'GPT-5.3-Codex-Spark',
-    category: 'Coding / Development',
-    shortDesc: 'OpenAI\'s real-time coding model optimized for ultra-low latency and software engineering workflows.',
-    fullDesc: 'Released in February 2026, GPT-5.3-Codex-Spark is OpenAI\'s answer to the next generation of AI coding assistants. Unlike general-purpose models, Codex-Spark is purpose-built for software development workflows, debugging patterns, and code understanding. Running on Cerebras hardware with a 128k context window, it delivers real-time responses optimized for developer productivity. Currently available as a research preview for ChatGPT Pro users, it represents OpenAI\'s diversification beyond Nvidia for compute infrastructure.',
-    priceModel: 'Freemium',
-    url: 'https://chat.openai.com',
-    features: ['Real-time Coding', '128k Context Window', 'Ultra-low Latency', 'Cerebras Hardware', 'Debugging Patterns'],
-    useCases: ['Software Development', 'Code Review', 'Real-time Pair Programming', 'Legacy Code Migration']
-  },
-  {
-    id: '14',
-    name: 'Gemini 3 Deep Think',
-    category: 'LLM / Reasoning',
-    shortDesc: 'Google\'s latest reasoning model designed for complex problem-solving with step-by-step thinking.',
-    fullDesc: 'Gemini 3 Deep Think is Google\'s flagship reasoning model, launched in February 2026 to compete with OpenAI\'s o1-class models. Designed specifically for complex problem-solving tasks where step-by-step thinking matters, it excels at mathematics, coding benchmarks, and multi-step reasoning scenarios. As part of Google\'s massive $185 billion infrastructure investment, Deep Think represents the company\'s commitment to matching and exceeding frontier reasoning capabilities.',
-    priceModel: 'Freemium',
-    url: 'https://gemini.google.com',
-    features: ['Step-by-Step Reasoning', 'Math & Coding Excellence', 'Multi-step Analysis', 'Google Knowledge Integration', 'Competes with o1 Models'],
-    useCases: ['Complex Problem Solving', 'Mathematical Analysis', 'Research & Development', 'Strategic Planning']
-  },
-  {
-    id: '15',
-    name: 'Seedance 2.0',
-    category: 'Video / AI',
-    shortDesc: 'ByteDance\'s AI video generator creating 15-second clips from text prompts.',
-    fullDesc: 'Seedance 2.0 is ByteDance\'s response to OpenAI\'s Sora, launched in February 2026. The model generates 15-second videos from text prompts and is currently available in China via the Jianying app, with global rollout planned through CapCut. However, the tool has become embroiled in controversy after Disney sent a cease-and-desist letter alleging the model was trained on copyrighted Disney characters including Spider-Man, Darth Vader, and Family Guy characters. This case represents the first major legal battle between content giants and AI video generators over training data. Use at your own legal risk.',
-    priceModel: 'Paid',
-    url: 'https://www.capcut.com',
-    features: ['15-Second Video Generation', 'Text-to-Video', 'Rapid Generation', 'Jianying Integration', 'CapCut Rollout'],
-    useCases: ['Short-form Video', 'Social Media Content', 'Rapid Prototyping', 'Creative Experiments']
-  }
-];
-
-// --- MONETIZATION PLAYBOOKS ---
-export const PLAYBOOKS: Playbook[] = [
-  {
-    id: 'p1',
-    title: 'High-Ticket YouTube Automation',
-    tldr: 'Build digital empires using AI pipelines to dominate high CPM niches.',
-    roi: '$5k-$20k/month potential',
-    timeline: '90-180 Days',
-    difficulty: 'Medium',
-    steps: ['High-Liquidity Niche Identification', 'Claude 3.5 Script Engineering', 'Runway/Midjourney Visual Production', 'Video SEO and CTR Strategy', 'Scaling via External Operators'],
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
-    content: `
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/ContentPages-CY6i6GXE.js","assets/vendor-helmet-BPZdwhdD.js","assets/vendor-react-D2C-z3V_.js","assets/vendor-icons-DvlICx0m.js","assets/content-articles-DUKyG_pa.js","assets/DetailPages-CezX2S_s.js","assets/Admin-BeghpyT1.js"])))=>i.map(i=>d[i]);
+import{r as l,H as N,a as O,b as L}from"./vendor-helmet-BPZdwhdD.js";import{r as q,u as C,L as c,B as z,R as G,a as p}from"./vendor-react-D2C-z3V_.js";import{C as S,X as B,M as W,a as U,b as $,P as V,A as _,c as H,Z as Y,d as v,T as K,S as X,e as Q}from"./vendor-icons-DvlICx0m.js";import{N as J,a as Z,b as ee,c as te,d as ie}from"./content-articles-DUKyG_pa.js";(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))n(a);new MutationObserver(a=>{for(const s of a)if(s.type==="childList")for(const r of s.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&n(r)}).observe(document,{childList:!0,subtree:!0});function o(a){const s={};return a.integrity&&(s.integrity=a.integrity),a.referrerPolicy&&(s.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?s.credentials="include":a.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(a){if(a.ep)return;a.ep=!0;const s=o(a);fetch(a.href,s)}})();var P={exports:{}},b={};/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var oe=l,ae=Symbol.for("react.element"),ne=Symbol.for("react.fragment"),se=Object.prototype.hasOwnProperty,re=oe.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,le={key:!0,ref:!0,__self:!0,__source:!0};function j(t,i,o){var n,a={},s=null,r=null;o!==void 0&&(s=""+o),i.key!==void 0&&(s=""+i.key),i.ref!==void 0&&(r=i.ref);for(n in i)se.call(i,n)&&!le.hasOwnProperty(n)&&(a[n]=i[n]);if(t&&t.defaultProps)for(n in i=t.defaultProps,i)a[n]===void 0&&(a[n]=i[n]);return{$$typeof:ae,type:t,key:s,ref:r,props:a,_owner:re.current}}b.Fragment=ne;b.jsx=j;b.jsxs=j;P.exports=b;var e=P.exports,R,w=q;R=w.createRoot,w.hydrateRoot;const ce="modulepreload",de=function(t){return"/"+t},A={},h=function(i,o,n){let a=Promise.resolve();if(o&&o.length>0){document.getElementsByTagName("link");const r=document.querySelector("meta[property=csp-nonce]"),d=(r==null?void 0:r.nonce)||(r==null?void 0:r.getAttribute("nonce"));a=Promise.allSettled(o.map(u=>{if(u=de(u),u in A)return;A[u]=!0;const g=u.endsWith(".css"),y=g?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${u}"]${y}`))return;const m=document.createElement("link");if(m.rel=g?"stylesheet":ce,g||(m.as="script"),m.crossOrigin="",m.href=u,d&&m.setAttribute("nonce",d),document.head.appendChild(m),g)return new Promise((F,D)=>{m.addEventListener("load",F),m.addEventListener("error",()=>D(new Error(`Unable to preload CSS for ${u}`)))})}))}function s(r){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=r,window.dispatchEvent(d),!d.defaultPrevented)throw r}return a.then(r=>{for(const d of r||[])d.status==="rejected"&&s(d.reason);return i().catch(s)})},E=l.createContext({isAuthenticated:!1,login:()=>!1,logout:()=>{}}),pe=()=>l.useContext(E),he=({children:t})=>{const[i,o]=l.useState(()=>localStorage.getItem("openyourais_admin_session")==="true"),n=s=>s==="password"||s==="admin"?(o(!0),localStorage.setItem("openyourais_admin_session","true"),!0):!1,a=()=>{o(!1),localStorage.removeItem("openyourais_admin_session")};return e.jsx(E.Provider,{value:{isAuthenticated:i,login:n,logout:a},children:t})},ue=({slot:t,format:i="auto",className:o=""})=>e.jsx("div",{className:`w-full overflow-hidden my-8 bg-cyber-bg/50 border border-cyber-primary/10 rounded-2xl flex items-center justify-center min-h-[120px] ${o}`,children:e.jsxs("div",{className:"text-center p-6",children:[e.jsx("span",{className:"text-[10px] text-cyber-primary/40 uppercase tracking-[0.2em] block mb-2",children:"Intelligence Stream Support"}),e.jsxs("div",{className:"w-full h-full bg-black/30 animate-pulse rounded-lg text-cyber-primary/10 text-[10px] flex items-center justify-center uppercase font-black",children:["Transmission Channel: ",t]})]})}),ge=({items:t})=>{const[i,o]=l.useState(null);return e.jsxs("div",{className:"space-y-4 max-w-4xl mx-auto my-16",children:[e.jsx("h3",{className:"text-2xl font-black text-white mb-8 uppercase tracking-widest text-center",children:"Frequently Asked Intel"}),t.map((n,a)=>e.jsxs("div",{className:"border border-white/5 rounded-2xl overflow-hidden bg-white/[0.02]",children:[e.jsxs("button",{onClick:()=>o(i===a?null:a),className:"w-full flex items-center justify-between p-6 text-left hover:bg-white/[0.03] transition-all",children:[e.jsx("span",{className:"font-bold text-gray-200",children:n.q}),i===a?e.jsx($,{className:"w-4 h-4 text-cyber-primary"}):e.jsx(V,{className:"w-4 h-4 text-gray-500"})]}),i===a&&e.jsx("div",{className:"px-6 pb-6 text-sm text-gray-400 leading-relaxed border-t border-white/5 pt-4",children:n.a})]},a))]})},k=t=>t&&(t.includes("images.unsplash.com")&&!t.includes("fm=webp")?t+(t.includes("?")?"&fm=webp":"?fm=webp"):t),me=({src:t,alt:i,className:o,width:n,height:a})=>{const[s,r]=l.useState(k(t)),[d,u]=l.useState(!1);l.useEffect(()=>{r(k(t))},[t]);const g=()=>{d||(u(!0),r("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80&fm=webp"))};return e.jsx("img",{src:s,alt:i,className:o,onError:g,width:n,height:a,style:{aspectRatio:n&&a?`${n}/${a}`:"16/9"},loading:"lazy"})},ye=()=>{const[t,i]=l.useState(!1);l.useEffect(()=>{if(!localStorage.getItem("openyourais_cookie_consent")){const a=setTimeout(()=>i(!0),1500);return()=>clearTimeout(a)}},[]);const o=()=>{localStorage.setItem("openyourais_cookie_consent","true"),i(!1)};return t?e.jsx("div",{className:"fixed bottom-6 left-6 right-6 z-[100] md:max-w-xl md:left-auto p-6 bg-black/90 backdrop-blur-2xl border border-cyber-primary/20 rounded-[32px] shadow-2xl",children:e.jsxs("div",{className:"flex flex-col gap-4",children:[e.jsxs("div",{className:"flex items-center gap-4",children:[e.jsx("div",{className:"bg-cyber-primary/10 p-3 rounded-2xl",children:e.jsx(U,{className:"text-cyber-primary w-6 h-6"})}),e.jsxs("div",{children:[e.jsx("h4",{className:"text-white font-black text-sm uppercase",children:"Data Consent Protocol"}),e.jsx("p",{className:"text-[10px] text-gray-400 leading-tight mt-1",children:"We utilize cookies to optimize your neural interface experience and maintain the intelligence stream."})]})]}),e.jsxs("div",{className:"flex gap-2",children:[e.jsx("button",{onClick:o,className:"flex-1 py-3 bg-cyber-primary text-cyber-bg font-black rounded-xl hover:brightness-110 transition-all text-[10px] uppercase tracking-widest",children:"Acknowledge"}),e.jsx(c,{to:"/privacy",className:"flex-1 py-3 border border-white/10 text-white font-black rounded-xl hover:bg-white/5 transition-all text-[10px] uppercase tracking-widest text-center",children:"Review Data"})]})]})}):null},fe=()=>{const[t,i]=l.useState(!1),o=C(),{isAuthenticated:n}=pe(),a=[{name:"TOOLS",path:"/tools"},{name:"PLAYBOOKS",path:"/playbooks"},{name:"CRYPTO",path:"/crypto"},{name:"INTEL",path:"/blog"}],s=r=>o.pathname===r;return e.jsx("nav",{className:"fixed w-full z-50 top-0 start-0 border-b border-white/5 bg-cyber-bg/80 backdrop-blur-xl",role:"navigation","aria-label":"Main navigation",children:e.jsxs("div",{className:"max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:p-6",children:[e.jsxs(c,{to:"/",className:"flex items-center space-x-2 md:space-x-3 group","aria-label":"Open Your AIs - Home",children:[e.jsxs("div",{className:"relative w-8 h-8 md:w-10 md:h-10 bg-cyber-primary rounded-xl flex items-center justify-center group-hover:shadow-[0_0_20px_#00E5FF] transition-all duration-500 overflow-hidden",children:[e.jsx(S,{className:"text-cyber-bg w-4 h-4 md:w-6 md:h-6 z-10"}),e.jsx("div",{className:"absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-50"})]}),e.jsxs("span",{className:"self-center text-sm md:text-xl font-black whitespace-nowrap tracking-tighter text-white uppercase italic",children:["OPEN YOUR ",e.jsx("span",{className:"text-cyber-primary",children:"AIS"})]})]}),e.jsxs("div",{className:"flex md:order-2 items-center gap-2",children:[e.jsx(c,{to:"/admin",className:"hidden md:inline-block px-6 py-2.5 text-[10px] font-black text-cyber-bg bg-cyber-primary rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest",children:n?"TERMINAL":"CONNECT"}),e.jsx("button",{onClick:()=>i(!t),className:"inline-flex items-center p-2 w-10 h-10 justify-center text-white md:hidden hover:bg-white/10 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-cyber-primary","aria-expanded":t,"aria-controls":"main-nav-menu","aria-label":t?"Close navigation menu":"Open navigation menu",children:t?e.jsx(B,{"aria-hidden":"true"}):e.jsx(W,{"aria-hidden":"true"})})]}),e.jsx("div",{id:"main-nav-menu",className:`items-center justify-between w-full md:flex md:w-auto md:order-1 ${t?"block":"hidden"}`,children:e.jsxs("ul",{className:"flex flex-col p-4 md:p-0 mt-4 md:space-x-8 lg:space-x-12 md:flex-row md:mt-0 font-black text-xs md:text-[10px] tracking-widest md:tracking-[0.2em] uppercase bg-cyber-bg/95 md:bg-transparent rounded-2xl md:rounded-none border border-white/10 md:border-0",children:[a.map(r=>e.jsx("li",{children:e.jsx(c,{to:r.path,className:`block py-3 px-4 md:py-2 md:px-0 rounded-lg md:rounded-none transition-all ${s(r.path)?"text-cyber-primary bg-cyber-primary/10 md:bg-transparent":"text-gray-400 hover:text-white hover:bg-white/5 md:hover:bg-transparent"}`,onClick:()=>i(!1),children:r.name})},r.name)),e.jsx("li",{className:"md:hidden mt-2 pt-2 border-t border-white/10",children:e.jsx(c,{to:"/admin",className:"block py-3 px-4 text-cyber-primary font-black",onClick:()=>i(!1),children:n?"TERMINAL":"CONNECT"})})]})})]})})},be=()=>e.jsx("footer",{className:"bg-black/60 border-t border-white/5 mt-16 md:mt-32 py-12 md:py-20",children:e.jsxs("div",{className:"mx-auto w-full max-w-screen-xl px-4 md:px-6",children:[e.jsxs("div",{className:"grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16",children:[e.jsxs("div",{className:"col-span-2",children:[e.jsxs(c,{to:"/",className:"flex items-center space-x-2 md:space-x-3 mb-4 md:mb-6",children:[e.jsx("div",{className:"w-6 h-6 md:w-8 md:h-8 bg-cyber-primary rounded-lg flex items-center justify-center",children:e.jsx(S,{className:"text-cyber-bg w-3 h-3 md:w-4 md:h-4"})}),e.jsx("span",{className:"text-base md:text-xl font-black text-white uppercase italic",children:"OPEN YOUR AIS"})]}),e.jsx("p",{className:"text-gray-500 text-xs md:text-sm max-w-sm leading-relaxed font-light",children:"The premier intelligence hub for the digital vanguard. We decode the future of AI, decentralized assets, and monetization protocols."})]}),e.jsxs("div",{children:[e.jsx("h2",{className:"mb-4 md:mb-6 text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest md:tracking-[0.3em]",children:"Network"}),e.jsxs("ul",{className:"text-gray-500 text-[10px] md:text-xs space-y-3 md:space-y-4 font-bold uppercase tracking-wider md:tracking-widest",children:[e.jsx("li",{children:e.jsx(c,{to:"/tools",className:"hover:text-cyber-primary transition-colors",children:"AI Directory"})}),e.jsx("li",{children:e.jsx(c,{to:"/playbooks",className:"hover:text-cyber-primary transition-colors",children:"Revenue Ops"})}),e.jsx("li",{children:e.jsx(c,{to:"/crypto",className:"hover:text-cyber-primary transition-colors",children:"Crypto Vault"})}),e.jsx("li",{children:e.jsx(c,{to:"/blog",className:"hover:text-cyber-primary transition-colors",children:"Blog"})}),e.jsx("li",{children:e.jsx(c,{to:"/sitemap",className:"hover:text-cyber-primary transition-colors",children:"Site Map"})})]})]}),e.jsxs("div",{children:[e.jsx("h2",{className:"mb-4 md:mb-6 text-[9px] md:text-[10px] font-black text-white uppercase tracking-widest md:tracking-[0.3em]",children:"Company"}),e.jsxs("ul",{className:"text-gray-500 text-[10px] md:text-xs space-y-3 md:space-y-4 font-bold uppercase tracking-wider md:tracking-widest",children:[e.jsx("li",{children:e.jsx(c,{to:"/about",className:"hover:text-cyber-primary transition-colors",children:"About Us"})}),e.jsx("li",{children:e.jsx(c,{to:"/contact",className:"hover:text-cyber-primary transition-colors",children:"Contact"})}),e.jsx("li",{children:e.jsx(c,{to:"/privacy",className:"hover:text-cyber-primary transition-colors",children:"Privacy Policy"})}),e.jsx("li",{children:e.jsx(c,{to:"/terms",className:"hover:text-cyber-primary transition-colors",children:"Terms of Service"})})]})]})]}),e.jsxs("div",{className:"pt-8 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 text-[8px] md:text-[9px] font-black text-gray-700 uppercase tracking-widest md:tracking-[0.4em]",children:[e.jsx("span",{children:"© 2026 OPEN YOUR AIS"}),e.jsxs("div",{className:"flex gap-4 md:gap-8",children:[e.jsx("span",{children:"SECURE DATA"}),e.jsx("span",{children:"HIGH-FIDELITY"})]})]})]})}),ve=({children:t})=>e.jsxs("div",{className:"min-h-screen flex flex-col relative overflow-x-hidden selection:bg-cyber-primary selection:text-cyber-bg",children:[e.jsx("div",{className:"fixed inset-0 z-[-1] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"}),e.jsx(fe,{}),e.jsx("main",{className:"flex-grow pt-24 px-4 md:px-0",children:t}),e.jsx(be,{}),e.jsx(ye,{})]}),f=({children:t,className:i="",hoverEffect:o=!0})=>e.jsxs("div",{className:`glass-panel rounded-[32px] p-8 border border-white/5 relative overflow-hidden group ${o?"hover:border-cyber-primary/40 transition-all duration-500":""} ${i}`,children:[o&&e.jsx("div",{className:"absolute inset-0 bg-gradient-to-br from-cyber-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"}),t]}),M=({title:t,subtitle:i})=>e.jsxs("div",{className:"text-center mb-8 md:mb-16",children:[e.jsx("h2",{className:"text-2xl md:text-4xl lg:text-6xl font-black text-white mb-3 md:mb-6 uppercase tracking-tight md:tracking-tighter leading-tight",children:t}),i&&e.jsx("p",{className:"text-gray-500 max-w-2xl mx-auto text-sm md:text-lg font-light tracking-wide px-4",children:i})]}),_e="openyourais888@gmail.com",He=t=>{const i=localStorage.getItem("openyourais_new_articles");let o=i?JSON.parse(i):[];return o.find(n=>n.id===t.id)||(o=[t,...o],localStorage.setItem("openyourais_new_articles",JSON.stringify(o))),o},Ye=[{id:"1",name:"ChatGPT Pro (o3 / GPT-4.5)",category:"LLM / Reasoning",shortDesc:"OpenAI's most advanced reasoning models with unprecedented problem-solving capabilities.",fullDesc:`OpenAI's 2026 lineup represents a quantum leap in AI reasoning. GPT-4.5 delivers exceptional conversational intelligence and nuanced understanding, while the o3 and o4-mini models introduce "deep reasoning" - extended thinking that can solve PhD-level problems in mathematics, physics, and coding. The o3 model consistently achieves state-of-the-art results on benchmarks like ARC-AGI, while o4-mini provides cost-effective reasoning for everyday tasks. Together with DALL-E 3 for visuals and Custom GPTs for specialized workflows, this is the most complete AI platform available.`,priceModel:"Freemium",url:"https://chat.openai.com",features:["o3 Deep Reasoning","GPT-4.5 Intelligence","DALL-E 3 Visual Gen","Custom GPTs","Advanced Voice Mode"],useCases:["Complex Problem Solving","Scientific Research","Enterprise Automation","Software Architecture"]},{id:"2",name:"Claude (Free Tier)",category:"LLM / Reasoning & Coding",shortDesc:"Anthropic's AI assistant - now with File Creation, Connectors, and premium features in the free tier.",fullDesc:"Claude is Anthropic's flagship AI assistant, and the free tier just got significantly more powerful. In February 2026, Anthropic liberated previously paid features for free users: File Creation (generate Excel, PowerPoint, Word, PDF files directly from conversations), Connectors (integrations with external tools), Skills (specialized workflows), and Compaction (smart conversation organization). This is Anthropic's counter-move to ChatGPT's ad-supported model - instead of showing ads, they're giving free users more functionality. The free tier includes Claude Sonnet and Haiku models with session-based limits that reset every 5 hours. For heavy users, Pro and Max tiers unlock Opus (the most capable model), Extended Thinking, and higher rate limits.",priceModel:"Freemium",url:"https://claude.ai",features:["File Creation (New Free Feature)","Connectors (New Free Feature)","Skills (New Free Feature)","Compaction (New Free Feature)","200k Token Window (Pro)","Extended Thinking (Pro)"],useCases:["Document Creation","Spreadsheet Generation","Presentation Building","Workflow Integration","Research & Analysis"]},{id:"3",name:"Midjourney",category:"Visual / Art",shortDesc:"The industry standard for photorealistic AI image generation and commercial art.",fullDesc:"Midjourney remains the gold standard in AI image generation for professional creative work. Its latest models deliver unprecedented photorealism - capturing skin textures, fabric weaves, and cinematic lighting with stunning accuracy. Key features like Style References (SREF) and Character References (CREF) allow designers to maintain strict aesthetic consistency across entire campaigns. The web-based editor, personalization features, and Niji mode for anime-style art make it the most versatile tool for visual professionals. Whether you need product photography, concept art, or marketing visuals, Midjourney delivers commercial-grade results.",priceModel:"Paid",url:"https://midjourney.com",features:["Style Reference (SREF)","Character Consistency","Web Editor","Personalization","Niji Mode"],useCases:["Commercial Photography","Brand Identity Design","Game & Concept Art","Marketing Campaigns"]},{id:"4",name:"Runway Gen-4.5",category:"Video / AI",shortDesc:"The most advanced AI video generation with unmatched realism and control.",fullDesc:"Runway Gen-4.5 represents a massive leap in AI video generation. With dramatically improved physics simulation, human motion, and cinematic consistency, Gen-4.5 produces videos that are increasingly indistinguishable from real footage. The Image-to-Video capabilities allow you to animate any still image with natural motion, while the upgraded Act-One feature delivers photorealistic facial expressions and lip-sync. Extended video duration, better prompt adherence, and professional-grade camera controls make this the definitive tool for filmmakers and content creators.",priceModel:"Paid",url:"https://runwayml.com",features:["Gen-4.5 Image-to-Video","Act-One 2.0","Extended Duration","Advanced Physics","Director Mode"],useCases:["Film Production","Commercial Advertising","Music Videos","VFX & Post-Production"]},{id:"5",name:"ElevenLabs",category:"Audio / Voice",shortDesc:"The pinnacle of vocal synthesis and voice cloning with emotional weight.",fullDesc:"ElevenLabs uses advanced neural networks to map the 'vocal fingerprint' of human speech. Their model doesn't just replicate pitch; it captures the emotional subtext, breath patterns, and cadence of the source voice. Its 'Speech-to-Speech' capability allows creators to perform a voice-over and have it replaced by a different voice while maintaining the exact performance, making it the industry standard for high-end content localization.",priceModel:"Freemium",url:"https://elevenlabs.io",features:["Instant Voice Cloning","Emotional Inflection Control","Multilingual Synthesis","Studio Sound"],useCases:["YouTube Channel Automation","Video Localization","Audiobook Production"]},{id:"6",name:"Perplexity AI",category:"Search / Research",shortDesc:"The conversational search engine that cites sources in real-time.",fullDesc:'Perplexity is a search-orchestration engine that leverages multiple LLMs to synthesize web data. Unlike traditional search engines, it provides direct answers with clickable citations for every claim. Its "Pro Search" mode executes a multi-hop reasoning process-searching for initial data, identifying missing info, and performing follow-up searches-to provide exhaustive technical reports on any topic.',priceModel:"Freemium",url:"https://perplexity.ai",features:["Pro Search Mode","Citation-based Answers","File Upload Analysis","Custom Collection Focus"],useCases:["Market Research","Fact Checking","Technical Report Writing"]},{id:"7",name:"Notion AI",category:"Productivity",shortDesc:"Integrated intelligence that organizes and processes your knowledge.",fullDesc:"Notion AI is embedded directly into the workspace used by millions. It excels at summarizing meetings, extracting action items from messy notes, and automating database properties. By having access to your entire organizational wiki, it can generate new content that is contextually aware of your existing projects, effectively acting as an intelligent second brain for knowledge workers.",priceModel:"Paid",url:"https://notion.so",features:["Automated Summaries","Action Item Extraction","Database Automation","Tone Transformation"],useCases:["Complex Project Management","Corporate Wiki Creation","Product Brainstorming"]},{id:"8",name:"Jasper AI",category:"Marketing",shortDesc:"Enterprise platform to scale your brand voice.",fullDesc:'Jasper is a marketing-first AI platform designed for enterprise scale. It allows teams to "train" the AI on their specific brand voice, style guide, and product knowledge. This ensures that every piece of content-from social ads to long-form blog posts-is consistent and ready for publication. Its campaign-level orchestration can turn a single brief into an entire omni-channel marketing strategy.',priceModel:"Paid",url:"https://jasper.ai",features:["Brand Voice Memory","Campaign Workflows","SEO Mode Integration","Art Generator"],useCases:["Content Marketing at Scale","E-commerce Copywriting","Ads Strategy"]},{id:"9",name:"Synthesia",category:"Video / Avatars",shortDesc:"Create professional videos with human avatars without cameras.",fullDesc:'Synthesia uses Generative Adversarial Networks (GANs) to create photo-realistic human avatars that can "speak" any text. It is the leading solution for enterprise training and customer communication, allowing companies to create high-quality video content in minutes rather than days. With its support for over 120 languages, it is the ultimate tool for global corporate communications.',priceModel:"Paid",url:"https://synthesia.io",features:["AI Video Avatars","Auto-Captions","Multi-Language Synthesis","Custom Avatar Creation"],useCases:["Training and Onboarding","Customer Support Videos","Personalized Sales"]},{id:"10",name:"Descript",category:"Audio / Video Editing",shortDesc:"Text-based media editing that feels like magic.",fullDesc:'Descript revolutionized media editing by treating audio and video like a text document. Its "Overdub" feature allows you to clone your own voice to fix audio mistakes by just typing the correct word. Its "Studio Sound" AI uses sophisticated denoising algorithms to make a cheap microphone sound like a $2,000 studio setup, making professional production accessible to everyone.',priceModel:"Freemium",url:"https://descript.com",features:["Text-Based Media Editing","Studio Sound AI","Overdub Voice Clone","Automatic Filler Word Removal"],useCases:["Podcasting Editing","Social Content Creation","Long-form Interviews"]},{id:"11",name:"Kling AI",category:"Video / AI",shortDesc:"Chinese powerhouse rivaling Runway with stunning video generation quality.",fullDesc:"Kling AI by Kuaishou has emerged as a serious competitor to Western video AI platforms. With exceptional motion consistency, realistic physics simulation, and impressive human generation, Kling produces cinematic-quality videos that often rival or exceed Runway. Its strength lies in complex motion scenes, character animations, and the ability to generate longer coherent clips. The platform offers both text-to-video and image-to-video capabilities, making it a versatile choice for creators seeking alternatives to Western tools.",priceModel:"Freemium",url:"https://klingai.com",features:["Text-to-Video","Image-to-Video","Motion Consistency","Long-form Generation","Character Animation"],useCases:["Social Media Content","Marketing Videos","Creative Projects","Music Videos"]},{id:"12",name:"Gemini Image Generation",category:"Visual / AI",shortDesc:"Google's native image generation with seamless multimodal integration.",fullDesc:"Google's Gemini models now include powerful native image generation capabilities. Unlike standalone image tools, Gemini can generate images as part of a larger conversation, allowing for iterative refinement and contextual understanding. The integration with Google's vast knowledge base means exceptional accuracy in generating specific objects, places, and concepts. With both generation and editing capabilities built into the same model, Gemini offers a uniquely fluid creative workflow for those already in the Google AI ecosystem.",priceModel:"Freemium",url:"https://aistudio.google.com",features:["Native Multimodal","Conversational Refinement","Image Editing","Knowledge Integration","API Access"],useCases:["Rapid Prototyping","Content Creation","Design Iteration","Integrated Workflows"]},{id:"13",name:"GPT-5.3-Codex-Spark",category:"Coding / Development",shortDesc:"OpenAI's real-time coding model optimized for ultra-low latency and software engineering workflows.",fullDesc:"Released in February 2026, GPT-5.3-Codex-Spark is OpenAI's answer to the next generation of AI coding assistants. Unlike general-purpose models, Codex-Spark is purpose-built for software development workflows, debugging patterns, and code understanding. Running on Cerebras hardware with a 128k context window, it delivers real-time responses optimized for developer productivity. Currently available as a research preview for ChatGPT Pro users, it represents OpenAI's diversification beyond Nvidia for compute infrastructure.",priceModel:"Freemium",url:"https://chat.openai.com",features:["Real-time Coding","128k Context Window","Ultra-low Latency","Cerebras Hardware","Debugging Patterns"],useCases:["Software Development","Code Review","Real-time Pair Programming","Legacy Code Migration"]},{id:"14",name:"Gemini 3 Deep Think",category:"LLM / Reasoning",shortDesc:"Google's latest reasoning model designed for complex problem-solving with step-by-step thinking.",fullDesc:"Gemini 3 Deep Think is Google's flagship reasoning model, launched in February 2026 to compete with OpenAI's o1-class models. Designed specifically for complex problem-solving tasks where step-by-step thinking matters, it excels at mathematics, coding benchmarks, and multi-step reasoning scenarios. As part of Google's massive $185 billion infrastructure investment, Deep Think represents the company's commitment to matching and exceeding frontier reasoning capabilities.",priceModel:"Freemium",url:"https://gemini.google.com",features:["Step-by-Step Reasoning","Math & Coding Excellence","Multi-step Analysis","Google Knowledge Integration","Competes with o1 Models"],useCases:["Complex Problem Solving","Mathematical Analysis","Research & Development","Strategic Planning"]},{id:"15",name:"Seedance 2.0",category:"Video / AI",shortDesc:"ByteDance's AI video generator creating 15-second clips from text prompts.",fullDesc:"Seedance 2.0 is ByteDance's response to OpenAI's Sora, launched in February 2026. The model generates 15-second videos from text prompts and is currently available in China via the Jianying app, with global rollout planned through CapCut. However, the tool has become embroiled in controversy after Disney sent a cease-and-desist letter alleging the model was trained on copyrighted Disney characters including Spider-Man, Darth Vader, and Family Guy characters. This case represents the first major legal battle between content giants and AI video generators over training data. Use at your own legal risk.",priceModel:"Paid",url:"https://www.capcut.com",features:["15-Second Video Generation","Text-to-Video","Rapid Generation","Jianying Integration","CapCut Rollout"],useCases:["Short-form Video","Social Media Content","Rapid Prototyping","Creative Experiments"]}],Ke=[{id:"p1",title:"High-Ticket YouTube Automation",tldr:"Build digital empires using AI pipelines to dominate high CPM niches.",roi:"$5k-$20k/month potential",timeline:"90-180 Days",difficulty:"Medium",steps:["High-Liquidity Niche Identification","Claude 3.5 Script Engineering","Runway/Midjourney Visual Production","Video SEO and CTR Strategy","Scaling via External Operators"],image:"https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",content:`
       <h2>The 2026 YouTube Revenue Protocol</h2>
       <p>YouTube automation in 2026 has moved beyond "faceless channels" to "Authority Assets." This protocol details how to use a neural production pipeline to create content that outperforms multi-million dollar studios in retention and conversion.</p>
 
@@ -229,18 +30,7 @@ export const PLAYBOOKS: Playbook[] = [
 
       <h3>Phase 3: Retention Engineering & Distribution</h3>
       <p>Retention is the only metric that matters. Use AI-based heatmaps to identify where viewers drop off. Re-edit those sections using high-energy visual transitions. Once the video is live, use a fleet of "AI Distribution Agents" to seed the content in niche forums and LinkedIn groups relevant to the topic.</p>
-    `
-  },
-  {
-    id: 'p2',
-    title: 'AI Micro-SaaS Accelerator',
-    tldr: 'Develop and market focused tools that solve real pains using AI APIs.',
-    roi: 'Equity & Recurring Revenue',
-    timeline: '30-60 Days',
-    difficulty: 'Hard',
-    steps: ['Specific Problem Validation', 'Google AI Studio API Prototyping', 'Agile Front-end Development', 'Stripe Payment Integration', 'Product Hunt Launch'],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    content: `
+    `},{id:"p2",title:"AI Micro-SaaS Accelerator",tldr:"Develop and market focused tools that solve real pains using AI APIs.",roi:"Equity & Recurring Revenue",timeline:"30-60 Days",difficulty:"Hard",steps:["Specific Problem Validation","Google AI Studio API Prototyping","Agile Front-end Development","Stripe Payment Integration","Product Hunt Launch"],image:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",content:`
       <h2>The Micro-SaaS Deployment Framework</h2>
       <p>Building a Micro-SaaS in 2026 is no longer about code; it's about <strong>Prompt Orchestration</strong> and <strong>Niche Pain Identification</strong>. This playbook shows how to launch a profitable software asset in under 60 days.</p>
 
@@ -257,18 +47,7 @@ export const PLAYBOOKS: Playbook[] = [
 
       <h3>Step 3: Scaling via "Growth Loops"</h3>
       <p>Instead of paid ads, integrate a "Viral Loop" in the product. For example, if your tool generates a report, allow the user to share a public link that has your branding. Launch on <strong>Product Hunt</strong> and <strong>AppSumo</strong> to get a base of 1,000 users. Goal: 100 paid users at $29/mo = $2,900 MRR (Monthly Recurring Revenue) with nearly 100% margin.</p>
-    `
-  },
-  {
-    id: 'p3',
-    title: 'Premium AI Copywriting Agency',
-    tldr: 'Transform marketing writing into a high-margin industrial process.',
-    roi: '$3k-$10k/month potential',
-    timeline: '15-30 Days',
-    difficulty: 'Easy',
-    steps: ['B2B Niche Specialization', 'Technical Prompt Stack Setup', 'LinkedIn Authority Outreach', 'Content Management via AI Agents'],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    content: `
+    `},{id:"p3",title:"Premium AI Copywriting Agency",tldr:"Transform marketing writing into a high-margin industrial process.",roi:"$3k-$10k/month potential",timeline:"15-30 Days",difficulty:"Easy",steps:["B2B Niche Specialization","Technical Prompt Stack Setup","LinkedIn Authority Outreach","Content Management via AI Agents"],image:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",content:`
       <h2>The AI Agency Blueprint: Scaling Quality</h2>
       <p>The world is full of cheap AI content. Your agency's value proposition is <strong>Expert-Verified AI Hybridization</strong>. You are selling results, not words.</p>
 
@@ -283,18 +62,7 @@ export const PLAYBOOKS: Playbook[] = [
 
       <h3>Client Acquisition: The LinkedIn Engine</h3>
       <p>Optimize your LinkedIn profile as an "AI Content Strategist." Use sales automation tools to reach out to Marketing Managers in Mid-Market SaaS companies. Offer a "Free AI Content Audit" of their 5 top competitors. Once they see the data gap, sell them a 3-month retention package.</p>
-    `
-  },
-  {
-    id: 'p4',
-    title: 'AI-Driven Branding Factory',
-    tldr: 'Create complete visual identities and brand manuals in hours, not weeks.',
-    roi: 'High Margin per Project ($2k+)',
-    timeline: '7-14 Days',
-    difficulty: 'Medium',
-    steps: ['Conceptual Ideation with GPT-o1', 'Consistent Asset Generation via MJ SREF', 'Vectorization and UI Prototyping', 'Automated Brand Manual Creation'],
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80",
-    content: `
+    `},{id:"p4",title:"AI-Driven Branding Factory",tldr:"Create complete visual identities and brand manuals in hours, not weeks.",roi:"High Margin per Project ($2k+)",timeline:"7-14 Days",difficulty:"Medium",steps:["Conceptual Ideation with GPT-o1","Consistent Asset Generation via MJ SREF","Vectorization and UI Prototyping","Automated Brand Manual Creation"],image:"https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80",content:`
       <h2>The Neural Branding Framework</h2>
       <p>Traditional branding takes weeks. Using advanced latent space tools, you can deliver an enterprise-grade brand manual in 72 hours.</p>
 
@@ -306,18 +74,7 @@ export const PLAYBOOKS: Playbook[] = [
 
       <h3>Phase 3: The Automated Brand Bible</h3>
       <p>Compile the assets into a "Brand Manual" using Canva's Magic Studio or Figma. Include color codes (HEX/RGB), font hierarchies, and social media templates. A package like this sells for $1,500 - $5,000, and with your AI stack, the total "human-in-the-loop" time is less than 8 hours.</p>
-    `
-  },
-  {
-    id: 'p5',
-    title: 'Automated AI Intel Newsletters',
-    tldr: 'Build high-value owned audiences with AI-curated technical news streams.',
-    roi: 'Passive Income & Equity Building',
-    timeline: '180+ Days',
-    difficulty: 'Medium',
-    steps: ['High-Value Tech Niche selection', 'Beehiiv Infrastructure Setup', 'AI News Curation Agent Workflow', 'Growth via Multi-Channel Distro'],
-    image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80",
-    content: `
+    `},{id:"p5",title:"Automated AI Intel Newsletters",tldr:"Build high-value owned audiences with AI-curated technical news streams.",roi:"Passive Income & Equity Building",timeline:"180+ Days",difficulty:"Medium",steps:["High-Value Tech Niche selection","Beehiiv Infrastructure Setup","AI News Curation Agent Workflow","Growth via Multi-Channel Distro"],image:"https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80",content:`
       <h2>The Newsletter Monetization Protocol</h2>
       <p>Own your audience. In a world of platform risk, email is the only sovereign digital asset. This playbook shows how to automate a technical newsletter that people actually want to read.</p>
 
@@ -329,18 +86,7 @@ export const PLAYBOOKS: Playbook[] = [
 
       <h3>Step 3: Multi-Layer Monetization</h3>
       <p>Once you hit 5,000 subscribers, activate the Beehiiv Ad Network. Layer on high-ticket affiliate offers relevant to the niche. Finally, launch a "Premium" tier for $10/mo that includes a deep-dive technical PDF every week. A newsletter with 10k technical subscribers can easily generate $5k - $8k/mo with minimal ongoing effort.</p>
-    `
-  }
-];
-
-// --- CRYPTO GUIDES ---
-export const CRYPTO_GUIDES: CryptoGuide[] = [
-  {
-    id: 'cg1',
-    title: 'Ironclad Security: The Digital Custody Protocol',
-    level: 'Beginner',
-    summary: 'The definitive guide to shielding your digital assets against cyber attacks.',
-    content: `
+    `}],Xe=[{id:"cg1",title:"Ironclad Security: The Digital Custody Protocol",level:"Beginner",summary:"The definitive guide to shielding your digital assets against cyber attacks.",content:`
       <h2>Asset Sovereignty: The Foundation of Digital Wealth</h2>
       <p>In the decentralized world, you are your own bank. This guide outlines the institutional-grade security protocols required to protect your capital from 100% of external digital threats.</p>
 
@@ -360,14 +106,7 @@ export const CRYPTO_GUIDES: CryptoGuide[] = [
       </ol></p>
 
       <p>By following these protocols, you eliminate the risk of remote hacks, exchange insolvencies, and physical disasters.</p>
-    `
-  },
-  {
-    id: 'cg2',
-    title: 'Macro Intelligence: Decoding Market Cycles',
-    level: 'Intermediate',
-    summary: 'Understand global liquidity flows and Bitcoin periodicity.',
-    content: `
+    `},{id:"cg2",title:"Macro Intelligence: Decoding Market Cycles",level:"Intermediate",summary:"Understand global liquidity flows and Bitcoin periodicity.",content:`
       <h2>The Periodicity of Digital Capital</h2>
       <p>The cryptocurrency market is not random; it is a high-beta expression of global liquidity. To succeed, you must stop looking at price charts and start looking at <strong>Macro Liquidity (M2)</strong>.</p>
 
@@ -389,14 +128,7 @@ export const CRYPTO_GUIDES: CryptoGuide[] = [
       </ul></p>
 
       <p>Successful cycle investing is the discipline of being a buyer during "extreme fear" and a seller during "extreme greed."</p>
-    `
-  },
-  {
-    id: 'cg3',
-    title: 'Advanced DeFi: The Yield Engineering Lab',
-    level: 'Advanced',
-    summary: 'Institutional-grade strategies for maximizing capital efficiency.',
-    content: `
+    `},{id:"cg3",title:"Advanced DeFi: The Yield Engineering Lab",level:"Advanced",summary:"Institutional-grade strategies for maximizing capital efficiency.",content:`
       <h2>Yield Engineering: Beyond Simple Lending</h2>
       <p>Advanced DeFi is the practice of stacking protocols to create recursive yield streams. This is high-risk, high-reward financial engineering.</p>
 
@@ -414,18 +146,7 @@ export const CRYPTO_GUIDES: CryptoGuide[] = [
 
       <h3>Delta-Neutral Strategies</h3>
       <p>Advanced users use perpetual futures (e.g., Hyperliquid) to hedge their spot positions. By going long spot and short an equal amount of perp, you eliminate price exposure and harvest the <strong>Funding Rate</strong>, which often pays 10% - 40% APR in bullish markets.</p>
-    `
-  }
-];
-
-// --- 4 PREMIUM ARTICLES (EXHAUSTIVE TECHNICAL CONTENT) ---
-export const ARTICLES: Article[] = [
-  {
-    id: 'art-029',
-    slug: 'saas-reckoning-ai-agents-trillion-dollar-market-shift',
-    title: 'The SaaS Reckoning: How AI Agents Just Triggered a Trillion-Dollar Market Shift',
-    excerpt: 'Nearly $1 trillion in market value evaporated from software stocks in one week. Salesforce -25%, Intuit -31%. Anthropic Claude Cowork plugins and Opus 4.6 multi-agent teams triggered what analysts call the "SaaSpocalypse."',
-    content: `
+    `}],we=[{id:"art-029",slug:"saas-reckoning-ai-agents-trillion-dollar-market-shift",title:"The SaaS Reckoning: How AI Agents Just Triggered a Trillion-Dollar Market Shift",excerpt:'Nearly $1 trillion in market value evaporated from software stocks in one week. Salesforce -25%, Intuit -31%. Anthropic Claude Cowork plugins and Opus 4.6 multi-agent teams triggered what analysts call the "SaaSpocalypse."',content:`
       <h2>The Week That Changed Everything: When Markets Wake Up to AI</h2>
       <p>On February 4th, 2026, something unprecedented happened in financial markets. Nearly $1 trillion in market value evaporated from software and services stocks in a single week-not because of a recession, not because of disappointing earnings, but because of a product update from an AI startup. This wasn't a minor correction or a temporary panic. This was the market finally, viscerally understanding that the artificial intelligence revolution isn't coming-it's already here, and it's eating software.</p>
 
@@ -551,21 +272,7 @@ export const ARTICLES: Article[] = [
         <li>Anthropic: Claude Cowork and Opus 4.6 product announcements</li>
         <li>OpenAI: Frontier platform launch details</li>
       </ul>
-    `,
-    category: 'AI',
-    tags: ['SaaS', 'AI Agents', 'Market Analysis', 'Anthropic', 'Enterprise AI'],
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
-    author: 'Open Your AIs',
-    date: 'February 9, 2026',
-    readTime: '11 min read',
-    featured: true
-  },
-  {
-    id: 'art-028',
-    slug: '2026-year-ai-agents-become-colleagues',
-    title: '2026: The Year AI Agents Become Your New Colleagues (Or Replace Them)',
-    excerpt: 'OpenAI\'s Frontier platform treats AI agents like employees. Salesforce reports 282% CIO adoption surge. The top 1% of companies use 300+ AI tools while cautious ones use fewer than 15. The gap is widening.',
-    content: `
+    `,category:"AI",tags:["SaaS","AI Agents","Market Analysis","Anthropic","Enterprise AI"],image:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",author:"Open Your AIs",date:"February 9, 2026",readTime:"11 min read",featured:!0},{id:"art-028",slug:"2026-year-ai-agents-become-colleagues",title:"2026: The Year AI Agents Become Your New Colleagues (Or Replace Them)",excerpt:"OpenAI's Frontier platform treats AI agents like employees. Salesforce reports 282% CIO adoption surge. The top 1% of companies use 300+ AI tools while cautious ones use fewer than 15. The gap is widening.",content:`
       <h2>The Second ChatGPT Moment Is Here</h2>
       <p>Industry leaders including Sam Altman (OpenAI) and Mike Krieger (Anthropic) are calling 2026 a second "ChatGPT moment" - but this time, it's not about chatbots. It's about AI agents that work alongside humans as persistent teammates, not transactional tools.</p>
 
@@ -701,21 +408,7 @@ export const ARTICLES: Article[] = [
         <li>Financial Times: Kai-Fu Lee interview on US-China AI dynamics (February 4, 2026)</li>
         <li>Futurum Group: Alphabet Q4 FY 2025 Analysis (February 6, 2026)</li>
       </ul>
-    `,
-    category: 'AI',
-    tags: ['AI Agents', 'Enterprise AI', 'OpenAI', 'Adoption', 'Future of Work'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
-    author: 'Open Your AIs',
-    date: 'February 8, 2026',
-    readTime: '9 min read',
-    featured: true
-  },
-  {
-    id: 'art-026',
-    slug: 'kling-3-ai-video-revolution-small-creators-compete-marvel-2026',
-    title: 'Why Small Creators Will Compete With Marvel in 2026: The Kling 3.0 Revolution',
-    excerpt: 'The $200 million gap is closing. A major studio spent $47M and 8 months on 90 seconds of VFX. A solo creator generated equivalent visuals in 6 minutes for $50. Here\'s the technical breakdown nobody\'s talking about.',
-    content: `
+    `,category:"AI",tags:["AI Agents","Enterprise AI","OpenAI","Adoption","Future of Work"],image:"https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",author:"Open Your AIs",date:"February 8, 2026",readTime:"9 min read",featured:!0},{id:"art-026",slug:"kling-3-ai-video-revolution-small-creators-compete-marvel-2026",title:"Why Small Creators Will Compete With Marvel in 2026: The Kling 3.0 Revolution",excerpt:"The $200 million gap is closing. A major studio spent $47M and 8 months on 90 seconds of VFX. A solo creator generated equivalent visuals in 6 minutes for $50. Here's the technical breakdown nobody's talking about.",content:`
       <h2>The Opening Shot</h2>
       <p>Picture this: A cityscape crumbles as an alien warship descends through storm clouds. Debris spirals in photorealistic physics. Lightning illuminates chrome and glass. Dust particles catch the afternoon sun.</p>
 
@@ -917,20 +610,7 @@ export const ARTICLES: Article[] = [
       <p>The question isn't whether AI will transform video production. That's already happening. The question is whether you'll be a leader in that transformation or a follower scrambling to catch up.</p>
 
       <p><strong>You have six months. Use them.</strong></p>
-    `,
-    category: 'AI',
-    tags: ['AI Video', 'Kling AI', 'Video Production', 'Content Creation', 'VFX', 'Hollywood', 'Small Creators', '2026'],
-    date: '2026-02-07',
-    readTime: '19 min read',
-    image: 'https://klingai.com/static/images/index/banner-bg.jpg',
-    isAutoGenerated: false
-  },
-  {
-    id: 'art-043',
-    slug: 'ai-sales-agents-million-dollar-revenue-streams-2026',
-    title: 'How Small Businesses Are Turning AI Sales Agents into Million-Dollar Revenue Streams',
-    excerpt: 'Small businesses are achieving 300-500% conversion increases with AI Sales Agents. Real cases: Sarah\'s consultancy (12% to 47% conversion), electronics retailer (+89% outside hours), solar company (tripled pipeline). Complete implementation framework included.',
-    content: `
+    `,category:"AI",tags:["AI Video","Kling AI","Video Production","Content Creation","VFX","Hollywood","Small Creators","2026"],date:"2026-02-07",readTime:"19 min read",image:"https://klingai.com/static/images/index/banner-bg.jpg",isAutoGenerated:!1},{id:"art-043",slug:"ai-sales-agents-million-dollar-revenue-streams-2026",title:"How Small Businesses Are Turning AI Sales Agents into Million-Dollar Revenue Streams",excerpt:"Small businesses are achieving 300-500% conversion increases with AI Sales Agents. Real cases: Sarah's consultancy (12% to 47% conversion), electronics retailer (+89% outside hours), solar company (tripled pipeline). Complete implementation framework included.",content:`
       <h2>The Sales Agent Revolution: Beyond Chatbots</h2>
       <p>While most business owners are still struggling to find good salespeople, a small group of entrepreneurs has discovered something revolutionary: AI Sales Agents that work 24/7, never take sick days, and convert prospects at rates that would make seasoned sales veterans envious.</p>
 
@@ -1174,20 +854,7 @@ export const ARTICLES: Article[] = [
       <p>The technology is mature. The market is ready. The only question is whether you'll be a leader in the AI sales revolution or a follower trying to catch up.</p>
 
       <p><strong>The sales agent revolution has begun. The only question is: will you be leading it or competing against it?</strong></p>
-    `,
-    author: 'OpenYourAIs Team',
-    category: 'AI Sales',
-    readTime: '21 min read',
-    publishDate: '6 de Fevereiro, 2026',
-    tags: ['AI Sales', 'Sales Automation', 'Business Growth', 'Voice AI', 'Lead Generation', 'Revenue Optimization'],
-    image: "https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-042',
-    slug: 'ai-agents-digital-millionaires-2026',
-    title: 'How AI Agents Are Creating the Next Wave of Digital Millionaires in 2026',
-    excerpt: 'While most people use ChatGPT for emails, entrepreneurs are building empires with AI Agents. Discover the 5 most profitable niches generating $2K-100K monthly and the 18-month window before big tech dominates.',
-    content: `
+    `,author:"OpenYourAIs Team",category:"AI Sales",readTime:"21 min read",publishDate:"6 de Fevereiro, 2026",tags:["AI Sales","Sales Automation","Business Growth","Voice AI","Lead Generation","Revenue Optimization"],image:"https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80"},{id:"art-042",slug:"ai-agents-digital-millionaires-2026",title:"How AI Agents Are Creating the Next Wave of Digital Millionaires in 2026",excerpt:"While most people use ChatGPT for emails, entrepreneurs are building empires with AI Agents. Discover the 5 most profitable niches generating $2K-100K monthly and the 18-month window before big tech dominates.",content:`
       <h2>The Agent Economy: Beyond Tools to Workforce</h2>
       <p>While most people are still using ChatGPT to write emails, a new class of entrepreneurs is quietly building empires with AI Agents. The difference isn't just technological - it's economic. We're witnessing the emergence of the first truly autonomous digital workforce, and those who understand how to deploy it are capturing unprecedented value.</p>
 
@@ -1373,20 +1040,7 @@ export const ARTICLES: Article[] = [
       <p><strong>The next wave of digital millionaires is being created right now, in real-time, by people who understand that AI Agents aren't just tools - they're the foundation of a new economic order.</strong></p>
 
       <p><strong>The question is: will you be creating that future, or will you be disrupted by it?</strong></p>
-    `,
-    author: 'OpenYourAIs Team',
-    category: 'AI Business',
-    readTime: '22 min read',
-    publishDate: '5 de Fevereiro, 2026',
-    tags: ['AI Agents', 'Digital Business', 'Automation', 'Entrepreneurship', 'Revenue Generation', 'Market Opportunity'],
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-023',
-    slug: 'ai-security-business-opportunities-2026',
-    title: 'How AI Security is Creating New Business Opportunities in 2026',
-    excerpt: 'The AI security market will reach $35.7 billion by 2030. From governance consulting to algorithm auditing, discover the concrete opportunities emerging from OpenAI\'s latest moves and new regulations.',
-    content: `
+    `,author:"OpenYourAIs Team",category:"AI Business",readTime:"22 min read",publishDate:"5 de Fevereiro, 2026",tags:["AI Agents","Digital Business","Automation","Entrepreneurship","Revenue Generation","Market Opportunity"],image:"https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"},{id:"art-023",slug:"ai-security-business-opportunities-2026",title:"How AI Security is Creating New Business Opportunities in 2026",excerpt:"The AI security market will reach $35.7 billion by 2030. From governance consulting to algorithm auditing, discover the concrete opportunities emerging from OpenAI's latest moves and new regulations.",content:`
       <h2>The Security-First Paradigm Shift</h2>
       <p>The AI landscape shifted dramatically in the past 30 days. OpenAI just poached a senior security executive from Anthropic. Google launched Project Genie, their most ambitious AI safety initiative yet. Microsoft announced a $2.8 billion investment in AI governance infrastructure. The message is unmistakable: <strong>AI Security isn't just a compliance requirement anymore - it's the next trillion-dollar market.</strong></p>
 
@@ -1576,20 +1230,7 @@ export const ARTICLES: Article[] = [
       <p>The question isn't whether AI security will become a massive market - it already is. The question is whether you'll be positioned to capture your share of it.</p>
 
       <p><strong>The gold rush has begun. The question is: are you bringing a pickaxe or a map?</strong></p>
-    `,
-    author: 'OpenYourAIs Team',
-    category: 'AI Security',
-    readTime: '16 min read',
-    publishDate: '4 de Fevereiro, 2026',
-    tags: ['AI Security', 'Business Opportunities', 'Compliance', 'Governance', 'Market Analysis', 'Enterprise AI'],
-    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-037',
-    slug: 'anthropic-cowork-revolution-agentic-ai',
-    title: 'The Anthropic Cowork Revolution: How Agentic AI is Redefining Digital Work',
-    excerpt: 'Análise técnica dos AI Agents da Anthropic com plugins especializados. Cases reais de ROI 300%, framework SCALE e previsões para 2026. O futuro do trabalho digital já chegou.',
-    content: `
+    `,author:"OpenYourAIs Team",category:"AI Security",readTime:"16 min read",publishDate:"4 de Fevereiro, 2026",tags:["AI Security","Business Opportunities","Compliance","Governance","Market Analysis","Enterprise AI"],image:"https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80"},{id:"art-037",slug:"anthropic-cowork-revolution-agentic-ai",title:"The Anthropic Cowork Revolution: How Agentic AI is Redefining Digital Work",excerpt:"Análise técnica dos AI Agents da Anthropic com plugins especializados. Cases reais de ROI 300%, framework SCALE e previsões para 2026. O futuro do trabalho digital já chegou.",content:`
       <h2>A Era dos AI Agents: Anthropic Lidera a Transformação</h2>
       <p>Enquanto OpenAI domina as manchetes com ChatGPT e Sora, a Anthropic está silenciosamente construindo o futuro do trabalho digital. A expansão do <strong>Cowork</strong> com plugins especializados não é apenas mais uma atualização - é o primeiro passo em direção à <strong>AI Agêntica verdadeiramente funcional</strong>.</p>
 
@@ -1732,20 +1373,7 @@ Agentic AI: Goal → Planning → Execution → Validation → Iteration</pre>
       <p>Anthropic não está apenas competing com OpenAI por market share. Eles estão definindo <strong>como o trabalho knowledge-based será executado pelos próximos 10 anos</strong>. Those who understand this shift early will build unfair advantages that compound over time.</p>
 
       <p><strong>A revolução dos AI Agents já começou. A única question é: você vai liderar ou seguir?</strong></p>
-    `,
-    author: 'OpenYourAIs Team',
-    category: 'AI Architecture',
-    readTime: '18 min read',
-    publishDate: '3 de Fevereiro, 2026',
-    tags: ['AI Agents', 'Anthropic', 'Cowork', 'Automação', 'Produtividade', 'Framework SCALE'],
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-044',
-    slug: 'validacao-ia-ideias-negocio-2026',
-    title: 'Como Usar IA para Validar Ideias de Negócio Antes de Investir (2026)',
-    excerpt: 'Guia completo para usar ChatGPT o3, Claude 4 Opus e outras IAs para validar ideias de negócio em horas, não meses. Economize milhares em MVPs desnecessários.',
-    content: `
+    `,author:"OpenYourAIs Team",category:"AI Architecture",readTime:"18 min read",publishDate:"3 de Fevereiro, 2026",tags:["AI Agents","Anthropic","Cowork","Automação","Produtividade","Framework SCALE"],image:"https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80"},{id:"art-044",slug:"validacao-ia-ideias-negocio-2026",title:"Como Usar IA para Validar Ideias de Negócio Antes de Investir (2026)",excerpt:"Guia completo para usar ChatGPT o3, Claude 4 Opus e outras IAs para validar ideias de negócio em horas, não meses. Economize milhares em MVPs desnecessários.",content:`
       <h2>Por Que Validar Com IA Mudou Tudo</h2>
       <p>Em 2026, a inteligência artificial não é mais uma ferramenta experimental - é sua consultora de negócios mais inteligente. Enquanto empreendedores queimam dinheiro testando ideias no mercado real, os mais espertos estão usando IA para validar conceitos antes de investir um centavo.</p>
 
@@ -1928,20 +1556,7 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>Empreendedores que dominam validação IA hoje serão os unicórnios de amanhã. Aqueles que ignoram essa revolução se juntarão às estatísticas de falência.</p>
 
       <p><strong>Sua próxima ideia pode valer milhões. Ou pode ser um buraco sem fundo. A IA já sabe a resposta - você só precisa perguntar da forma certa.</strong></p>
-    `,
-    author: 'OpenYourAIs Team',
-    category: 'Business Intelligence',
-    readTime: '12 min read',
-    publishDate: '3 de Fevereiro, 2026',
-    tags: ['validação de negócio', 'inteligência artificial', 'empreendedorismo', 'startups', 'ChatGPT o3', 'Claude 4'],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-001',
-    slug: 'adsense-approval-masterclass-2025',
-    title: 'How to Get AdSense Approved in 2025: The Ultimate Authority Guide',
-    excerpt: "A comprehensive 2,500-word deep-dive into Google's newest E-E-A-T standards, Core Web Vitals thresholds, and semantic content clustering for 100% approval rates.",
-    content: `
+    `,author:"OpenYourAIs Team",category:"Business Intelligence",readTime:"12 min read",publishDate:"3 de Fevereiro, 2026",tags:["validação de negócio","inteligência artificial","empreendedorismo","startups","ChatGPT o3","Claude 4"],image:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"},{id:"art-001",slug:"adsense-approval-masterclass-2025",title:"How to Get AdSense Approved in 2025: The Ultimate Authority Guide",excerpt:"A comprehensive 2,500-word deep-dive into Google's newest E-E-A-T standards, Core Web Vitals thresholds, and semantic content clustering for 100% approval rates.",content:`
       <h2>The Paradigm Shift: From Content Quantity to Semantic Authority</h2>
       <p>In 2025, the era of "Made-for-AdSense" (MFA) niche sites has officially ended. Google's AI-driven review process, now tightly integrated with the Helpful Content System, performs a multi-layered analysis of a domain before granting approval. Getting approved today requires more than just "original text"—it requires a demonstration of <strong>Technical Integrity</strong> and <strong>Niche Sovereignty</strong>. This guide is the definitive technical protocol for achieving a 100% first-try approval rate.</p>
       
@@ -2019,19 +1634,7 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>AdSense approval in 2025 isn't about gaming the system—it's about genuinely building a quality publishing operation. The technical requirements, content standards, and trust signals outlined in this guide represent the minimum bar for legitimate publishers. If your site meets these standards, approval becomes not a matter of if, but when.</p>
       
       <p>Focus on creating genuine value for readers. Invest in technical excellence. Build trust through transparency. These principles align with Google's interests and yours simultaneously. When you approach AdSense as a partnership rather than a monetization hack, approval follows naturally.</p>
-    `,
-    category: 'Monetization',
-    tags: ['AdSense', 'SEO', 'Business Strategy', 'Google Ads', 'E-E-A-T'],
-    date: 'Dec 22, 2025',
-    readTime: '22 min',
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-002',
-    slug: 'unlock-the-future-a-deep-dive-into-google-ai-studio',
-    title: 'Unlock the Future: A Deep Dive into Google AI Studio Architecture',
-    excerpt: 'An exhaustive technical analysis of the Gemini 1.5/3 Pro stack, multi-modal reasoning at scale, and advanced system instruction engineering for developers.',
-    content: `
+    `,category:"Monetization",tags:["AdSense","SEO","Business Strategy","Google Ads","E-E-A-T"],date:"Dec 22, 2025",readTime:"22 min",image:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"},{id:"art-002",slug:"unlock-the-future-a-deep-dive-into-google-ai-studio",title:"Unlock the Future: A Deep Dive into Google AI Studio Architecture",excerpt:"An exhaustive technical analysis of the Gemini 1.5/3 Pro stack, multi-modal reasoning at scale, and advanced system instruction engineering for developers.",content:`
       <h2>The Industrial Workbench of General Intelligence</h2>
       <p>Google AI Studio is no longer just a "testing ground"—it is the most powerful industrial workbench for developers to interact with the Gemini architecture. With the release of Gemini 1.5 and the early previews of the 3-series, Google has established a new benchmark for <strong>Massive Context Windows</strong> and <strong>Multi-Modal Native Reasoning</strong>. This guide provides a technical deep-dive into the internals of the AI Studio ecosystem.</p>
       
@@ -2106,19 +1709,7 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>Mastering Google AI Studio is the highest-leverage skill for the next five years. It is the bridge between "talking to a chatbot" and "architecting a synthetic intelligence system." For those who understand these technical layers, the possibilities for automation are effectively limitless.</p>
       
       <p>The platform continues to evolve rapidly, with new features and capabilities being added regularly. The developers and organizations that invest in understanding these tools now will have significant advantages as AI becomes increasingly central to software development and business operations. The context windows will grow larger, the multimodal capabilities will expand, and the function calling infrastructure will become more sophisticated—but the fundamental principles covered in this guide will remain relevant as the foundation for building with Gemini.</p>
-    `,
-    category: 'AI',
-    tags: ['Google AI', 'Gemini', 'Automation', 'LLM Architecture', 'Prompt Engineering'],
-    date: 'Dec 18, 2025',
-    readTime: '18 min',
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-003',
-    slug: 'flux-2-is-here-black-forest-labs-unveils-new-era',
-    title: 'FLUX.2 Is Here: The New Era of Neural Image Generation That Changes Everything',
-    excerpt: 'Black Forest Labs just dropped FLUX.2 - and it\'s not just better than Midjourney, it\'s a complete architectural revolution. Here\'s why every designer, marketer, and creative professional needs to pay attention.',
-    content: `
+    `,category:"AI",tags:["Google AI","Gemini","Automation","LLM Architecture","Prompt Engineering"],date:"Dec 18, 2025",readTime:"18 min",image:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"},{id:"art-003",slug:"flux-2-is-here-black-forest-labs-unveils-new-era",title:"FLUX.2 Is Here: The New Era of Neural Image Generation That Changes Everything",excerpt:"Black Forest Labs just dropped FLUX.2 - and it's not just better than Midjourney, it's a complete architectural revolution. Here's why every designer, marketer, and creative professional needs to pay attention.",content:`
       <h2>Why This Matters Now More Than Ever</h2>
       <p>I've been following the image generation space closely since 2022. I've seen DALL-E 2, Midjourney v1 through v6, Stable Diffusion XL, and dozens of alternatives come and go. But what Black Forest Labs announced with FLUX.2 is different. This isn't just another incremental improvement - it's a fundamental shift in how AI understands and generates images.</p>
 
@@ -2294,21 +1885,7 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>The creators and agencies that adapt fastest will have a significant competitive advantage. Those that wait will find themselves playing catch-up.</p>
 
       <p><strong>The question isn't whether AI image generation will transform your industry. It's whether you'll be the one driving that transformation or reacting to it.</strong></p>
-    `,
-    category: 'AI',
-    tags: ['Visual AI', 'Flux', 'Design Innovation', 'Open Source', 'Transformers', 'Image Generation'],
-    author: 'Ulisses Balbino',
-    date: 'December 15, 2025',
-    readTime: '18 min read',
-    image: "https://images.unsplash.com/photo-1547027072-332f09bd6bb3?auto=format&fit=crop&w=800&q=80",
-    featured: false
-  },
-  {
-    id: 'art-004',
-    slug: 'crypto5-unpacking-the-five-pillars-reshaping-digital-assets',
-    title: 'Crypto5: The Five Technical Shifts Reshaping Digital Assets in 2026',
-    excerpt: 'An institutional-grade analysis of RWA tokenization, ZK-Proofs, DePIN, and the macro-liquidity forces driving the 2025-2026 super-cycle. Here\'s what\'s actually happening in crypto.',
-    content: `
+    `,category:"AI",tags:["Visual AI","Flux","Design Innovation","Open Source","Transformers","Image Generation"],author:"Ulisses Balbino",date:"December 15, 2025",readTime:"18 min read",image:"https://images.unsplash.com/photo-1547027072-332f09bd6bb3?auto=format&fit=crop&w=800&q=80",featured:!1},{id:"art-004",slug:"crypto5-unpacking-the-five-pillars-reshaping-digital-assets",title:"Crypto5: The Five Technical Shifts Reshaping Digital Assets in 2026",excerpt:"An institutional-grade analysis of RWA tokenization, ZK-Proofs, DePIN, and the macro-liquidity forces driving the 2025-2026 super-cycle. Here's what's actually happening in crypto.",content:`
       <h2>Why This Matters More Than Ever</h2>
       <p>I've been watching the crypto space since 2017. I've seen bubbles burst, exchanges collapse, and technologies promised but never delivered. But what I'm seeing in early 2026 is different. We're not just seeing price movements - we're witnessing the actual industrialization of cryptocurrency technology.</p>
 
@@ -2465,20 +2042,7 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
       <p>I've chosen to understand it deeply and participate thoughtfully. My advice: don't dismiss it, don't overinvest emotionally or financially, but do pay attention. The biggest opportunities often come when the hype has faded and the real building has begun.</p>
 
       <p><strong>That's where we are now.</strong></p>
-    `,
-    category: 'Crypto',
-    tags: ['Web3', 'Blockchain', 'Market Intel', 'ZK-Proofs', 'RWA', 'Macroeconomics', 'DeFi', 'Tokenization'],
-    author: 'Ulisses Balbino',
-    date: 'December 10, 2025',
-    readTime: '15 min read',
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 'art-027',
-    slug: 'real-state-crypto-2026-no-hype-just-data',
-    title: 'The Real State of Crypto in 2026: No Hype, Just Data',
-    excerpt: 'Everyone has an opinion about crypto. Few have data. Here\'s what verified numbers from Security.org, Chainalysis, and Pantera Capital actually show about the $2.5 trillion market.',
-    content: `
+    `,category:"Crypto",tags:["Web3","Blockchain","Market Intel","ZK-Proofs","RWA","Macroeconomics","DeFi","Tokenization"],author:"Ulisses Balbino",date:"December 10, 2025",readTime:"15 min read",image:"https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"},{id:"art-027",slug:"real-state-crypto-2026-no-hype-just-data",title:"The Real State of Crypto in 2026: No Hype, Just Data",excerpt:"Everyone has an opinion about crypto. Few have data. Here's what verified numbers from Security.org, Chainalysis, and Pantera Capital actually show about the $2.5 trillion market.",content:`
       <h2>The Headlines vs. Reality</h2>
       <p>Everyone has an opinion about crypto. Few have data. Here's what the verified numbers say about where we actually are in February 2026.</p>
 
@@ -2581,21 +2145,5 @@ Analise cada premissa usando dados de 2026. Quais são falsas ou questionáveis?
         <li>Pantera Capital Blockchain Letter 2026</li>
         <li>IndexBox Global Crypto Adoption Index 2026</li>
       </ul>
-    `,
-    category: 'Crypto',
-    tags: ['Market Intel', 'Bitcoin', 'Stablecoins', 'Institutional', 'Data Analysis'],
-    date: 'Feb 7, 2026',
-    readTime: '8 min',
-    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80"
-  }
-];
-
-// Import new articles
-import { NEW_ARTICLES } from './new-articles';
-import { NEW_ARTICLES_PART2 } from './new-articles-part2';
-import { NEW_ARTICLES_PART3 } from './new-articles-part3';
-import { NEW_ARTICLES_PART4 } from './new-articles-part4';
-import { NEW_ARTICLES_FEB_18 } from './new-articles-2026-02-18';
-
-// Combined articles array with all articles
-export const ALL_ARTICLES = [...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18];
+    `,category:"Crypto",tags:["Market Intel","Bitcoin","Stablecoins","Institutional","Data Analysis"],date:"Feb 7, 2026",readTime:"8 min",image:"https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80"}],Ae=[...we,...J,...Z,...ee,...te,...ie],x=[{q:"What is the mission of Open Your AIs?",a:"Our mission is to decode complex technological shifts and provide actionable intelligence to ensure digital sovereignty. We focus on AI automation, decentralized finance, and future-proof monetization strategies."},{q:"Are the monetization playbooks verified?",a:"Yes. Every playbook published in our directory undergoes a theoretical and practical audit. We analyze ROI, time-to-market, and technical feasibility before listing any strategy."},{q:"How often is the intelligence feed updated?",a:"Our analysts monitor the neural frontier 24/7. High-priority intelligence reports are released daily, while deep-dive playbooks are updated on a weekly basis."},{q:"Is this platform suitable for beginners?",a:"Absolutely. We provide tiered content ranging from 'Entry Level' crypto guides to 'Hard Difficulty' technical playbooks, ensuring a clear learning path for all tech levels."}],ke=()=>e.jsxs("section",{className:"relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-10",children:[e.jsx("div",{className:"absolute inset-0 bg-cyber-bg z-[-1]"}),e.jsx("div",{className:"absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-cyber-primary/20 blur-[150px] rounded-full z-[-1] animate-pulse"}),e.jsxs("div",{className:"container mx-auto px-4 text-center z-10",children:[e.jsxs("div",{className:"inline-flex items-center gap-2 md:gap-3 mb-6 md:mb-8 px-4 md:px-6 py-2 rounded-full border border-white/10 bg-white/5 text-cyber-primary text-[8px] md:text-[10px] font-black tracking-wider md:tracking-[0.3em] uppercase",children:[e.jsx(_,{className:"w-3 h-3 md:w-4 md:h-4"})," Tech Intelligence Hub 2026"]}),e.jsxs("h1",{className:"text-4xl md:text-6xl lg:text-9xl font-black tracking-tight md:tracking-tighter mb-6 md:mb-8 leading-[0.9] uppercase",children:[e.jsx("span",{className:"block text-white",children:"RECODE YOUR"}),e.jsx("span",{className:"bg-clip-text text-transparent bg-gradient-neon",children:"DIGITAL FUTURE"})]}),e.jsxs("p",{className:"text-base md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 md:mb-14 leading-relaxed font-light px-4",children:["High-fidelity intelligence for the modern elite. Master ",e.jsx("span",{className:"text-white font-bold",children:"Generative AI"}),", secure ",e.jsx("span",{className:"text-white font-bold",children:"Crypto Protocols"}),", and automated ",e.jsx("span",{className:"text-white font-bold",children:"Revenue Frameworks"}),"."]}),e.jsxs("div",{className:"flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4",children:[e.jsxs(c,{to:"/tools",className:"group px-8 md:px-12 py-4 md:py-6 bg-cyber-primary text-cyber-bg font-black rounded-full hover:bg-white transition-all shadow-[0_0_40px_rgba(0,229,255,0.4)] flex items-center justify-center gap-3 uppercase tracking-widest text-xs md:text-sm",children:["Access Tools ",e.jsx(H,{className:"w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform"})]}),e.jsx(c,{to:"/playbooks",className:"px-8 md:px-12 py-4 md:py-6 bg-white/5 border border-white/10 text-white font-black rounded-full hover:bg-white/10 transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-xs md:text-sm backdrop-blur-md",children:"Monetization"})]})]})]}),xe=()=>e.jsxs("section",{className:"py-12 md:py-24 container mx-auto px-4",children:[e.jsx(M,{title:"Core Specializations",subtitle:"Systematic frameworks for the post-work era."}),e.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10",children:[e.jsxs(f,{className:"text-center p-6 md:p-10 border-b-4 border-b-cyber-primary hover:bg-cyber-primary/5 transition-all",children:[e.jsx("div",{className:"w-14 h-14 md:w-20 md:h-20 mx-auto bg-cyber-primary/10 rounded-2xl md:rounded-3xl flex items-center justify-center mb-4 md:mb-8 text-cyber-primary border border-cyber-primary/20",children:e.jsx(Y,{className:"w-6 h-6 md:w-10 md:h-10"})}),e.jsx("h3",{className:"text-lg md:text-2xl font-black text-white mb-3 md:mb-6 uppercase tracking-wider md:tracking-widest",children:"AI & LLMs"}),e.jsx("p",{className:"text-gray-400 text-xs md:text-sm mb-4 md:mb-8 leading-relaxed",children:"Deep analysis of LLM architectures, visual generators, and agentic workflows to augment human output."}),e.jsxs(c,{to:"/tools",className:"inline-flex items-center gap-2 text-cyber-primary font-black text-[9px] md:text-[10px] uppercase tracking-wider md:tracking-[0.2em] hover:text-white transition-all",children:["Connect ",e.jsx(v,{className:"w-3 h-3"})]})]}),e.jsxs(f,{className:"text-center p-6 md:p-10 border-b-4 border-b-cyber-secondary hover:bg-cyber-secondary/5 transition-all",children:[e.jsx("div",{className:"w-14 h-14 md:w-20 md:h-20 mx-auto bg-cyber-secondary/10 rounded-2xl md:rounded-3xl flex items-center justify-center mb-4 md:mb-8 text-cyber-secondary border border-cyber-secondary/20",children:e.jsx(K,{className:"w-6 h-6 md:w-10 md:h-10"})}),e.jsx("h3",{className:"text-lg md:text-2xl font-black text-white mb-3 md:mb-6 uppercase tracking-wider md:tracking-widest",children:"Digital Capital"}),e.jsx("p",{className:"text-gray-400 text-xs md:text-sm mb-4 md:mb-8 leading-relaxed",children:"Actionable, validated playbooks for capital generation using automated systems and artificial intelligence."}),e.jsxs(c,{to:"/playbooks",className:"inline-flex items-center gap-2 text-cyber-secondary font-black text-[9px] md:text-[10px] uppercase tracking-wider md:tracking-[0.2em] hover:text-white transition-all",children:["Execute ",e.jsx(v,{className:"w-3 h-3"})]})]}),e.jsxs(f,{className:"text-center p-6 md:p-10 border-b-4 border-b-cyber-success hover:bg-cyber-success/5 transition-all",children:[e.jsx("div",{className:"w-14 h-14 md:w-20 md:h-20 mx-auto bg-cyber-success/10 rounded-2xl md:rounded-3xl flex items-center justify-center mb-4 md:mb-8 text-cyber-success border border-cyber-success/20",children:e.jsx(X,{className:"w-6 h-6 md:w-10 md:h-10"})}),e.jsx("h3",{className:"text-lg md:text-2xl font-black text-white mb-3 md:mb-6 uppercase tracking-wider md:tracking-widest",children:"Web3 Protocol"}),e.jsx("p",{className:"text-gray-400 text-xs md:text-sm mb-4 md:mb-8 leading-relaxed",children:"Security-first documentation for digital asset self-custody and blockchain market fundamentals."}),e.jsxs(c,{to:"/crypto",className:"inline-flex items-center gap-2 text-cyber-success font-black text-[10px] uppercase tracking-[0.2em] hover:text-white transition-all",children:["Access Vault ",e.jsx(v,{className:"w-3 h-3"})]})]})]})]}),Ie=()=>{const t=Ae.slice(0,3);return e.jsx("section",{className:"py-24 bg-black/20",children:e.jsxs("div",{className:"container mx-auto px-4",children:[e.jsx(M,{title:"Neural Intel Updates",subtitle:"Direct transmission from the technical frontlines."}),e.jsx("div",{className:"grid md:grid-cols-3 gap-8 mb-16",children:t.map(i=>e.jsx(c,{to:`/blog/${i.slug}`,className:"group",children:e.jsxs(f,{className:"h-full flex flex-col p-0 rounded-3xl overflow-hidden border-white/5 hover:border-cyber-primary/20",children:[e.jsxs("div",{className:"aspect-video w-full overflow-hidden relative border-b border-white/5 bg-gray-900",children:[e.jsx(me,{src:i.image||"",alt:i.title,className:"w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-700",width:800,height:450}),e.jsx("div",{className:"absolute top-4 left-4 bg-cyber-bg/90 backdrop-blur px-3 py-1 text-[9px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-widest",children:i.category})]}),e.jsxs("div",{className:"p-8",children:[e.jsx("h3",{className:"text-xl font-black text-white mb-4 line-clamp-2 uppercase tracking-wide leading-tight group-hover:text-cyber-primary transition-colors",children:i.title}),e.jsx("p",{className:"text-gray-500 text-sm line-clamp-2 font-light leading-relaxed",children:i.excerpt})]})]})},i.id))}),e.jsx("div",{className:"text-center",children:e.jsx(c,{to:"/blog",className:"inline-block px-10 py-4 border border-white/10 rounded-full text-gray-500 font-black uppercase text-[10px] tracking-widest hover:border-cyber-primary transition-all",children:"Browse Intelligence Archive"})})]})})},Te=()=>{const[t,i]=l.useState(""),[o,n]=l.useState("idle"),[a,s]=l.useState(""),r=async d=>{if(d.preventDefault(),!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){n("error"),s("Please enter a valid email address");return}n("loading");try{await new Promise(y=>setTimeout(y,1500));const g=JSON.parse(localStorage.getItem("neural-stream-subscribers")||"[]");if(!g.find(y=>y.email===t)){const y={email:t,timestamp:Date.now(),source:"neural-stream",page:window.location.pathname,userAgent:navigator.userAgent.slice(0,100)};g.push(y),localStorage.setItem("neural-stream-subscribers",JSON.stringify(g)),typeof window.gtag=="function"&&window.gtag("event","newsletter_signup",{method:"neural_stream",custom_parameter:"homepage"})}n("success"),s("Welcome to the AI Opportunity Inner Circle! 🚀"),i(""),setTimeout(()=>{n("idle"),s("")},4e3)}catch{n("error"),s("Connection failed. Please try again."),setTimeout(()=>{n("idle"),s("")},3e3)}};return e.jsx("div",{className:"py-24 border-t border-white/5",children:e.jsxs(f,{className:"max-w-4xl mx-auto bg-gradient-to-br from-cyber-primary/5 to-transparent border-cyber-primary/10 p-16 rounded-[40px] text-center",children:[e.jsx("h2",{className:"text-4xl font-black text-white mb-6 uppercase tracking-widest",children:"Neural Stream"}),e.jsx("p",{className:"text-gray-400 mb-12 max-w-xl mx-auto text-lg font-light",children:"Join the vanguard. Receive technical deep-dives and market alerts directly to your inbox."}),e.jsxs("form",{onSubmit:r,className:"max-w-md mx-auto relative group",children:[e.jsx("input",{type:"email",value:t,onChange:d=>i(d.target.value),placeholder:"NEURAL_ID@EMAIL.COM",disabled:o==="loading"||o==="success",className:"w-full bg-black/60 border border-white/10 rounded-full py-6 px-10 text-xs focus:outline-none focus:border-cyber-primary transition-all uppercase font-black tracking-widest disabled:opacity-50"}),e.jsx("button",{type:"submit",disabled:o==="loading"||o==="success",className:`absolute right-2 top-2 px-10 py-4 rounded-full font-black text-[10px] uppercase tracking-widest transition-all disabled:opacity-50 ${o==="success"?"bg-cyber-success text-white":"bg-cyber-primary text-cyber-bg hover:shadow-[0_0_25px_#00E5FF]"}`,children:o==="loading"?"CONNECTING...":o==="success"?e.jsxs(e.Fragment,{children:[e.jsx(Q,{className:"w-3 h-3 inline mr-1"}),"CONNECTED"]}):"CONNECT"})]}),a&&e.jsx("div",{className:`mt-6 text-sm font-bold ${o==="success"?"text-cyber-success":"text-red-400"}`,children:a})]})})},Ce=()=>{l.useEffect(()=>{document.title="Open Your AIs | AI, Crypto & Digital Monetization Intelligence"},[]);const t={"@context":"https://schema.org","@type":"Organization",name:"Open Your AIs",url:"https://www.openyourais.com",logo:"https://www.openyourais.com/logo.png",description:"Technology intelligence platform providing expert analysis on AI tools, cryptocurrency strategies, and digital monetization playbooks.",email:"openyourais888@gmail.com",sameAs:[]},i={"@context":"https://schema.org","@type":"FAQPage",mainEntity:x.map(o=>({"@type":"Question",name:o.q,acceptedAnswer:{"@type":"Answer",text:o.a}}))};return e.jsxs(e.Fragment,{children:[e.jsxs(N,{children:[e.jsx("title",{children:"Open Your AIs | AI, Crypto & Digital Monetization Intelligence"}),e.jsx("meta",{name:"description",content:"Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides. Discover the best AI tools, crypto strategies, and proven monetization playbooks for 2026."}),e.jsx("meta",{name:"keywords",content:"AI tools, artificial intelligence, cryptocurrency, digital monetization, make money online, ChatGPT, Claude AI, crypto trading, passive income, tech tutorials 2026"}),e.jsx("link",{rel:"canonical",href:"https://www.openyourais.com/"}),e.jsx("meta",{property:"og:title",content:"Open Your AIs | AI, Crypto & Digital Monetization Intelligence"}),e.jsx("meta",{property:"og:description",content:"Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides and proven strategies."}),e.jsx("meta",{property:"og:type",content:"website"}),e.jsx("meta",{property:"og:url",content:"https://www.openyourais.com/"}),e.jsx("meta",{property:"og:image",content:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80&fm=webp"}),e.jsx("meta",{name:"twitter:card",content:"summary_large_image"}),e.jsx("meta",{name:"twitter:title",content:"Open Your AIs | AI, Crypto & Digital Monetization Intelligence"}),e.jsx("meta",{name:"twitter:description",content:"Master AI, Crypto, and Digital Monetization with expert guides."}),e.jsx("meta",{name:"twitter:image",content:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80&fm=webp"}),e.jsx("script",{type:"application/ld+json",children:JSON.stringify(t)}),e.jsx("script",{type:"application/ld+json",children:JSON.stringify(i)})]}),e.jsx(ke,{}),e.jsxs("div",{className:"container mx-auto px-4",children:[e.jsx(ue,{slot:"home-top"}),e.jsx(xe,{}),e.jsx(Ie,{}),e.jsx(ge,{items:x}),e.jsx(Te,{})]})]})},Se=l.lazy(()=>h(()=>import("./ContentPages-CY6i6GXE.js"),__vite__mapDeps([0,1,2,3,4])).then(t=>({default:t.ToolsPage}))),Pe=l.lazy(()=>h(()=>import("./ContentPages-CY6i6GXE.js"),__vite__mapDeps([0,1,2,3,4])).then(t=>({default:t.PlaybooksPage}))),je=l.lazy(()=>h(()=>import("./ContentPages-CY6i6GXE.js"),__vite__mapDeps([0,1,2,3,4])).then(t=>({default:t.CryptoPage}))),Re=l.lazy(()=>h(()=>import("./ContentPages-CY6i6GXE.js"),__vite__mapDeps([0,1,2,3,4])).then(t=>({default:t.BlogPage}))),Ee=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.ArticleReader}))),Me=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.PlaybookReader}))),Fe=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.CryptoReader}))),De=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.AboutPage}))),Ne=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.ContactPage}))),I=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.LegalPage}))),Oe=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.NotFoundPage}))),Le=l.lazy(()=>h(()=>import("./DetailPages-CezX2S_s.js"),__vite__mapDeps([5,1,2,3,4])).then(t=>({default:t.SitemapPage}))),qe=l.lazy(()=>h(()=>import("./Admin-BeghpyT1.js"),__vite__mapDeps([6,1,2,3,4])).then(t=>({default:t.AdminPage}))),ze=()=>e.jsx("div",{className:"min-h-[60vh] flex items-center justify-center",children:e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"w-12 h-12 border-4 border-cyber-primary/20 border-t-cyber-primary rounded-full animate-spin mx-auto mb-4"}),e.jsx("p",{className:"text-[10px] font-black text-gray-500 uppercase tracking-[0.3em]",children:"Loading Intelligence..."})]})}),Ge=()=>{const t=C();return l.useEffect(()=>{window.scrollTo(0,0);const i={"/":"Open Your AIs | Future Tech & Wealth Intelligence","/tools":"AI Tools Directory | Open Your AIs","/playbooks":"Monetization Playbooks | Open Your AIs","/crypto":"Crypto Intelligence | Open Your AIs","/blog":"Tech Intel Blog | Open Your AIs","/about":"About Us | Open Your AIs","/contact":"Contact Us | Open Your AIs","/privacy":"Privacy Policy | Open Your AIs","/terms":"Terms of Service | Open Your AIs","/sitemap":"Sitemap | Open Your AIs"};document.title=i[t.pathname]||"Open Your AIs | Future Tech & Wealth Intelligence",typeof window.gtag=="function"&&window.gtag("config","G-EBZ4F0ZXRY",{page_path:t.pathname+t.search,page_title:document.title})},[t]),null},Be=()=>e.jsx(he,{children:e.jsxs(z,{children:[e.jsx(Ge,{}),e.jsx(ve,{children:e.jsx(l.Suspense,{fallback:e.jsx(ze,{}),children:e.jsxs(G,{children:[e.jsx(p,{path:"/",element:e.jsx(Ce,{})}),e.jsx(p,{path:"/tools",element:e.jsx(Se,{})}),e.jsx(p,{path:"/playbooks",element:e.jsx(Pe,{})}),e.jsx(p,{path:"/playbooks/:id",element:e.jsx(Me,{})}),e.jsx(p,{path:"/crypto",element:e.jsx(je,{})}),e.jsx(p,{path:"/crypto/:id",element:e.jsx(Fe,{})}),e.jsx(p,{path:"/blog",element:e.jsx(Re,{})}),e.jsx(p,{path:"/blog/:slug",element:e.jsx(Ee,{})}),e.jsx(p,{path:"/about",element:e.jsx(De,{})}),e.jsx(p,{path:"/contact",element:e.jsx(Ne,{})}),e.jsx(p,{path:"/privacy",element:e.jsx(I,{type:"privacy"})}),e.jsx(p,{path:"/terms",element:e.jsx(I,{type:"terms"})}),e.jsx(p,{path:"/sitemap",element:e.jsx(Le,{})}),e.jsx(p,{path:"/admin",element:e.jsx(qe,{})}),e.jsx(p,{path:"*",element:e.jsx(Oe,{})})]})})})]})}),T=document.getElementById("root");T?R(T).render(e.jsx(O.StrictMode,{children:e.jsx(L,{children:e.jsx(Be,{})})})):console.error("Critical Error: Root element not found.");export{Ae as A,f as C,Ke as P,M as S,Ye as T,me as a,ue as b,Xe as c,_e as d,e as j,He as s,pe as u};
+//# sourceMappingURL=index-Cp-Hc2HP.js.map
