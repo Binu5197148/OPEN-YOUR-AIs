@@ -6,6 +6,9 @@ import { AuthProvider } from './context/AuthContext';
 // Eager load: Home page (critical path - first paint)
 import { HomePage } from './pages/Home';
 
+// Eager load: Critical pages (needed for SEO/pre-render)
+import { AboutPage, ContactPage, LegalPage, SitemapPage, NotFoundPage } from './pages/DetailPages';
+
 // Lazy load: Content pages (loaded on demand)
 const ToolsPage = lazy(() => import('./pages/ContentPages').then(m => ({ default: m.ToolsPage })));
 const PlaybooksPage = lazy(() => import('./pages/ContentPages').then(m => ({ default: m.PlaybooksPage })));
@@ -16,11 +19,6 @@ const BlogPage = lazy(() => import('./pages/ContentPages').then(m => ({ default:
 const ArticleReader = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.ArticleReader })));
 const PlaybookReader = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.PlaybookReader })));
 const CryptoReader = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.CryptoReader })));
-const AboutPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.AboutPage })));
-const ContactPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.ContactPage })));
-const LegalPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.LegalPage })));
-const NotFoundPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.NotFoundPage })));
-const SitemapPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.SitemapPage })));
 
 // Lazy load: Admin page (rarely accessed)
 const AdminPage = lazy(() => import('./pages/Admin').then(m => ({ default: m.AdminPage })));

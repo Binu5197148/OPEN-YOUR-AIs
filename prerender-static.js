@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = join(__dirname, 'dist');
-const PORT = 4173;
+const PORT = 4174;
 
 // ---- Collect all routes ----
 function getAllRoutes() {
