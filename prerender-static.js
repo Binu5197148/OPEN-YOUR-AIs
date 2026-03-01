@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = join(__dirname, 'dist');
-const PORT = 4174;
+const PORT = 4176;
 
 // ---- Collect all routes ----
 function getAllRoutes() {
@@ -146,11 +146,9 @@ async function prerender() {
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
 
       // Wait for React to fully render (including lazy-loaded components)
+      // networkidle0 should handle lazy chunk loading, but add extra wait
       await page.waitForSelector('footer', { timeout: 15000 }).catch(() => {});
-      await new Promise(r => setTimeout(r, 3000));
-      // Scroll to trigger any lazy content
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      await new Promise(r => setTimeout(r, 1000));
+      await new Promise(r => setTimeout(r, 5000));
 
       // Get the full rendered HTML
       let html = await page.content();
