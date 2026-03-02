@@ -3,6 +3,95 @@ import { Article } from './types';
 
 export const ARTICLES_MARCH_2026: Article[] = [
   {
+    id: 'art-050',
+    slug: 'anthropic-claude-cowork-enterprise-agents-2026',
+    title: "Anthropic Just Turned Claude Into Your Entire Office Staff — Here's What That Means for You",
+    excerpt: "On February 24, 2026, Anthropic launched Claude Cowork — a full enterprise agent platform with plug-ins for Finance, HR, Legal, and Engineering. Here's what actually changes for knowledge workers.",
+    content: `
+      <h2>The Enterprise Agent Era Is Here</h2>
+      <p>Last week, Anthropic made the most aggressive enterprise move in its history — and most people are still sleeping on what it actually means for how we work.</p>
+      <p>On February 24, 2026, the company launched its full <strong>Claude Cowork enterprise agent program</strong>: a suite of customizable AI plug-ins designed to handle finance, HR, legal, engineering, and design tasks inside real company workflows. Not a demo. Not a research preview. A live, enterprise-grade product.</p>
+      <p>And according to Anthropic's own head of Americas, Kate Jensen: <em>"2025 was meant to be the year agents transform the enterprise, but the hype turned out to be mostly premature. It wasn't a failure of effort. It was a failure of approach."</em></p>
+      <p>That's a remarkably honest thing for a company to say. It's also a signal that 2026 is when the agents promise finally gets serious.</p>
+
+      <h2>What Is Claude Cowork, Exactly?</h2>
+      <p>Claude Cowork is Anthropic's answer to the question: <em>"What if everyone had their own custom AI assistant — built specifically for their job?"</em></p>
+      <p>Launched in research preview on January 30, 2026, and upgraded to full enterprise deployment on February 24, it's not just a chatbot bolted onto Slack. It's an orchestration layer that lets companies deploy Claude-powered agents with the governance controls their IT departments actually require.</p>
+      <h3>Plug-and-play department agents</h3>
+      <p>Anthropic shipped pre-built plug-ins for the departments that exist in nearly every company:</p>
+      <ul>
+        <li><strong>Finance:</strong> market research, competitive analysis, financial modeling</li>
+        <li><strong>HR:</strong> job descriptions, onboarding materials, offer letters</li>
+        <li><strong>Legal:</strong> document review and summarization (integrates with DocuSign)</li>
+        <li><strong>Engineering:</strong> spec generation, code review support</li>
+      </ul>
+      <h3>New enterprise connectors</h3>
+      <p>Starting February 24, organizations can connect Claude Cowork to:</p>
+      <ul>
+        <li><strong>Google Drive and Gmail</strong></li>
+        <li><strong>DocuSign</strong></li>
+        <li><strong>FactSet</strong> (financial data)</li>
+        <li><strong>Clay</strong> (sales intelligence)</li>
+      </ul>
+      <p>This means the agent can pull live data from your actual systems — not hypothetical examples.</p>
+      <h3>Private software marketplaces</h3>
+      <p>Companies can build internal marketplaces of custom Claude plug-ins — essentially a curated app store for AI automations, controlled by IT and deployed centrally.</p>
+
+      <h2>Why It Matters Now</h2>
+      <p>This isn't just Anthropic selling more API credits.</p>
+      <p>The Claude Cowork launch is the clearest signal yet that <strong>AI agents are graduating from "interesting experiment" to "business infrastructure."</strong> And that has implications that matter to creators, freelancers, and small teams — not just Fortune 500 companies.</p>
+      <p><strong>The SaaS threat is real.</strong> Software stocks dropped nearly 5% the day before the announcement and partially recovered after. Investors are genuinely trying to figure out which tools get replaced when a general-purpose agent can do the same job with a custom plug-in.</p>
+      <p><strong>Labor displacement is uneven — and honest about it.</strong> Anthropic's own head of economics, Peter McCrory, said publicly that roles like data entry are at higher risk, while other jobs remain insulated. <em>"The labor market implications are likely to be very uneven, at least for the foreseeable future, much in the same way that past waves of information technology innovation had uneven impacts."</em> That's the company whose product is doing the disrupting. Candor matters here.</p>
+      <p><strong>"Everybody having their own custom agent"</strong> — that's the exact phrase Anthropic product officer Matt Piccolella used with TechCrunch. It's not a metaphor. It's a product roadmap.</p>
+      <p>For knowledge workers who are already using AI tools, the window to get ahead is narrowing. For those who haven't started yet, the gap is widening.</p>
+
+      <h2>What This Doesn't Replace</h2>
+      <p>Before you spiral: not everything is on the table.</p>
+      <p>Enterprise agents are genuinely powerful at <strong>structured, repeatable tasks</strong> — generating a job description from a template, summarizing a financial report, drafting an NDA from existing boilerplate. These are tasks that have always been time-consuming but not intellectually difficult.</p>
+      <p>What they're still terrible at:</p>
+      <ul>
+        <li><strong>Judgment calls</strong> — weighing ambiguous tradeoffs with incomplete information</li>
+        <li><strong>Creative direction</strong> — deciding what story to tell, not just how to tell it</li>
+        <li><strong>Relationship management</strong> — reading a client's mood, navigating politics, building trust</li>
+        <li><strong>Novel problem-solving</strong> — finding solutions that don't follow existing patterns</li>
+      </ul>
+      <p>The roles at risk are the ones where the majority of time is spent on high-volume, low-judgment tasks. The roles that are safe — and will become <em>more</em> valuable — are the ones where human creativity, experience, and relationships are the actual product.</p>
+      <p>If you're a filmmaker, a consultant, a strategist, or a communicator with real domain expertise, this news isn't a threat. It's an upgrade.</p>
+
+      <h2>How to Implement This Week</h2>
+      <p>You don't need a corporate IT department to benefit from what just launched. Here's a practical playbook for individuals and small teams:</p>
+      <h3>1. Audit your repetitive weekly tasks (30 minutes)</h3>
+      <p>List everything you do more than twice a week that follows a pattern — email responses, report drafts, research summaries, content outlines, meeting agendas. These are your first automation candidates.</p>
+      <h3>2. Test Claude Cowork in research mode now</h3>
+      <p>If you have a Claude Pro or Teams account, the Cowork interface is accessible today. Spend 15 minutes with it on one of your repetitive tasks and measure the time saved. Don't wait for your employer to roll it out.</p>
+      <h3>3. Map your connector needs</h3>
+      <p>Look at the integrations launched (Gmail, Google Drive, DocuSign, FactSet, Clay). If you're already using these tools, you're closer to an automated workflow than you think. Start with one: connect Gmail and run an experiment for one week.</p>
+      <h3>4. Build your "institutional knowledge" document</h3>
+      <p>The most powerful feature of the Cowork plug-in system is encoding institutional knowledge. Start documenting your own: your typical client communication style, your decision frameworks, your recurring templates. This is the input that turns a generic AI agent into a custom one that actually sounds like you.</p>
+      <h3>5. Follow the displacement map, not the hype</h3>
+      <p>Don't panic about everything — pay attention to where AI is genuinely taking over roles in your industry right now (not in theory). Adjust your skillset toward the judgment-intensive, relationship-intensive, and creativity-intensive parts of your work.</p>
+
+      <h2>The Bigger Picture</h2>
+      <p>Anthropic saying "2025 was premature" is a turning point admission. It means the company understands the difference between impressive demos and actual workflow integration — and it means 2026 is the year the gap closes.</p>
+      <p>For those of us who think about AI seriously — not as a magic wand and not as an existential crisis — this is the year to build real fluency. Not familiarity. Not curiosity. Actual hands-on, recurring, practical fluency with these tools in your specific domain.</p>
+      <p>The window where "I know how to use AI" is a competitive advantage is still open. It's just smaller than it was last year.</p>
+
+      <h2>References</h2>
+      <ul>
+        <li>TechCrunch (Feb 24, 2026): <a href="https://techcrunch.com/2026/02/24/anthropic-launches-new-push-for-enterprise-agents-with-plugins-for-finance-engineering-and-design/" target="_blank">Anthropic launches new push for enterprise agents with plug-ins for finance, engineering, and design</a></li>
+        <li>CNBC (Feb 24, 2026): <a href="https://www.cnbc.com/2026/02/24/anthropic-claude-cowork-office-worker.html" target="_blank">Anthropic updates Claude Cowork tool built to give the average office worker a productivity boost</a></li>
+        <li>Anthropic Official Blog: <a href="https://claude.com/blog/cowork-plugins-across-enterprise" target="_blank">Claude Cowork Plugins Across Enterprise</a></li>
+      </ul>
+    `,
+    category: 'AI',
+    tags: ['anthropic', 'claude', 'ai agents', 'enterprise ai', 'productivity', 'claude cowork', 'automation', 'future of work'],
+    date: 'Mar 2, 2026',
+    readTime: '12 min read',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80',
+    author: 'Open Your AIs',
+    featured: true
+  },
+  {
     id: 'art-047',
     slug: 'from-50k-productions-to-ai-what-directing-taught-me',
     title: "From $50K Productions to AI: What 14 Years of Directing Taught Me About the Future",
