@@ -14,7 +14,7 @@ function extractDataFromConstants() {
     let articles = [];
     
     // Files to read for articles
-    const files = ['constants.ts', 'new-articles.ts', 'new-articles-part2.ts', 'new-articles-part3.ts'];
+    const files = ['constants.ts', 'new-articles.ts', 'new-articles-part2.ts', 'new-articles-part3.ts', 'articles-march-2026.ts'];
     
     files.forEach(file => {
         const filePath = path.join(__dirname, file);
