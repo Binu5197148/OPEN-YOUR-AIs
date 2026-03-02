@@ -197,5 +197,47 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1200&q=80',
     author: 'Open Your AIs',
     featured: false
+  },
+  {
+    id: 'art-061',
+    slug: 'perplexity-vs-google-search-2026',
+    title: "I Stopped Using Google for Research — Here's What Replaced It",
+    excerpt: "After 15 years of Google dominance, I switched to Perplexity for all my research. The results shocked me. Here's the honest comparison.",
+    content: `<h2>The Switch</h2><p>Two weeks ago, I stopped using Google for research. Completely. Everything now goes through Perplexity. The results have been... eye-opening.</p><p>I've used Google since 2005. I've watched it go from "just works" to "filter through the noise." At some point, searching stopped being about finding answers and started being about dodging ads, SEO spam, and content farms.</p><p>Perplexity isn't perfect. But it's replaced Google for 80% of my research needs. Here's why.</p><h2>What Perplexity Does Better</h2><p><strong>Actual answers, not links.</strong> I ask a question, I get an answer. Not 10,000 links to sift through.</p><p><strong>Context retention.</strong> It remembers what I was asking about in previous searches. I can have an actual conversation about a topic.</p><p><strong>No SEO spam.</strong> The results are actually relevant. Revolutionary concept, I know.</p><h2>Where Google Still Wins</h2><p><strong>Local results.</strong> Perplexity is terrible at finding nearby restaurants, stores, or services.</p><p><strong>Shopping.</strong> Google still owns product search. Perplexity hasn't cracked this yet.</p><p><strong>Extremely niche queries.</strong> For highly specific technical questions, Google sometimes has better obscure results.</p><h2>The Verdict</h2><p>For research, learning, and understanding topics deeply, Perplexity has replaced Google. I haven't touched Google Search in two weeks.</p><p>Google isn't going anywhere. But for the first time in 15 years, there's a real alternative. And it's better.</p><p><strong>Rating: 8/10</strong> — Replaced Google for 80% of my research needs. The future of search is conversational.</p>`,
+    category: 'AI',
+    tags: ['Perplexity', 'Google', 'Search', 'Research', 'AI'],
+    date: 'Mar 2, 2026',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&fit=crop&w=1200&q=80',
+    author: 'Open Your AIs',
+    featured: false
+  },
+  {
+    id: 'art-062',
+    slug: 'built-with-ai-website-builder-2026',
+    title: "I Built a Complete Website in 10 Minutes — No Code, Just AI",
+    excerpt: "New AI website builders can create entire sites from a single prompt. I tested the best ones. Here's what actually works and what still needs work.",
+    content: `<h2>The Experiment</h2><p>I've built websites the traditional way for 20 years. HTML, CSS, some PHP when I was feeling spicy. Last week, I decided to see if AI could do it better. The answer: yes and no.</p><h2>What Works</h2><p><strong>Speed.</strong> I generated a complete landing page in 10 minutes. Not a skeleton. A real, usable page with copy, images, and basic functionality.</p><p><strong>Design quality.</strong> The designs are genuinely good. Not "AI art" weird, but actual professional layouts.</p><p><strong>Iteration.</strong> Want to change the color scheme? Add a section? The AI handles it instantly. What used to take hours now takes minutes.</p><h2>What Doesn't Work</h2><p><strong>Custom functionality.</strong> Need something specific? You'll still need code. AI builders are great for templates, not custom features.</p><p><strong>SEO optimization.</strong> The AI doesn't understand SEO. You'll need to manually optimize.</p><p><strong>Brand consistency.</strong> AI doesn't know your brand guidelines. You'll spend time adjusting to match.</p><h2>The Verdict</h2><p>AI website builders are ready for: landing pages, simple sites, MVPs, portfolios. They're not ready for: complex web applications, highly custom sites, anything requiring real backend work.</p><p>For my OpenYourAIs site, I still needed a developer. But for 80% of small business websites? AI builders are now a legitimate option.</p><p><strong>Rating: 7.5/10</strong> — Ready for mainstream use. Great for simple sites, still needs humans for complex projects.</p>`,
+    category: 'AI',
+    tags: ['AI', 'Website Builder', 'No-Code', 'Web Development'],
+    date: 'Mar 2, 2026',
+    readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    author: 'Open Your AIs',
+    featured: false
+  },
+  {
+    id: 'art-063',
+    slug: 'solo-creator-ai-productivity-stack-2026',
+    title: "My AI Productivity Stack as a Solo Creator — What I Use Every Day",
+    excerpt: "After months of testing, here's my actual daily AI workflow. 7 tools, $50/month, replacing what used to require a team of 5.",
+    content: `<h2>The Stack</h2><p>I'm a solo creator running a production company, writing content, and managing client work. Here's what I use every single day to make it work.</p><h2>Research: Perplexity Pro</h2><p>$20/month. Replaced Google and RSS readers. I ask questions, it answers. Simple.</p><h2>Writing: Claude</h2><p>$20/month. For drafting articles, emails, and client communications. The best AI for nuanced, long-form content.</p><h2>Code: Cursor</h2><p>$20/month. For building and maintaining websites. Has replaced most of what I'd hire a developer for.</p><h2>Images: Midjourney</h2><p>$30/month. For all visual content. Still the best for creative, artistic image generation.</p><h2>Video: Kling + Runway</h2><p>$50/month combined. For video generation and editing assistance. Each has different strengths.</p><h2>Voice: ElevenLabs</h2><p>$5/month. For voiceovers and narration. Professional quality at a fraction of studio costs.</p><h2>Scheduling: Claude (again)</h2><p>Using Claude for calendar management, email drafting, and task prioritization. It's my executive assistant.</p><h2>The Cost</h2><p>Total: roughly $150/month. Replacing what used to require: researcher, writer, developer, designer, video editor, voice actor, and executive assistant.</p><p>The math works. Even at scale, AI tools cost a fraction of hiring humans. And they work 24/7.</p><h2>The Honest Take</h2><p>AI doesn't replace humans. But it does multiply what a single person can accomplish. I'm more productive now than at any point in my 20-year career. And I work fewer hours.</p><p><strong>Rating: 9/10</strong> — This stack has changed how I work. I'm doing the work of 5 people in 40 hours a week.</p>`,
+    category: 'AI',
+    tags: ['AI', 'Productivity', 'Tools', 'Solo Creator', 'Workflow'],
+    date: 'Mar 2, 2026',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1551434678-e076b2238549?auto=format&fit=crop&w=1200&q=80',
+    author: 'Open Your AIs',
+    featured: false
   }
 ];
