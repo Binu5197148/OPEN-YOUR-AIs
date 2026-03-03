@@ -585,6 +585,8 @@ export const AboutPage: React.FC = () => {
       </nav>
 
       <SectionTitle title="About Open Your AIs" subtitle="Where 14 years of professional filmmaking meets the AI revolution." />
+      
+      <h1 className="sr-only">About Open Your AIs - Professional Filmmaker's Perspective on AI</h1>
 
       <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
         <div className="relative group">
@@ -770,6 +772,8 @@ export const ContactPage: React.FC = () => {
       </nav>
 
       <SectionTitle title="Contact Us" subtitle="Have questions, feedback, or partnership inquiries? We'd love to hear from you." />
+      
+      <h1 className="sr-only">Contact Open Your AIs - Get in Touch</h1>
 
       <div className="grid md:grid-cols-2 gap-12">
         {/* Contact Form */}
@@ -1003,6 +1007,7 @@ export const LegalPage: React.FC<{ type: 'privacy' | 'terms' }> = ({ type }) => 
       </nav>
 
       <SectionTitle title={pageTitle} />
+      <h1 className="sr-only">{pageTitle} - Open Your AIs</h1>
       <Card className="p-10 md:p-16 rounded-[48px] border-white/5 bg-white/[0.01]">
         <div className="prose prose-invert max-w-none text-gray-400 font-light">
           <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">Last Updated: February 19, 2026</p>

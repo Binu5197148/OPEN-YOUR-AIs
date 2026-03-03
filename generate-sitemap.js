@@ -88,7 +88,16 @@ function generateSitemap() {
 
     // Add article URLs
     articles.forEach(article => {
-        const articleDate = article.date || today;
+        // Convert date from "Mar 3, 2026" to "2026-03-03" ISO format
+        let articleDate = today;
+        if (article.date) {
+            try {
+                const dateObj = new Date(article.date);
+                if (!isNaN(dateObj)) {
+                    articleDate = dateObj.toISOString().split('T')[0];
+                }
+            } catch (e) {}
+        }
         urls += `
   <url>
     <loc>${BASE_URL}/blog/${article.slug}</loc>
