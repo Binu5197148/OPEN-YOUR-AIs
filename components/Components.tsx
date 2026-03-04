@@ -56,7 +56,7 @@ const optimizeUnsplashUrl = (url: string): string => {
   return url;
 };
 
-export const SmartImage: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className }) => {
+export const SmartImage: React.FC<{ src: string; alt: string; className?: string; width?: number; height?: number }> = ({ src, alt, className, width, height }) => {
   const [imgSrc, setImgSrc] = useState(optimizeUnsplashUrl(src));
   const [hasError, setHasError] = useState(false);
 
@@ -77,6 +77,9 @@ export const SmartImage: React.FC<{ src: string; alt: string; className?: string
       alt={alt}
       className={className}
       onError={handleError}
+      width={width}
+      height={height}
+      style={{ aspectRatio: width && height ? `${width}/${height}` : '16/9' }}
       loading="lazy"
     />
   );

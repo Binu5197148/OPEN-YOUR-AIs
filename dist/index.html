@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Your AIs | Future Tech & Wealth Intelligence</title>
+    <meta name="description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with high-fidelity technical intelligence. Expert guides on AI tools, crypto strategies, and online income." />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="AI tools, artificial intelligence, cryptocurrency, digital monetization, make money online, ChatGPT, crypto trading, passive income, tech tutorials" />
+    <meta name="author" content="Open Your AIs" />
+    <meta name="robots" content="index, follow" />
+    <!-- canonical is set dynamically per page via react-helmet-async -->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- OG/Twitter tags are set dynamically per page via react-helmet-async -->
+    <meta property="og:site_name" content="Open Your AIs" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://www.openyourais.com/og-default.jpg" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@openyourais" />
+    <meta name="twitter:image" content="https://www.openyourais.com/og-default.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Open Your AIs",
+      "url": "https://www.openyourais.com/",
+      "description": "Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with high-fidelity technical intelligence.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Open Your AIs",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.openyourais.com/logo.png"
+        }
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.openyourais.com/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4722208859927111" crossorigin="anonymous"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZ4F0ZXRY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EBZ4F0ZXRY', {
+        send_page_view: true,
+        custom_map: {'page_title': 'title', 'page_location': 'location'}
+      });
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: {
+              cyber: {
+                bg: '#0A0E1A',
+                text: '#E0FFFE',
+                primary: '#00E5FF',
+                secondary: '#BF00FF',
+                accent: '#FF0080',
+                success: '#00E680',
+              }
+            },
+            backgroundImage: {
+              'gradient-cyber': 'linear-gradient(135deg, #0A0E1A 0%, #111625 100%)',
+              'gradient-neon': 'linear-gradient(to right, #00E5FF, #BF00FF)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { background-color: #0A0E1A; color: #E0FFFE; margin: 0; overflow-x: hidden; }
+      
+      /* MOBILE RESPONSIVENESS FIXES */
+      @media (max-width: 640px) {
+        .container { padding-left: 1rem; padding-right: 1rem; }
+        h1 { font-size: 2.5rem !important; }
+        h2 { font-size: 1.5rem !important; }
+        h3 { font-size: 1.1rem !important; }
+        .text-6xl, .text-9xl { font-size: 2.5rem !important; }
+        .text-4xl, .text-5xl { font-size: 1.75rem !important; }
+        .text-2xl, .text-3xl { font-size: 1.25rem !important; }
+        .tracking-tighter { letter-spacing: -0.025em !important; }
+        .tracking-widest { letter-spacing: 0.05em !important; }
+        .gap-12 { gap: 1.5rem !important; }
+        .gap-8 { gap: 1rem !important; }
+        .p-10, .p-12, .p-16 { padding: 1.25rem !important; }
+        .py-24 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+        .mb-16 { margin-bottom: 2rem !important; }
+        .rounded-\[40px\], .rounded-\[32px\] { border-radius: 1.5rem !important; }
+        .min-h-\[95vh\] { min-height: 80vh !important; }
+        .px-12 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+        .py-6 { padding-top: 0.875rem !important; padding-bottom: 0.875rem !important; }
+        .text-\[10px\], .text-\[9px\], .text-\[8px\] { font-size: 0.65rem !important; }
+        .flex-col.sm\\:flex-row { flex-direction: column !important; }
+      }
+      .glass-panel {
+        background: rgba(16, 20, 35, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 229, 255, 0.1);
+      }
+      @keyframes progressBar {
+        from { width: 0%; }
+        to { width: 100%; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+      
+      /* FORCED VISIBLE SCROLLBAR */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #00E5FF, #BF00FF);
+        border-radius: 5px;
+        border: 2px solid #0A0E1A;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #00E5FF;
+      }
+
+      /* Typography fixes to prevent overlapping */
+      .article-content h2 { color: white; font-weight: 900; text-transform: uppercase; font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.2; }
+      .article-content h3 { color: #00E5FF; font-weight: 700; font-size: 1.4rem; margin-top: 1.5rem; margin-bottom: 0.75rem; line-height: 1.2; }
+      .article-content p { margin-bottom: 1.25rem; line-height: 1.6; color: #9ca3af; font-size: 0.95rem; }
+      .article-content ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.25rem; color: #9ca3af; }
+      .article-content li { margin-bottom: 0.5rem; }
+      .article-content blockquote { border-left: 4px solid #00E5FF; padding-left: 1rem; font-style: italic; margin: 1.5rem 0; color: #E0FFFE; background: rgba(0, 229, 255, 0.05); padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    </style>
+
+  <script type="module" crossorigin src="/assets/index-Dk7Ip2vo.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-helmet-BPZdwhdD.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-D2C-z3V_.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-icons-DAaO-fqo.js">
+  <link rel="modulepreload" crossorigin href="/assets/content-articles-D0V4UPV-.js">
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

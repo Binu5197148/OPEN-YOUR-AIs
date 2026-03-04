@@ -217,7 +217,7 @@ export const ArticleReader: React.FC = () => {
             </header>
 
             <div className="w-full aspect-video rounded-[40px] overflow-hidden mb-16 border border-white/5 bg-gray-900 group shadow-2xl">
-              <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-all duration-1000" />
+              <SmartImage src={article.image} alt={article.title} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-all duration-1000" width={1200} height={675} />
             </div>
 
             <div className="prose prose-invert prose-lg max-w-none">
@@ -398,7 +398,7 @@ export const PlaybookReader: React.FC = () => {
       <div className="grid lg:grid-cols-[1fr_380px] gap-20">
         <div className="space-y-16">
           <div className="w-full aspect-video rounded-[60px] overflow-hidden border border-white/5 bg-gray-900 shadow-2xl">
-            <SmartImage src={playbook.image || ''} alt={playbook.title} className="w-full h-full object-cover opacity-70" />
+            <SmartImage src={playbook.image || ''} alt={playbook.title} className="w-full h-full object-cover opacity-70" width={1200} height={675} />
           </div>
 
           <div className="prose prose-invert prose-xl max-w-none">
@@ -584,20 +584,41 @@ export const AboutPage: React.FC = () => {
         </ol>
       </nav>
 
-      <SectionTitle title="About Open Your AIs" subtitle="Empowering the digital vanguard with verified intelligence on AI, Crypto, and Monetization." />
+      <SectionTitle title="About Open Your AIs" subtitle="Where 14 years of professional filmmaking meets the AI revolution." />
+      
+      <h1 className="sr-only">About Open Your AIs - Professional Filmmaker's Perspective on AI</h1>
 
       <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
         <div className="relative group">
           <div className="absolute -inset-10 bg-cyber-primary/10 blur-[100px] rounded-full group-hover:bg-cyber-primary/20 transition-all duration-1000"></div>
-          <SmartImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="Open Your AIs - AI Technology Intelligence Platform" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
+          <SmartImage src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80" alt="Open Your AIs - Where filmmaking meets AI" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" width={600} height={400} />
         </div>
         <div className="space-y-10">
-          <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">Our Mission</h2>
+          <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">The Person Behind This</h2>
           <p className="text-gray-400 leading-relaxed text-lg font-light">
-            Open Your AIs is a specialized technology intelligence platform dedicated to bridging the gap between rapid technological innovation and practical human application. We provide in-depth, verified analysis across three core domains: <strong className="text-white">Artificial Intelligence</strong>, <strong className="text-white">Cryptocurrency &amp; Blockchain</strong>, and <strong className="text-white">Digital Monetization</strong>.
+            I'm <strong className="text-white">Ulisses Balbino</strong>. Since 2012, I've directed and produced commercial work for brands like <strong className="text-white">Disney, Starbucks, Nestlé, Yamaha, Carrefour, Kopenhagen, and Benefit</strong> through my production company, Pichorra Filmes.
           </p>
           <p className="text-gray-400 leading-relaxed text-lg font-light">
-            Founded in 2025, our platform serves as a trusted resource for entrepreneurs, developers, investors, and technology enthusiasts who want to stay ahead of the curve. Every piece of content we publish undergoes rigorous fact-checking and technical verification to ensure accuracy and reliability.
+            I'm also a comedy writer and performer — I wrote and acted in sketches for Ronald Rios' talk show on <strong className="text-white">Paramount, Comedy Central, and MTV</strong>. Before that, I hosted a humor show on Jovem Pan, one of Brazil's biggest radio networks. I compose music, I act, I edit, I direct. I've done every job on a set.
+          </p>
+          <p className="text-gray-400 leading-relaxed text-lg font-light">
+            Now I use AI in my production work — not to replace any of that knowledge, but to <strong className="text-white">amplify all of it</strong>.
+          </p>
+        </div>
+      </div>
+
+      {/* Why This Site Exists */}
+      <div className="mb-24">
+        <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic mb-12 text-center">Why This Site Exists</h2>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <p className="text-gray-400 leading-relaxed text-lg font-light">
+            In 2015, I produced a 30-second commercial for Nestlé. Budget: $47,000. Crew of 28 people, two shoot days, a week of post-production. Last month, I recreated a similar shot with AI tools in 20 minutes for about $3 in API credits.
+          </p>
+          <p className="text-gray-400 leading-relaxed text-lg font-light">
+            The AI version looked technically impressive but emotionally flat. No soul. No tension. No happy accident. That's the story of AI in creative production right now — and that's exactly what I write about here.
+          </p>
+          <p className="text-gray-400 leading-relaxed text-lg font-light">
+            Open Your AIs isn't another tech blog regurgitating press releases. It's the perspective of someone who's been in the trenches of professional production for 14 years and now works at the intersection of <strong className="text-white">human creativity and artificial intelligence</strong>. Every review, every analysis, every opinion comes from real experience — not theory.
           </p>
         </div>
       </div>
@@ -610,45 +631,45 @@ export const AboutPage: React.FC = () => {
             <div className="w-16 h-16 mx-auto bg-cyber-primary/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-primary border border-cyber-primary/20">
               <Zap className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-black text-white mb-4 uppercase">AI &amp; Machine Learning</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Expert reviews and technical analysis of the latest AI tools, LLM architectures, image generators, and automation frameworks. We help you understand which tools deliver real value.</p>
+            <h3 className="text-xl font-black text-white mb-4 uppercase">AI in Production</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Honest reviews of AI tools from a working director's perspective. What actually works in professional workflows — and what's just demo reel material.</p>
           </Card>
           <Card className="text-center p-10">
             <div className="w-16 h-16 mx-auto bg-cyber-success/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-success border border-cyber-success/20">
-              <ShieldCheck className="w-8 h-8" />
+              <BookOpen className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-black text-white mb-4 uppercase">Cryptocurrency &amp; Blockchain</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Data-driven cryptocurrency analysis, DeFi strategies, security best practices, and market intelligence. We focus on education and risk management, not hype.</p>
+            <h3 className="text-xl font-black text-white mb-4 uppercase">The Hybrid Creator</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">How creative professionals are adapting to AI. What changes, what doesn't, and why human experience is more valuable than ever.</p>
           </Card>
           <Card className="text-center p-10">
             <div className="w-16 h-16 mx-auto bg-cyber-secondary/10 rounded-2xl flex items-center justify-center mb-6 text-cyber-secondary border border-cyber-secondary/20">
               <Award className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-black text-white mb-4 uppercase">Digital Monetization</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Proven playbooks and strategies for building sustainable online income streams using AI and technology. Every strategy is tested and includes realistic timelines and expectations.</p>
+            <h3 className="text-xl font-black text-white mb-4 uppercase">Monetization &amp; Tech</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">Real strategies for building income with AI and technology. No fake promises — just honest playbooks from someone figuring it out in public.</p>
           </Card>
         </div>
       </div>
 
-      {/* Our Values */}
+      {/* Our Philosophy */}
       <div className="mb-24">
-        <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic mb-12 text-center">Our Values</h2>
+        <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic mb-12 text-center">Our Philosophy</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
-            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Accuracy First</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Every claim is cross-referenced with primary sources. We correct errors promptly and transparently.</p>
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">AI Amplifies, Doesn't Replace</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">14 years of directing taught me that creative judgment can't be automated. AI handles the heavy lifting; humans make the decisions that matter.</p>
           </div>
           <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
-            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">No Hype, No Spam</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">We provide realistic expectations and honest assessments. If something doesn't work, we say so.</p>
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Honest Reviews Only</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">If a tool is impressive, I'll say so. If it's overhyped, I'll say that too. Every review comes from actual professional use, not press releases.</p>
           </div>
           <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
-            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Free Access</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">All our content is freely accessible. We sustain operations through advertising partnerships, not paywalls.</p>
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Experience Over Theory</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">I've directed for Disney and Starbucks. I've written comedy for MTV. I edit, grade, and deliver. When I review AI tools, it's from inside the craft.</p>
           </div>
           <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5">
-            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">Continuous Updates</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">Technology evolves rapidly. We regularly update our content to reflect the latest developments and data.</p>
+            <h3 className="text-lg font-black text-cyber-primary mb-3 uppercase">The Hybrid Future</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">The future isn't AI vs. Human. It's Human + AI vs. Everyone Else. We document that future from the front lines.</p>
           </div>
         </div>
       </div>
@@ -656,20 +677,20 @@ export const AboutPage: React.FC = () => {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
         <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
-          <p className="text-cyber-primary font-black text-4xl mb-2 italic">25+</p>
-          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Published Articles</p>
+          <p className="text-cyber-primary font-black text-4xl mb-2 italic">14+</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Years in Production</p>
         </div>
         <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
-          <p className="text-cyber-secondary font-black text-4xl mb-2 italic">10+</p>
-          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">AI Tools Reviewed</p>
+          <p className="text-cyber-secondary font-black text-4xl mb-2 italic">50+</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Articles Published</p>
         </div>
         <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
-          <p className="text-cyber-success font-black text-4xl mb-2 italic">5</p>
-          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Monetization Playbooks</p>
+          <p className="text-cyber-success font-black text-4xl mb-2 italic">10+</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">AI Tools Tested</p>
         </div>
         <div className="p-8 bg-white/[0.02] rounded-[32px] border border-white/5 text-center">
-          <p className="text-white font-black text-4xl mb-2 italic">24/7</p>
-          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Content Updates</p>
+          <p className="text-white font-black text-4xl mb-2 italic">100%</p>
+          <p className="text-[9px] text-gray-500 uppercase font-black tracking-[0.3em]">Real Experience</p>
         </div>
       </div>
 
@@ -751,6 +772,8 @@ export const ContactPage: React.FC = () => {
       </nav>
 
       <SectionTitle title="Contact Us" subtitle="Have questions, feedback, or partnership inquiries? We'd love to hear from you." />
+      
+      <h1 className="sr-only">Contact Open Your AIs - Get in Touch</h1>
 
       <div className="grid md:grid-cols-2 gap-12">
         {/* Contact Form */}
@@ -984,6 +1007,7 @@ export const LegalPage: React.FC<{ type: 'privacy' | 'terms' }> = ({ type }) => 
       </nav>
 
       <SectionTitle title={pageTitle} />
+      <h1 className="sr-only">{pageTitle} - Open Your AIs</h1>
       <Card className="p-10 md:p-16 rounded-[48px] border-white/5 bg-white/[0.01]">
         <div className="prose prose-invert max-w-none text-gray-400 font-light">
           <p className="text-cyber-primary font-black uppercase tracking-[0.3em] text-[10px] mb-16 italic underline decoration-cyber-primary/30 underline-offset-8">Last Updated: February 19, 2026</p>

@@ -12,15 +12,25 @@ const BASE_URL = 'https://www.openyourais.com';
 // Read all article files to extract article data
 function extractDataFromConstants() {
     let articles = [];
-    
+
     // Files to read for articles
-    const files = ['constants.ts', 'new-articles.ts', 'new-articles-part2.ts', 'new-articles-part3.ts'];
-    
+    const files = [
+        'constants.ts',
+        'new-articles.ts',
+        'new-articles-part2.ts',
+        'new-articles-part3.ts',
+        'new-articles-part4.ts',
+        'new-articles-2026-02-18.ts',
+        'articles-feb17.ts',
+        'expanded-articles.ts'
+    ];
+
+
     files.forEach(file => {
         const filePath = path.join(__dirname, file);
         if (fs.existsSync(filePath)) {
             const content = fs.readFileSync(filePath, 'utf-8');
-            
+
             // Look for article objects with slug and date
             // Match pattern: slug: '...', followed by date: '...'
             const articleMatches = content.matchAll(/slug: ['"]([^'"]+)['"][\s\S]*?date: ['"]([^'"]+)['"]/g);
@@ -88,7 +98,16 @@ function generateSitemap() {
 
     // Add article URLs
     articles.forEach(article => {
-        const articleDate = article.date || today;
+        // Convert date from "Mar 3, 2026" to "2026-03-03" ISO format
+        let articleDate = today;
+        if (article.date) {
+            try {
+                const dateObj = new Date(article.date);
+                if (!isNaN(dateObj)) {
+                    articleDate = dateObj.toISOString().split('T')[0];
+                }
+            } catch (e) { }
+        }
         urls += `
   <url>
     <loc>${BASE_URL}/blog/${article.slug}</loc>

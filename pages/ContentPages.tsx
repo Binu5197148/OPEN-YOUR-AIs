@@ -140,7 +140,7 @@ export const PlaybooksPage: React.FC = () => {
             <Link to={`/playbooks/${pb.id}`} key={pb.id} className="group">
               <Card className="border-white/5 group-hover:border-cyber-secondary/40 transition-all p-0 overflow-hidden flex flex-col md:flex-row">
                 <div className="md:w-72 h-48 md:h-auto overflow-hidden bg-gray-900 border-r border-white/5 relative">
-                  <SmartImage src={pb.image || ''} alt={pb.title} className="w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" />
+                  <SmartImage src={pb.image || ''} alt={pb.title} className="w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" width={288} height={192} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-[9px] font-black text-cyber-secondary uppercase tracking-[0.2em] italic">Playbook 0{index + 1}</div>
                 </div>
@@ -326,7 +326,7 @@ export const BlogPage: React.FC = () => {
               <Link to={`/blog/${article.slug}`} className="group">
                 <Card className="h-full flex flex-col p-0 rounded-2xl md:rounded-[40px] overflow-hidden border-white/5 group-hover:border-cyber-primary/20 transition-all bg-white/[0.01]">
                   <div className="aspect-video w-full overflow-hidden relative border-b border-white/5 bg-gray-900">
-                    <SmartImage src={article.image || article.imageUrl} alt={article.title} className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" />
+                    <SmartImage src={article.image || article.imageUrl} alt={article.title} className="w-full h-full object-cover opacity-50 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" width={600} height={338} />
                     <div className="absolute top-3 left-3 md:top-6 md:left-6 bg-cyber-bg/90 backdrop-blur px-2 md:px-4 py-1 md:py-1.5 text-[7px] md:text-[8px] font-black uppercase rounded-sm border border-white/10 text-cyber-primary tracking-wider md:tracking-[0.2em] italic">{article.category}</div>
                   </div>
                   <div className="p-4 md:p-10 flex flex-col flex-grow">

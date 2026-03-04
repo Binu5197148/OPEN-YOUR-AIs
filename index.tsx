@@ -14,6 +14,11 @@ if (rootElement) {
       </HelmetProvider>
     </React.StrictMode>
   );
+  
+  // Tell pre-renderer that React has rendered
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('render-event'));
+  }
 } else {
   console.error("Critical Error: Root element not found.");
 }
