@@ -593,7 +593,9 @@ export const AboutPage: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
         <div className="relative group">
           <div className="absolute -inset-10 bg-cyber-primary/10 blur-[100px] rounded-full group-hover:bg-cyber-primary/20 transition-all duration-1000"></div>
-          <SmartImage src="/ulisses-balbino.jpg" alt="Ulisses Balbino - Director, Producer and founder of Open Your AIs" className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl" width={600} height={400} />
+          <div className="rounded-[60px] border border-white/5 relative z-10 shadow-2xl overflow-hidden" style={{aspectRatio: '3/4', maxHeight: '520px'}}>
+            <img src="/ulisses-balbino.jpg" alt="Ulisses Balbino - Director, Producer and founder of Open Your AIs" className="w-full h-full object-cover object-top" />
+          </div>
         </div>
         <div className="space-y-10">
           <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">The Person Behind This</h2>
