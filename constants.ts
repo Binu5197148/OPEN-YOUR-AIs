@@ -1185,7 +1185,7 @@ export const ARTICLES: Article[] = [
   {
     id: 'art-042',
     slug: 'ai-agents-digital-millionaires-2026',
-    title: 'How AI Agents Are Creating the Next Wave of Digital Millionaires in 2026',
+    title: 'How AI Agents Are Transforming Business Models in 2026',
     excerpt: 'While most people use ChatGPT for emails, entrepreneurs are building empires with AI Agents. Discover the 5 most profitable niches generating $2K-100K monthly and the 18-month window before big tech dominates.',
     content: `
       <h2>The Agent Economy: Beyond Tools to Workforce</h2>
@@ -2598,6 +2598,8 @@ import { NEW_ARTICLES_PART4 } from './new-articles-part4';
 import { NEW_ARTICLES_FEB_18 } from './new-articles-2026-02-18';
 import { FEB17_ARTICLES } from './articles-feb17';
 import { ARTICLES_MARCH_2026 } from './articles-march-2026';
+import { FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED } from './expanded-articles';
 
 // Combined articles array with all articles
-export const ALL_ARTICLES = [...ARTICLES_MARCH_2026, ...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18, ...FEB17_ARTICLES];
+// Expanded versions come first so find() returns the full version for those slugs
+export const ALL_ARTICLES = [FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED, ...ARTICLES_MARCH_2026, ...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18, ...FEB17_ARTICLES];

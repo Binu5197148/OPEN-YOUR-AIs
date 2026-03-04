@@ -22,6 +22,7 @@ function extractDataFromConstants() {
         'new-articles-part4.ts',
         'new-articles-2026-02-18.ts',
         'articles-feb17.ts',
+        'articles-march-2026.ts',
         'expanded-articles.ts'
     ];
 
@@ -33,7 +34,7 @@ function extractDataFromConstants() {
 
             // Look for article objects with slug and date
             // Match pattern: slug: '...', followed by date: '...'
-            const articleMatches = content.matchAll(/slug: ['"]([^'"]+)['"][\s\S]*?date: ['"]([^'"]+)['"]/g);
+            const articleMatches = content.matchAll(/slug: ['"]([^'"]+)['"][\s\S]*?(?:publishD|d)ate: ['"]([^'"]+)['"]/g);
             for (const match of articleMatches) {
                 // Only add if it looks like an article slug (not a tool)
                 if (match[1].startsWith('art-') || match[1].includes('-')) {
