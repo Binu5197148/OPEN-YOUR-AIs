@@ -111,18 +111,20 @@ export const ArticleReader: React.FC = () => {
     "description": metaDescription,
     "image": article.image,
     "author": {
-      "@type": "Organization",
-      "name": "Open Your AIs"
+      "@type": "Person",
+      "name": "Ulisses Balbino",
+      "url": "https://www.openyourais.com/about"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Open Your AIs",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.openyourais.com/logo.png"
+        "url": "https://www.openyourais.com/logo.svg"
       }
     },
     "datePublished": article.date || new Date().toISOString(),
+    "dateModified": article.date || new Date().toISOString(),
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://www.openyourais.com/blog/${article.slug}`
@@ -211,7 +213,7 @@ export const ArticleReader: React.FC = () => {
               <div className="flex items-center gap-4 border-t border-white/5 pt-8">
                 <div className="w-10 h-10 rounded-full bg-cyber-primary/20 flex items-center justify-center text-cyber-primary font-black italic text-xs border border-cyber-primary/30">OY</div>
                 <div className="text-[10px] uppercase font-black tracking-widest text-gray-400">
-                  <span className="text-white">Admin Analyst</span> â€¢ Feb 2026 â€¢ Alpha Priority
+                  <span className="text-white">Ulisses Balbino</span> &bull; {article.date} &bull; Open Your AIs
                 </div>
               </div>
             </header>
