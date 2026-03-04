@@ -12,6 +12,7 @@
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/ads.txt", "destination": "/ads.txt" },
+    { "source": "/ulisses-balbino.jpg", "destination": "/ulisses-balbino.jpg" },
     { "source": "/logo.svg", "destination": "/logo.svg" },
     { "source": "/og-default.svg", "destination": "/og-default.svg" },
     { "source": "/favicon.ico", "destination": "/favicon.ico" },
