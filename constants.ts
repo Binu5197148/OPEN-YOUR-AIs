@@ -2596,6 +2596,27 @@ import { FEB17_ARTICLES } from './articles-feb17';
 import { ARTICLES_MARCH_2026 } from './articles-march-2026';
 import { FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED } from './expanded-articles';
 
+// Slugs temporarily hidden — low value / generic content that hurts AdSense approval
+const HIDDEN_SLUGS = new Set([
+  'affiliate-marketing-ai-automation-2026',
+  'saas-pricing-psychology-strategies',
+  'crypto-airdrops-strategy-guide',
+  'nft-utility-beyond-art-2026',
+  'content-monetization-strategies-2026',
+  'digital-products-passive-income-2026',
+  'how-to-make-money-ai-crypto-2026-complete-guide',
+  'bitcoin-etf-institutional-playbook',
+  'solana-ecosystem-deep-dive',
+  'ai-sales-agents-million-dollar-revenue-streams-2026',
+  'ai-agents-digital-millionaires-2026',
+  'ai-security-business-opportunities-2026',
+  'anthropic-cowork-revolution-agentic-ai',
+  'validacao-ia-ideias-negocio-2026',
+  'adsense-approval-masterclass-2025',
+  'defi-yield-strategies-2026',
+]);
+
 // Combined articles array with all articles
 // Expanded versions come first so find() returns the full version for those slugs
-export const ALL_ARTICLES = [FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED, ...ARTICLES_MARCH_2026, ...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18, ...FEB17_ARTICLES];
+const ALL_ARTICLES_RAW = [FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED, ...ARTICLES_MARCH_2026, ...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18, ...FEB17_ARTICLES];
+export const ALL_ARTICLES = ALL_ARTICLES_RAW.filter(a => !HIDDEN_SLUGS.has(a.slug));
