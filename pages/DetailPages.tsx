@@ -1,5 +1,6 @@
 ﻿
 import React, { useEffect, useState } from 'react';
+import { sanitizeHtml } from '../utils/sanitize';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Clock, DollarSign, ShieldCheck, ChevronRight, Award, BookOpen, Shield, Zap, AlertTriangle, ExternalLink, CheckCircle, Share2, Bookmark, Terminal, Play, Loader2, Mail, Globe } from 'lucide-react';
@@ -229,7 +230,7 @@ export const ArticleReader: React.FC = () => {
 
               <AdUnit slot="article-top" />
 
-              <div className="article-content leading-[1.9] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h2:mt-24 prose-h2:mb-8 prose-h3:text-cyber-primary prose-h3:font-bold prose-h3:text-2xl prose-p:mb-8 prose-ul:mb-8 prose-li:mb-2" dangerouslySetInnerHTML={{ __html: article.content }} />
+              <div className="article-content leading-[1.9] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h2:mt-24 prose-h2:mb-8 prose-h3:text-cyber-primary prose-h3:font-bold prose-h3:text-2xl prose-p:mb-8 prose-ul:mb-8 prose-li:mb-2" dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content) }} />
 
               <div className="mt-24 pt-12 border-t border-white/10">
                 <div className="flex flex-wrap gap-4">
@@ -404,7 +405,7 @@ export const PlaybookReader: React.FC = () => {
           </div>
 
           <div className="prose prose-invert prose-xl max-w-none">
-            <div className="article-content leading-relaxed space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h3:text-cyber-secondary prose-h3:text-2xl" dangerouslySetInnerHTML={{ __html: playbook.content || '' }} />
+            <div className="article-content leading-relaxed space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h3:text-cyber-secondary prose-h3:text-2xl" dangerouslySetInnerHTML={{ __html: sanitizeHtml(playbook.content || '') }} />
           </div>
         </div>
 
@@ -513,7 +514,7 @@ export const CryptoReader: React.FC = () => {
       </header>
 
       <div className="prose prose-invert prose-xl max-w-none">
-        <div className="article-content leading-[1.8] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase" dangerouslySetInnerHTML={{ __html: guide.content }} />
+        <div className="article-content leading-[1.8] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase" dangerouslySetInnerHTML={{ __html: sanitizeHtml(guide.content) }} />
       </div>
 
       <div className="mt-24 p-12 border border-cyber-success/20 rounded-[48px] bg-cyber-success/5 flex flex-col md:flex-row gap-10 items-center group">
