@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Card, SectionTitle } from '../components/Components';
-import { GoogleGenAI } from "@google/genai";
 import { saveNewArticle, getRandomImageRandom } from '../constants';
+import { sanitizeHtml } from '../utils/sanitize';
 import { Article } from '../types';
 import { 
   Lock, 
@@ -23,7 +23,7 @@ import {
 import { Link } from 'react-router-dom';
 
 export const AdminPage: React.FC = () => {
-  const { isAuthenticated, login, logout } = useAuth();
+  const { isAuthenticated, token, login, logout } = useAuth();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -48,121 +48,49 @@ export const AdminPage: React.FC = () => {
     }
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!login(password)) {
+    if (!(await login(password))) {
       setError('Invalid Access Key');
     }
   };
 
   const handleGenerate = async () => {
     if (!topic) return;
-    
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      setError("CRITICAL ERROR: API Key not detected in environment.");
-      return;
-    }
 
     setGenerating(true);
     setError('');
 
     try {
-      const ai = new GoogleGenAI({ apiKey });
-      
-      const systemPrompt = `
-        You are a World-Class Senior Content Architect for "Open Your AIs". 
-        Your mission is to produce an exhaustive "Authority Guide" that establishes the site as a top-tier intelligence hub for Google AdSense compliance.
-
-        WORD COUNT TARGET: 1,500 - 2,500 words.
-        EDITORIAL DEPTH: PhD-level technical analysis, industry trends, and step-by-step implementation logic.
-
-        ARTICLE STRUCTURE:
-        1. Executive Summary: High-impact hook.
-        2. Evolution & Architecture: The history and tech stack.
-        3. Core Mechanics: Deep dive into how it works.
-        4. Practical Execution: Actionable guide for the reader.
-        5. Future Implications: Socio-economic impact and 5-year outlook.
-        6. Technical Insight Box: Specific technical nuance.
-        7. Comprehensive FAQ: 5 complex, multi-layered questions and answers.
-
-        FORMATTING RULES:
-        - Use standard HTML tags: <h2>, <h3>, <h4>, <p>, <ul>, <li>, <strong>, <em>.
-        - Create a specialized "Technical Insight" container using: <div class="bg-cyber-primary/10 border-l-4 border-cyber-primary p-6 my-8 rounded-r-2xl border border-white/5">...</div>.
-        - NO Markdown code blocks. Output plain text with HTML tags inside.
-
-        OUTPUT PROTOCOL:
-        Use these exact markers for parsing:
-        
-        [[TITLE]]
-        (SEO-Optimized Title)
-
-        [[CATEGORY]]
-        (AI, Crypto, or Monetization)
-
-        [[EXCERPT]]
-        (Technical hook summary)
-
-        [[TAGS]]
-        (Comma separated list)
-
-        [[READTIME]]
-        (e.g., 22 min)
-
-        [[CONTENT]]
-        (The full HTML content body)
-      `;
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: `Write a definitive, exhaustive, and highly technical authority article about: "${topic}". Focus on professional terminology, long-form depth (2000 words), and actionable intelligence.`,
-        config: {
-          systemInstruction: systemPrompt,
-          thinkingConfig: { thinkingBudget: 32768 },
-          tools: [{googleSearch: {}}],
-        }
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ topic }),
       });
 
-      const rawText = response.text || '';
-      
-      const getSection = (tag: string) => {
-        const marker = `[[${tag}]]`;
-        const parts = rawText.split(marker);
-        if (parts.length < 2) return '';
-        return parts[1].split('[[')[0].trim();
-      };
-
-      const title = getSection('TITLE');
-      const categoryRaw = getSection('CATEGORY');
-      const excerpt = getSection('EXCERPT');
-      const tagsRaw = getSection('TAGS');
-      const readTime = getSection('READTIME');
-      const content = getSection('CONTENT');
-
-      if (!title || !content) {
-        console.error("Incomplete response from AI:", rawText);
-        throw new Error("AI output was malformed. Please try again.");
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Generation failed');
       }
 
-      let category: 'AI' | 'Crypto' | 'Monetization' = 'AI';
-      if (categoryRaw.toLowerCase().includes('crypto')) category = 'Crypto';
-      else if (categoryRaw.toLowerCase().includes('money') || categoryRaw.toLowerCase().includes('monetiz')) category = 'Monetization';
-
-      const tags = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
+      const { title, category, excerpt, tags, readTime, content } = await res.json();
       const imageUrl = customImage.trim() ? customImage.trim() : getRandomImageRandom(category);
-      
+
       const newArticle: Article = {
         id: `auto-${Date.now()}`,
         slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-        title: title,
-        excerpt: excerpt,
-        content: content,
-        category: category,
-        tags: tags,
+        title,
+        excerpt,
+        content,
+        category,
+        tags,
         date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
         readTime: readTime || '20 min',
         image: imageUrl,
-        isAutoGenerated: true
+        isAutoGenerated: true,
       };
 
       setGeneratedArticle(newArticle);
@@ -315,7 +243,7 @@ export const AdminPage: React.FC = () => {
                      <span className="text-gray-500 text-[8px] font-black uppercase tracking-widest pt-1">{generatedArticle.readTime} cycle</span>
                    </div>
 
-                   <div className="text-gray-300 font-light article-content break-words" dangerouslySetInnerHTML={{ __html: generatedArticle.content }} />
+                   <div className="text-gray-300 font-light article-content break-words" dangerouslySetInnerHTML={{ __html: sanitizeHtml(generatedArticle.content) }} />
                    
                    <div className="mt-12 pt-8 border-t border-white/5">
                       <div className="p-4 border border-white/5 rounded-2xl bg-white/[0.02] text-[9px] text-cyber-primary font-black uppercase tracking-widest text-center">
