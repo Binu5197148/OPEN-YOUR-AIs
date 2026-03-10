@@ -114,7 +114,7 @@ export const AdminPage: React.FC = () => {
       `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-2.0-flash',
         contents: `Write a definitive, exhaustive, and highly technical authority article about: "${topic}". Focus on professional terminology, long-form depth (2000 words), and actionable intelligence.`,
         config: {
           systemInstruction: systemPrompt,
