@@ -146,6 +146,7 @@ export const ArticleReader: React.FC = () => {
     <div className="relative">
       <Helmet>
         <title>{`${article.title} | Open Your AIs`}</title>
+        {article.noindex && <meta name="robots" content="noindex,follow" />}
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={keywords} />
         <link rel="canonical" href={`https://www.openyourais.com/blog/${article.slug}`} />
@@ -533,23 +534,28 @@ export const CryptoReader: React.FC = () => {
 // --- ABOUT PAGE ---
 export const AboutPage: React.FC = () => {
   useEffect(() => {
-    document.title = "About Us | Open Your AIs";
+    document.title = "Sobre Ulisses Balbino | Open Your AIs";
   }, []);
 
   const aboutSchema = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About Open Your AIs",
-    "description": "Learn about Open Your AIs - a technology intelligence platform covering AI, cryptocurrency, and digital monetization strategies.",
+    "@type": "ProfilePage",
+    "name": "Sobre Ulisses Balbino — Open Your AIs",
+    "description": "Ulisses Balbino é diretor e produtor audiovisual com 14 anos de experiência. Fundador do Open Your AIs, cobre IA aplicada à criação, produção audiovisual e workflows de criadores.",
     "url": "https://www.openyourais.com/about",
     "mainEntity": {
-      "@type": "Organization",
-      "name": "Open Your AIs",
-      "url": "https://www.openyourais.com",
+      "@type": "Person",
+      "name": "Ulisses Balbino",
+      "url": "https://www.openyourais.com/about",
+      "image": "https://www.openyourais.com/ulisses-balbino.jpg",
       "email": CONTACT_EMAIL,
-      "description": "Open Your AIs is a technology intelligence platform providing expert analysis on artificial intelligence, cryptocurrency, and digital monetization.",
+      "jobTitle": "Diretor e Produtor Audiovisual",
+      "description": "Diretor e produtor audiovisual com 14 anos de experiência. Trabalhou com Disney, Starbucks, Nestlé, Yamaha e Carrefour via Pichorra Filmes. Fundador do Open Your AIs.",
       "foundingDate": "2025",
-      "sameAs": []
+      "sameAs": [
+        "https://www.instagram.com/openyourais",
+        "https://www.linkedin.com/in/ulissesbalbino"
+      ]
     }
   };
 
@@ -558,22 +564,22 @@ export const AboutPage: React.FC = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" },
-      { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.openyourais.com/about" }
+      { "@type": "ListItem", "position": 2, "name": "Sobre Ulisses Balbino", "item": "https://www.openyourais.com/about" }
     ]
   };
 
   return (
     <div className="container mx-auto px-4 py-20 max-w-5xl">
       <Helmet>
-        <title>About Us | Open Your AIs</title>
-        <meta name="description" content="Learn about Open Your AIs - a technology intelligence platform providing expert analysis on AI tools, cryptocurrency strategies, and digital monetization playbooks." />
+        <title>Sobre Ulisses Balbino | Open Your AIs</title>
+        <meta name="description" content="Ulisses Balbino — diretor e produtor audiovisual com 14 anos de experiência. Fundador do Open Your AIs: IA aplicada à criação, produção audiovisual e workflows de criadores." />
         <link rel="canonical" href="https://www.openyourais.com/about" />
-        <meta property="og:title" content="About Us | Open Your AIs" />
-        <meta property="og:description" content="Learn about Open Your AIs - a technology intelligence platform covering AI, cryptocurrency, and digital monetization." />
-        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Sobre Ulisses Balbino | Open Your AIs" />
+        <meta property="og:description" content="Diretor e produtor audiovisual com 14 anos de experiência. Fundador do Open Your AIs — IA para criação real." />
+        <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://www.openyourais.com/about" />
-        <meta name="twitter:title" content="About Us | Open Your AIs" />
-        <meta name="twitter:description" content="Learn about Open Your AIs - a technology intelligence platform covering AI, cryptocurrency, and digital monetization." />
+        <meta name="twitter:title" content="Sobre Ulisses Balbino | Open Your AIs" />
+        <meta name="twitter:description" content="Diretor e produtor audiovisual com 14 anos de experiência. Fundador do Open Your AIs — IA para criação real." />
         <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
@@ -583,7 +589,7 @@ export const AboutPage: React.FC = () => {
         <ol className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500">
           <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
           <li><ChevronRight className="w-3 h-3" /></li>
-          <li className="text-cyber-primary" aria-current="page">About Us</li>
+          <li className="text-cyber-primary" aria-current="page">Sobre Ulisses Balbino</li>
         </ol>
       </nav>
 

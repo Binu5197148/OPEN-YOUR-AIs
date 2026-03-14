@@ -75,7 +75,7 @@ const staticRoutes = [
     { url: '/', priority: '1.0', changefreq: 'daily' },
     { url: '/tools', priority: '0.9', changefreq: 'weekly' },
     { url: '/playbooks', priority: '0.9', changefreq: 'weekly' },
-    { url: '/crypto', priority: '0.9', changefreq: 'weekly' },
+    // /crypto removido — conteúdo crypto desprioritizado no reposicionamento editorial
     { url: '/blog', priority: '0.9', changefreq: 'daily' },
     { url: '/about', priority: '0.7', changefreq: 'monthly' },
     { url: '/contact', priority: '0.7', changefreq: 'monthly' },
@@ -83,6 +83,20 @@ const staticRoutes = [
     { url: '/terms', priority: '0.5', changefreq: 'yearly' },
     { url: '/sitemap', priority: '0.5', changefreq: 'monthly' },
 ];
+
+// Slugs marcados como noindex — excluídos do sitemap
+const NOINDEX_SLUGS = new Set([
+  'defi-yield-strategies-2026',
+  'crypto-airdrops-strategy-guide',
+  'nft-utility-beyond-art-2026',
+  'solana-ecosystem-deep-dive',
+  'bitcoin-etf-institutional-playbook',
+  'how-to-make-money-ai-crypto-2026-complete-guide',
+  'affiliate-marketing-ai-automation-2026',
+  'digital-products-passive-income-2026',
+  'content-monetization-strategies-2026',
+  'saas-pricing-psychology-strategies',
+]);
 
 // Generate sitemap XML
 function generateSitemap() {
@@ -97,8 +111,9 @@ function generateSitemap() {
     <priority>${route.priority}</priority>
   </url>`).join('');
 
-    // Add article URLs
+    // Add article URLs (excluindo noindex)
     articles.forEach(article => {
+        if (NOINDEX_SLUGS.has(article.slug)) return;
         // Convert date from "Mar 3, 2026" to "2026-03-03" ISO format
         let articleDate = today;
         if (article.date) {

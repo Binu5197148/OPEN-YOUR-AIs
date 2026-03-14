@@ -5,6 +5,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
   {
     id: 'art-011',
     slug: 'affiliate-marketing-ai-automation-2026',
+    noindex: true,
     title: 'Affiliate Marketing + AI: The Automation Playbook for 2026',
     excerpt: 'How to build automated affiliate marketing systems using AI for content creation, audience targeting, and conversion optimization.',
     content: `
@@ -114,6 +115,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
   {
     id: 'art-012',
     slug: 'saas-pricing-psychology-strategies',
+    noindex: true,
     title: 'SaaS Pricing Psychology: Strategies That Maximize Revenue',
     excerpt: 'Deep dive into pricing psychology, tier structures, and data-driven optimization techniques that top SaaS companies use to maximize customer lifetime value.',
     content: `
@@ -352,6 +354,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
   {
     id: 'art-041',
     slug: 'crypto-airdrops-strategy-guide',
+    noindex: true,
     title: 'Crypto Airdrop Hunting: A Strategic Guide for 2026',
     excerpt: 'How to systematically position for valuable airdrops while managing risk — from identifying opportunities to optimizing wallet strategies.',
     content: `
@@ -479,6 +482,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
   {
     id: 'art-015',
     slug: 'digital-products-passive-income-2026',
+    noindex: true,
     title: 'Digital Products: Building Passive Income Streams in 2026',
     excerpt: 'From ebooks to templates to courses — how to create, price, and sell digital products that generate recurring revenue with minimal ongoing effort.',
     content: `

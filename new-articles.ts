@@ -304,6 +304,7 @@ export const NEW_ARTICLES: Article[] = [
   {
     id: 'art-008',
     slug: 'bitcoin-etf-institutional-playbook',
+    noindex: true,
     title: 'Bitcoin ETF Strategy: The Institutional Playbook for 2026',
     excerpt: 'Deep analysis of spot Bitcoin ETF mechanics, flow dynamics, and sophisticated strategies for maximizing exposure while managing risk.',
     content: `
@@ -421,6 +422,7 @@ export const NEW_ARTICLES: Article[] = [
   {
     id: 'art-009',
     slug: 'solana-ecosystem-deep-dive',
+    noindex: true,
     title: 'Solana in 2026: The High-Performance Blockchain Ecosystem Guide',
     excerpt: 'Comprehensive analysis of Solana\'s technical architecture, DeFi ecosystem, and why institutional developers are choosing it for next-generation applications.',
     content: `
@@ -519,6 +521,7 @@ export const NEW_ARTICLES: Article[] = [
   {
     id: 'art-010',
     slug: 'defi-yield-strategies-2026',
+    noindex: true,
     title: 'Advanced DeFi Yield Strategies: Risk-Adjusted Returns in 2026',
     excerpt: 'From simple staking to complex delta-neutral strategies — a comprehensive guide to generating yield in decentralized finance while managing risk.',
     content: `

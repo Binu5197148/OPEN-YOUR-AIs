@@ -117,6 +117,7 @@ export const NEW_ARTICLES_PART3: Article[] = [
   {
     id: 'art-018',
     slug: 'nft-utility-beyond-art-2026',
+    noindex: true,
     title: 'NFT Utility in 2026: Real-World Applications Beyond Digital Art',
     excerpt: 'How NFTs are being used for ticketing, memberships, credentials, and supply chain — the practical applications driving adoption.',
     content: `
@@ -244,6 +245,7 @@ export const NEW_ARTICLES_PART3: Article[] = [
   {
     id: 'art-019',
     slug: 'content-monetization-strategies-2026',
+    noindex: true,
     title: 'Content Monetization Playbook: Multi-Platform Revenue in 2026',
     excerpt: 'How creators build sustainable income across YouTube, newsletters, podcasts, and social media — the strategies that actually work.',
     content: `
@@ -586,6 +588,7 @@ export const NEW_ARTICLES_PART3: Article[] = [
   {
     id: 'art-022',
     slug: 'how-to-make-money-ai-crypto-2026-complete-guide',
+    noindex: true,
     title: 'How to Make Money with AI and Crypto in 2026: The Definitive Guide',
     excerpt: 'The 7 real opportunities to make money with Artificial Intelligence and Cryptocurrencies in February 2026. Tested methods, complete step-by-step guides, and critical security warnings.',
     content: `
