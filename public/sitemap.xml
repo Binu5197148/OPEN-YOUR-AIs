@@ -517,4 +517,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/sag-aftra-2026-ai-tilly-tax-what-commercial-producers-need-to-know</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/filmustage-ai-script-breakdown-preproduction-automation-directors-review</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

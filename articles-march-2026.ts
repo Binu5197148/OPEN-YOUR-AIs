@@ -2587,5 +2587,79 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80',
     author: 'Ulisses Balbino',
     featured: false
+  },
+  {
+    id: 'art-099',
+    slug: 'sag-aftra-2026-ai-tilly-tax-what-commercial-producers-need-to-know',
+    title: "SAG-AFTRA Extended Talks on March 6. The 'Tilly Tax' on AI Performers Is the Issue Commercial Producers Can't Ignore.",
+    excerpt: "SAG-AFTRA's 2026 contract negotiations extended into March with one key demand: a royalty fee every time AI-generated performers are used commercially. The 2025 Commercials Contracts already set new AI limits. Here's what this means for how you use AI in commercial production.",
+    content: `<h2>The Negotiation That Changes Commercial Production Math</h2>
+<p>On March 6, 2026, SAG-AFTRA and the AMPTP announced a one-week extension of contract negotiations that had begun unusually early on February 9. The reason negotiations started early is significant: both sides understand that AI is the central issue in the 2026 contracts, and neither side is underestimating the complexity of what's being negotiated.</p>
+<p>For commercial producers, the 2026 contract discussions matter directly. The productions most affected by AI performer technology are not feature films or television series — they are exactly the high-volume commercial and advertising productions that use AI-generated spokespeople, AI voice cloning, and AI-synthesized talent to manage costs at scale. If you're using HeyGen, ElevenLabs voice cloning, or any AI generation tool to create synthetic performances in commercial content, these negotiations determine the legal and financial structure of that use.</p>
+
+<h2>The Tilly Tax: What It Is and Why It Matters</h2>
+<p>The central AI provision in SAG-AFTRA's 2026 negotiating position is a royalty fee — informally called the "Tilly tax" after an early discussion around it — that would require producers to pay SAG-AFTRA whenever AI-generated performers are used in place of real talent in productions covered by the agreement. The stated goal is to make AI performers financially comparable to hiring real people, removing the cost incentive for substituting generated performances for real ones.</p>
+<p>The mechanism being proposed works like this: if you use an AI-generated actor, voice, or digital replica in a production that would otherwise be covered by SAG-AFTRA's jurisdiction, you pay a fee to the union comparable to what you would have paid in wages and residuals to a real member performing the same role. The union's position is that AI-generated performances should not create a cost arbitrage that incentivizes replacing union members with synthetic alternatives.</p>
+<p>From a production standpoint, the Tilly tax would change the economics of AI spokesperson content in two directions: it would increase the cost of AI-generated performances in covered productions, and it would create clear financial accountability for which productions choose AI over real talent. For productions currently below SAG-AFTRA's jurisdiction threshold, the immediate impact may be limited — but the precedent being set will extend over time.</p>
+
+<h2>What the 2025 Commercials Contracts Already Changed</h2>
+<p>Before the 2026 negotiations, SAG-AFTRA's 2025 Commercials Contracts already introduced the first contractual limitations on AI training data use from members' performances. In the approved commercial contract, advertisers and agencies must now obtain SAG-AFTRA permission before they can authorize any third parties to use commercial performance material to train AI systems.</p>
+<p>For production companies, this means that any commercial production featuring SAG-AFTRA talent now includes a restriction on the downstream use of that talent's performance data for AI training purposes. If you want to train an AI voice clone or video avatar model on footage from a union production, you need explicit permission from SAG-AFTRA — and the talent involved has recourse if their performance is used without that permission.</p>
+<p>This is already active. It affects any commercial production that used SAG-AFTRA talent after May 2025, which is the majority of professional commercial production in North America. If your production company uses commercial footage as AI training data — or if a vendor you work with does — the 2025 Commercials Contracts create legal exposure that needs to be addressed in your production agreements and vendor contracts.</p>
+
+<h2>Digital Twin Protections</h2>
+<p>SAG-AFTRA's AI priorities also include explicit protection against the unauthorized creation of digital twins or clones of members' likenesses. This provision addresses tools that can generate a photorealistic replica of a real person's appearance and voice from limited source material — the category of tools that created the most immediate concern about AI in entertainment.</p>
+<p>For commercial productions, this means that creating an AI version of a real person's likeness for use in advertising — without that person's explicit consent and appropriate compensation — is directly addressed in the union's negotiating position. The legal framework is being built around what was previously a gray area.</p>
+
+<h2>What This Means for Commercial Producers Right Now</h2>
+<p>Three practical implications for how you operate a commercial production company in 2026:</p>
+<p>First, audit your current AI tool usage against union jurisdiction. If your commercial productions involve SAG-AFTRA talent — which most professional commercial productions do — the 2025 Commercials Contracts' AI training provisions are already in effect. Review your production agreements and vendor contracts for language that covers downstream use of performance data.</p>
+<p>Second, understand the AI tools you're using and their training data provenance. Tools that use AI trained on real performers' data without licensing agreements are increasingly exposed to legal challenge. The vendors that are building proper licensing structures — the approach Suno took with Warner Music, the direction ElevenLabs is moving with its Meta partnership — are positioning for a commercial landscape where proper rights clearance is enforceable, not optional.</p>
+<p>Third, watch the 2026 negotiations closely. The Tilly tax provision, if agreed, will either be a managed cost structure that integrates into production budgets or a prohibitive barrier that changes when AI performers are used commercially. The outcome of the current extension will clarify that landscape significantly.</p>
+<p>The direction is clear regardless of how the specific negotiations resolve: AI use in union productions is becoming a structured, compensated activity rather than an unregulated cost reduction. Planning for that now puts you ahead of the adjustment rather than behind it.</p>
+<p><em>Sources: <a href="https://deadline.com/2025/05/sag-aftra-artificial-intelligence-protections-2026-1236384968/" target="_blank" rel="noopener">Deadline — SAG-AFTRA AI Protections for 2026 Contract</a> | <a href="https://www.hollywoodreporter.com/business/business-news/sag-aftra-commercials-contracts-refine-union-approach-ai-1236221770/" target="_blank" rel="noopener">Hollywood Reporter — SAG-AFTRA Commercials Contracts and AI</a> | <a href="https://nofilmschool.com/2026-wga-contract-negotiations" target="_blank" rel="noopener">No Film School — 2026 WGA and SAG-AFTRA Negotiations</a></em></p>`,
+    category: 'AI',
+    tags: ['SAG-AFTRA', 'AI Law', 'Commercial Production', 'AI Performers', 'Tilly Tax', 'Union Contracts'],
+    date: 'Mar 15, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
+  },
+  {
+    id: 'art-100',
+    slug: 'filmustage-ai-script-breakdown-preproduction-automation-directors-review',
+    title: "Filmustage Breaks Down Your Script in Minutes. After Using It for a Commercial, Here's My Honest Review.",
+    excerpt: "AI identifies cast, props, locations, VFX, and wardrobe from your script with 86% accuracy, then auto-generates your shooting schedule, budget, and call sheets. I tested it on a real production. This is what happened.",
+    content: `<h2>The Pre-Production Problem That Never Gets Fixed</h2>
+<p>Script breakdown is one of the most time-consuming parts of commercial pre-production, and it's also one of the most invisible. Nobody in a client meeting ever asks about the breakdown. Nobody on set thinks about the hours spent tagging elements, organizing shooting days, and generating call sheets. It's the foundation that everything else sits on, and it gets built the hard way — manually, by a 1st AD or production coordinator who knows what they're doing and charges accordingly.</p>
+<p>For a one-page commercial script, a skilled 1st AD can do a complete breakdown in two to three hours. For a longer branded film or a campaign with multiple spots, the breakdown is a day or more of pre-production time. Filmustage claims to automate this in minutes. After testing it on a recent commercial production, here's what that actually looks like in practice.</p>
+
+<h2>What Filmustage Does</h2>
+<p>Filmustage is an AI-powered pre-production platform that takes your script as input and automatically identifies and tags every production element: cast, locations, props, wardrobe, animals, VFX requirements, stunts, and special effects. The AI uses natural language processing to read the script and categorize elements the same way a human 1st AD would — except it does it across the entire script in about 30 seconds per page rather than 5-10 minutes.</p>
+<p>Once the breakdown is tagged, the platform auto-generates a shooting schedule based on the elements identified, produces budget line items for every category, and can generate call sheets directly from the schedule. Storyboards auto-sync with the script elements and breakdown. VFX sequences are identified and structured for department planning.</p>
+<p>The platform integrates with industry-standard tools: Movie Magic, Gorilla Scheduling, and Final Draft. Breakdown data exports in formats compatible with these systems, so you're not locked into Filmustage's native environment if your production uses established pipeline tools.</p>
+
+<h2>The Accuracy Reality: 86% Is Not 100%</h2>
+<p>Filmustage claims up to 86% accuracy in element identification. In my testing on a 90-second commercial script across three different spots, that figure held approximately true — with important caveats about where the errors occurred.</p>
+<p>The misses were not random. The AI was most reliable on explicit elements: named characters, specific locations stated directly in scene headings, clearly described props. It was least reliable on implied elements: props referenced in action that aren't explicitly named ("she reaches into her bag" without specifying what's in the bag), locations that are described by atmosphere rather than stated directly, and VFX requirements implied by described action rather than explicitly marked.</p>
+<p>In production terms, the 14% gap represents exactly the elements that require the most experienced production judgment to identify correctly. A skilled 1st AD knows to flag "she opens the refrigerator" as a prop requirement even when no specific items are mentioned, because they know from experience that kitchen refrigerator contents are always a production consideration. The AI doesn't have that inferential experience base yet.</p>
+<p>The workflow implication: Filmustage replaces the mechanical tagging of explicit elements — about 80% of a breakdown — while reducing but not eliminating the need for experienced review on implied and contextual elements. The production coordinator reviewing an AI-generated breakdown starts from a near-complete document rather than a blank sheet, which changes the time requirement from two to three hours to 30-45 minutes of review and completion. That is a genuine efficiency gain even with the accuracy limitation.</p>
+
+<h2>The Auto-Generated Schedule and Budget</h2>
+<p>The shooting schedule generated from the AI breakdown reflects the elements identified, organized into shooting days using standard industry scheduling logic. For a commercial where the shooting order is primarily driven by location availability and talent scheduling rather than complex script logic, the AI schedule is a solid first draft that requires adjustment for practical constraints but not a rebuild from scratch.</p>
+<p>The auto-generated budget line items are the most practically useful output for the commercial production context. Every tagged element becomes a budget line immediately: cast (based on the roles identified), locations (based on identified location types), specific props, wardrobe, VFX. The budget structure reflects the breakdown without requiring a separate data entry step. For the initial budget estimate that goes to a client before production is confirmed, having a structured document that reflects the actual script elements is more credible than a template-based estimate that doesn't connect to the specific production.</p>
+
+<h2>Who Gets the Most Value</h2>
+<p>My honest assessment: Filmustage provides the most value for production contexts where pre-production time is compressed and experienced 1st AD availability is limited. For small production companies working on digital commercial content — the category of work where pre-production time is shortest and budgets don't always accommodate a full-time 1st AD — the AI breakdown accelerates the process enough to be significant. For large-budget productions with a full production department, the efficiency gain exists but is proportionally smaller relative to the overall production infrastructure.</p>
+<p>The platform is best thought of as an intelligent first pass rather than a complete solution. It does 80% of the mechanical work of a script breakdown in minutes and gives your production team a structured starting point for the remaining 20% that requires experienced judgment. That is an honest characterization of what AI-assisted pre-production looks like in 2026 — genuinely useful, not fully autonomous, and worth the time to test on your next production before committing to it as a primary pipeline tool.</p>
+<p><em>Sources: <a href="https://filmustage.com/script-breakdown/" target="_blank" rel="noopener">Filmustage — Automate Script Breakdown with AI</a> | <a href="https://noamkroll.com/review-testing-filmustages-ai-powered-script-breakdown-app-on-a-feature-film/" target="_blank" rel="noopener">Noam Kroll — Testing Filmustage on a Feature Film</a> | <a href="https://www.unite.ai/best-ai-pre-production-tools-for-filmmakers/" target="_blank" rel="noopener">Unite.AI — Best AI Pre-Production Tools for Filmmakers 2026</a></em></p>`,
+    category: 'Tools',
+    tags: ['Filmustage', 'Script Breakdown', 'Pre-Production', 'Production Planning', 'AI Tools', 'Commercial Production'],
+    date: 'Mar 15, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
   }
 ];
