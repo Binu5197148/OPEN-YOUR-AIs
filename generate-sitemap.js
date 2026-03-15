@@ -96,6 +96,7 @@ const NOINDEX_SLUGS = new Set([
   'digital-products-passive-income-2026',
   'content-monetization-strategies-2026',
   'saas-pricing-psychology-strategies',
+  'polsia-autonomous-ai-company-builder-review',
 ]);
 
 // Generate sitemap XML
