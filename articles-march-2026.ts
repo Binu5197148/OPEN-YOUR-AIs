@@ -1381,5 +1381,104 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
     author: 'Ulisses Balbino',
     featured: true
+  },
+  {
+    id: 'art-069',
+    slug: 'spielberg-no-ai-sxsw-2026-director-perspective',
+    title: "Spielberg Says He's Never Used AI. Here's Why That's More Complicated Than It Sounds.",
+    excerpt: "At SXSW 2026, Steven Spielberg said he has never used AI in any of his films. There's also a No AI Film Festival running in Los Angeles right now. As a working director who uses AI daily, I have thoughts.",
+    content: `<h2>When a Legend Draws a Line</h2>
+<p>On March 13, at SXSW 2026, Steven Spielberg said something that immediately circulated through every filmmaker forum and group chat: &quot;I&apos;ve never used AI on any of my films yet.&quot;</p>
+<p>That &quot;yet&quot; is doing a lot of work in that sentence. But the statement landed as a kind of moral flag — one of the greatest filmmakers alive publicly distancing himself from the thing the industry can&apos;t stop talking about.</p>
+<p>Around the same time, a No AI Film Festival launched in Los Angeles. The premise: films made without AI tools, as a statement about craft and authenticity.</p>
+<p>I understand the impulse. I also think the conversation is more tangled than the headlines suggest.</p>
+
+<h2>What Spielberg Is Actually Saying</h2>
+<p>I want to take Spielberg at his word and think about what the statement really means.</p>
+<p>He said he hasn&apos;t used AI <em>yet</em>. That &quot;yet&quot; suggests he&apos;s watching, not dismissing. A filmmaker who spent decades pushing visual effects technology — who co-founded DreamWorks during the digital revolution, who used motion capture for War Horse before it was common — is not a technophobe. He&apos;s deliberate.</p>
+<p>The more likely reality is that Spielberg has very specific standards for what enters his creative process. And AI, at least as it exists today, doesn&apos;t meet them for what he needs at his level. That&apos;s not the same as AI being wrong for film. It&apos;s a craftsman with extremely high tolerance thresholds saying the tool isn&apos;t ready for his particular use case.</p>
+<p>That&apos;s a reasonable position. It&apos;s also a position of privilege that only a filmmaker of his standing can afford.</p>
+
+<h2>The No AI Film Festival Problem</h2>
+<p>The No AI Film Festival is more interesting to unpack.</p>
+<p>On one level, I understand it. There is legitimate concern about what happens when AI-generated content floods distribution channels, when faces and voices are synthesized without consent, when the line between real and fabricated disappears. Those are serious issues that go beyond aesthetics.</p>
+<p>But the festival framing — films made without AI as a badge of purity — sets up a false dichotomy that I find frustrating from a production standpoint.</p>
+<p>I directed a Nestlé commercial in 2015. We used digital color grading, CGI product shots, digital sound design, and a non-linear editing system. None of those are &quot;natural.&quot; They are all tools that changed how film was made when they arrived, were resisted by parts of the industry, and are now completely unremarkable.</p>
+<p>The question was never &quot;is the tool natural?&quot; It was always &quot;does the work have integrity?&quot;</p>
+
+<h2>Where I Actually Stand</h2>
+<p>I use AI in my work. I use it for pre-visualization, for concept iteration, for reducing the cost of testing ideas before committing to production. I do not use it to replace the parts of filmmaking that require human presence, judgment, and taste.</p>
+<p>That line is not arbitrary for me. It comes from 14 years of understanding which parts of a production can be systematized and which cannot.</p>
+<p>The camera day is not the expensive part of production. The expensive part is all the uncertainty that precedes it: bad briefs, misaligned expectations, late-stage creative pivots, direction that gets lost between concept and execution. AI helps compress those costs significantly. The creative direction itself — knowing what story to tell, how to tell it, what to cut — remains human work.</p>
+
+<h2>The Real Divide Isn&apos;t AI vs No AI</h2>
+<p>What the Spielberg moment and the No AI Festival both reveal is a real underlying tension: who benefits when production gets cheaper?</p>
+<p>If AI tools lower the cost of filmmaking, more people can make films. That sounds democratizing. But it also means the market gets flooded, distribution becomes harder to navigate, and the craft signals that used to separate good work from average work become harder to read.</p>
+<p>Spielberg doesn&apos;t need to worry about that. His name is a distribution mechanism on its own.</p>
+<p>Independent filmmakers and mid-career directors do need to worry about it. And the answer isn&apos;t to refuse the tools. It&apos;s to develop such a specific and recognizable creative voice that the tools become irrelevant to whether your work stands out.</p>
+<p>The no AI position is ultimately a statement about identity, not craft. The real craft question is what you do with the tools, not which ones you refuse.</p>
+
+<h2>The Practical Next Step</h2>
+<p>If you are a filmmaker watching this debate, here is what I would focus on: build a clear creative point of view, develop your editorial instincts, and use every tool — AI or otherwise — in service of that. When your specific perspective is strong enough, the conversation about which tools you used becomes secondary.</p>
+<p>Spielberg&apos;s &quot;yet&quot; is telling. The conversation is not over. It is just beginning.</p>
+<p><em>Sources: <a href="https://techcrunch.com/2026/03/13/steven-spielberg-says-hes-never-used-ai-in-any-of-his-films/" target="_blank" rel="noopener">TechCrunch — Steven Spielberg says he&apos;s never used AI in any of his films (Mar 13, 2026)</a></em></p>`,
+    category: 'AI',
+    tags: ['AI Filmmaking', 'Creative Direction', 'Spielberg', 'Film Industry', 'Production'],
+    date: 'Mar 15, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
+  },
+  {
+    id: 'art-070',
+    slug: 'google-flow-2026-unified-ai-video-workspace-creators',
+    title: "Google Just Merged Its AI Creative Tools Into One Workspace. It&apos;s Worth a Look.",
+    excerpt: "Google Flow now integrates Whisk, ImageFX, and Veo 3.1 into a single creative pipeline. From idea to image to video with native audio, without leaving one tab. Here's what actually works for creators.",
+    content: `<h2>Three Tools That Used to Be Separate Are Now One</h2>
+<p>In late February 2026, Google shipped a major redesign of Flow, its AI video creation platform. The change: they merged three previously separate products into a single interface.</p>
+<ul>
+<li><strong>Flow</strong> — the Veo-powered video generation tool</li>
+<li><strong>Whisk</strong> — the visual collage and mood board tool for combining reference images</li>
+<li><strong>ImageFX</strong> — the text-to-image generator</li>
+</ul>
+<p>The result is a pipeline that goes from initial concept to generated image to animated, audio-synced video inside one workspace. For creators who were previously bouncing between tabs and exporting assets between tools, this is a meaningful quality-of-life change.</p>
+
+<h2>What Veo 3.1 Adds in This Update</h2>
+<p>The video generation in Flow runs on Veo 3.1, which Google updated alongside the Flow redesign. The practical additions worth knowing:</p>
+<p><strong>Native audio generation.</strong> Veo 3.1 generates synchronized audio alongside video — natural dialogue, ambient sound, sound effects. Same pattern we&apos;re seeing across the industry right now with Sora 2 and Runway Gen-4.5. The days of generating silent AI video and manually dubbing audio are ending.</p>
+<p><strong>Native 9:16 support.</strong> The &quot;Ingredients to Video&quot; feature now generates natively in vertical format. For anyone producing content for YouTube Shorts, Instagram Reels, or TikTok, this matters. Previously you were cropping horizontal output or accepting quality loss. Now you generate vertical and it looks right.</p>
+<p><strong>Cinematic style control.</strong> The model has improved understanding of cinematic language in prompts — references to shot types, lighting styles, and pacing that translate more accurately into output. Still imperfect, but noticeably better than earlier versions.</p>
+
+<h2>The Whisk Integration Is the Most Interesting Part</h2>
+<p>Whisk was always an underrated tool. The ability to combine multiple reference images into a visual direction — character appearance, environment, style — and generate from that combination is genuinely useful for pre-production work.</p>
+<p>Now that Whisk feeds directly into Flow, you can build a visual reference board, generate still frames that match your direction, then animate those frames into video. That&apos;s a coherent pipeline for concept development that didn&apos;t exist cleanly before.</p>
+<p>For pitching a visual direction to a client or collaborator before committing to production, this is practical. You can show a near-complete visual language at the concept stage without involving a designer or motion artist.</p>
+
+<h2>Pricing: Where It Gets Complicated</h2>
+<p>Flow is free to access with usage limits. The paid tiers:</p>
+<ul>
+<li><strong>Google AI Pro:</strong> $19.99/month — higher generation quotas</li>
+<li><strong>Google AI Ultra:</strong> $249.99/month — highest quotas, priority access</li>
+</ul>
+<p>The free tier is genuinely useful for exploration and low-volume work. The jump from $20 to $250 is steep. For professional use that requires consistent volume, the mid-tier is the right entry point. The Ultra tier is for teams or heavy production pipelines.</p>
+
+<h2>How It Compares to Runway Right Now</h2>
+<p>Runway Gen-4.5 remains the standard I&apos;d use for professional-quality output where creative control matters most. The model has more nuanced response to directorial prompts and the multi-shot editing that creates one-minute videos with character consistency is still ahead of what Flow produces.</p>
+<p>Google Flow has the advantage of the integrated pipeline and the free entry point. For creators who are building a workflow from scratch and want everything in one place, it&apos;s a solid starting point. For productions where output quality is the primary concern, Runway is still the benchmark.</p>
+<p>They solve slightly different problems. Flow is a creative workspace. Runway is a production tool. The distinction is real in practice.</p>
+
+<h2>What I Would Actually Use This For</h2>
+<p>The specific use case where Google Flow makes sense: early-stage concept development with clients who aren&apos;t technically sophisticated. The integrated Whisk-to-video pipeline lets you walk through a visual concept in a single session — mood board to generated frames to animated preview — without explaining three different tools.</p>
+<p>That&apos;s a real workflow improvement for client-facing work. The output quality at that stage doesn&apos;t need to be final. It needs to communicate direction. Flow handles that well.</p>
+<p>If you haven&apos;t explored it since the redesign, it&apos;s worth an afternoon. The integration is cleaner than it was six months ago and the Veo 3.1 output at native 9:16 is noticeably better for short-form content.</p>
+<p><em>Sources: <a href="https://developers.googleblog.com/introducing-veo-3-1-and-new-creative-capabilities-in-the-gemini-api/" target="_blank" rel="noopener">Google Developers Blog — Introducing Veo 3.1 (Jan 2026)</a> | <a href="https://bonega.ai/en/blog/google-flow-march-2026-unified-ai-video-workspace" target="_blank" rel="noopener">Google Flow March 2026 redesign</a></em></p>`,
+    category: 'AI',
+    tags: ['Google Flow', 'Veo 3', 'AI Video', 'Creator Tools', 'Video Production'],
+    date: 'Mar 15, 2026',
+    readTime: '7 min read',
+    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
   }
 ];
