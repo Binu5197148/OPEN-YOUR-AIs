@@ -555,7 +555,7 @@ export const ARTICLES: Article[] = [
     category: 'AI',
     tags: ['SaaS', 'AI Agents', 'Market Analysis', 'Anthropic', 'Enterprise AI'],
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
-    author: 'Open Your AIs',
+    author: 'Ulisses Balbino',
     date: 'February 9, 2026',
     readTime: '11 min read',
     featured: true
@@ -705,7 +705,7 @@ export const ARTICLES: Article[] = [
     category: 'AI',
     tags: ['AI Agents', 'Enterprise AI', 'OpenAI', 'Adoption', 'Future of Work'],
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
-    author: 'Open Your AIs',
+    author: 'Ulisses Balbino',
     date: 'February 8, 2026',
     readTime: '9 min read',
     featured: true
@@ -1175,7 +1175,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>The sales agent revolution has begun. The only question is: will you be leading it or competing against it?</strong></p>
     `,
-    author: 'OpenYourAIs Team',
+    author: 'Ulisses Balbino',
     category: 'AI Sales',
     readTime: '21 min read',
     publishDate: '6 de Fevereiro, 2026',
@@ -1374,7 +1374,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>The question is: will you be creating that future, or will you be disrupted by it?</strong></p>
     `,
-    author: 'OpenYourAIs Team',
+    author: 'Ulisses Balbino',
     category: 'AI Business',
     readTime: '22 min read',
     publishDate: '5 de Fevereiro, 2026',
@@ -1577,7 +1577,7 @@ export const ARTICLES: Article[] = [
 
       <p><strong>The gold rush has begun. The question is: are you bringing a pickaxe or a map?</strong></p>
     `,
-    author: 'OpenYourAIs Team',
+    author: 'Ulisses Balbino',
     category: 'AI Security',
     readTime: '16 min read',
     publishDate: '4 de Fevereiro, 2026',
@@ -1733,7 +1733,7 @@ Agentic AI: Goal → Planning → Execution → Validation → Iteration</pre>
 
       <p><strong>A revolução dos AI Agents já começou. A única question é: você vai liderar ou seguir?</strong></p>
     `,
-    author: 'OpenYourAIs Team',
+    author: 'Ulisses Balbino',
     category: 'AI Architecture',
     readTime: '18 min read',
     publishDate: '3 de Fevereiro, 2026',

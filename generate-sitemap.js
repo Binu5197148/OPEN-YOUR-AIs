@@ -107,6 +107,15 @@ const NOINDEX_SLUGS = new Set([
   // Crypto content — accessible but noindex
   'crypto5-unpacking-the-five-pillars-reshaping-digital-assets',
   'real-state-crypto-2026-no-hype-just-data',
+  // YMYL — financial markets, investments, corporate deals
+  'saas-reckoning-ai-agents-trillion-dollar-market-shift',
+  'nvidia-326b-moonshot-india-summit-musk-trillion-gamble',
+  'india-ai-summit-2026-global-south-100-billion-gambit',
+  'ai-brief-nvidia-326b-india-summit-musk-xai-merger',
+  'meta-200-billion-ai-infrastructure-largest-private-bet-history',
+  'ai-startup-funding-2026-trends',
+  'openai-openclaw-acquisition',
+  'freelance-agentics-ai-replacing-teams-2026',
 ]);
 
 // Generate sitemap XML
