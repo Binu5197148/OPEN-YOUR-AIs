@@ -1299,5 +1299,87 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80',
     author: 'Open Your AIs',
     featured: true
+  },
+  {
+    id: 'art-067',
+    slug: 'sora-2-api-open-what-producers-do-now',
+    title: "Sora 2 API Is Open to Everyone. Now What Do You Actually Do With It?",
+    excerpt: "OpenAI opened the Sora 2 Video API to all developers on March 13. Reports also confirm Sora is coming directly into ChatGPT. Here's what actually changes for creators and video producers.",
+    content: `<h2>The Headline Is Impressive. The Real Question Is What You Do Tomorrow Morning.</h2>
+<p>OpenAI opened the Sora 2 Video API to all developers on March 13, 2026. No more waitlist. No more restricted access for selected partners. Any developer with an account and credits can now access programmatic video generation with the model OpenAI considers their flagship video product.</p>
+<p>Two days earlier, The Information reported that OpenAI plans to integrate Sora directly into ChatGPT. The move makes sense: they want video generation to be as accessible as generating an image in DALL-E 3 already is.</p>
+
+<h2>What Sora 2 Does That the Previous Version Couldn&apos;t</h2>
+<p>Sora 2 ships with specific improvements in physics, motion realism, and camera control. More importantly for producers: synchronized dialogue and sound effects generated alongside the video. You no longer need to generate silent video and manually layer audio on top.</p>
+<p>That&apos;s not a minor detail. Anyone who has tried to build an AI scene and had to sync mouth movement, ambient sound, and music knows how much manual work that step used to involve.</p>
+<p>Opening the API means real workflow integration becomes viable. Before, this was an impressive demo. Now it&apos;s a tool you can embed in a production pipeline, automate pre-visualization stages, quickly generate alternative cut versions, or prototype scenes before committing a crew to a location.</p>
+
+<h2>What Changes for Commercial Video Producers</h2>
+<p>I&apos;ll be direct about what I see as the real shift here.</p>
+<p>AI video generation is not replacing live-action shoots in 2026. Not for the kind of commercial production that requires precise brand control, authentic human presence, or image quality above a certain threshold. A campaign for Disney, Starbucks, or any brand with high standards still needs a real camera.</p>
+<p>What changes is the pre-production stage. Animated storyboards with AI to present to clients before committing to production. Scene pre-viz to convince the art director. Alternative concept versions to approve internally without staffing costs.</p>
+<p>That used to cost hours from an animator or motion designer. Now it costs API tokens.</p>
+<p>The producers who feel this first are those working with smaller clients, short-cycle projects, or content marketing where approval loops move fast. The cost of iteration has dropped significantly.</p>
+
+<h3>What the ChatGPT Integration Actually Means</h3>
+<p>If OpenAI follows through as reported, video generation will live in the same place where you already write briefs, draft scripts, and do research. The workflow compresses. You won&apos;t leave ChatGPT to go to Sora, then come back to adjust a prompt and generate again.</p>
+<p>That&apos;s relevant especially for creators who don&apos;t yet have a consolidated AI workflow. The barrier drops again.</p>
+
+<h2>What I Would Do Right Now</h2>
+<p>If you are a developer or have access to someone who codes: explore the Sora 2 API specifically for pre-visualization, not final delivery. Build a simple script that takes a scene description and outputs a pre-viz. Show it to a client before approving production. Measure how much time it saves in the approval phase.</p>
+<p>If you don&apos;t have a technical profile: wait for the ChatGPT integration. It will arrive and it will be accessible. In the meantime, keep testing Runway Gen-4.5 and Kling 3.0, which are mature and usable right now without any API setup.</p>
+<p>The video model race is normalizing. Runway, Sora, Veo, Kling — all converging in quality. The differentiator won&apos;t be which model you use. It will be what you build with it and how much creative control you keep in the process.</p>
+<p><em>Sources: <a href="https://www.vo3ai.com/blog/openai-opens-sora-2-video-api-to-all-developers-what-this-means-for-ai-filmmakin-2026-03-13" target="_blank" rel="noopener">VO3 AI — OpenAI opens Sora 2 Video API to all developers (Mar 13, 2026)</a> | <a href="https://openai.com/index/sora-2/" target="_blank" rel="noopener">OpenAI — Sora 2</a></em></p>`,
+    category: 'AI',
+    tags: ['Sora 2', 'OpenAI', 'Video API', 'AI Video', 'Production Workflow'],
+    date: 'Mar 14, 2026',
+    readTime: '7 min read',
+    image: 'https://images.unsplash.com/photo-1536240478700-b869ad10e128?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: true
+  },
+  {
+    id: 'art-068',
+    slug: 'adobe-premiere-2026-ai-features-what-actually-changed',
+    title: "Adobe Premiere Dropped the \"Pro\" — Here's What the AI Changes Actually Mean for Editors",
+    excerpt: "Adobe announced at Sundance that Premiere Pro is now just Premiere, and the 2026 AI updates are the most substantial in years. Local AI Object Masking, Generative Extend, tracking 20x faster. What actually matters for professional editors.",
+    content: `<h2>New Name, New AI. But the Question Every Editor Has Is the Same: Does This Work on a Real Project or Is It Just Keynote Demo Material?</h2>
+<p>At Sundance 2026, Adobe announced that Premiere Pro is now just Adobe Premiere. No &quot;Pro.&quot; The company said the name was simplified to reflect that the product is no longer exclusive to long-tenured professionals. The rebrand is a smaller story than the updates that came with it.</p>
+
+<h2>Object Masking That Actually Works</h2>
+<p>The feature that matters most for editors is AI-powered Object Mask. You click on an object or person in the frame, and the system tracks it through the clip. The key difference from previous versions: it runs locally, no cloud processing. Your footage stays on the machine.</p>
+<p>That matters for two reasons. One is obvious privacy for anyone editing sensitive client content. The other is speed. Without a server round trip, the tool is fast enough to use inside an edit session without stopping to wait for rendering.</p>
+<p>The tracking model was rewritten from scratch. Adobe claims 20x faster than the previous generation. In practice, that means isolated color correction on a specific element, localized effects, partial background replacement — tasks that previously required a trip to After Effects now fit directly into the Premiere timeline.</p>
+
+<h2>Generative Extend — What It Is and Where It Works</h2>
+<p>Generative Extend generates additional frames at the beginning or end of a clip using AI. Sounds minor. In practice it solves a recurring editing problem: the good take that ended 0.3 seconds too early, or the cut that needs more breathing room but has no additional material.</p>
+<p>This is not magic. It works best on static shots or with predictable motion. On scenes with heavy unpredictable movement, results are more inconsistent. But for the cases where it works, it eliminates going back to location or accepting an inferior cut.</p>
+
+<h2>AI Media Intelligence in Practice</h2>
+<p>The third relevant change is what Adobe calls AI Media Intelligence: search through footage by visual content, transcript, and metadata simultaneously. You type &quot;person gesturing&quot; or &quot;product close-up&quot; and the system finds it in your material.</p>
+<p>For anyone working with large footage volumes, this is organizationally significant. The part that still needs real-world testing is accuracy on material with inconsistent lighting or handheld camera movement.</p>
+
+<h3>Firefly Boards: The Integration That Still Promises More Than It Delivers</h3>
+<p>Adobe integrated Premiere with Firefly Boards, their collaborative AI workspace. The idea is that you can bring visual concepts generated in Firefly directly into a Premiere project.</p>
+<p>My assessment here is more cautious. The feature exists and works, but the flow between Firefly and Premiere still has friction. The real gain will appear when this integration is smoother. For now, it&apos;s a workflow promise, not a complete workflow.</p>
+
+<h2>What Actually Changed Day-to-Day for Editors</h2>
+<p><strong>Changed for real:</strong> Local Object Masking with fast tracking. This feature enters regular use for anyone doing color correction or basic compositing inside Premiere. No more After Effects trips for simple isolation tasks.</p>
+<p><strong>Changed for specific cases:</strong> Generative Extend. Useful at specific moments, not a constant-use tool.</p>
+<p><strong>Still maturing:</strong> Firefly Boards integration. Worth following, but doesn&apos;t change the current workflow.</p>
+<p>The name without &quot;Pro&quot; is cosmetic. The AI features are incremental, not a reinvention. But local Object Masking is the first AI change in Premiere that fits inside a professional workflow without causing disruption.</p>
+
+<h2>Where This Puts Premiere in 2026</h2>
+<p>DaVinci Resolve remains the software with the most granular color control and the choice for anyone who wants full pipeline ownership. Final Cut remains dominant for edit speed on Apple hardware.</p>
+<p>Premiere has found its position: an AI-integrated editor accessible for anyone working in the Adobe ecosystem who doesn&apos;t want to fragment tools. The 2026 updates reinforce that position without trying to be something else.</p>
+<p>If you already use Premiere, it&apos;s worth updating and testing Object Masking on your next project. If you are in DaVinci or Final Cut and you are happy there, there&apos;s no compelling reason to switch based on these updates.</p>
+<p><em>Sources: <a href="https://blog.adobe.com/en/publish/2026/01/20/new-ai-powered-video-editing-tools-premiere-major-motion-design-upgrades-after-effects" target="_blank" rel="noopener">Adobe Blog — New AI-powered video editing tools in Premiere (Jan 2026)</a> | <a href="https://www.redsharknews.com/adobe-premiere-26-after-effects-26-features" target="_blank" rel="noopener">RedShark News — Adobe Premiere 26 features</a></em></p>`,
+    category: 'AI',
+    tags: ['Adobe Premiere', 'Video Editing', 'AI Tools', 'Production Workflow', 'Content Creators'],
+    date: 'Mar 15, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: true
   }
 ];

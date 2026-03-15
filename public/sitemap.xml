@@ -3,55 +3,55 @@
 
   <url>
     <loc>https://www.openyourais.com/</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/tools</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/playbooks</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/blog</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/about</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/contact</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/privacy</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/terms</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/sitemap</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -75,25 +75,25 @@
   </url>
   <url>
     <loc>https://www.openyourais.com/blog/ai-sales-agents-million-dollar-revenue-streams-2026</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/blog/ai-agents-digital-millionaires-2026</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/blog/ai-security-business-opportunities-2026</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/blog/anthropic-cowork-revolution-agentic-ai</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -376,6 +376,18 @@
   <url>
     <loc>https://www.openyourais.com/blog/reuters-netflix-interpositive-ai-film-tech-what-changes-on-set</loc>
     <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/sora-2-api-open-what-producers-do-now</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/adobe-premiere-2026-ai-features-what-actually-changed</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
