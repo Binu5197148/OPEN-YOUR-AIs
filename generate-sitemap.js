@@ -116,6 +116,19 @@ const NOINDEX_SLUGS = new Set([
   'ai-startup-funding-2026-trends',
   'openai-openclaw-acquisition',
   'freelance-agentics-ai-replacing-teams-2026',
+  'anthropic-30b-funding-google-ai-bet-disney-copyright-war',
+  // Off-brand / generic / pre-repositioning bulk content
+  'ai-agents-autonomous-systems-2026',
+  'china-ai-glm5-minimax-open-source-race',
+  'ai-video-tools-complete-guide',
+  'gpt-5-predictions-analysis',
+  'prompt-engineering-masterclass',
+  'claude-free-premium-features-anthropic-vs-chatgpt-ads',
+  'alibaba-qwen-35-seedance-20-china-ai-disruption',
+  'anthropic-cowork-revolution',
+  'india-ai-summit-global-south-2026',
+  'openclaw-setup-guide-complete-tutorial-30-minutes',
+  'viral-video-playbook-60-seconds-ai-2026',
 ]);
 
 // Generate sitemap XML
