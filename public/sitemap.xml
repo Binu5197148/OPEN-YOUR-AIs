@@ -457,4 +457,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/davinci-resolve-20-ai-features-production-workflow-breakdown</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/topaz-video-ai-archival-footage-upscaling-commercial-production</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
