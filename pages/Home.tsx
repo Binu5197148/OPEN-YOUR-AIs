@@ -221,7 +221,7 @@ export const HomePage: React.FC = () => {
     "name": "Open Your AIs",
     "url": "https://www.openyourais.com",
     "logo": "https://www.openyourais.com/logo.png",
-    "description": "Technology intelligence platform providing expert analysis on AI tools, cryptocurrency strategies, and digital monetization playbooks.",
+    "description": "IA aplicada à criação e produção audiovisual. Ferramentas, análises e workflows por Ulisses Balbino — diretor e produtor com 14 anos de experiência.",
     "email": "openyourais888@gmail.com",
     "sameAs": []
   };
@@ -242,19 +242,19 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Open Your AIs | AI, Crypto &amp; Digital Monetization Intelligence</title>
-        <meta name="description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides. Discover the best AI tools, crypto strategies, and proven monetization playbooks for 2026." />
-        <meta name="keywords" content="AI tools, artificial intelligence, cryptocurrency, digital monetization, make money online, ChatGPT, Claude AI, crypto trading, passive income, tech tutorials 2026" />
+        <title>Open Your AIs | IA para Criação e Produção Audiovisual</title>
+        <meta name="description" content="IA aplicada à criação, produção audiovisual e workflows de criadores. Ferramentas, análises e guias práticos por Ulisses Balbino — diretor e produtor com 14 anos de experiência." />
+        <meta name="keywords" content="AI tools, inteligência artificial, produção audiovisual, criação de conteúdo, ferramentas IA criadores, video AI, workflow criativo, AI para criadores, Ulisses Balbino" />
         <link rel="canonical" href="https://www.openyourais.com/" />
-        <meta property="og:title" content="Open Your AIs | AI, Crypto & Digital Monetization Intelligence" />
-        <meta property="og:description" content="Master Artificial Intelligence, Cryptocurrency, and Digital Monetization with expert guides and proven strategies." />
+        <meta property="og:title" content="Open Your AIs | IA para Criação e Produção Audiovisual" />
+        <meta property="og:description" content="IA aplicada à criação e produção audiovisual. Ferramentas, análises e workflows por Ulisses Balbino — diretor e produtor com 14 anos de experiência." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.openyourais.com/" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80&fm=webp" />
+        <meta property="og:image" content="https://www.openyourais.com/og-default.svg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Open Your AIs | AI, Crypto & Digital Monetization Intelligence" />
-        <meta name="twitter:description" content="Master AI, Crypto, and Digital Monetization with expert guides." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80&fm=webp" />
+        <meta name="twitter:title" content="Open Your AIs | IA para Criação e Produção Audiovisual" />
+        <meta name="twitter:description" content="IA aplicada à criação e produção audiovisual. Ferramentas e workflows por Ulisses Balbino." />
+        <meta name="twitter:image" content="https://www.openyourais.com/og-default.svg" />
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>

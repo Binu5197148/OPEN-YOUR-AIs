@@ -107,22 +107,22 @@ export const ToolsPage: React.FC = () => {
 // --- PLAYBOOKS PAGE ---
 export const PlaybooksPage: React.FC = () => {
   useEffect(() => {
-    document.title = "Monetization Playbooks | Open Your AIs";
+    document.title = "AI Workflows & Playbooks | Open Your AIs";
   }, []);
 
   return (
     <>
       <Helmet>
-        <title>Digital Monetization Playbooks 2026 | Open Your AIs</title>
-        <meta name="description" content="Proven strategies to make money online with AI and automation. Step-by-step playbooks for digital entrepreneurs and content creators." />
-        <meta name="keywords" content="make money online, digital monetization, passive income, AI business, online revenue, digital entrepreneurship" />
+        <title>AI Workflows & Playbooks para Criadores 2026 | Open Your AIs</title>
+        <meta name="description" content="Guias práticos de IA para criadores de conteúdo e produtores audiovisuais. Workflows passo a passo para integrar inteligência artificial na sua produção." />
+        <meta name="keywords" content="AI workflow, produção audiovisual, ferramentas IA criadores, automação criativa, IA para video, workflow creator, guia IA 2026" />
         <link rel="canonical" href="https://www.openyourais.com/playbooks" />
-        <meta property="og:title" content="Digital Monetization Playbooks 2026 | Open Your AIs" />
-        <meta property="og:description" content="Proven strategies to make money online with AI and automation." />
+        <meta property="og:title" content="AI Workflows & Playbooks para Criadores 2026 | Open Your AIs" />
+        <meta property="og:description" content="Guias práticos de IA para criadores de conteúdo e produtores audiovisuais." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.openyourais.com/playbooks" />
-        <meta name="twitter:title" content="Digital Monetization Playbooks 2026 | Open Your AIs" />
-        <meta name="twitter:description" content="Proven strategies to make money online with AI and automation." />
+        <meta name="twitter:title" content="AI Workflows & Playbooks para Criadores 2026 | Open Your AIs" />
+        <meta name="twitter:description" content="Guias práticos de IA para criadores de conteúdo e produtores audiovisuais." />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" }, { "@type": "ListItem", "position": 2, "name": "Playbooks", "item": "https://www.openyourais.com/playbooks" }] })}</script>
       </Helmet>
       <div className="container mx-auto px-4 py-12">
@@ -185,6 +185,7 @@ export const CryptoPage: React.FC = () => {
   return (
     <>
       <Helmet>
+        <meta name="robots" content="noindex,follow" />
         <title>Crypto Guide &amp; Blockchain Intelligence 2026 | Open Your AIs</title>
         <meta name="description" content="Expert cryptocurrency guides and blockchain analysis. Learn about DeFi, NFTs, and digital asset strategies for 2026." />
         <meta name="keywords" content="cryptocurrency, blockchain, DeFi, NFT, crypto trading, digital assets, Web3, crypto guide 2026" />
@@ -272,7 +273,7 @@ export const BlogPage: React.FC = () => {
   const [filter, setFilter] = useState<'All' | 'AI' | 'Crypto' | 'Monetization'>('All');
 
   useEffect(() => {
-    document.title = "Neural Intel Feed | Open Your AIs";
+    document.title = "Blog | IA e Produção Audiovisual | Open Your AIs";
   }, []);
 
   const savedArticles = JSON.parse(localStorage.getItem('openyourais_new_articles') || '[]');
@@ -285,16 +286,16 @@ export const BlogPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>AI &amp; Tech Blog | Latest Intelligence 2026 | Open Your AIs</title>
-        <meta name="description" content="Latest AI news, cryptocurrency updates, and digital monetization strategies. Expert analysis and guides for the future of technology." />
-        <meta name="keywords" content="AI blog, tech news, artificial intelligence, cryptocurrency news, tech guides, digital trends 2026" />
+        <title>Blog de IA para Criação e Produção Audiovisual | Open Your AIs</title>
+        <meta name="description" content="Análises e guias práticos de inteligência artificial para criadores de conteúdo e produtores audiovisuais. Por Ulisses Balbino — diretor e produtor com 14 anos de experiência." />
+        <meta name="keywords" content="AI blog, inteligência artificial, produção audiovisual, ferramentas IA, criadores de conteúdo, video AI, workflow criativo, Ulisses Balbino" />
         <link rel="canonical" href="https://www.openyourais.com/blog" />
-        <meta property="og:title" content="AI & Tech Blog | Latest Intelligence 2026 | Open Your AIs" />
-        <meta property="og:description" content="Latest AI news, cryptocurrency updates, and digital monetization strategies." />
+        <meta property="og:title" content="Blog de IA para Criação e Produção Audiovisual | Open Your AIs" />
+        <meta property="og:description" content="Análises e guias práticos de IA para criadores de conteúdo e produtores audiovisuais." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.openyourais.com/blog" />
-        <meta name="twitter:title" content="AI & Tech Blog | Latest Intelligence 2026 | Open Your AIs" />
-        <meta name="twitter:description" content="Latest AI news, cryptocurrency updates, and digital monetization strategies." />
+        <meta name="twitter:title" content="Blog de IA para Criação e Produção Audiovisual | Open Your AIs" />
+        <meta name="twitter:description" content="Análises e guias práticos de IA para criadores de conteúdo e produtores audiovisuais." />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.openyourais.com/" }, { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.openyourais.com/blog" }] })}</script>
       </Helmet>
       <div className="container mx-auto px-4 py-12">
