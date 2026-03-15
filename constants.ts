@@ -2614,6 +2614,8 @@ const HIDDEN_SLUGS = new Set([
   'validacao-ia-ideias-negocio-2026',
   'adsense-approval-masterclass-2025',
   'defi-yield-strategies-2026',
+  'crypto5-unpacking-the-five-pillars-reshaping-digital-assets',
+  'real-state-crypto-2026-no-hype-just-data',
 ]);
 
 // Combined articles array with all articles

@@ -360,6 +360,7 @@ export const PlaybookReader: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl relative">
+      <Helmet><meta name="robots" content="noindex,follow" /></Helmet>
       {/* Neural Launch Overlay */}
       {isLaunching && (
         <div className="fixed inset-0 z-[100] bg-cyber-bg flex items-center justify-center p-6">
@@ -500,6 +501,7 @@ export const CryptoReader: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <Helmet><meta name="robots" content="noindex,follow" /></Helmet>
       <Link to="/crypto" className="inline-flex items-center text-gray-500 hover:text-white mb-10 transition-colors text-[10px] font-black uppercase tracking-[0.2em]">
         <ArrowLeft className="w-4 h-4 mr-2" /> Asset Nexus
       </Link>

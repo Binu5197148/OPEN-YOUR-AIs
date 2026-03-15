@@ -97,6 +97,16 @@ const NOINDEX_SLUGS = new Set([
   'content-monetization-strategies-2026',
   'saas-pricing-psychology-strategies',
   'polsia-autonomous-ai-company-builder-review',
+  // Hidden slugs that return 404 — remove from sitemap to avoid soft 404s
+  'ai-sales-agents-million-dollar-revenue-streams-2026',
+  'ai-agents-digital-millionaires-2026',
+  'ai-security-business-opportunities-2026',
+  'anthropic-cowork-revolution-agentic-ai',
+  'validacao-ia-ideias-negocio-2026',
+  'adsense-approval-masterclass-2025',
+  // Crypto content — accessible but noindex
+  'crypto5-unpacking-the-five-pillars-reshaping-digital-assets',
+  'real-state-crypto-2026-no-hype-just-data',
 ]);
 
 // Generate sitemap XML
