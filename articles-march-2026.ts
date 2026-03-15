@@ -2140,5 +2140,83 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1200&q=80',
     author: 'Ulisses Balbino',
     featured: false
+  },
+  {
+    id: 'art-087',
+    slug: 'adobe-premiere-26-ai-object-mask-what-editors-actually-get',
+    title: "Adobe Dropped the 'Pro' from Premiere and Added AI Rotoscoping. Here's What Editors Actually Get.",
+    excerpt: "Premiere 26 — no longer 'Premiere Pro' — ships with AI Object Mask that tracks any subject with a single click, on-device. Plus third-party AI models from Runway and Luma built in. The rebranding is the least interesting part.",
+    content: `<h2>The Name Change Is Not the Story</h2>
+<p>Adobe renamed Premiere Pro to simply "Adobe Premiere" with the 26.0 release in January 2026. That is notable — a product name that has existed since 1991 doesn't get revised casually. But the name is marketing. The features are what matter, and two of them are worth understanding in detail because they change the practical economics of post-production work in ways that the marketing materials understate.</p>
+
+<h2>AI Object Mask: The Rotoscoping Problem Finally Solved</h2>
+<p>Rotoscoping — isolating moving subjects from their backgrounds to apply effects, change elements behind them, or composite them into different environments — has been one of the most time-intensive tasks in post-production for decades. The skilled version requires manual frame-by-frame mask drawing and adjustment. The rushed version produces visible edges, flickering masks, and artifacts that tell viewers something was composited in. Neither outcome is cheap.</p>
+<p>The AI Object Mask in Premiere 26 executes a different workflow. You hover over a subject in a clip. You click. The AI identifies the object or person and generates a precise mask. That mask then tracks through the shot automatically. The whole task — which previously took an experienced editor 30 minutes to an hour for a 10-second clip — is now a hover and a click, followed by a review pass.</p>
+<p>The important technical detail: all AI processing happens on-device rather than in the cloud. Your footage doesn't leave your machine to be processed on Adobe's servers. For commercial production involving unreleased client footage, talent under contract, or products under NDA, this is not a minor detail — it's a clearance and security requirement that Adobe anticipated correctly. On-device processing means local data stays local.</p>
+<p>Shape masks also received an upgrade: they now track objects 20 times faster than previous versions, with Bezier curves for smoother edges and 3D perspective tracking. The mask refinement controls — colored overlays, feathering, bidirectional tracking — are redesigned to reduce the revision cycles that consume editor time even after a decent initial mask.</p>
+
+<h2>Generative Extend: The Coverage Gap Disappear</h2>
+<p>Every editor who has worked on a tight assembly knows the coverage gap problem: the cut is right, the timing works, but one clip is three frames short. The solution is either a pick-up shoot (expensive, often not possible), a different edit (compromises the timing), or a workaround with freeze frames and optical flows that everyone on the review call can spot.</p>
+<p>Generative Extend uses Adobe Firefly to add generated frames to the beginning or end of a clip. One to two seconds of additional footage generated to match the existing clip's content, motion, and lighting. It renders at 4K and supports vertical video formats. For coverage gaps, pickup shots that can't be scheduled, and situations where the take was nearly right but slightly too short, this addresses the specific problem without requiring a workaround everyone will notice.</p>
+<p>The realistic caveat: generated extensions of complex or highly textured motion are not seamless at a frame-by-frame inspection level. For broadcast deliverables that get viewed on monitors by QC professionals, this is a tool to use carefully and review at full quality before delivery. For online content, social cuts, and situations where the viewing conditions don't involve 4K monitors and trained QC eyes, the quality is usable and the time savings are significant.</p>
+
+<h2>Third-Party AI Models Built In</h2>
+<p>The third notable change: Runway and Luma's AI models are now accessible directly from within Premiere's interface. You can generate video clips using external AI engines without switching applications, importing files, or managing separate workflows. The generation happens within Premiere's project structure and the output lands directly in your timeline.</p>
+<p>This integration answers a workflow friction point that every editor who has tried to incorporate AI-generated B-roll into a Premiere project has encountered. The generate → export → import → place sequence creates version control problems and interrupts the editing flow. Native integration keeps the work in one place.</p>
+<p>It also signals Adobe's strategic direction clearly: Premiere is becoming the control layer for a broader ecosystem of AI generation tools, not a standalone editing application. The Firefly integration for internal generation and the Runway/Luma integration for external models are different expressions of the same architectural decision — Premiere as the workspace where AI-generated content is directed, assembled, and refined, regardless of which model produced the initial generation.</p>
+
+<h2>What This Costs and Who Gets It</h2>
+<p>Object Mask, shape mask improvements, and the third-party AI integrations are included with existing Premiere subscriptions at no additional cost. Generative Extend uses Firefly generative credits — the same credit system used across Adobe's suite. If you're on Creative Cloud with Firefly credits included, you already have access. Subscribers who have been paying for Premiere Pro are now on Premiere 26 as part of their current subscription.</p>
+<p>The practical implication: if you haven't updated your Premiere installation recently, the Object Mask feature is already available to you. A five-minute update retrieves the capability that changes the rotoscoping economics for your next project.</p>
+<p><em>Sources: <a href="https://blog.adobe.com/en/publish/2026/01/20/new-ai-powered-video-editing-tools-premiere-major-motion-design-upgrades-after-effects" target="_blank" rel="noopener">Adobe Blog — New AI-powered video editing tools in Premiere</a> | <a href="https://petapixel.com/2026/01/20/rebranded-adobe-premiere-26-arrives-with-one-click-object-tracking/" target="_blank" rel="noopener">PetaPixel — Premiere 26: One-Click Object Tracking</a> | <a href="https://www.redsharknews.com/adobe-premiere-26-after-effects-26-features" target="_blank" rel="noopener">RedShark News — Premiere 26 and After Effects 26 Features</a></em></p>`,
+    category: 'Tools',
+    tags: ['Adobe Premiere', 'AI Editing', 'Rotoscoping', 'Object Mask', 'Post Production', 'Firefly'],
+    date: 'Mar 15, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1536240478700-b869ad10e128?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
+  },
+  {
+    id: 'art-088',
+    slug: 'suno-commercial-rights-sync-licensing-what-producers-need-2026',
+    title: "Before You Use Suno in Your Next Commercial, Read This. The Licensing Reality in 2026.",
+    excerpt: "Suno's Warner Music deal, ongoing major label lawsuit, and new platform disclosure requirements changed the commercial use landscape. Here's the practical guide for producers who need clearable music.",
+    content: `<h2>The Music Nobody Asked About Until the Invoice Arrived</h2>
+<p>Every producer I know has used AI-generated music at some point in the past two years. For scratch tracks, presentation reels, internal content, social posts — AI music fills gaps that previously required either a music budget or royalty-free library tracks that sounded like they were composed in 2009. Suno in particular has become the default for this use case: open browser, describe the vibe, download, cut in. Fast, free on the basic plan, and good enough for most purposes.</p>
+<p>The question nobody asks until a client's legal team does: what are the actual commercial rights you hold to that track, and what happens when it goes to broadcast, sync, or a platform that checks?</p>
+<p>The answer in 2026 is more specific than it was two years ago, and some of the specifics are not what people assume.</p>
+
+<h2>What Suno's Current License Actually Says</h2>
+<p>Suno's position is careful but clear. For paid subscribers, Suno grants commercial use rights: you can reproduce and distribute tracks through streaming, downloads, and synchronization without Suno claiming a share of revenues. What you are not granted, regardless of subscription tier, is copyright ownership. Suno's documentation now explicitly states that users "may be granted commercial use rights to reproduce and distribute songs, but generally are not considered the owner of the songs since the output was generated by Suno."</p>
+<p>The distinction matters in practice. A license to use is not the same as ownership. You can use the track commercially. You cannot register it for copyright. You cannot prevent others from generating similar outputs using the same system. You cannot take legal action if someone else's content sounds similar, because the underlying model is the same one both parties used. For work where music uniqueness is part of the creative brief — branded content where the client wants a custom sound that's exclusively theirs — a Suno track is not the right tool, regardless of subscription level.</p>
+<p>For work where functional music is needed and exclusivity is not the requirement, the paid subscription commercial license is workable for many use cases.</p>
+
+<h2>The Free Plan Limitation Nobody Notices Until Too Late</h2>
+<p>Tracks generated on Suno's free plan are restricted to non-commercial use only. They cannot be monetized, licensed, or used in content that earns revenue — including YouTube videos that have AdSense enabled. This restriction persists even if you later subscribe. The generation context at the time of creation is what determines the license, not your current subscription status.</p>
+<p>In production workflows where multiple team members use the tool, this creates a tracking problem. If an editor generated a scratch track on a free account and it made it to final delivery, the commercial license is not there regardless of what the production company's subscription level is. This is the most common compliance failure I've seen in the context of AI music in production — not intentional misuse, but a free-tier track that traveled from scratch to final cut without anyone checking the generation account's license tier.</p>
+<p>The operational fix is simple: designate a single production account on a paid tier for all AI music generation, and never import tracks generated on free accounts into a client project timeline, regardless of how good the scratch track sounds.</p>
+
+<h2>The Warner Music Deal and the Lawsuit Running in Parallel</h2>
+<p>In late 2025, Suno announced a partnership with Warner Music Group that is structured to influence how licensed AI music models are developed. The deal signals that at least one major label sees a path to working with AI music platforms rather than only litigating against them. The details of what the partnership covers — training data licensing, revenue sharing, attribution requirements — are not fully public.</p>
+<p>What is fully public: Suno is still subject to an ongoing lawsuit from other major record labels that is not covered by the Warner deal. The legal theory in that case centers on training data copyright — whether the models were trained on copyrighted recordings without authorization. The case will set precedent that affects every AI music platform, not just Suno.</p>
+<p>For commercial producers, the lawsuit running in parallel with the Warner partnership creates an ambiguous risk profile. The Warner relationship suggests that licensed AI music is achievable and that Suno is moving toward it. The ongoing litigation suggests that the current situation is not fully resolved from a rights clearance perspective.</p>
+
+<h2>Platform Disclosure Requirements Are Now Enforced</h2>
+<p>Starting in late 2025, Spotify and Apple Music began enforcing the DDEX industry standard for AI disclosure. Tracks using Suno-generated audio must be flagged during upload through distributors. This is not optional. Distributors who submit AI-generated content without the proper DDEX flag can face platform violations. The flagging requirement exists at the distributor level, not just at the user level.</p>
+<p>For video sync — placing a track into a film, advertisement, or online video — the disclosure requirements are handled differently per platform and broadcaster. For broadcast delivery in the UK and many EU markets, the specific rights status of AI-generated music must be documented in cue sheets. The ambiguity in Suno's training data rights status makes this documentation difficult to complete in a way that satisfies professional clearance requirements.</p>
+
+<h2>The Practical Recommendation</h2>
+<p>Use Suno for what it's genuinely good at without legal exposure: scratch tracks, pitches, internal presentations, and social content on platforms where you're not seeking sync licensing or distributing commercially through the music supply chain. For those use cases, a paid subscription provides workable commercial rights for most practical purposes.</p>
+<p>For broadcast, cinema, commercial advertising with music licensing requirements, or any situation where the client or broadcaster will ask for a clearance letter or music rights documentation — use licensed music, whether that's library music with clear rights documentation or a work-for-hire composer who can provide the copyright ownership you need. AI music platforms are not there yet for that tier of commercial use, and the legal landscape won't be fully settled until the ongoing litigation concludes.</p>
+<p>The timeline for when AI music reaches full commercial clearability at the broadcast level is probably 12-24 months, depending on how the major label lawsuits resolve. Until then, the tier distinction is clear: scratch and social, yes. Broadcast and sync, not yet.</p>
+<p><em>Sources: <a href="https://www.digitalmusicnews.com/2025/12/22/suno-warner-music-deal-changes/" target="_blank" rel="noopener">Digital Music News — Suno Warner Music Deal 2025</a> | <a href="https://terms.law/ai-output-rights/suno/" target="_blank" rel="noopener">Terms.Law — Suno AI Commercial Use License 2026</a> | <a href="https://mystats.music/blog/suno-ai-legal-guide-2026" target="_blank" rel="noopener">Sonic Analytics — The 2026 Suno AI Legal Guide</a></em></p>`,
+    category: 'AI',
+    tags: ['Suno', 'AI Music', 'Copyright', 'Music Licensing', 'Commercial Production', 'Sync Rights'],
+    date: 'Mar 15, 2026',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
   }
 ];
