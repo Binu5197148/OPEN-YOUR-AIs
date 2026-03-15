@@ -1740,5 +1740,90 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?auto=format&fit=crop&w=1200&q=80',
     author: 'Ulisses Balbino',
     featured: true
+  },
+  {
+    id: 'art-077',
+    slug: 'midjourney-v7-honest-review-personalization-draft-mode-video',
+    title: "Midjourney V7 Is Out. Here's an Honest Take on What Actually Changed.",
+    excerpt: "V7 launched with personalization by default, Draft Mode at 10x speed and half the cost, voice prompting, and a video model that animates stills. Mixed reviews followed. Here's what changed for real production use.",
+    content: `<h2>The Mixed Reviews Are Telling</h2>
+<p>Midjourney V7 launched and immediately generated something unusual for a major model release: mixed reviews. Not uniformly bad, not uniformly good. Split.</p>
+<p>That split is more informative than a clear verdict in either direction, and it points to something real about how the model changed and who those changes serve.</p>
+
+<h2>Personalization by Default — What That Actually Means</h2>
+<p>The biggest structural change in V7 is that personalization is on by default. Midjourney now shapes output based on your rating history — the images you have ranked and the aesthetic preferences you have implicitly expressed through your usage.</p>
+<p>For users who have been on the platform long enough to build a meaningful rating history, this makes the model more responsive to their specific visual sensibility. Output drifts toward what you have historically preferred rather than the platform&apos;s generic aesthetic baseline.</p>
+<p>For new users or users who haven&apos;t rated much, personalization has nothing to work with and the default behavior can feel inconsistent. This explains part of the split in reviews: experienced users with established histories got noticeably better results; newer users got results that varied more than expected.</p>
+<p>The setup takes about five minutes and is worth doing before evaluating the model&apos;s quality.</p>
+
+<h2>Draft Mode: The Feature That Changes the Workflow Math</h2>
+<p>Draft Mode is the update with the most immediate practical impact. Half the credit cost, ten times the render speed. You get lower-resolution output suitable for concept exploration and iteration, with the option to upscale selects at full cost.</p>
+<p>The workflow implication is significant. Using Draft Mode for the exploration phase of any project — generating multiple concept directions, testing compositions, iterating on a visual idea — and only spending full credits on final selects dramatically reduces the cost of creative development.</p>
+<p>For anyone using Midjourney professionally and managing budget against volume of output, this is a material improvement. The quality gap between Draft and full render is real but manageable for the use cases where Draft makes sense: internal concepting, client-facing mood boards, reference generation for AI video prompts.</p>
+
+<h2>Voice Prompting: Convenient, Not Revolutionary</h2>
+<p>Draft Mode includes voice input — you speak your prompt and the system interprets it. The implementation works. Whether it is meaningfully better than typing depends on your workflow context.</p>
+<p>For quick ideation where you want to verbalize thoughts without interrupting your thinking to type, it is useful. For prompts that require specific technical language — focal length references, lighting terminology, style precision — typing still gives you more control over exact wording.</p>
+<p>The voice feature will likely matter more once Midjourney develops the conversational iteration capability it has hinted at, where you can refine through dialogue rather than regeneration cycles.</p>
+
+<h2>The Video V1 Model: What It Does and What It Doesn&apos;t</h2>
+<p>Midjourney launched its V1 Video Model, allowing users to animate still images into short clips. The implementation: six images generate roughly 60 seconds of video, with processing time of approximately three hours.</p>
+<p>The three-hour processing time is the honest limiting factor here. For real production workflows where iteration speed matters, this makes the video feature impractical for anything requiring multiple rounds. You can generate overnight, evaluate in the morning, and regenerate the next night — that is a 24-hour iteration cycle, which is workable for some projects and completely incompatible with others.</p>
+<p>The output quality for the video feature is solid for concept visualization and mood reference. It is not at the level of Runway Gen-4.5, Kling 3.0, or Sora 2 for production-quality output. But Midjourney was never primarily a video tool — the image quality advantage of the platform is what makes it useful, and the video feature extends that into motion reference.</p>
+
+<h2>Where V7 Fits in the Current Image Generation Landscape</h2>
+<p>Midjourney V7 remains the standard for photorealistic image generation with specific aesthetic sensibility. The coherence improvements on hands, objects, and human anatomy are genuine — these have been persistent weak points in AI image generation and V7 handles them better than previous versions.</p>
+<p>For visual development work in commercial production — generating reference images, mood boards, client-facing concept frames, lighting studies — V7 with Draft Mode active is the most cost-efficient workflow I have used for this purpose.</p>
+<p>The mixed reviews are largely from users expecting a dramatic quality leap from V6. The actual improvement is more about workflow efficiency (Draft Mode, personalization) than raw quality ceiling. For power users who integrate Midjourney into a broader production workflow, these efficiency gains matter. For casual users expecting to be immediately blown away, the upgrade may feel underwhelming.</p>
+<p><em>Sources: <a href="https://venturebeat.com/ai/midjourney-v7-launches-with-voice-prompting-and-faster-draft-mode-why-is-it-getting-mixed-reviews" target="_blank" rel="noopener">VentureBeat — Midjourney V7 launches with voice prompting and Draft Mode</a> | <a href="https://updates.midjourney.com/v7-alpha/" target="_blank" rel="noopener">Midjourney — V7 Alpha release notes</a></em></p>`,
+    category: 'AI',
+    tags: ['Midjourney', 'AI Image', 'V7', 'Creative Tools', 'Production Workflow'],
+    date: 'Mar 15, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
+  },
+  {
+    id: 'art-078',
+    slug: 'ai-color-grading-davinci-resolve-colourlab-production-guide',
+    title: "AI Color Grading Is Real Now. Here's How It Fits Into a Professional Post-Production Workflow.",
+    excerpt: "DaVinci Resolve 20 added Magic Color and Magic Mask. Colourlab AI integrates directly as an OFX plugin and is 22x faster in the latest version. What these tools actually do in practice and where they save time without compromising the grade.",
+    content: `<h2>The Color Suite Has Changed More Than Most People Realize</h2>
+<p>Color grading used to be the part of post-production most resistant to automation. It requires taste, knowledge of the emotional intent of a scene, understanding of how color interacts with performance, and the ability to make consistent decisions across hundreds of shots. No algorithm was going to replicate that.</p>
+<p>The current generation of AI color tools is not trying to replicate it. They are doing something more specific: handling the technical baseline work so that the colorist can spend more time on the creative work. That distinction matters and it is why these tools are genuinely useful rather than a threat to the craft.</p>
+<p>I have been using AI-assisted color tools in commercial post work for the last year. Here is what actually works.</p>
+
+<h2>DaVinci Resolve 20: Magic Color and Magic Mask</h2>
+<p>Resolve 20 shipped with Magic Color, which analyzes a clip and applies an intelligent technical correction — exposure, contrast, white balance — in a single click. The goal is not to deliver a creative grade. It is to get every shot to a technically sound starting point before the colorist begins working.</p>
+<p>In practice, this solves a real problem: on productions where footage arrives with inconsistent exposure across the day, mixed lighting sources, or varying camera settings, the first pass of color work is largely technical cleanup. Magic Color handles this reliably enough that the colorist can start from a consistent baseline rather than normalizing each shot manually.</p>
+<p>The accuracy is high for the most common issues — underexposure, warm or cool mixed lighting, minor white balance drift. On more complex material — extreme mixed lighting, unusual color casts from practical sources, or highly stylized intentional exposure choices — the automatic correction needs review and adjustment.</p>
+<p>Magic Mask is the companion feature: you draw a rough stroke over a subject, and the AI isolates it across the entire clip. This enables secondary color work — adjusting only skin tone, or pulling the exposure on a background without affecting the foreground subject — without the manual rotoscoping that used to make secondary corrections expensive.</p>
+<p>The Magic Mask tracking is accurate on footage with clear subject separation. On footage with complex movement, fast action, or subjects that are similar in color to the background, it requires more supervision. But for the typical commercial shot — product closeup, interview, simple motion — it handles the isolation reliably.</p>
+
+<h2>Colourlab AI: The Third-Party Integration Worth Knowing</h2>
+<p>Colourlab AI integrates directly into DaVinci Resolve as an OFX plugin, and the latest version is 22 times faster than the previous release. The workflow: it analyzes your timeline, reads the creative intent expressed in your grade, and applies consistent looks across shots using that intent as reference.</p>
+<p>The practical use case is matching. On a commercial shoot where coverage spans multiple lighting setups, camera angles, or even different days, achieving shot-to-shot consistency is time-consuming manual work. Colourlab AI reads a graded hero shot and applies that grade — matching luminance, color balance, and tone — across all the coverage efficiently.</p>
+<p>This is not replacing the colorist&apos;s decisions. It is executing those decisions consistently at scale. The colorist grades one representative shot per scene, and the tool propagates that intent across the remaining material. The result needs review and refinement, but the volume of manual work is substantially reduced.</p>
+<p>The tool has been used on major productions — Dune and The Batman have been cited in their materials — though the specific workflow details of how it was integrated on those productions are not public.</p>
+
+<h2>What These Tools Do Not Replace</h2>
+<p>I want to be specific about the limits, because the marketing tends to overstate what automation handles.</p>
+<p>Creative decisions remain human. The choice of how to render a specific scene emotionally — whether a memory feels warm and safe or cold and distant, whether a confrontation scene pushes into high contrast or stays naturalistic — is a directorial and colorist decision that requires understanding the story. No tool makes that judgment.</p>
+<p>Complex secondary work on highly stylized material still requires manual precision. When you need to pull a specific hue in a specific region of a specific frame without affecting anything else, the manual tools in Resolve remain the right choice.</p>
+<p>The AI tools handle the repeatable, systematic part of the workflow. The interpretive, creative part is still yours.</p>
+
+<h2>The Practical Impact on Post-Production Budgets</h2>
+<p>Commercial post-production color typically runs at day rates for a senior colorist. The value of AI-assisted tools is not eliminating that cost — good color requires good colorists. The value is in compressing the technical preparation time so that the colorist&apos;s hours are spent on the creative grade rather than cleanup.</p>
+<p>On a well-run production where footage quality is consistent, AI color tools might compress the technical prep phase by 40-60%. On a production where footage has significant exposure or color inconsistency, the value is higher because the manual normalization work is where AI saves the most time.</p>
+<p>For independent producers managing tight post budgets, the combination of Resolve 20&apos;s built-in AI tools (free in the standard version) and Colourlab AI represents a meaningful reduction in the time required to deliver a technically polished grade.</p>
+<p><em>Sources: <a href="https://www.blackmagicdesign.com/products/davinciresolve/whatsnew" target="_blank" rel="noopener">Blackmagic Design — DaVinci Resolve What&apos;s New</a> | <a href="https://colourlab.ai/" target="_blank" rel="noopener">Colourlab AI — 22x faster update</a></em></p>`,
+    category: 'AI',
+    tags: ['Color Grading', 'DaVinci Resolve', 'Post Production', 'AI Tools', 'Colourlab'],
+    date: 'Mar 15, 2026',
+    readTime: '9 min read',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
   }
 ];
