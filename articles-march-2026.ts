@@ -2918,6 +2918,61 @@ export const ARTICLES_MARCH_2026: Article[] = [
     featured: false
   },
   {
+    id: 'art-108',
+    slug: 'why-i-built-this-filmmaker-to-ai-builder',
+    title: "I Was Never a Programmer. Then the Walls Started Coming Down.",
+    excerpt: "14 years directing commercials for Disney, Nestlé, Yamaha. Never written a line of code. Then AI arrived and everything I thought was impossible became possible — and I went anyway.",
+    content: `<p>I always needed to create.</p>
+<p>Not as a preference. As a requirement. The kind of need that doesn't turn off — that wakes you up at 4am with an idea that can't wait, that makes you restless whenever you're not making something.</p>
+<p>For 14 years, that need powered a career in audiovisual production. Commercials, branded films, comedy content — work for Disney, Nestlé, Yamaha, Carrefour, Starbucks, Kopenhagen. I wrote and performed sketches for Ronald Rios' talk show on Paramount, Comedy Central, and MTV. Hosted a humor show on Jovem Pan. Composed music. Directed. Edited. Wrote. I've done every job on a set.</p>
+<p>I was never a programmer.</p>
+<p>For a long time, that made me believe building digital products wasn't for me. Apps, platforms, software — those were for someone else. Someone with a CS degree, a technical background, a different kind of mind. I had a camera and a production company.</p>
+
+<h2>Then the Walls Started Coming Down</h2>
+<p>AI changed the equation. Not gradually. Suddenly.</p>
+<p>Things I couldn't produce in audiovisual without serious capital started becoming possible with an API call and a good prompt. The wall of "I don't have a development team." The wall of "I can't afford that production." The wall of "that idea is too ambitious for my budget."</p>
+<p>One by one, they fell.</p>
+<p>In 2015, I produced a 30-second commercial for Nestlé. Budget: $47,000. Crew of 28, two shoot days, a full week of post. Last year, I recreated a similar shot in 20 minutes for about $3 in API credits. The AI version was technically cleaner. It was also emotionally flat — no tension, no happy accident, no soul.</p>
+<p>That contrast taught me more about where AI actually fits than any keynote or demo ever could.</p>
+<p>AI doesn't replace the 14 years. It amplifies them. That's the only version of AI adoption that makes sense to me — not as a shortcut around expertise, but as a force multiplier for the expertise that already exists.</p>
+
+<h2>I Was Hungry to Surprise People</h2>
+<p>I've always been driven by what I call the WOW factor. Not the polished, expected deliverable. The thing that makes the client go quiet for a second before they react.</p>
+<p>That's what I chased in every commercial I directed. It's what pushed me to keep varying across disciplines — film, comedy, music, writing — without settling into one lane. If someone gave me a stick, I'd try to make music with it.</p>
+<p>It's why "just being a filmmaker" or "just being a director" never felt complete. Those are shapes. The need underneath is the same: create something that generates real value and genuinely surprises people.</p>
+<p>AI gave that need new territory.</p>
+<p>Suddenly I was building automation workflows, vibe coding production pipelines, testing tools at a pace that would have been impossible to fund six months earlier. And delivering results I genuinely didn't think I was capable of producing without a technical co-founder.</p>
+
+<h2>I Went With Fear</h2>
+<p>Every significant move I've made happened with fear present.</p>
+<p>Starting Pichorra Filmes in 2012 — afraid. Taking on the first national brand client — afraid. Walking into a set of 28 people as the director for the first time — afraid.</p>
+<p>And now: building an AI platform with no programming background, learning in public, shipping before it's perfect — afraid.</p>
+<p>The fear was never the signal to stop. It was always the signal that the thing was worth doing.</p>
+<p>I went anyway. Every time. That's the entire strategy.</p>
+
+<h2>Why This Site Exists</h2>
+<p>Open Your AIs isn't a tech blog.</p>
+<p>It's not a place I built to follow a trend or capitalize on an AI content wave. It's the natural consequence of 14 years of production experience colliding with tools that finally match the ambition I've always had.</p>
+<p>I write here because the perspective I have — someone who's spent over a decade on sets, in edit bays, in client meetings, in creative chaos — is different from what most AI content offers. Most AI coverage is written by people who are impressed by the technology. I'm impressed when the technology serves the work. That's a different bar.</p>
+<p>Every review I publish here comes from actual production use. Not benchmarks. Not demos. Real briefs, real clients, real workflows.</p>
+
+<h2>What I Want You to Take From This</h2>
+<p>Not inspiration.</p>
+<p>If you're a creative professional — filmmaker, designer, photographer, writer, producer — who's been reading about AI without actually testing it in production: that gap is the problem. Reading about it doesn't teach you the thing. Doing it does.</p>
+<p>The barrier has never been lower. Stanford's AI Index 2025 found that the cost of training a frontier AI model dropped by over 70% in two years. Tools that were enterprise-only in 2023 are now accessible to anyone with a browser and a monthly subscription.</p>
+<p>The window for early positioning is not infinite.</p>
+<p>I went with fear. It's the only way I know that works.</p>
+<p>Go anyway.</p>
+<p><em>Sources: <a href="https://hai.stanford.edu/news/ai-index-2025-state-of-ai-in-10-charts" target="_blank" rel="noopener">Stanford HAI — AI Index 2025</a></em></p>`,
+    category: 'AI',
+    tags: ['Ulisses Balbino', 'OpenYourAIs', 'Personal Story', 'Filmmaker', 'AI Democratization', 'Creator Economy'],
+    date: 'Mar 28, 2026',
+    readTime: '7 min read',
+    image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: true
+  },
+  {
     id: 'art-106',
     slug: 'ltx-video-23-4k-audio-one-pass-what-changed-overnight',
     title: "I Published My LTX-Video 2 Review Yesterday. Today LTX 2.3 Dropped with 4K and Audio.",
