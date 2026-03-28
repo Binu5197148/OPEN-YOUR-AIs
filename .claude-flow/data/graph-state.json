@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "updatedAt": 1774676158369,
+  "nodeCount": 10,
+  "nodes": {
+    "mem-MEMORY----ulisses-balbino---identidad": {
+      "id": "mem-MEMORY----ulisses-balbino---identidad",
+      "category": "core",
+      "confidence": 0.56,
+      "accessCount": 2,
+      "createdAt": 1774676158365
+    },
+    "mem-project_openyourais----": {
+      "id": "mem-project_openyourais----",
+      "category": "project_openyourais",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774676158365
+    },
+    "mem-project_soul_symple----": {
+      "id": "mem-project_soul_symple----",
+      "category": "project_soul_symple",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774676158366
+    },
+    "mem-project_verso_diario----": {
+      "id": "mem-project_verso_diario----",
+      "category": "project_verso_diario",
+      "confidence": 0.56,
+      "accessCount": 2,
+      "createdAt": 1774676158366
+    },
+    "mem-user_ulisses_balbino----": {
+      "id": "mem-user_ulisses_balbino----",
+      "category": "user_ulisses_balbino",
+      "confidence": 0.53,
+      "accessCount": 1,
+      "createdAt": 1774676158366
+    },
+    "mem-user_ulisses_balbino-quem--": {
+      "id": "mem-user_ulisses_balbino-quem--",
+      "category": "user_ulisses_balbino",
+      "confidence": 0.56,
+      "accessCount": 2,
+      "createdAt": 1774676158366
+    },
+    "mem-user_ulisses_balbino-trajet-ria": {
+      "id": "mem-user_ulisses_balbino-trajet-ria",
+      "category": "user_ulisses_balbino",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774676158366
+    },
+    "mem-user_ulisses_balbino-voz-real---calibrada-pelos-seu": {
+      "id": "mem-user_ulisses_balbino-voz-real---calibrada-pelos-seu",
+      "category": "user_ulisses_balbino",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774676158366
+    },
+    "mem-user_ulisses_balbino-o-que-o-diferencia-editorialme": {
+      "id": "mem-user_ulisses_balbino-o-que-o-diferencia-editorialme",
+      "category": "user_ulisses_balbino",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774676158366
+    },
+    "mem-user_ulisses_balbino-foto-e-presen-a-visual": {
+      "id": "mem-user_ulisses_balbino-foto-e-presen-a-visual",
+      "category": "user_ulisses_balbino",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1774676158366
+    }
+  },
+  "edges": [
+    {
+      "sourceId": "mem-user_ulisses_balbino----",
+      "targetId": "mem-user_ulisses_balbino-quem--",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-user_ulisses_balbino-quem--",
+      "targetId": "mem-user_ulisses_balbino-trajet-ria",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-user_ulisses_balbino-trajet-ria",
+      "targetId": "mem-user_ulisses_balbino-voz-real---calibrada-pelos-seu",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-user_ulisses_balbino-voz-real---calibrada-pelos-seu",
+      "targetId": "mem-user_ulisses_balbino-o-que-o-diferencia-editorialme",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-user_ulisses_balbino-o-que-o-diferencia-editorialme",
+      "targetId": "mem-user_ulisses_balbino-foto-e-presen-a-visual",
+      "type": "temporal",
+      "weight": 0.5
+    }
+  ],
+  "pageRanks": {
+    "mem-MEMORY----ulisses-balbino---identidad": 0.04885174187864831,
+    "mem-project_openyourais----": 0.04885174187864831,
+    "mem-project_soul_symple----": 0.04885174187864831,
+    "mem-project_verso_diario----": 0.04885174187864831,
+    "mem-user_ulisses_balbino----": 0.04885174187864831,
+    "mem-user_ulisses_balbino-quem--": 0.09037575981199994,
+    "mem-user_ulisses_balbino-trajet-ria": 0.12567122063760444,
+    "mem-user_ulisses_balbino-voz-real---calibrada-pelos-seu": 0.15567234284838008,
+    "mem-user_ulisses_balbino-o-que-o-diferencia-editorialme": 0.18117318567940036,
+    "mem-user_ulisses_balbino-foto-e-presen-a-visual": 0.20284878162937392
+  }
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "mem-MEMORY----ulisses-balbino---identidad",
+    "key": "-ulisses-balbino-identidade-user-ulisses-balbino-m",
+    "content": "- [Soul Symple](project_soul_symple.md) — Projeto guarda-chuva de canais automatizados com IA (Verso Diário, Open Your AIs, etc.)\n- [Projeto Verso Diário](project_verso_diario.md) — Pipeline automático de vídeos espirituais, 3x/dia, TikTok + YouTube\n- [Open Your AIs](project_openyourais.md) — Site editorial openyourais.com, 105 artigos, aguardando tráfego p/ AdSense",
+    "summary": "- [Ulisses Balbino — Identidade](user_ulisses_balbino.md) — Perfil, voz, tom e estilo — calibrar TODO conteúdo gerado por aqui",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158365
+  },
+  {
+    "id": "mem-project_openyourais----",
+    "key": "-",
+    "content": "name: Open Your AIs\ndescription: Site editorial openyourais.com — filmmaker's perspective on AI, AdSense pending, tráfego é o gargalo\ntype: project\n---\n\nSite editorial sobre IA com perspectiva de cineasta/diretor (Ulisses Balbino).\n\n**Repo:** https://github.com/Binu5197148/OPEN-YOUR-AIs\n**Local:** ~/Projects/open-your-ais/\n**Stack:** React + Vite + TypeScript, deploy no Vercel (push to main = auto-deploy)\n**Deploy:** `git push origin main` — requer GitHub token (HTTPS)\n\n**Conteúdo:**\n- 105 artig",
+    "summary": "---",
+    "namespace": "project_openyourais",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/project_openyourais.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158365
+  },
+  {
+    "id": "mem-project_soul_symple----",
+    "key": "-",
+    "content": "name: Soul Symple\ndescription: Projeto guarda-chuva de canais e produtos de conteúdo automatizado com IA\ntype: project\n---\n\nSoul Symple é o projeto principal de Ulisses. Todos os canais e pipelines de conteúdo são filhos deste projeto.\n\n**Canais ativos:**\n- Verso Diário — vídeos espirituais, 3x/dia, TikTok @v3rsodiario (ID 31677) + YouTube (ID 28799) — ver project_verso_diario.md\n\n**Canais planejados:**\n- Open Your AIs (openyourais.official / open.your.ais) — tecnologia/IA, YouTube ID 28398\n- Oy",
+    "summary": "---",
+    "namespace": "project_soul_symple",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/project_soul_symple.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-project_verso_diario----",
+    "key": "-",
+    "content": "name: Projeto Verso Diário\ndescription: Pipeline automático de vídeos espirituais para TikTok e YouTube\ntype: project\n---\n\nPipeline completo em ~/Projects/marketing-video/ para o canal \"Verso Diário\" (pronuncia-se Verso, não V3rso).\n\n**O que é:** Canal espiritual com 3 vídeos por dia — passagens bíblicas com reflexão, conectadas a problemas modernos.\n\n**Scheduler automático (launchd):**\n- Roda como serviço do sistema — funciona sem terminal aberto, reinicia sozinho\n- Todo dia à meia-noite gera o",
+    "summary": "---",
+    "namespace": "project_verso_diario",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/project_verso_diario.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-user_ulisses_balbino----",
+    "key": "-",
+    "content": "name: Ulisses Balbino — Identidade e Voz Real\ndescription: Voz, tom e estilo REAL do Ulisses — calibrado pelos seus próprios textos. Usar para TODO conteúdo.\ntype: user\n---",
+    "summary": "---",
+    "namespace": "user_ulisses_balbino",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/user_ulisses_balbino.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-user_ulisses_balbino-quem--",
+    "key": "quem-",
+    "content": "**Ulisses Balbino** — Diretor e produtor audiovisual brasileiro, fundador da Pichorra Filmes (2012), construindo o Soul Symple / Open Your AIs. Artista que não se encaixa em um cargo só.",
+    "summary": "Quem é",
+    "namespace": "user_ulisses_balbino",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/user_ulisses_balbino.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-user_ulisses_balbino-trajet-ria",
+    "key": "trajet-ria",
+    "content": "- 14 anos de produção audiovisual comercial\n- Clientes: Disney, Nestlé, Yamaha, Carrefour, Starbucks, Kopenhagen, Benefit Cosmetics\n- Comédia: Ronald Rios Talk Show (Paramount, Comedy Central, MTV), programa no Jovem Pan\n- Compositor, ator, editor, roteirista, diretor — fez tudo no set\n- Nunca foi programador, nunca quis ser\n- IA abriu o que ele não conseguia fazer por falta de budget/equipe\n- Agora: Soul Symple (automação para empresas), Open Your AIs (site editorial), Verso Diário (canal espir",
+    "summary": "Trajetória",
+    "namespace": "user_ulisses_balbino",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/user_ulisses_balbino.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-user_ulisses_balbino-voz-real---calibrada-pelos-seu",
+    "key": "voz-real-calibrada-pelos-seus-pr-prios-textos",
+    "content": "### Estrutura que ele usa\n\n**Parágrafo = uma ideia. Sem mais.**\n\nLinhas curtas. Respiro intencional. Como se cada linha fosse uma fala separada.\n\n**Padrão de abertura:**\n- Começa com fato concreto, específico, com data ou número\n- NUNCA começa com conceito abstrato ou pergunta retórica\n- Ex: \"A Adobe lançou o Quick Cut essa semana.\"\n- Ex: \"Eu edito comerciais desde 2012.\"\n\n**Padrão de desenvolvimento:**\n- Conta a reação honesta pessoal primeiro\n- Explica o porquê sem didatismo\n- Usa contraste: \"",
+    "summary": "VOZ REAL — Calibrada pelos seus próprios textos",
+    "namespace": "user_ulisses_balbino",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/user_ulisses_balbino.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-user_ulisses_balbino-o-que-o-diferencia-editorialme",
+    "key": "o-que-o-diferencia-editorialmente",
+    "content": "Ele é o único com EXATAMENTE esse cruzamento:\n- 14 anos de set (não é teórico)\n- Artista multi-disciplinar (não é especialista em uma coisa só)\n- Sem background técnico/programação (perspectiva do criativo não-dev)\n- Testa as ferramentas em produção real, não em demo\n\nIsso precisa aparecer em CADA artigo. A credibilidade vem da especificidade da experiência, não de certificações ou títulos.\n\n---",
+    "summary": "O que o diferencia editorialmente",
+    "namespace": "user_ulisses_balbino",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/user_ulisses_balbino.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  },
+  {
+    "id": "mem-user_ulisses_balbino-foto-e-presen-a-visual",
+    "key": "foto-e-presen-a-visual",
+    "content": "- Foto real no About: /ulisses-balbino.jpg\n- LinkedIn: linkedin.com/in/ulissesbalbino\n- Instagram: @openyourais",
+    "summary": "Foto e presença visual",
+    "namespace": "user_ulisses_balbino",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/ulissesbalbino/.claude/projects/-Users-ulissesbalbino/memory/user_ulisses_balbino.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1774676158366
+  }
+]

@@ -26,36 +26,32 @@ const MIME_TYPES = {
 };
 
 function startServer() {
+  // Read the SPA index.html once — serve it for ALL non-asset routes
+  const spaHtml = readFileSync(join(DIST_DIR, 'index.html'));
+
   const server = createServer((req, res) => {
     if (res.headersSent) return;
-    
-    let filePath = join(DIST_DIR, req.url === '/' ? '/index.html' : req.url);
-    
-    if (!existsSync(filePath)) {
-      if (existsSync(filePath + '.html')) {
-        filePath = filePath + '.html';
-      } else if (existsSync(join(filePath, 'index.html'))) {
-        filePath = join(filePath, 'index.html');
-      } else {
-        filePath = join(DIST_DIR, 'index.html');
+
+    // Strip query strings
+    const urlPath = req.url.split('?')[0];
+
+    // Only serve actual static assets (JS, CSS, images, etc.) directly
+    const ext = extname(urlPath);
+    if (ext && ext !== '.html') {
+      const filePath = join(DIST_DIR, urlPath);
+      if (existsSync(filePath)) {
+        const mime = MIME_TYPES[ext] || 'application/octet-stream';
+        try {
+          res.writeHead(200, { 'Content-Type': mime });
+          res.end(readFileSync(filePath));
+          return;
+        } catch { /* fall through */ }
       }
     }
 
-    const ext = extname(filePath);
-    const mime = MIME_TYPES[ext] || 'application/octet-stream';
-
-    try {
-      const content = readFileSync(filePath);
-      if (!res.headersSent) {
-        res.writeHead(200, { 'Content-Type': mime });
-        res.end(content);
-      }
-    } catch {
-      if (!res.headersSent) {
-        res.writeHead(404);
-        res.end('Not found');
-      }
-    }
+    // Everything else → SPA index.html (React Router handles routing)
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(spaHtml);
   });
 
   return new Promise(resolve => {
@@ -65,29 +61,13 @@ function startServer() {
 
 async function prerenderRoute(page, route) {
   const url = `http://localhost:${PORT}${route}`;
-  
-  // Navigate and wait for network
-  await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
-  
-  // Wait for React to hydrate and load lazy components
-  await page.waitForFunction(() => {
-    // Check if main content is loaded
-    const main = document.querySelector('main') || document.querySelector('#root');
-    return main && main.children.length > 1;
-  }, { timeout: 30000 });
-  
-  // Extra wait for dynamic content
-  await new Promise(r => setTimeout(r, 8000));
-  
-  // For article pages, wait for article content
-  if (route.startsWith('/blog/')) {
-    try {
-      await page.waitForSelector('article, [class*="article"], h1', { timeout: 20000 });
-    } catch {
-      console.log(`    ⚠️ No article content found for ${route}`);
-    }
-  }
-  
+
+  // Navigate — networkidle0 waits until zero network activity
+  await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
+
+  // Static wait for React to finish rendering all lazy components
+  await new Promise(r => setTimeout(r, 12000));
+
   return await page.content();
 }
 
@@ -132,17 +112,6 @@ async function prerender() {
     const page = await browser.newPage();
     
     try {
-      // Block images/fonts for speed but allow JS
-      await page.setRequestInterception(true);
-      page.on('request', req => {
-        const type = req.resourceType();
-        if (['image', 'font', 'media'].includes(type)) {
-          req.abort();
-        } else {
-          req.continue();
-        }
-      });
-
       const html = await prerenderRoute(page, route);
       
       // Mark as pre-rendered
