@@ -16,15 +16,6 @@
     { "source": "/logo.svg", "destination": "/logo.svg" },
     { "source": "/og-default.svg", "destination": "/og-default.svg" },
     { "source": "/favicon.ico", "destination": "/favicon.ico" },
-    { "source": "/blog/([^/]+)", "destination": "/blog/$1/index.html" },
-    { "source": "/playbooks/([^/]+)", "destination": "/playbooks/$1/index.html" },
-    { "source": "/crypto/([^/]+)", "destination": "/crypto/$1/index.html" },
-    { "source": "/tools", "destination": "/tools/index.html" },
-    { "source": "/about", "destination": "/about/index.html" },
-    { "source": "/contact", "destination": "/contact/index.html" },
-    { "source": "/privacy", "destination": "/privacy/index.html" },
-    { "source": "/terms", "destination": "/terms/index.html" },
-    { "source": "/sitemap", "destination": "/sitemap/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
