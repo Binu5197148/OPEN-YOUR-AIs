@@ -3054,5 +3054,78 @@ export const ARTICLES_MARCH_2026: Article[] = [
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
     author: 'Ulisses Balbino',
     featured: false
+  },
+  {
+    id: 'art-109',
+    slug: 'hollywood-no-ai-festival-filmmaker-inside-take',
+    title: "Hollywood Just Launched a 'No AI' Film Festival. I've Been on Both Sides of This Argument.",
+    excerpt: "Sean Baker, Gus Van Sant, and Justine Bateman are backing a No AI film festival. A viral Tom Cruise deepfake triggered Netflix to call Seedance a 'high-speed piracy engine.' As a director with 14 years on set who now uses AI daily — here's what both camps are getting wrong.",
+    content: `<p>A deepfake of Tom Cruise fighting Brad Pitt went viral this week.</p>
+<p>Generated in minutes with Seedance 2.0 by an Irish filmmaker. Netflix called it "high-speed piracy." SAG-AFTRA called it "blatant infringement." The clip had millions of views before anyone agreed on what to do about it.</p>
+<p>Meanwhile, director Justine Bateman launched a "No AI" film festival in Hollywood, backed by Sean Baker and Gus Van Sant. Same week, Harvard Business School published data on 180 million job postings confirming: writers down 28%, photographers down 28%, computer graphic artists down 33% since ChatGPT launched.</p>
+<p>I've watched this debate for two years. I have 14 years directing commercials for Disney, Nestlé, and Yamaha. I use AI in my production work every day.</p>
+<p>Both camps are getting something wrong.</p>
+
+<h2>What the Anti-AI Camp Gets Right</h2>
+<p>The job losses are real. Harvard's data isn't a projection — it's a measurement of what already happened. The middle tier of execution-level creative work is being automated. That's documented, not speculative.</p>
+<p>The deepfake problem is also real. There's a meaningful difference between using AI as a creative tool and generating convincing footage of a living person without their consent. The Tom Cruise clip isn't a creativity story. It's a consent story. Conflating the two is a category error the AI-enthusiasm camp makes constantly.</p>
+
+<h2>What the No-AI Camp Gets Wrong</h2>
+<p>Banning AI from a film festival doesn't protect jobs. It protects a definition of craft that was already changing before AI arrived.</p>
+<p>The creative work AI is replacing was mostly the work nobody wanted to do — repetitive assembly editing, generic stock illustration, formulaic copy. I've lost count of how many assistant editors told me their dream was to direct, not to log footage. AI is accelerating a separation that was always going to happen: between people who want to do creative work and people doing support work as a path to the creative work.</p>
+<p>That separation is painful. A festival doesn't address it. It performs outrage while the structural shift continues anyway.</p>
+
+<h2>The Question Nobody Is Asking</h2>
+<p>In 2015, I produced a $47,000 Nestlé commercial with a crew of 28. The catering bill alone was $2,800.</p>
+<p>Today, a filmmaker in Lagos, São Paulo, or Manila can produce work at a quality level that would have required that crew. That's not a threat story. That's a democratization story — with genuinely complex implications.</p>
+<p>Talent that was locked out by the cost of entry can now get in. The gatekeeping that kept commercial filmmaking in a handful of cities, controlled by a handful of agencies, is breaking down. That's uncomfortable for people who built careers inside those gates. It's not uncomfortable for the majority of creative people who were never inside them.</p>
+<p>The "No AI" camp wants to preserve the industry as it was. The uncritical AI-enthusiasm camp celebrates disruption without reckoning with who gets hurt in the transition. Neither is a complete answer.</p>
+
+<h2>My Actual Position</h2>
+<p>I use AI because it lets me do more of the work I care about and less of what I don't. The storyboard that used to require an illustrator. The rough cut that used to need a first assembly pass. The B-roll that used to require a second shoot day.</p>
+<p>I don't use it to generate footage of people without consent. I don't use it to replace the human judgment that separates a commercial that lands from one that doesn't. Those lines are clear to me because I've spent 14 years learning where they are.</p>
+<p>The Tom Cruise deepfake was irresponsible. The "No AI" festival is well-intentioned and strategically futile. The Harvard data is important and being oversimplified by everyone citing it.</p>
+<p>The actual conversation we need is about consent, attribution, and what "creative work" means when execution is cheap. That's harder than a festival. It's also the only conversation that matters.</p>
+<p><em>Sources: <a href="https://theconversation.com/as-the-oscars-approach-hollywood-grapples-with-ais-growing-influence-on-filmmaking-273766" target="_blank" rel="noopener">The Conversation — Hollywood and AI</a> | <a href="https://hbr.org/2026/03/research-how-ai-is-changing-the-labor-market" target="_blank" rel="noopener">Harvard Business Review — AI and the Labor Market</a> | <a href="https://techcrunch.com/2026/02/20/ais-promise-to-indie-filmmakers-faster-cheaper-lonelier/" target="_blank" rel="noopener">TechCrunch — AI's Promise to Indie Filmmakers</a></em></p>`,
+    category: 'AI',
+    tags: ['Hollywood', 'AI Filmmaking', 'No AI Festival', 'Creative Jobs', 'AI Debate', 'Deepfake'],
+    date: 'Mar 28, 2026',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: true
+  },
+  {
+    id: 'art-110',
+    slug: 'adobe-firefly-10-dollars-killed-headshot-market',
+    title: "Adobe's $10 Plan Killed the $39 AI Headshot Market Overnight. I'm Not Surprised.",
+    excerpt: "Adobe launched a standalone Firefly plan for $10/month and undercut an entire small business category in one announcement. The disruption was predictable. What comes next is the question worth answering.",
+    content: `<p>Adobe launched a $10/month standalone Firefly plan this week.</p>
+<p>The reaction was immediate: "Adobe just killed the $39 AI headshot market."</p>
+<p>That's accurate. And if your revenue depends on charging $39 for AI-generated headshots, you already felt this coming. The only question was when.</p>
+
+<h2>The Pattern I've Seen Before</h2>
+<p>In 2012, I started Pichorra Filmes. Same year, DSLR video went mainstream. Freelancers with a Canon 5D and a Vimeo account started undercutting corporate video producers charging $5,000 for the same work.</p>
+<p>The people who competed on price lost.</p>
+<p>The people who moved up the value chain — into strategy, brand storytelling, larger productions — did fine. Better than fine, because the commoditization of basic video created a bigger market for work that couldn't be commoditized.</p>
+<p>Same dynamic, faster.</p>
+
+<h2>What Adobe Is Actually Building</h2>
+<p>The $10 Firefly plan is the commodity layer. Adobe is also expanding Custom Models — training Firefly on a specific brand's visual DNA — which moved from enterprise-only to broader access this week.</p>
+<p>Custom Models is the non-commodity layer. Training a model to encode a brand's lighting logic, color temperature, and visual consistency requires creative direction. It requires someone who knows what "on-brand" looks like and can translate it into reference images that teach the model correctly. That skill doesn't come from a $10 subscription.</p>
+<p>Adobe is simultaneously commoditizing execution and creating infrastructure for direction. The question is which side of that line you're on.</p>
+
+<h2>What I'm Actually Doing</h2>
+<p>I'm not mourning the headshot market. I'm watching where the value is moving.</p>
+<p>The commoditization of execution-level generation means I produce more content without increasing costs proportionally. The skill that stays scarce — knowing what to make and why it works — doesn't get cheaper when Firefly costs $10 a month.</p>
+<p>The $39 headshot market is gone. The market for 500 headshots that are consistent, on-brand, and actually usable? Still there. Adobe doesn't sell that. You do.</p>
+<p><em>Sources: <a href="https://ucstrategies.com/news/adobes-10-firefly-plan-just-killed-the-39-ai-headshot-market/" target="_blank" rel="noopener">UC Strategies — Adobe's $10 Firefly Plan</a> | <a href="https://www.creativebloq.com/tech/from-firefly-to-graph-how-adobe-thinks-creatives-will-use-ai-in-2026" target="_blank" rel="noopener">Creative Bloq — Adobe 2026 Roadmap</a></em></p>`,
+    category: 'AI',
+    tags: ['Adobe Firefly', 'Creative Economy', 'Disruption', 'Small Business', 'AI Tools', 'Headshots'],
+    date: 'Mar 28, 2026',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=1200&q=80',
+    author: 'Ulisses Balbino',
+    featured: false
   }
 ];
