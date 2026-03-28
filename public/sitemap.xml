@@ -3,55 +3,55 @@
 
   <url>
     <loc>https://www.openyourais.com/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/tools</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/playbooks</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/blog</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/about</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/contact</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/privacy</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/terms</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.openyourais.com/sitemap</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -430,6 +430,12 @@
   <url>
     <loc>https://www.openyourais.com/blog/filmmaker-to-ai-builder-ulisses-balbino-openyourais-origin</loc>
     <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.openyourais.com/blog/ltx-video-2-honest-review-commercial-director</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
