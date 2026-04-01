@@ -2462,7 +2462,7 @@ Analyze each assumption using current market data. Which ones are false or quest
 
       <p><strong>That's where we are now.</strong></p>
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['Web3', 'Blockchain', 'Market Intel', 'ZK-Proofs', 'RWA', 'Macroeconomics', 'DeFi', 'Tokenization'],
     author: 'Ulisses Balbino',
     date: 'December 10, 2025',
@@ -2578,7 +2578,7 @@ Analyze each assumption using current market data. Which ones are false or quest
         <li>IndexBox Global Crypto Adoption Index 2026</li>
       </ul>
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['Market Intel', 'Bitcoin', 'Stablecoins', 'Institutional', 'Data Analysis'],
     date: 'Feb 7, 2026',
     readTime: '8 min',

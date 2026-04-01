@@ -1,5 +1,5 @@
 
-export type Category = 'AI' | 'Crypto' | 'Monetization' | 'AI Sales' | 'AI Business' | 'AI Security' | 'AI Architecture' | 'Business Intelligence' | 'Tutorial' | 'AI News';
+export type Category = 'AI' | 'Monetization' | 'AI Sales' | 'AI Business' | 'AI Security' | 'AI Architecture' | 'Business Intelligence' | 'Tutorial' | 'AI News' | 'Tools' | 'Automation';
 
 export interface Article {
   id: string;

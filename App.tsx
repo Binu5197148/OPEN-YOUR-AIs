@@ -9,13 +9,11 @@ import { HomePage } from './pages/Home';
 // Lazy load: Content pages (loaded on demand)
 const ToolsPage = lazy(() => import('./pages/ContentPages').then(m => ({ default: m.ToolsPage })));
 const PlaybooksPage = lazy(() => import('./pages/ContentPages').then(m => ({ default: m.PlaybooksPage })));
-const CryptoPage = lazy(() => import('./pages/ContentPages').then(m => ({ default: m.CryptoPage })));
 const BlogPage = lazy(() => import('./pages/ContentPages').then(m => ({ default: m.BlogPage })));
 
 // Lazy load: Detail pages (loaded on demand)
 const ArticleReader = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.ArticleReader })));
 const PlaybookReader = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.PlaybookReader })));
-const CryptoReader = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.CryptoReader })));
 const AboutPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.ContactPage })));
 const LegalPage = lazy(() => import('./pages/DetailPages').then(m => ({ default: m.LegalPage })));
@@ -44,7 +42,6 @@ const RouteTracker = () => {
       '/': 'Open Your AIs | Future Tech & Wealth Intelligence',
       '/tools': 'AI Tools Directory | Open Your AIs',
       '/playbooks': 'Monetization Playbooks | Open Your AIs',
-      '/crypto': 'Crypto Intelligence | Open Your AIs',
       '/blog': 'Tech Intel Blog | Open Your AIs',
       '/about': 'About Us | Open Your AIs',
       '/contact': 'Contact Us | Open Your AIs',
@@ -76,8 +73,6 @@ const App: React.FC = () => {
               <Route path="/tools" element={<ToolsPage />} />
               <Route path="/playbooks" element={<PlaybooksPage />} />
               <Route path="/playbooks/:id" element={<PlaybookReader />} />
-              <Route path="/crypto" element={<CryptoPage />} />
-              <Route path="/crypto/:id" element={<CryptoReader />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<ArticleReader />} />
               <Route path="/about" element={<AboutPage />} />

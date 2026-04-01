@@ -236,7 +236,7 @@ export const NEW_ARTICLES_PART3: Article[] = [
       
       <p>The speculative NFT era taught us that technology alone doesn't create value — utility does. NFTs that solve real problems, reduce friction, and create genuine benefits will thrive. Those relying purely on speculation will continue to fade. The future of NFTs is boring, practical, and transformative.</p>
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['NFT', 'Web3', 'Utility', 'Blockchain', 'Digital Ownership'],
     date: 'Dec 25, 2025',
     readTime: '19 min',

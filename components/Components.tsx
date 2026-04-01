@@ -146,7 +146,6 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'TOOLS', path: '/tools' },
     { name: 'PLAYBOOKS', path: '/playbooks' },
-    { name: 'CRYPTO', path: '/crypto' },
     { name: 'INTEL', path: '/blog' },
   ];
 
@@ -166,9 +165,6 @@ export const Navbar: React.FC = () => {
         </Link>
 
         <div className="flex md:order-2 items-center gap-2">
-          <Link to="/admin" className="hidden md:inline-block px-6 py-2.5 text-[10px] font-black text-cyber-bg bg-cyber-primary rounded-full hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all uppercase tracking-widest">
-            {isAuthenticated ? 'TERMINAL' : 'CONNECT'}
-          </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-white md:hidden hover:bg-white/10 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-cyber-primary"
@@ -193,15 +189,6 @@ export const Navbar: React.FC = () => {
                 </Link>
               </li>
             ))}
-            <li className="md:hidden mt-2 pt-2 border-t border-white/10">
-              <Link
-                to="/admin"
-                className="block py-3 px-4 text-cyber-primary font-black"
-                onClick={() => setIsOpen(false)}
-              >
-                {isAuthenticated ? 'TERMINAL' : 'CONNECT'}
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
@@ -223,7 +210,7 @@ export const Footer: React.FC = () => {
               <span className="text-base md:text-xl font-black text-white uppercase italic">OPEN YOUR AIS</span>
             </Link>
             <p className="text-gray-500 text-xs md:text-sm max-w-sm leading-relaxed font-light">
-              The premier intelligence hub for the digital vanguard. We decode the future of AI, decentralized assets, and monetization protocols.
+              The premier intelligence hub for the digital vanguard. We decode the future of AI, creative tools, and monetization strategies for creators and professionals.
             </p>
           </div>
           <div>
@@ -231,7 +218,6 @@ export const Footer: React.FC = () => {
             <ul className="text-gray-500 text-[10px] md:text-xs space-y-3 md:space-y-4 font-bold uppercase tracking-wider md:tracking-widest">
               <li><Link to="/tools" className="hover:text-cyber-primary transition-colors">AI Directory</Link></li>
               <li><Link to="/playbooks" className="hover:text-cyber-primary transition-colors">Revenue Ops</Link></li>
-              <li><Link to="/crypto" className="hover:text-cyber-primary transition-colors">Crypto Vault</Link></li>
               <li><Link to="/blog" className="hover:text-cyber-primary transition-colors">Blog</Link></li>
               <li><Link to="/sitemap" className="hover:text-cyber-primary transition-colors">Site Map</Link></li>
             </ul>

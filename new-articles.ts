@@ -413,7 +413,7 @@ export const NEW_ARTICLES: Article[] = [
       <p>Equally important is review cadence. Weekly flow review, monthly thesis validation, and quarterly risk-budget resets create a process that survives narrative cycles. This is how professionals preserve conviction when headlines flip from euphoria to panic. A framework beats predictions every time.</p>
 
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['Bitcoin', 'ETF', 'Institutional', 'Investment', 'Portfolio'],
     date: 'Jan 20, 2026',
     readTime: '19 min',
@@ -512,7 +512,7 @@ export const NEW_ARTICLES: Article[] = [
       
       <p>Solana isn't trying to be Ethereum. It's building something different — a blockchain optimized for the scale demands of mainstream applications. For developers and investors who believe that performance matters, Solana offers a compelling alternative to the dominant smart contract platform.</p>
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['Solana', 'DeFi', 'Blockchain', 'Smart Contracts', 'Layer 1'],
     date: 'Jan 18, 2026',
     readTime: '21 min',
@@ -627,7 +627,7 @@ export const NEW_ARTICLES: Article[] = [
       <p>Another key practice is stress testing. Simulate liquidity shock scenarios, collateral drawdowns, and bridge interruptions before increasing size. This prevents forced exits during volatility and protects long-term compounding. In DeFi, survival and consistency are a bigger edge than chasing peak APY for a few weeks.</p>
 
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['DeFi', 'Yield Farming', 'Risk Management', 'Staking', 'Liquidity'],
     date: 'Jan 15, 2026',
     readTime: '23 min',

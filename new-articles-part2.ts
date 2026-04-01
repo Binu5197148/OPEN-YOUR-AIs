@@ -473,7 +473,7 @@ export const NEW_ARTICLES_PART2: Article[] = [
       
       <p>Airdrops aren't free money — they're compensation for early protocol adoption and associated risks. Those who approach farming systematically while managing risk can generate returns that significantly outperform passive holding strategies.</p>
     `,
-    category: 'Crypto',
+    category: 'AI News',
     tags: ['Airdrops', 'DeFi', 'Crypto Strategy', 'Token Distribution', 'Yield'],
     date: 'Jan 5, 2026',
     readTime: '22 min',
