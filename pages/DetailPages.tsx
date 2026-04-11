@@ -229,6 +229,12 @@ export const ArticleReader: React.FC = () => {
                 "{article.excerpt}"
               </div>
 
+              {/* AI Disclosure — required for AdSense compliance */}
+              <div className="flex items-start gap-3 p-5 mb-8 bg-white/[0.03] border border-white/10 rounded-2xl text-[11px] text-gray-500 leading-relaxed">
+                <AlertTriangle className="w-4 h-4 text-cyber-primary/60 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <span><strong className="text-gray-400 font-bold">AI-assisted content:</strong> This article was researched and drafted with the help of artificial intelligence tools, then reviewed and published by a human editor. Information is provided for educational purposes only.</span>
+              </div>
+
               <AdUnit slot="article-top" />
 
               <div className="article-content leading-[1.9] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase prose-h2:text-4xl prose-h2:mt-24 prose-h2:mb-8 prose-h3:text-cyber-primary prose-h3:font-bold prose-h3:text-2xl prose-p:mb-8 prose-ul:mb-8 prose-li:mb-2" dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content) }} />
@@ -520,7 +526,15 @@ export const CryptoReader: React.FC = () => {
         <div className="article-content leading-[1.8] space-y-12 text-gray-300 font-normal prose-h2:text-white prose-h2:font-black prose-h2:uppercase" dangerouslySetInnerHTML={{ __html: sanitizeHtml(guide.content) }} />
       </div>
 
-      <div className="mt-24 p-12 border border-cyber-success/20 rounded-[48px] bg-cyber-success/5 flex flex-col md:flex-row gap-10 items-center group">
+      {/* Financial disclaimer — required for AdSense crypto content compliance */}
+      <div className="mt-16 p-6 border border-yellow-500/20 rounded-2xl bg-yellow-500/5 flex items-start gap-4">
+        <AlertTriangle className="w-5 h-5 text-yellow-500/70 flex-shrink-0 mt-0.5" aria-hidden="true" />
+        <p className="text-[11px] text-gray-500 leading-relaxed">
+          <strong className="text-gray-400 font-bold">Financial Disclaimer:</strong> This content is for educational and informational purposes only and does not constitute financial, investment, or legal advice. Cryptocurrency investments carry significant risk, including the possible loss of your entire investment. Past performance is not indicative of future results. Always consult a licensed financial advisor before making investment decisions.
+        </p>
+      </div>
+
+      <div className="mt-8 p-12 border border-cyber-success/20 rounded-[48px] bg-cyber-success/5 flex flex-col md:flex-row gap-10 items-center group">
         <div className="w-20 h-20 rounded-[28px] bg-cyber-success/20 flex items-center justify-center flex-shrink-0 border border-cyber-success/30 group-hover:scale-110 transition-transform">
           <Shield className="text-cyber-success w-10 h-10" />
         </div>

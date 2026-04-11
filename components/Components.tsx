@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Cpu, BookOpen, Coins, ChevronDown, Lock, Globe, Mail, Shield, Cookie, Plus, Minus } from 'lucide-react';
 import { ADSENSE_PUB_ID, CONTACT_EMAIL } from '../constants';
@@ -7,14 +7,31 @@ import { useAuth } from '../context/AuthContext';
 
 // --- AD SENSE UNIT ---
 export const AdUnit: React.FC<{ slot: string; format?: string, className?: string }> = ({ slot, format = 'auto', className = '' }) => {
+  const adRef = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (pushed.current) return;
+    pushed.current = true;
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    } catch {
+      // AdSense not yet loaded
+    }
+  }, [slot]);
+
   return (
-    <div className={`w-full overflow-hidden my-8 bg-cyber-bg/50 border border-cyber-primary/10 rounded-2xl flex items-center justify-center min-h-[120px] ${className}`}>
-      <div className="text-center p-6">
-        <span className="text-[10px] text-cyber-primary/40 uppercase tracking-[0.2em] block mb-2">Intelligence Stream Support</span>
-        <div className="w-full h-full bg-black/30 animate-pulse rounded-lg text-cyber-primary/10 text-[10px] flex items-center justify-center uppercase font-black">
-          Transmission Channel: {slot}
-        </div>
-      </div>
+    <div className={`w-full overflow-hidden my-8 ${className}`}>
+      <ins
+        ref={adRef}
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client={ADSENSE_PUB_ID}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      />
     </div>
   );
 };
