@@ -22,7 +22,9 @@ export default defineConfig({
             './new-articles-part4.ts',
             './new-articles-2026-02-18.ts',
             './articles-feb17.ts',
-            './expanded-articles.ts'
+            './expanded-articles.ts',
+            './articles-march-2026.ts',
+            './articles-missing-2026.ts'
           ]
         }
       }
