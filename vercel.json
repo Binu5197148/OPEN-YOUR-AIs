@@ -4,6 +4,7 @@
   "outputDirectory": "dist",
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/article/:slug", "destination": "/blog/:slug", "permanent": true },
     { "source": "/blog/claude-cowork-tutorial-autonomous-task-execution-2026", "destination": "/blog", "permanent": true },
     { "source": "/:path*", "destination": "https://www.openyourais.com/:path*", "permanent": true, "has": [{ "type": "host", "value": "open-your-a-61c2cuinw-open-your-ai-s.vercel.app" }] }
   ],
