@@ -2594,6 +2594,7 @@ import { NEW_ARTICLES_PART4 } from './new-articles-part4';
 import { NEW_ARTICLES_FEB_18 } from './new-articles-2026-02-18';
 import { FEB17_ARTICLES } from './articles-feb17';
 import { ARTICLES_MARCH_2026 } from './articles-march-2026';
+import { ARTICLES_MISSING_2026 } from './articles-missing-2026';
 import { FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED } from './expanded-articles';
 
 // Slugs temporarily hidden — low value / generic content that hurts AdSense approval
@@ -2620,5 +2621,5 @@ const HIDDEN_SLUGS = new Set([
 
 // Combined articles array with all articles
 // Expanded versions come first so find() returns the full version for those slugs
-const ALL_ARTICLES_RAW = [FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED, ...ARTICLES_MARCH_2026, ...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18, ...FEB17_ARTICLES];
+const ALL_ARTICLES_RAW = [FLUX2_EXPANDED, GOOGLE_AI_STUDIO_EXPANDED, CRYPTO5_EXPANDED, OPENCLAW_EXPANDED, ...ARTICLES_MARCH_2026, ...ARTICLES_MISSING_2026, ...ARTICLES, ...NEW_ARTICLES, ...NEW_ARTICLES_PART2, ...NEW_ARTICLES_PART3, ...NEW_ARTICLES_PART4, ...NEW_ARTICLES_FEB_18, ...FEB17_ARTICLES];
 export const ALL_ARTICLES = ALL_ARTICLES_RAW.filter(a => !HIDDEN_SLUGS.has(a.slug));
