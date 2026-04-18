@@ -1,8 +1,10 @@
 # robots.txt - OpenYourAIs.com
-# Updated: 2026-03-02
+# Updated: 2026-03-31
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /crypto
 
 # Sitemap
 Sitemap: https://www.openyourais.com/sitemap.xml
