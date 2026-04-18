@@ -8,18 +8,74 @@ import { Card, SectionTitle, AdUnit, SmartImage } from '../components/Components
 import { ALL_ARTICLES, PLAYBOOKS, CRYPTO_GUIDES, CONTACT_EMAIL } from '../constants';
 
 // --- NOT FOUND PAGE (404) ---
+const STOPWORDS = new Set(['the','a','an','to','of','in','for','on','with','and','or','but','is','are','was','were','be','been','being','what','how','why','when','where','who','which','this','that','these','those','i','you','we','they','it','my','your','our','their','its','his','her','from','as','at','by','will','would','can','could','should','do','does','did','have','has','had','get','got','go','goes','went','one','two','about','into','out','up','down','over','under','all','any','some','no','not','so','if','then','than','now','new','vs']);
+
+function tokenize(slug: string): string[] {
+  return slug.toLowerCase().split(/[-_/]+/).filter(t => t.length > 2 && !STOPWORDS.has(t));
+}
+
+function scoreArticle(slugTokens: Set<string>, article: { slug: string; title: string; tags?: string[] }): number {
+  const articleTokens = new Set([
+    ...tokenize(article.slug),
+    ...article.title.toLowerCase().split(/\s+/).filter(t => t.length > 2 && !STOPWORDS.has(t)),
+    ...(article.tags?.flatMap(t => t.toLowerCase().split(/\s+/)) ?? []),
+  ]);
+  let score = 0;
+  for (const t of slugTokens) if (articleTokens.has(t)) score += 1;
+  return score;
+}
+
 export const NotFoundPage: React.FC = () => {
+  const location = typeof window !== 'undefined' ? window.location.pathname : '';
+  const attemptedSlug = location.replace(/^\/(blog|article|playbooks|crypto)\//, '').replace(/\/$/, '');
+
   useEffect(() => {
     document.title = "404 Not Found | Open Your AIs";
   }, []);
 
+  const suggestions = React.useMemo(() => {
+    if (!attemptedSlug) return [];
+    const slugTokens = new Set(tokenize(attemptedSlug));
+    if (slugTokens.size === 0) return [];
+    return ALL_ARTICLES
+      .map(a => ({ article: a, score: scoreArticle(slugTokens, a) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 4)
+      .map(x => x.article);
+  }, [attemptedSlug]);
+
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
+    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 py-16">
       <h1 className="text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-primary to-cyber-secondary mb-4 animate-pulse">404</h1>
       <h2 className="text-2xl text-white mb-6 tracking-widest uppercase font-black">Transmission Lost in Neural Net</h2>
-      <Link to="/" className="px-12 py-4 bg-cyber-primary text-cyber-bg font-black rounded-full hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] transition-all uppercase tracking-widest text-xs">
-        Return to Nexus
-      </Link>
+
+      {suggestions.length > 0 && (
+        <div className="w-full max-w-3xl mb-10">
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">You might be looking for:</p>
+          <div className="grid md:grid-cols-2 gap-3 text-left">
+            {suggestions.map(a => (
+              <Link
+                key={a.slug}
+                to={`/blog/${a.slug}`}
+                className="block border border-white/10 hover:border-cyber-primary/60 bg-white/[0.02] hover:bg-white/[0.05] rounded-lg p-4 transition-all"
+              >
+                <div className="text-[10px] uppercase tracking-widest text-cyber-primary mb-1">{a.category ?? 'Article'}</div>
+                <div className="text-white text-sm font-semibold leading-snug">{a.title}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="flex gap-3 flex-wrap justify-center">
+        <Link to="/" className="px-8 py-3 bg-cyber-primary text-cyber-bg font-black rounded-full hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] transition-all uppercase tracking-widest text-xs">
+          Return to Nexus
+        </Link>
+        <Link to="/blog" className="px-8 py-3 border border-white/20 text-white font-black rounded-full hover:border-cyber-primary transition-all uppercase tracking-widest text-xs">
+          Browse All Articles
+        </Link>
+      </div>
     </div>
   );
 };
